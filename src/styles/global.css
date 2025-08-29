@@ -15,12 +15,13 @@
 	--color-primary: #4316da;
 }
 
-@layer theme {
+@layer {
 
 	/* Dark mode colors. */
 	:root {
 		--sl-color-accent-low: #1c1d4c;
-		--sl-color-accent: #543ff8;
+		/* --sl-color-accent: #543ff8; */
+		--sl-color-accent: var(--color-primary);
 		--sl-color-accent-high: #bbc4ff;
 		--sl-color-white: #ffffff;
 		--sl-color-gray-1: #eeeeee;
@@ -36,7 +37,7 @@
 	:root[data-theme="light"] {
 		--sl-color-accent-low: #cdd4ff;
 		/* --sl-color-accent: #5642fa; */
-		--sl-color-accent: white;
+		--sl-color-accent: var(--color-primary);
 		--sl-color-accent-high: #272471;
 		--sl-color-white: #181818;
 		--sl-color-gray-1: #272727;
@@ -69,5 +70,11 @@
 			@apply !bg-primary/100;
 			color: #c2c2c2 !important;
 		}
+	}
+
+	[data-main-get-started="true"] {
+		background-color: var(--color-primary) !important;
+		border-color: var(--color-primary) !important;
+		color: #ffffff !important;
 	}
 }
