@@ -1,0 +1,73 @@
+@layer base, starlight, theme, components, utilities;
+
+@import "@astrojs/starlight-tailwind";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@source "../**/*.{astro,html,js,jsx,ts,tsx,css}";
+/* @source not "../content/"; */
+
+@theme {
+	--font-sans: "Geist Variable", "Times New Roman", sans-serif;
+	--font-mono: "Geist Mono Variable", monospace;
+	--color-primary: #4316da;
+}
+
+@layer theme {
+
+	/* Dark mode colors. */
+	:root {
+		--sl-color-accent-low: #1c1d4c;
+		--sl-color-accent: #543ff8;
+		--sl-color-accent-high: #bbc4ff;
+		--sl-color-white: #ffffff;
+		--sl-color-gray-1: #eeeeee;
+		--sl-color-gray-2: #c2c2c2;
+		--sl-color-gray-3: #8b8b8b;
+		--sl-color-gray-4: #585858;
+		--sl-color-gray-5: #383838;
+		--sl-color-gray-6: #272727;
+		--sl-color-black: #181818;
+	}
+
+	/* Light mode colors. */
+	:root[data-theme="light"] {
+		--sl-color-accent-low: #cdd4ff;
+		/* --sl-color-accent: #5642fa; */
+		--sl-color-accent: white;
+		--sl-color-accent-high: #272471;
+		--sl-color-white: #181818;
+		--sl-color-gray-1: #272727;
+		--sl-color-gray-2: #383838;
+		--sl-color-gray-3: #585858;
+		--sl-color-gray-4: #8b8b8b;
+		--sl-color-gray-5: #c2c2c2;
+		--sl-color-gray-6: #eeeeee;
+		--sl-color-gray-7: #f6f6f6;
+		--sl-color-black: #ffffff;
+	}
+}
+
+@layer base {
+	.site-title {
+		@apply flex items-center !gap-2;
+	}
+
+	.site-title>img {
+		@apply !h-8 !w-8 !rounded-md;
+	}
+
+	.site-title>span {
+		@apply !text-xl !font-bold;
+		color: var(--sl-color-gray-2);
+	}
+
+	.sidebar-content {
+		[aria-current="page"] {
+			@apply !bg-primary/100;
+			color: #c2c2c2 !important;
+		}
+	}
+}
