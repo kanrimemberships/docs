@@ -28,6 +28,9 @@ export default defineConfig({
         },
       ],
       customCss: ["./src/styles/global.css"],
+      editLink: {
+        baseUrl: "https://github.com/kanrimemberships/docs/edit/master/",
+      },
     }),
     icon(),
   ],
