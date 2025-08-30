@@ -9,3 +9,7 @@ directory = "./dist"
 
 [observability]
 enabled = true
+
+[[routes]]
+pattern = "docs.kanrimemberships.com"
+custom_domain = true
