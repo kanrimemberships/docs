@@ -1,0 +1,83 @@
+---
+title: How It All Fits Together
+description: A plain-English explanation of how the key concepts in Kanri — Members, Programs, Memberships, Billing, Schedules, and more — relate to each other.
+---
+
+This is the most important page to read before anything else. Kanri has a handful of concepts that sound similar but mean very different things. Understanding how they connect will make everything else click.
+
+## Memberships vs Subscriptions
+
+The most common source of confusion in Kanri is the difference between a **Membership** and a **Subscription**. They are two completely separate records, and it's easy to mix them up.
+
+A **Membership** is the enrolment record. It answers: _which program is this member in, and what is their current status?_ When you enrol a new student in Adult Karate, you're creating a Membership.
+
+A **Subscription** is the billing record. It answers: _how much does this member pay, and when does the charge go out?_ When you set up automatic monthly billing for that student, you're creating a Subscription.
+
+A member can have a Membership without a Subscription — for example, a cash-paying member or someone on a scholarship. They can also have a Subscription without a Membership, which is usually a data error worth fixing. The [Only Memberships](/reports/memberships/only-memberships/) and [Only Subscriptions](/reports/memberships/only-subscriptions/) reports exist specifically to help you find these mismatches.
+
+:::tip
+When something looks wrong with a member's account, always check both records separately. The problem is usually in one but not the other.
+:::
+
+## Programs, Classes, and Schedules
+
+A **Program** is the top-level activity you offer — "Adult Karate", "Junior Ballet", "Swim Level 1". Members are enrolled into programs via Memberships.
+
+Each program contains **Classes** — named types of training within it. "Adult Karate" might have "Karate (White–Blue Belt)" and "Karate (Blue–Black Belt)" as separate classes. Classes have a "counts towards attendance" setting; if turned off, attending that class won't count toward a member's level promotion requirements.
+
+Classes can optionally have **Variants** — sub-types that distinguish the format of a session without creating a whole new class. "Karate (Blue–Black Belt)" might have a "Sparring" variant and a "Kata" variant. Variants are optional; a class with no variants just runs as itself.
+
+A **Schedule** is a recurring timetable entry — it says "this class runs every Monday and Wednesday at 7pm" and generates individual **Sessions** from that pattern. Sessions are the actual occurrences members attend. When you take attendance, you're marking members as present on a specific session. If you change a schedule's time or days, you [sync it](/schedules/sync-schedule/) to push those changes to future sessions — past sessions are never affected.
+
+## Billing Plans and Prices
+
+A **Billing Plan** is a named payment product — "Monthly Karate", "Annual All-Access", "Drop-In Pass". Think of it as a product on your price list.
+
+Each plan has one or more **Prices** — the actual amounts and billing intervals. "Monthly Karate" might have an Adult price of C$120/month and a Junior price of C$80/month. Whether plans can have multiple prices is a school-level setting — see [Subscription Behaviors](/settings/behaviors/subscription-behaviors/).
+
+A **Subscription** links a specific member to a specific price on a plan. Once active, Kanri charges the member automatically on that interval, and the payments appear in their [payment history](/members/subscriptions/view-payment-history/).
+
+## Levels and Promotions
+
+Programs can optionally have **Levels** — a ranking system like belt grades or skill tiers. When a member is enrolled in a program they're placed at a starting level, and each level can have requirements: a minimum number of classes attended and a minimum number of days since their last promotion.
+
+When a member meets those requirements, they appear in the [Promotions report](/reports/memberships/promotions/) and can be [promoted to the next level](/members/memberships/promote-level/), which resets their counter.
+
+:::note
+"Promotions" in Kanri always means advancing a member's rank — not discounts or marketing offers.
+:::
+
+## Groups
+
+**Groups** are named collections of members. You can add individual members to a group directly, or attach a whole program (so every active member in that program is automatically included). Groups are currently used for [sending broadcasts](/messages/send-broadcast/) — targeting your message to just the right people — and will be used for other things in future.
+
+## A real example
+
+You run Springfield Karate. A new student, Alex, walks in. Here's what you'd do:
+
+1. [Add Alex as a member](/members/add-member/) — name, contact details, emergency contact.
+2. [Assign a Membership](/members/memberships/assign-membership/) — enrol Alex in "Adult Karate" at White Belt, status Active.
+3. [Add a payment method](/members/subscriptions/add-payment-method/) — save Alex's credit card or bank account.
+4. [Create a Subscription](/members/subscriptions/create-subscription/) — link Alex to "Monthly Karate – Adult C$120/month". Kanri charges automatically from here on.
+5. Alex shows up for class and [checks in at the kiosk](/kiosk/), or a staff member [takes attendance](/schedules/taking-attendance/). Attendance is recorded against their Membership.
+6. After enough classes, Alex appears in the Promotions report — ready to move to Yellow Belt.
+
+That's the core loop: **enrolment → billing → attendance → promotion**.
+
+## Quick reference
+
+| Term              | What it means                                                 |
+| ----------------- | ------------------------------------------------------------- |
+| **Program**       | The activity you offer (e.g. "Adult Karate")                  |
+| **Class**         | A type of training within a program                           |
+| **Class Variant** | An optional sub-format of a class (e.g. "Sparring")           |
+| **Session**       | A single timed occurrence of a class, generated by a Schedule |
+| **Schedule**      | A recurring timetable entry that generates Sessions           |
+| **Membership**    | A member's enrolment record in a program                      |
+| **Level**         | A rank within a program (e.g. "White Belt")                   |
+| **Billing Plan**  | A named payment product (e.g. "Monthly Karate")               |
+| **Price**         | A specific amount and billing interval on a Plan              |
+| **Subscription**  | A member's recurring billing record                           |
+| **Group**         | A named collection of members used for targeting              |
+
+For definitions of every term in Kanri, see the [Glossary](/reference/glossary/).

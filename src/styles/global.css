@@ -7,74 +7,98 @@
 @import "@fontsource-variable/geist-mono";
 
 @source "../**/*.{astro,html,js,jsx,ts,tsx,css}";
-/* @source not "../content/"; */
 
 @theme {
-	--font-sans: "Geist Variable", "Times New Roman", sans-serif;
-	--font-mono: "Geist Mono Variable", monospace;
+	--font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+	--font-mono: "Geist Mono Variable", ui-monospace, monospace;
+
+	/* Kanri brand purple — matches hsl(254 82% 47%) */
 	--color-primary: #4316da;
 }
 
 @layer {
 
-	/* Dark mode colors. */
+	/* Dark mode — matches Kanri app dark theme */
 	:root {
-		--sl-color-accent-low: #1c1d4c;
-		/* --sl-color-accent: #543ff8; */
-		--sl-color-accent: var(--color-primary);
-		--sl-color-accent-high: #bbc4ff;
-		--sl-color-white: #ffffff;
-		--sl-color-gray-1: #eeeeee;
-		--sl-color-gray-2: #c2c2c2;
-		--sl-color-gray-3: #8b8b8b;
-		--sl-color-gray-4: #585858;
-		--sl-color-gray-5: #383838;
-		--sl-color-gray-6: #272727;
-		--sl-color-black: #181818;
+		--sl-color-accent-low: #16134a;       /* deep indigo tint for hover/bg */
+		--sl-color-accent: #6040f0;           /* brighter purple for dark readability */
+		--sl-color-accent-high: #c4b5fd;      /* violet-300 for text on dark */
+		--sl-color-white: #f8f8f8;
+		--sl-color-gray-1: #e8e8ee;
+		--sl-color-gray-2: #b8b8c8;
+		--sl-color-gray-3: #7a7a90;
+		--sl-color-gray-4: #4a4a60;
+		--sl-color-gray-5: #2e2e42;
+		--sl-color-gray-6: #1c1c2e;           /* matches Kanri dark card bg */
+		--sl-color-black: #0d0d1a;            /* matches Kanri dark bg (hsl 224 71% 4%) */
 	}
 
-	/* Light mode colors. */
+	/* Light mode — matches Kanri app light theme */
 	:root[data-theme="light"] {
-		--sl-color-accent-low: #cdd4ff;
-		/* --sl-color-accent: #5642fa; */
-		--sl-color-accent: var(--color-primary);
-		--sl-color-accent-high: #272471;
-		--sl-color-white: #181818;
-		--sl-color-gray-1: #272727;
-		--sl-color-gray-2: #383838;
-		--sl-color-gray-3: #585858;
-		--sl-color-gray-4: #8b8b8b;
-		--sl-color-gray-5: #c2c2c2;
-		--sl-color-gray-6: #eeeeee;
-		--sl-color-gray-7: #f6f6f6;
+		--sl-color-accent-low: #ede9fe;       /* violet-100 */
+		--sl-color-accent: #4316da;           /* Kanri primary */
+		--sl-color-accent-high: #2e1280;      /* deep purple for text */
+		--sl-color-white: #111827;            /* near-black for text */
+		--sl-color-gray-1: #1f2937;
+		--sl-color-gray-2: #374151;
+		--sl-color-gray-3: #6b7280;
+		--sl-color-gray-4: #9ca3af;
+		--sl-color-gray-5: #e5e7eb;           /* matches Kanri secondary/muted */
+		--sl-color-gray-6: #f3f4f6;
+		--sl-color-gray-7: #f9fafb;
 		--sl-color-black: #ffffff;
 	}
 }
 
 @layer base {
+	/* Site title / logo */
 	.site-title {
 		@apply flex items-center !gap-2;
 	}
 
-	.site-title>img {
+	.site-title > img {
 		@apply !h-8 !w-8 !rounded-md;
 	}
 
-	.site-title>span {
+	.site-title > span {
 		@apply !text-xl !font-bold;
-		color: var(--sl-color-gray-2);
+		color: var(--sl-color-gray-1);
+		letter-spacing: -0.01em;
 	}
 
+	/* Active sidebar item — filled purple like Kanri's active nav */
 	.sidebar-content {
 		[aria-current="page"] {
-			@apply !bg-primary/100;
-			color: #c2c2c2 !important;
+			background-color: var(--sl-color-accent) !important;
+			color: #ffffff !important;
+			border-radius: 0.375rem;
 		}
 	}
 
+	/* Hero "Get Started" button */
 	[data-main-get-started="true"] {
 		background-color: var(--color-primary) !important;
 		border-color: var(--color-primary) !important;
 		color: #ffffff !important;
+		font-weight: 600 !important;
+		letter-spacing: -0.01em;
+	}
+
+	/* Slightly rounded code blocks to match Kanri's border-radius */
+	.sl-markdown-content pre {
+		border-radius: 0.5rem;
+		border: 1px solid var(--sl-color-gray-5);
+	}
+
+	/* Card-style aside/admonition borders — purple accent */
+	.sl-markdown-content .starlight-aside {
+		border-left-color: var(--sl-color-accent);
+		border-radius: 0 0.375rem 0.375rem 0;
+	}
+
+	/* Heading anchor links */
+	.sl-markdown-content h2,
+	.sl-markdown-content h3 {
+		letter-spacing: -0.02em;
 	}
 }
