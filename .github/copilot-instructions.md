@@ -64,7 +64,7 @@ Links are one of the most important parts of good documentation. Use them aggres
 - Don't repeat the same information across multiple pages — link instead
 - Don't document the **Staff PIN** — this is an internal feature that should not appear in docs
 - Don't document **Organisations** — this feature is being refactored out; everything belongs to a school
-- **Don't overuse em-dashes (—).** Use them sparingly — at most once per paragraph, and only when a comma, colon, or a new sentence would feel too heavy. Prefer restructuring the sentence instead. Never use an em-dash where a comma or colon works fine.
+- **Avoid em-dashes (—) almost entirely.** The default should be: don't use one. When you feel the urge to write an em-dash, stop and rewrite the sentence instead. Use a comma, a colon, a period, or split into two sentences. Em-dashes are permitted only in the rarest cases where no rewrite is natural — and even then, only one per page maximum.
 
 ---
 
