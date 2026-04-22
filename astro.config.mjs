@@ -366,7 +366,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "About Branding", slug: "settings/branding" },
-                { label: "Brand Colour & Logo", slug: "settings/branding/brand-color-logo" },
+                { label: "Brand Colour", slug: "settings/branding/brand-color-logo" },
                 { label: "Email Address", slug: "settings/branding/email-address" },
                 { label: "Phone Number (SMS)", slug: "settings/branding/phone-number" },
                 { label: "Vanity URL", slug: "settings/branding/vanity-url" },
