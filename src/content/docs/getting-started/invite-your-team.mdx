@@ -1,25 +1,57 @@
 ---
 title: Invite Your Team
-description: How to add staff members to your school and assign them the right roles.
+description: How to create staff roles and invite team members to your school in Kanri.
 ---
 
-Once your school is running, bring in your team by inviting them to Kanri with appropriate roles.
+Kanri uses a **role-based** permission system. Every staff member is assigned a role, and roles control exactly what that person can see and do in your school. You set up roles first, then add people into them.
 
-## What this page will cover
+## Step 1: Create a role (if needed)
 
-- What roles are and why they matter (brief — links to full Roles docs)
-- The built-in roles: Owner, and any custom roles you've created
-- How to create a role before inviting someone
-- How to send an invite (email link, 7-day expiry)
-- What the invited person experiences (account creation flow)
-- How to resend or revoke an invite
+Kanri doesn't have fixed staff roles built in. You create your own, with exactly the permissions you want. This lets you give a front-desk volunteer read-only access while giving your head instructor full access to members and scheduling.
 
-## Steps outline
+1. Go to **Settings → Roles**.
+2. Click **New Role**.
+3. Give the role a name (e.g. "Instructor", "Front Desk", "Admin").
+4. Toggle on the permissions this role should have. Permissions are grouped by area (Members, Billing, Schedules, etc.).
+5. Click **Save**.
 
-1. Decide what role the person needs (see Roles & Permissions for full breakdown)
-2. Go to Settings → Roles
-3. Select or create the appropriate role
-4. Click "Invite User" → enter their email → Send
-5. They receive an email with a link to create their account
-6. They log in and are automatically added to your school with that role
-7. If the link expires, send a new invite from the same place
+See [Permissions](/reference/permissions/) for a full breakdown of what each permission controls.
+
+:::tip
+Start with a conservative set of permissions and add more if staff tell you they need access to something. It's easier to grant access than to explain why something was visible that shouldn't have been.
+:::
+
+## Step 2: Add a staff member
+
+1. Go to **Settings → Roles** and open the role you want to assign.
+2. Click **Add User**.
+3. Either search for an existing member of your school, or enter an email address directly.
+4. Click **Add**.
+
+What happens next depends on the person's situation:
+
+- **Not yet in the system**: Kanri sends them an invitation email with a link to create their account. The link expires after 7 days. If they miss it, simply add them again to send a new one.
+- **Already a Kanri user connected to your school** (for example, an existing member who has a portal account, or someone already in another role): they're added to the role directly with no email.
+
+In most cases, Kanri will send an invitation email.
+
+Once added, the staff member can log in and will see your school alongside any other schools they belong to.
+
+## What the staff member can see
+
+The staff member's access is determined entirely by the role's permissions. They won't see areas they don't have permission to access. If they need additional access later, edit the role or assign them to a different role.
+
+## Managing your team
+
+To see all users in a role, open the role in **Settings → Roles** and click **View Users**. From there you can remove a staff member from the role.
+
+To move someone to a different role, remove them from their current role, then open the new role and add them there.
+
+## You're set up
+
+That's everything you need to get Kanri running. Here are some good next steps:
+
+- [Set up the kiosk](/kiosk/set-up-kiosk/) so members can check themselves into class
+- [Send a message to your members](/messages/send-broadcast/) to let them know Kanri is live
+- [Explore reports](/reports/) to see what data is already available
+- [Invite members to the Member Portal](/member-portal/invite-member/) so they can view their own profile and payment history

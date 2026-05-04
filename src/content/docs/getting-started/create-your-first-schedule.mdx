@@ -1,23 +1,62 @@
 ---
 title: Create Your First Schedule
-description: How to create a recurring class schedule linked to your program.
+description: How to create a recurring class schedule in Kanri, add session times in the visual editor, activate it, and confirm sessions are generating.
 ---
 
-A Schedule is a recurring class session — "Tuesday Beginner Karate, 6:00–7:00pm". Once created, it generates sessions every week that members can book into and staff can take attendance for.
+A **Schedule** is a named timetable that holds one or more recurring class entries. For example, you might create a schedule called "Beginner Karate" and add entries for Monday 6–7 pm and Wednesday 6–7 pm. Once activated, Kanri automatically generates individual **Sessions** from those entries each day going forward. Sessions are what members check in to and what staff take attendance on.
 
-## What this page will cover
+## Before you start
 
-- What a schedule is vs a session vs a booking
-- Creating a schedule: name, program, class, day, start/end time, location, capacity
-- Activating a schedule so sessions start being generated
-- Previewing upcoming sessions after creation
-- What to do if you need to pause a schedule (e.g. school holidays)
+You'll need at least one [program](/getting-started/create-your-first-program/) with at least one class before you can create a schedule.
 
-## Steps outline
+## Step 1: Create the schedule
 
-1. Go to Schedules → New Schedule
-2. Select the program and class this schedule belongs to
-3. Set the day of the week, start time, end time
-4. Optionally set a location and capacity (max bookings)
-5. Save and activate the schedule
-6. Verify that upcoming sessions are visible
+1. Go to **Schedules** in the main navigation.
+2. Click **New Schedule**.
+3. Enter a **Name** for the schedule (e.g. "Beginner Karate").
+4. Click **Create Schedule**.
+
+Kanri creates the schedule and opens the visual schedule editor.
+
+## Step 2: Add your class times in the editor
+
+The schedule editor shows a weekly grid with days across the top and hours down the side. You build your timetable by adding session blocks directly onto the grid.
+
+1. **Double-click** an empty time slot to add a session at that point. Or **click and drag** to draw the session block directly, from the start time to the end time.
+2. A panel opens on the side. Select the **Program** and **Class** for this session. Optionally select a **Class Variant** and enter a **Location** (e.g. "Main Hall").
+3. Click **Save Changes** in the panel to confirm the session.
+4. Repeat for each class time you want to add. You can add multiple sessions across different days and classes in the same schedule.
+5. When you're done, click the **Save** button in the top right of the editor to save your changes.
+
+:::caution
+Make sure you click **Save** in the editor before moving on. If you leave without saving, your session entries will be lost.
+:::
+
+## Step 3: Activate the schedule
+
+New schedules are inactive by default. Activating tells Kanri to start generating sessions.
+
+1. Click **Activate** on the schedule page.
+2. Confirm by clicking **Activate** again.
+
+Kanri will now generate sessions for this schedule going forward. Sessions are not created retroactively.
+
+## Step 4: Confirm your sessions
+
+After activating, the schedule page shows the upcoming sessions Kanri has generated. If the times or dates look wrong, check your school's [timezone setting](/getting-started/initial-settings/). That's the most common cause of incorrect session times.
+
+:::note
+If you need to change the schedule after activating it, for example to add a day or update the time, edit the sessions in the editor and click **Save**. Then click **Sync** on the schedule page to apply your changes to future sessions without affecting past ones.
+:::
+
+:::tip
+After activating, you can click **View Current Schedule** on the Schedules page to see an overview of all currently active schedules combined into one view.
+:::
+
+## What's a session?
+
+Each session is a single class occurrence with a date and time. When a member checks in at the kiosk or you take attendance, it's recorded against a specific session. Sessions are created automatically going forward based on your schedule.
+
+## Next step
+
+[Add your first member →](/getting-started/add-your-first-member/)

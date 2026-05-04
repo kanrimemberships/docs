@@ -1,24 +1,83 @@
 ---
 title: Create Your First Program
-description: How to set up your first program, classes, and levels in Kanri.
+description: How to create a program in Kanri, add classes, optional class variants, and levels.
 ---
 
-A Program is the activity you offer — "Adult Karate", "Junior Ballet", "Competitive Gymnastics". This is the foundation everything else is built on.
+A **Program** is the activity you offer, such as "Adult Karate", "Junior Ballet", or "Competitive Gymnastics". Everything else in Kanri (schedules, memberships, levels, billing access) connects back to programs, so this is the right place to start.
 
-## What this page will cover
+## Step 1: Create the program
 
-- What a program is and how it relates to members and schedules
-- Creating a program with a name and description
-- Adding classes to a program (the types of sessions within it)
-- Adding levels if your school uses a ranking system (belts, grades, etc.)
-- Setting level requirements (minimum classes attended, minimum days since last promotion)
+1. Go to **Programs** in the main navigation.
+2. Click **New Program**.
+3. Give it a **Name** (e.g. "Adult Karate").
+4. Click **Save**.
 
-## Steps outline
+That's it. The program now exists and you can start adding classes and levels to it.
 
-1. Go to Programs → New Program
-2. Enter program name (e.g. "Adult Karate")
-3. Save and open the program
-4. Add classes (e.g. "Beginner Class", "Intermediate Class")
-5. Add class variants to each class if needed (e.g. different time slots that count as the same class type)
-6. Add levels if applicable (e.g. "White Belt", "Yellow Belt", "Orange Belt")
-7. For each level, set eligibility requirements: minimum classes attended, minimum days since last promotion
+:::tip
+On Professional and Enterprise plans you'll also see a **Show on Lead Page** toggle (controls whether this program appears on your public enrolment page) and fields for attaching waiver document templates. You can leave those for now and configure them later when you set up your [lead page](/lead-management/lead-page/) or [documents](/settings/templates/).
+:::
+
+## Step 2: Add a class
+
+A **Class** is a named type of training within a program. For example, within "Adult Karate" you might have "Beginner Karate", "Competition Class", and "Open Mat".
+
+1. Open the program you just created.
+2. Go to the **Classes** tab.
+3. Click **New Class**.
+4. Give it a **Name** (e.g. "Beginner Karate").
+5. Leave **Counts towards attendance** turned on unless you want this class to be excluded from level promotion requirements. If you turn it off, sessions of this class won't count toward a member's minimum classes.
+6. Click **Save**.
+
+:::tip
+The class form also has optional **Minimum Level** and **Maximum Level** fields. Use these if this class is only appropriate for members within a certain rank range. You can leave them blank for now.
+
+There is also a **Booking Options** section for self-booking and capacity settings. You can leave those at their defaults and configure them later. See [Classes](/programs/classes/) for details.
+:::
+
+Add as many classes as you need. Each class can have its own schedules.
+
+## Step 3: Add class variants (optional)
+
+If a class runs in different formats, for example "Sparring" and "Kata" as variants of the same class, you can add variants. Variants let you distinguish what kind of session members attended without creating separate classes.
+
+1. Open a class.
+2. Go to the **Variants** tab.
+3. Click **New Variant** and give it a name (e.g. "Sparring").
+
+Variants are optional. If a class has no variants, it runs as a single unified session type.
+
+## Step 4: Add levels (optional)
+
+If your school uses a ranking system (belts, grades, skill tiers), add levels to the program now. Levels are entirely optional. Skip this section if your school doesn't use them.
+
+### Creating levels
+
+1. Open the program and go to the **Levels** tab.
+2. Click **New Level**.
+3. Give it a **Name** (e.g. "White Belt").
+4. Optionally set **Min Classes** and **Min Days** — the minimum a member must complete before they're eligible for promotion to the next level.
+5. Click **Save**.
+
+Repeat for each rank. You can create all your levels first and arrange them afterwards.
+
+### Arranging the progression order
+
+Levels are managed in a visual hierarchy editor. The order of levels in the list is the order of progression from top (lowest rank) to bottom (highest rank).
+
+Each level row has arrow buttons that appear on hover:
+
+- **↑ / ↓** — move the level up or down in the list to change its position in the progression chain.
+- **→ (Move in)** — nest the level under the one above it, making it a sub-rank. Use this for ranks like "White Belt 1st Tip" or "White Belt 2nd Tip" — intermediate ranks that sit inside a parent belt rather than between two separate belts.
+- **← (Move out)** — un-nest the level, moving it back up a tier.
+- **+ (Add child)** — create a new level directly nested under this one.
+
+Kanri uses the order and nesting of the list to determine the full progression chain. When you [promote a member](/members/memberships/promote-level/), they advance to the next level in the chain.
+
+:::tip
+The **→ Move in** button nests a level under the sibling directly above it. The **← Move out** button reverses this. Use nesting for sub-ranks (e.g. tips or stripes within a belt), not for the main progression from one belt to the next.
+:::
+
+## Next step
+
+[Create your first schedule →](/getting-started/create-your-first-schedule/)
