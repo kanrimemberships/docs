@@ -18,23 +18,8 @@
 
 @layer {
 
-	/* Dark mode — matches Kanri app dark theme */
+	/* Light mode — default, matches Kanri app light theme */
 	:root {
-		--sl-color-accent-low: #16134a;       /* deep indigo tint for hover/bg */
-		--sl-color-accent: #6040f0;           /* brighter purple for dark readability */
-		--sl-color-accent-high: #c4b5fd;      /* violet-300 for text on dark */
-		--sl-color-white: #f8f8f8;
-		--sl-color-gray-1: #e8e8ee;
-		--sl-color-gray-2: #b8b8c8;
-		--sl-color-gray-3: #7a7a90;
-		--sl-color-gray-4: #4a4a60;
-		--sl-color-gray-5: #2e2e42;
-		--sl-color-gray-6: #1c1c2e;           /* matches Kanri dark card bg */
-		--sl-color-black: #0d0d1a;            /* matches Kanri dark bg (hsl 224 71% 4%) */
-	}
-
-	/* Light mode — matches Kanri app light theme */
-	:root[data-theme="light"] {
 		--sl-color-accent-low: #ede9fe;       /* violet-100 */
 		--sl-color-accent: #4316da;           /* Kanri primary */
 		--sl-color-accent-high: #2e1280;      /* deep purple for text */
@@ -47,6 +32,21 @@
 		--sl-color-gray-6: #f3f4f6;
 		--sl-color-gray-7: #f9fafb;
 		--sl-color-black: #ffffff;
+	}
+
+	/* Dark mode — matches Kanri app dark theme */
+	:root[data-theme="dark"] {
+		--sl-color-accent-low: #16134a;       /* deep indigo tint for hover/bg */
+		--sl-color-accent: #6040f0;           /* brighter purple for dark readability */
+		--sl-color-accent-high: #c4b5fd;      /* violet-300 for text on dark */
+		--sl-color-white: #f8f8f8;
+		--sl-color-gray-1: #e8e8ee;
+		--sl-color-gray-2: #b8b8c8;
+		--sl-color-gray-3: #7a7a90;
+		--sl-color-gray-4: #4a4a60;
+		--sl-color-gray-5: #2e2e42;
+		--sl-color-gray-6: #1c1c2e;           /* matches Kanri dark card bg */
+		--sl-color-black: #0d0d1a;            /* matches Kanri dark bg (hsl 224 71% 4%) */
 	}
 }
 

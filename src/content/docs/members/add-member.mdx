@@ -3,10 +3,72 @@ title: Add a Member
 description: How to create a new member profile in Kanri.
 ---
 
-## What this page will cover
+When someone joins your school, the first thing you do is create a member profile for them. This takes less than a minute for a basic profile, and you can always fill in more details later.
 
-- Required vs optional fields when creating a member
-- Adding a member from the Members list
-- What to fill in right away vs what can wait
-- Adding a member as part of a walk-in (quick add)
-- What happens after you save — next steps to fully set up the member
+## Before you start
+
+You need the **Manage Members** permission to add members. If you don't see a **New Member** button on the Members page, ask your school administrator to check your [role permissions](/settings/roles/).
+
+## Add a member
+
+1. Go to **Members** in the main navigation.
+2. Click **New Member** in the top right.
+3. Fill in the member's details (see the field reference below).
+4. Click **Create Member**.
+
+Kanri saves the new profile and takes you straight to the member's overview page.
+
+## Field reference
+
+Only **First Name** and **Last Name** are required. Everything else is optional and can be filled in later.
+
+| Field | Notes |
+|---|---|
+| **First Name** | Required. |
+| **Last Name** | Required. |
+| **Family Status** | The member's family situation: Single, Married, Divorced, Widowed, Separated, Common Law, or Other. |
+| **Sex** | Male, Female, or Other. |
+| **Birthday** | Used in the [Birthday report](/reports/other/birthdays/) and shown as an age on the profile. |
+| **Phone** | Used for SMS messages. Must be unique within your school — if another profile already has this number, you'll see an error. |
+| **Email** | Used for sending emails and for [portal login](/members/invite-member-portal/). Must be unique within your school. |
+| **Can manage self** | When enabled, this member can be their own account manager in the portal (they don't need a separate guardian or contact to manage them). |
+
+:::tip
+If you're in a hurry, enter just the first name, last name, and email, then click **Create Member**. You can add the rest later by [editing the member](/members/edit-member/).
+:::
+
+## Member types
+
+Every new profile starts as a **Lead** — Kanri's default type for anyone who doesn't yet have a membership, subscription, or staff role. The type updates automatically as you set up the member:
+
+- Assign a **membership or subscription** and they become a **Member**
+- Add them as a **contact** for another member and they become a **Contact**
+- Assign them a **staff role** and they become **Staff**
+
+You don't need to manage types manually. See [Members overview](/members/) for a full breakdown of member types.
+
+## What happens after you save
+
+When Kanri creates the profile:
+
+- A unique **member number** is automatically assigned. Members can use this number — or search by first name — to sign in at the [kiosk](/kiosk/).
+- If the email or phone number matches any existing unassigned message conversations, Kanri links them to the new profile.
+
+The new profile exists but has no memberships, subscriptions, or billing set up yet. Typical next steps:
+
+1. [Assign a membership](/members/memberships/assign-membership/) to enrol them in a program.
+2. [Create a subscription](/members/subscriptions/create-subscription/) to set up recurring billing.
+3. [Add a payment method](/members/subscriptions/add-payment-method/) so billing can process automatically.
+4. [Upload a photo](/members/edit-member/) for kiosk identification.
+5. [Invite them to the portal](/members/invite-member-portal/) so they can log in.
+
+:::note
+Adding the member's address is done separately from the main profile form. Once the profile is saved, open it and click the **Address** card to add address details.
+:::
+
+## Next steps
+
+- [Edit a Member](/members/edit-member/) — update details or upload a photo
+- [Assign a Membership](/members/memberships/assign-membership/) — enrol in a program
+- [Create a Subscription](/members/subscriptions/create-subscription/) — set up billing
+- [Invite to the Portal](/members/invite-member-portal/) — give them a login

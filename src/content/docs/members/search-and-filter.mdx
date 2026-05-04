@@ -3,11 +3,74 @@ title: Search and Filter Members
 description: How to find members using search, filters, and sorting in the members list.
 ---
 
-## What this page will cover
+The Members list has a set of filters that let you narrow down exactly who you're looking for. You can combine multiple filters at once.
 
-- Using the search bar (searches name, email, phone)
-- Filtering by membership status (Active, Inactive, On Hold, etc.)
-- Filtering by program/membership type
-- Sorting the members list (by name, join date, etc.)
-- Understanding why a member might not appear in search results
-- Exporting the filtered list
+## Finding a member
+
+Go to **Members** in the main navigation. The filter bar is at the top of the list.
+
+**Search by name:** Type in the **First Name** or **Last Name** fields. The search matches from the beginning of the name — for example, searching "che" will find "Chen" but not "Atcheson".
+
+**Search by member number:** Enter the number in the **Number** field. Useful if you know the number but are unsure of the spelling of their name.
+
+**Search by age:** Enter a number in the **Age** field to find members of a specific age.
+
+## Showing inactive members
+
+By default, the Members list shows only profiles that have at least one **active** [membership](/members/memberships/). Leads, contacts, and inactive members are hidden unless you ask to see them.
+
+To see everyone, check the **Show inactive** checkbox in the filter bar.
+
+:::tip
+"Show inactive" is useful when looking for an old student who has stopped training, a parent profile (contacts), or anyone you know is in the system but can't find in the default view.
+:::
+
+## Filtering by member type
+
+The Members list can contain students, leads, contacts, and staff. Use the **Member Type** dropdown to filter to a specific type:
+
+| Type | Shows |
+|---|---|
+| **All** | Everyone in the database (subject to other filters) |
+| **Member** | Active students with a membership or subscription |
+| **Lead** | Prospective students not yet enrolled |
+| **Contact** | Parents, guardians, and associated people |
+| **Staff** | People with a staff role in Kanri |
+
+See [Members overview](/members/) for a full explanation of member types.
+
+## Additional filters (full access)
+
+Staff with the **View Members (Full)** permission can also filter by:
+
+- **Phone** — search by the start of a phone number (for example, entering "416" finds all profiles whose phone number starts with 416).
+- **Quit since** — shows members who had an active membership but became inactive on or after the date you enter. Useful for identifying members who have recently quit.
+- **Created since** — shows members who were first given an active membership on or after the date you enter. Useful for identifying new members who joined recently.
+
+## Sorting the list
+
+Click a column header to sort by that column. Click again to reverse the sort direction.
+
+You can sort by:
+- **First Name**
+- **Last Name**
+- **Last Attendance** — when the member last attended a confirmed class
+
+## Exporting the list
+
+To export the current filtered list as a CSV file, click the **Download** icon at the top of the table. The export includes the same data shown in the table, with the same filters applied.
+
+## Why a member might not appear
+
+If you're searching for someone and can't find them:
+
+1. **They have no active membership.** Check the **Show inactive** box to include all profiles.
+2. **The name is spelled differently.** Try searching just the first letter or two of their first or last name to cast a wider net.
+3. **They were added under a different name.** Try searching by phone number instead. Note that this filter requires the **View Members (Full)** permission.
+4. **Their profile was deleted.** Deleted profiles cannot be recovered from the Members list.
+
+## Next steps
+
+- [Add a Member](/members/add-member/) — create a new profile
+- [Edit a Member](/members/edit-member/) — update a member's details
+- [Members overview](/members/) — understand member types and the full profile
