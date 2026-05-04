@@ -15,6 +15,7 @@ export default defineConfig({
       logo: { src: "./src/assets/logo.svg" },
       components: {
         Banner: "./src/components/Banner.astro",
+        Hero: "./src/components/Hero.astro",
       },
       sidebar: [
         {
@@ -688,7 +689,26 @@ export default defineConfig({
         baseUrl: "https://github.com/kanrimemberships/docs/edit/master/",
       },
     }),
-    icon(),
+    icon({
+      include: {
+        tabler: [
+          "book-2",
+          "rocket",
+          "users",
+          "tournament",
+          "calendar-event",
+          "credit-card",
+          "mail",
+          "chart-bar",
+          "device-desktop",
+          "user-plus",
+          "settings",
+          "layout-grid",
+          "photo",
+          "door-enter",
+        ],
+      },
+    }),
   ],
   vite: {
     plugins: [tailwindcss()],

@@ -1,19 +1,125 @@
 ---
-title: Welcome to Kanri Docs
+title: Kanri Documentation
 description: Guides, how-tos, and reference material to help you run your school with Kanri.
 template: splash
 hero:
-  tagline: Everything you need to set up your school, manage your members, and run your day-to-day operations — no technical experience needed.
-  image:
-    file: ../../assets/logo.svg
+  title: Everything you need<br>to run your school
+  tagline: Step-by-step guides and how-tos for Kanri — the management platform for martial arts schools, dance studios, and activity-based schools.
   actions:
-    - text: Get Started
-      link: /introduction
+    - text: Get started
+      link: /getting-started/
       icon: right-arrow
-      attrs:
-        data-main-get-started: true
+      variant: primary
     - text: Open Kanri
       link: https://app.kanrimemberships.com/login
       icon: external
       variant: minimal
 ---
+
+import HomeCard from "../../components/HomeCard.astro";
+
+<div class="homepage-content not-content">
+
+<p class="home-section-label">New to Kanri?</p>
+<div class="home-cards-2">
+  <HomeCard
+    icon="tabler:book-2"
+    title="What is Kanri?"
+    href="/introduction/"
+    desc="A quick overview of what Kanri does and how it all fits together."
+  />
+  <HomeCard
+    icon="tabler:rocket"
+    title="Getting Started"
+    href="/getting-started/"
+    desc="A step-by-step guide to setting up your school from scratch."
+  />
+</div>
+
+<p class="home-section-label">Browse the docs</p>
+<div class="home-cards-3">
+  <HomeCard
+    icon="tabler:users"
+    title="Members"
+    href="/members/"
+    desc="Profiles, memberships, billing, attendance, and more."
+  />
+  <HomeCard
+    icon="tabler:tournament"
+    title="Programs"
+    href="/programs/"
+    desc="Programs, classes, levels, and promotions."
+  />
+  <HomeCard
+    icon="tabler:calendar-event"
+    title="Schedules"
+    href="/schedules/"
+    desc="Class timetables, sessions, and taking attendance."
+  />
+  <HomeCard
+    icon="tabler:credit-card"
+    title="Billing"
+    href="/billing/"
+    desc="Billing plans, subscriptions, payments, and payouts."
+  />
+  <HomeCard
+    icon="tabler:mail"
+    title="Messages"
+    href="/messages/"
+    desc="Email and SMS broadcasts to members and groups."
+  />
+  <HomeCard
+    icon="tabler:chart-bar"
+    title="Reports"
+    href="/reports/"
+    desc="Attendance, billing, membership, and booking reports."
+  />
+  <HomeCard
+    icon="tabler:device-desktop"
+    title="Kiosk"
+    href="/kiosk/"
+    desc="Self-sign-in screen for your front desk."
+  />
+  <HomeCard
+    icon="tabler:user-plus"
+    title="Lead Management"
+    href="/lead-management/"
+    desc="Public lead page, lead tracking, and prospect pipeline."
+  />
+  <HomeCard
+    icon="tabler:settings"
+    title="Settings"
+    href="/settings/"
+    desc="School settings, roles, branding, and behaviours."
+  />
+  <HomeCard
+    icon="tabler:layout-grid"
+    title="Groups"
+    href="/groups/"
+    desc="Organise members into groups for broadcasts and targeting."
+  />
+  <HomeCard
+    icon="tabler:photo"
+    title="Gallery"
+    href="/gallery/"
+    desc="School-wide and per-member photo and file storage."
+  />
+  <HomeCard
+    icon="tabler:door-enter"
+    title="Member Portal"
+    href="/member-portal/"
+    desc="Give members their own login to view their profile."
+  />
+</div>
+
+<p class="home-section-label">Reference</p>
+<div class="home-ref-links">
+  <a href="/reference/glossary/">Glossary</a>
+  <a href="/reference/plans/">Plans &amp; Pricing</a>
+  <a href="/reference/permissions/">Permissions</a>
+  <a href="/reference/member-fields/">Member Fields</a>
+  <a href="/reference/schedule-fields/">Schedule Fields</a>
+  <a href="/troubleshooting/payment-failed/">Troubleshooting</a>
+</div>
+
+</div>
