@@ -1,17 +1,55 @@
 ---
 title: Lead Page
-description: Your school's public sign-up page, where prospective members can submit their details, book a trial class, and sign a waiver before joining.
+description: Your school's public sign-up page, where prospective members can submit their details, book a trial class, and sign a waiver.
 ---
 
-The Lead Page is a public URL for your school that anyone can visit without logging in. It is how prospective members discover and sign up for your school online. They can submit their contact details, optionally book a trial class from your live schedule, and optionally sign a digital waiver before their first visit.
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-## What this page will cover
+:::note[Professional & Enterprise]
+The Lead Page requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+:::
 
-- What the Lead Page is and how it fits into Lead Management
-- The Lead Page URL format: your school's public entry point
-- What fields a prospective member fills in (name, email, phone, referral source, optional waiver, optional trial booking)
-- Optional features: trial class booking and digital waiver signing — both controlled separately in settings
-- How submitted leads appear in Kanri's leads list
-- The difference between a lead and a member
+The Lead Page is a public URL for your school. Anyone can visit it without logging in to Kanri. Prospective members use it to submit their contact details, optionally pick a trial class, and optionally sign a waiver before their first visit.
 
-See also: [Enable the Lead Page](/lead-management/lead-page/enable-lead-page/), [Configure the Lead Page](/lead-management/lead-page/configure-lead-page/), [Share Your Lead Page](/lead-management/lead-page/share-your-lead-page/)
+When someone completes the form, Kanri automatically creates a member profile for them with the type set to **Lead**.
+
+## What the Lead Page looks like
+
+The Lead Page walks prospective members through a multi-step form. The exact steps depend on your settings, but the flow is:
+
+1. **Welcome** — a brief introduction with your school's name and your custom welcome message. The visitor selects who they are registering for: themselves (adult), themselves (under 18), or their child.
+2. **Personal details** — name, email, and phone number. For a child, the parent's details are collected first, then the child's name, birthday, and sex.
+3. **Program selection** — if your school has multiple programs marked as visible on the lead page, the visitor picks which one(s) they are interested in. If only one program is available, this step is skipped.
+4. **Trial booking** — if you have trial bookings enabled, the visitor picks a class session. Only sessions from programs marked as visible on the lead page are shown, and only sessions that have trial bookings available. If no eligible sessions exist, this step is skipped automatically.
+5. **Waiver** — if waivers are enabled, the visitor signs your waiver before their first class.
+6. **Additional details** — a free-text field where the visitor can share anything helpful: health conditions, previous experience, questions.
+7. **Confirmation** — a summary of what was submitted and what happens next.
+
+:::tip
+Steps 4 and 5 are optional and controlled by separate settings. You can enable any combination of them.
+:::
+
+## What's in this section
+
+<CardGrid>
+  <LinkCard
+    title="Enable the Lead Page"
+    href="/lead-management/lead-page/enable-lead-page/"
+    description="Turn on the Lead Page and write your welcome message."
+  />
+  <LinkCard
+    title="Configure the Lead Page"
+    href="/lead-management/lead-page/configure-lead-page/"
+    description="Enable trial bookings and waiver signing."
+  />
+  <LinkCard
+    title="Share Your Lead Page"
+    href="/lead-management/lead-page/share-your-lead-page/"
+    description="Find your Lead Page URL and share it."
+  />
+</CardGrid>
+
+## Next steps
+
+- [View and Manage Leads](/lead-management/view-leads/) — see who has submitted the form and follow up
+- [Programs](/programs/) — control which programs appear on the lead page with the "Show on Lead Page" toggle

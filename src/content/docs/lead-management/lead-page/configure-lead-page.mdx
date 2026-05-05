@@ -1,12 +1,58 @@
 ---
 title: Configure the Lead Page
-description: How to enable trial booking and waiver signing on your Lead Page.
+description: How to enable trial class bookings and waiver signing on your Lead Page.
 ---
 
-## What this page will cover
+:::note[Professional & Enterprise]
+The Lead Page requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+:::
 
-- Enabling trial class bookings on the Lead Page (prospective members can pick a class and time)
-- Setting the trial booking window (how many days in advance they can book)
-- Enabling waiver signing on the Lead Page (prospective members sign before their first class)
-- What the waiver contains and where it is configured (link to the waiver template settings)
-- Combining these features: all three settings are independent toggles
+Once your Lead Page is enabled, you can add two optional steps to the form: **trial class booking** and **waiver signing**. Both are controlled independently from each other and from the Lead Page itself.
+
+## Before you start
+
+- You must have the [Lead Page enabled](/lead-management/lead-page/enable-lead-page/) before you can turn on trial bookings or waivers.
+- Trial class booking requires the **Bookings** feature (included on Professional and Enterprise plans).
+- Waiver signing requires the **Documents** feature (included on Professional and Enterprise plans).
+
+## Enabling trial class booking
+
+When trial bookings are on, prospective members can pick an upcoming class session directly from the Lead Page. The booking appears in your [Schedules](/schedules/) just like any other booking.
+
+1. Go to **Settings → Leads**.
+2. Toggle **Enable Bookings on Lead Page** to on.
+3. Click **Save**.
+
+:::note
+The **Enable Bookings on Lead Page** toggle is only available when the Lead Page itself is enabled. If it appears greyed out, check that **Enable Lead Page** is turned on first.
+:::
+
+The trial booking step only appears if there are eligible sessions available. A session is eligible when it belongs to a program with **Show on Lead Page** enabled, and the session itself has trial bookings turned on. If no eligible sessions exist when someone visits the page, the trial booking step is skipped automatically.
+
+## Enabling waiver signing
+
+When waivers are on, prospective members must sign a waiver during the Lead Page flow — before they can complete their submission.
+
+1. Go to **Settings → Leads**.
+2. Toggle **Enable Waivers on Lead Page** to on.
+3. Choose a **Signing Mode** (see below).
+4. Click **Save**.
+
+### Waiver signing modes
+
+You can control how the waiver is presented:
+
+| Mode | How it works |
+|---|---|
+| **Inline** | The waiver appears directly on the page. The prospective member reads and signs it before moving on. |
+| **Email code** | Kanri sends a verification email with a code. The visitor enters the code on the page to confirm their email, then signs inline. |
+| **Async** | Kanri sends a signing email. The visitor can continue through the form and sign the waiver later from the email link. |
+
+**Inline** is the default and the most straightforward. Use **Email code** if you want to verify that the visitor controls the email address they entered. Use **Async** if you'd rather not block the submission on waiver signing and are happy to follow up with unsigned waivers.
+
+## Next steps
+
+- [Share Your Lead Page](/lead-management/lead-page/share-your-lead-page/) — find the URL and share it
+- [View and Manage Leads](/lead-management/view-leads/) — see who has submitted the form
+- [Programs](/programs/) — control which programs appear on the lead page
+

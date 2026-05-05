@@ -3,23 +3,43 @@ title: Lead Management
 description: Track prospective members from first enquiry through trial classes, waiver signing, and conversion into full members.
 ---
 
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
 :::note[Professional & Enterprise]
 Lead Management requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
 
-Lead Management is how Kanri helps you turn interested people into paying members. It covers the full journey a prospective member takes: from discovering your school, to submitting their details, to booking and attending a trial class, to signing a waiver, to becoming a full member.
+Lead Management is how Kanri helps you turn interested people into paying members. It covers the full journey a prospective member takes: from discovering your school online, to submitting their details, to booking and attending a trial class, to signing a waiver, to becoming a full member.
 
-At the centre of this is your **[Lead Page](/lead-management/lead-page/)**: a public URL anyone can visit without logging in. Prospective members fill in their name, contact details, and how they heard about you. From there, they can optionally book a trial class directly from the page and sign a digital waiver before their first visit.
+## How leads work
 
-Once someone submits the form, they appear in your **leads list** inside Kanri. From there you can:
+When someone submits your [Lead Page](/lead-management/lead-page/) — the public sign-up form for your school — Kanri automatically creates a member profile for them with the type set to **Lead**. You can also manually create a member profile and set the type to Lead yourself.
 
-- See each lead's details, trial booking, and waiver status
-- Follow up by sending a message directly from the lead record
-- Move leads through your pipeline as they progress
-- Convert a lead into a full member profile with a single action when they're ready to join
+A Lead profile works exactly like any other member profile. You can add notes, send messages, view attendance, and assign a membership. The Lead type is just a label that tells you this person hasn't committed yet.
+
+Each Lead has a **lead status** that tracks where they are in your pipeline:
+
+| Status | Meaning |
+|---|---|
+| **New** | Just submitted the lead form or was added manually. No one has followed up yet. |
+| **Contacted** | Someone from your school has reached out to them. |
+| **Qualified** | The lead is interested and likely to join. |
+| **Trial** | Automatically set when the lead is given a trial subscription. |
+| **Converted** | Set when the lead converts to a full paid membership. |
+| **Lost** | No longer interested — not going to join. |
+
+To update a lead's status, open their member profile and click **Edit**. The Lead Status field is on the edit form.
+
+## Converting a lead
+
+A lead becomes a Member automatically when they are given an active [membership](/members/memberships/) or [subscription](/members/subscriptions/). At that point, Kanri updates their type from Lead to Member.
+
+You don't need to do anything special to "convert" a lead. Just add their membership or subscription as you would for any new member.
 
 ## What's in this section
 
-[**Lead Page**](/lead-management/lead-page/) covers your school's public sign-up page: how to enable it, configure trial class bookings and waiver signing, and share the link with prospective members.
+<CardGrid>
+  <LinkCard title="Lead Page" href="/lead-management/lead-page/" description="Your school's public sign-up form — let prospective members submit their details, book a trial, and sign a waiver." />
+  <LinkCard title="View and Manage Leads" href="/lead-management/view-leads/" description="Find and follow up with leads in the Members list." />
+</CardGrid>
 
-[**View and Convert Leads**](/lead-management/view-leads/) covers the leads list inside Kanri: how to filter, follow up, and convert leads into members.
