@@ -3,6 +3,8 @@ title: Interactions
 description: How to log permanent interaction records on a member's profile.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 **Interactions** are a permanent, timestamped log of things that happened with or about a member. They are designed to create an uneditable record — once an interaction is saved, it cannot be edited or deleted.
 
 Use interactions for anything you'd want to stand up as evidence or reference later: incidents, phone calls, contract discussions, warnings, complaints, and any other event that should be recorded formally.
@@ -66,6 +68,20 @@ Interactions are never visible to the member through the [member portal](/member
 
 ## Next steps
 
-- [Notes](/members/notes/) — for editable, ongoing information
-- [Logs](/logs/) — the full audit trail of every change made to member records (Professional & Enterprise)
-- [Members overview](/members/) — understand the full member profile
+<CardGrid>
+  <LinkCard
+    title="Notes"
+    href="/members/notes/"
+    description="for editable, ongoing information"
+  />
+  <LinkCard
+    title="Logs"
+    href="/logs/"
+    description="the full audit trail of every change made to member records (Professional & Enterprise)"
+  />
+  <LinkCard
+    title="Members overview"
+    href="/members/"
+    description="understand the full member profile"
+  />
+</CardGrid>

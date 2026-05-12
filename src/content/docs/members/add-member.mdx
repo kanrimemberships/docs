@@ -3,6 +3,8 @@ title: Add a Member
 description: How to create a new member profile in Kanri.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 When someone joins your school, the first thing you do is create a member profile for them. This takes less than a minute for a basic profile, and you can always fill in more details later.
 
 ## Before you start
@@ -68,7 +70,25 @@ Adding the member's address is done separately from the main profile form. Once 
 
 ## Next steps
 
-- [Edit a Member](/members/edit-member/) — update details or upload a photo
-- [Assign a Membership](/members/memberships/assign-membership/) — enrol in a program
-- [Create a Subscription](/members/subscriptions/create-subscription/) — set up billing
-- [Invite to the Portal](/members/invite-member-portal/) — give them a login
+<CardGrid>
+  <LinkCard
+    title="Edit a Member"
+    href="/members/edit-member/"
+    description="update details or upload a photo"
+  />
+  <LinkCard
+    title="Assign a Membership"
+    href="/members/memberships/assign-membership/"
+    description="enrol in a program"
+  />
+  <LinkCard
+    title="Create a Subscription"
+    href="/members/subscriptions/create-subscription/"
+    description="set up billing"
+  />
+  <LinkCard
+    title="Invite to the Portal"
+    href="/members/invite-member-portal/"
+    description="give them a login"
+  />
+</CardGrid>

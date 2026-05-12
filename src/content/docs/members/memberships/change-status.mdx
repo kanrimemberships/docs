@@ -3,13 +3,65 @@ title: Change Membership Status
 description: How to update a member's membership status (e.g. from Active to On Hold).
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- When to change a status vs when to end a membership entirely
-- How to change a membership status (click status badge → select new status)
-- Common status changes and when to use them:
-  - Active → On Hold (member taking a break, still enrolled)
-  - Active → Inactive (member has left)
-  - Inactive → Active (member returning)
-- Whether status changes affect billing (they don't automatically — subscriptions are separate)
-- How behaviors can automatically change statuses when a subscription is cancelled
+Change a membership status when a member's enrolment changes.
+
+## Understand membership statuses
+
+Membership statuses are defined by your school. Each status is marked as either **active** or **inactive**.
+
+This means you can create status names that fit your process, such as:
+
+- Active
+- On Hold
+- Trial
+- Withdrawn
+
+## Change a membership status
+
+1. Open the member from the [Members list](/members/).
+2. Click **Memberships**.
+3. Open the membership you want to update.
+4. Click **Edit**.
+5. Choose the new **Status**.
+6. Review any other membership fields.
+7. Click **Save**.
+
+:::note
+Kanri uses the active or inactive setting on the status itself. The status name alone does not decide whether the membership is active.
+:::
+
+## When to change status
+
+Change status when you need to reflect a real enrolment change, such as:
+
+1. a student becoming active
+2. a student going on hold
+3. a student returning after a break
+4. a student leaving the program
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="End a membership with an inactive status"
+    href="/members/memberships/end-membership/"
+    description="Close a membership when training ends."
+  />
+  <LinkCard
+    title="Review memberships overview"
+    href="/members/memberships/"
+    description="Manage enrolments, status, and level changes."
+  />
+  <LinkCard
+    title="Check membership reports"
+    href="/reports/memberships/memberships/"
+    description="Review current and past enrolments."
+  />
+  <LinkCard
+    title="Compare with subscriptions"
+    href="/members/subscriptions/"
+    description="Manage billing records for this member."
+  />
+</CardGrid>

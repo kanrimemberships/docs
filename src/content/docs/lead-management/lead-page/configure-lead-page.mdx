@@ -3,6 +3,8 @@ title: Configure the Lead Page
 description: How to enable trial class bookings and waiver signing on your Lead Page.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 :::note[Professional & Enterprise]
 The Lead Page requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
@@ -52,7 +54,20 @@ You can control how the waiver is presented:
 
 ## Next steps
 
-- [Share Your Lead Page](/lead-management/lead-page/share-your-lead-page/) — find the URL and share it
-- [View and Manage Leads](/lead-management/view-leads/) — see who has submitted the form
-- [Programs](/programs/) — control which programs appear on the lead page
-
+<CardGrid>
+  <LinkCard
+    title="Share Your Lead Page"
+    href="/lead-management/lead-page/share-your-lead-page/"
+    description="find the URL and share it"
+  />
+  <LinkCard
+    title="View and Manage Leads"
+    href="/lead-management/view-leads/"
+    description="see who has submitted the form"
+  />
+  <LinkCard
+    title="Programs"
+    href="/programs/"
+    description="control which programs appear on the lead page"
+  />
+</CardGrid>

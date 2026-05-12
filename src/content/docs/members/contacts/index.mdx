@@ -3,11 +3,65 @@ title: Contacts
 description: A reference for what contacts are — parents, guardians, and emergency contacts linked to a member.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- What a contact is (a person linked to a member — typically a parent, guardian, or emergency contact)
-- When contacts are required vs optional (especially for junior members)
-- The two types of contacts: linked members (another person already in Kanri) and standalone contacts (just name/email/phone)
-- What a "billing contact" is and why it matters (the contact whose payment method is charged instead of the member's)
-- Visibility rules: what contacts can see if they have a portal account
-- The relationship types available (Parent, Guardian, Emergency Contact, Other)
+Contacts let you link another person to a member's profile.
+
+This is useful for junior members where a parent or guardian needs to be on file, for emergency contacts, and for anyone who should receive messages on the member's behalf.
+
+## What a contact stores
+
+| Field | What it means |
+| --- | --- |
+| First name, Last name | The contact's name. |
+| Email | Their email address (optional). |
+| Phone | Their phone number (optional). |
+| Relationship | How they are connected to the member. |
+| Can Manage | Whether this person is a **manager** for the member (see below). |
+| Receive Communications | Whether this person receives messages sent to the member. |
+
+## Relationship options
+
+| Relationship | When to use it |
+| --- | --- |
+| Parent | A parent or guardian. |
+| Child | A child of the member. |
+| Sibling | A brother or sister. |
+| Spouse | A husband, wife, or partner. |
+| Friend | A trusted friend. |
+| Other | Any other relationship. |
+
+## Managers
+
+A contact with **Can Manage** turned on is called a **manager**. Managers are displayed in a separate **Managers** card on the member's profile page, distinct from the general Contacts list.
+
+Managers can act on the member's behalf. Their [payment methods](/members/subscriptions/add-payment-method/) become available to use when creating the member's [subscriptions](/members/subscriptions/). For example, a parent manager can have their card on file to pay for their child's membership.
+
+:::tip
+For junior members, add the parent as a contact, turn on Can Manage, then add the parent's payment method before creating the child's subscription.
+:::
+
+## Two ways to add a contact
+
+1. **Create a new person** — for someone not already in Kanri. You enter their name and contact details directly.
+2. **Link an existing member** — for someone who already has a member record. You select them by name and set the relationship.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Add a contact"
+    href="/members/contacts/add-contact/"
+    description="Add another contact for this member."
+  />
+  <LinkCard
+    title="Add a payment method"
+    href="/members/subscriptions/add-payment-method/"
+    description="Save a card or bank account."
+  />
+  <LinkCard
+    title="Create a subscription"
+    href="/members/subscriptions/create-subscription/"
+    description="Start recurring or fixed-term billing."
+  />
+</CardGrid>

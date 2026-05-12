@@ -3,6 +3,8 @@ title: Member Number
 description: How member numbers work in Kanri and how members use them to sign in at the kiosk.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 Every member in Kanri has a **member number** — a unique numeric code they can use to sign in at your school's [kiosk](/kiosk/).
 
 ## What is a member number?
@@ -46,7 +48,25 @@ If a member forgets their number, they can still sign in by searching their firs
 
 ## Next steps
 
-- [Set Up the Kiosk](/kiosk/set-up-kiosk/) — configure your school's kiosk
-- [Kiosk Behaviors](/kiosk/kiosk-behaviors/) — configure how sign-in works
-- [Edit a Member](/members/edit-member/) — update other member details
-- [Members overview](/members/) — understand the full member profile
+<CardGrid>
+  <LinkCard
+    title="Set Up the Kiosk"
+    href="/kiosk/set-up-kiosk/"
+    description="configure your school's kiosk"
+  />
+  <LinkCard
+    title="Kiosk Behaviors"
+    href="/kiosk/kiosk-behaviors/"
+    description="configure how sign-in works"
+  />
+  <LinkCard
+    title="Edit a Member"
+    href="/members/edit-member/"
+    description="update other member details"
+  />
+  <LinkCard
+    title="Members overview"
+    href="/members/"
+    description="understand the full member profile"
+  />
+</CardGrid>

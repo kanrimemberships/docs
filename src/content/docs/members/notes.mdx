@@ -3,6 +3,8 @@ title: Notes
 description: How to add and manage notes on a member's profile.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 **Notes** are editable, free-text entries that staff can add to a member's profile. Use them to record anything you need to remember about a member — medical conditions, special payment arrangements, discount agreements, equipment preferences, or any other information that doesn't fit neatly into a standard profile field.
 
 Notes are private to staff. Members cannot see their notes in the [member portal](/member-portal/).
@@ -67,6 +69,20 @@ Only staff members with the appropriate permissions can see member notes. Notes 
 
 ## Next steps
 
-- [Interactions](/members/interactions/) — log permanent, timestamped event records
-- [Edit a Member](/members/edit-member/) — update the member's core profile fields
-- [Members overview](/members/) — understand the full member profile
+<CardGrid>
+  <LinkCard
+    title="Interactions"
+    href="/members/interactions/"
+    description="log permanent, timestamped event records"
+  />
+  <LinkCard
+    title="Edit a Member"
+    href="/members/edit-member/"
+    description="update the member's core profile fields"
+  />
+  <LinkCard
+    title="Members overview"
+    href="/members/"
+    description="understand the full member profile"
+  />
+</CardGrid>

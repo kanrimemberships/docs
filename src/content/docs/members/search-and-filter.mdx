@@ -3,6 +3,8 @@ title: Search and Filter Members
 description: How to find members using search, filters, and sorting in the members list.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 The Members list has a set of filters that let you narrow down exactly who you're looking for. You can combine multiple filters at once.
 
 ## Finding a member
@@ -71,6 +73,20 @@ If you're searching for someone and can't find them:
 
 ## Next steps
 
-- [Add a Member](/members/add-member/) — create a new profile
-- [Edit a Member](/members/edit-member/) — update a member's details
-- [Members overview](/members/) — understand member types and the full profile
+<CardGrid>
+  <LinkCard
+    title="Add a Member"
+    href="/members/add-member/"
+    description="create a new profile"
+  />
+  <LinkCard
+    title="Edit a Member"
+    href="/members/edit-member/"
+    description="update a member's details"
+  />
+  <LinkCard
+    title="Members overview"
+    href="/members/"
+    description="understand member types and the full profile"
+  />
+</CardGrid>

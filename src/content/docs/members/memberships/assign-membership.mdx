@@ -3,12 +3,69 @@ title: Assign a Membership
 description: How to enrol a member in a program by creating a membership.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Prerequisites: the program must exist before you can assign a membership
-- Going to the Memberships tab on a member's profile
-- Selecting the program
-- Setting the start date
-- Selecting an initial level (if the program uses levels)
-- Setting the membership status (usually Active)
-- What to do next: set up a subscription for billing
+Assign a membership when a member joins a program.
+
+## Before you start
+
+Make sure:
+
+1. The [program](/programs/create-program/) already exists.
+2. Your school has the membership status you want to use.
+3. The member does not already have a membership in that same program.
+
+## Assign a membership
+
+1. Open the member from the [Members list](/members/).
+2. Click **Memberships**.
+3. Click **New Membership**.
+4. Select the **Program**.
+5. Select the current **Level** if your school uses [Levels](/programs/levels/).
+6. Select the **Status**.
+7. Enter **Sessions Remaining** if you track classes in blocks.
+8. Enter **Last Promotion Date** if needed.
+9. Click **Create**.
+
+## Know what each field means
+
+| Field | What it means |
+| --- | --- |
+| Program | Required. The program the member is enrolled in. |
+| Level | Optional. Only used if your school has levels turned on. |
+| Status | Required. A school-defined membership status. |
+| Sessions Remaining | Optional. Leave blank if you do not track remaining sessions. |
+| Last Promotion Date | Optional. Useful when moving existing students into Kanri. |
+
+:::caution
+A member can only have one membership in each program. For example, they cannot have two separate Adult Karate memberships at the same time.
+:::
+
+:::tip
+If you are importing existing students, set the current level and last promotion date right away. This makes your [Promotions report](/programs/levels/promotions-report/) more accurate.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Change the membership status later"
+    href="/members/memberships/change-status/"
+    description="Update a membership's current status."
+  />
+  <LinkCard
+    title="Promote the member's level"
+    href="/members/memberships/promote-level/"
+    description="Move a member to the next level."
+  />
+  <LinkCard
+    title="Create a subscription for billing"
+    href="/members/subscriptions/create-subscription/"
+    description="Start recurring or fixed-term billing."
+  />
+  <LinkCard
+    title="Return to memberships overview"
+    href="/members/memberships/"
+    description="Manage enrolments, status, and level changes."
+  />
+</CardGrid>

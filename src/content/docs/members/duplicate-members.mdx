@@ -3,6 +3,8 @@ title: Duplicate a Member
 description: How to create a copy of a member, and how to handle duplicate members in Kanri.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 Kanri has a **Duplicate** feature that creates a copy of a member's profile. This is useful when you need to register a family member or someone in similar circumstances who shares most of the same details (address, contacts, family status, and so on).
 
 Kanri does not currently have an automated merge tool. If two separate profiles exist for the same person, you'll need to handle that manually. This page covers both situations.
@@ -78,7 +80,25 @@ The most common cause of duplicates is adding a member manually while they alrea
 
 ## Next steps
 
-- [Add a Member](/members/add-member/) — create a fresh member profile
-- [Edit a Member](/members/edit-member/) — update details on an existing profile
-- [Notes](/members/notes/) — add and manage staff notes
-- [Interactions](/members/interactions/) — log permanent event records
+<CardGrid>
+  <LinkCard
+    title="Add a Member"
+    href="/members/add-member/"
+    description="create a fresh member profile"
+  />
+  <LinkCard
+    title="Edit a Member"
+    href="/members/edit-member/"
+    description="update details on an existing profile"
+  />
+  <LinkCard
+    title="Notes"
+    href="/members/notes/"
+    description="add and manage staff notes"
+  />
+  <LinkCard
+    title="Interactions"
+    href="/members/interactions/"
+    description="log permanent event records"
+  />
+</CardGrid>

@@ -3,6 +3,8 @@ title: Share Your Lead Page
 description: How to find your Lead Page URL and share it with prospective members.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 :::note[Professional & Enterprise]
 The Lead Page requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
@@ -41,7 +43,20 @@ If you have a [vanity URL](/settings/branding/vanity-url/) set up, your Lead Pag
 
 ## Next steps
 
-- [View and Manage Leads](/lead-management/view-leads/) — see who submits the form
-- [Configure the Lead Page](/lead-management/lead-page/configure-lead-page/) — add trial bookings or waiver signing
-- [Vanity URL](/settings/branding/vanity-url/) — set up a custom domain for your school
-
+<CardGrid>
+  <LinkCard
+    title="View and Manage Leads"
+    href="/lead-management/view-leads/"
+    description="see who submits the form"
+  />
+  <LinkCard
+    title="Configure the Lead Page"
+    href="/lead-management/lead-page/configure-lead-page/"
+    description="add trial bookings or waiver signing"
+  />
+  <LinkCard
+    title="Vanity URL"
+    href="/settings/branding/vanity-url/"
+    description="set up a custom domain for your school"
+  />
+</CardGrid>

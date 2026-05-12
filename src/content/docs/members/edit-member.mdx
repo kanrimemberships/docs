@@ -3,6 +3,8 @@ title: Edit a Member
 description: How to update a member's details, photo, and address.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 You can update a member's personal details at any time. The edit page lets you change the fields you filled in when the profile was created. Address and photo are updated on separate pages.
 
 ## Before you start
@@ -65,7 +67,25 @@ To remove an existing photo, navigate to the photo page and use the remove optio
 
 ## Next steps
 
-- [Member Number](/members/member-number/) — understand how kiosk numbers work
-- [Memberships](/members/memberships/) — change enrolment details
-- [Subscriptions](/members/subscriptions/) — update billing information
-- [Notes](/members/notes/) — add private staff notes about the member
+<CardGrid>
+  <LinkCard
+    title="Member Number"
+    href="/members/member-number/"
+    description="understand how kiosk numbers work"
+  />
+  <LinkCard
+    title="Memberships"
+    href="/members/memberships/"
+    description="change enrolment details"
+  />
+  <LinkCard
+    title="Subscriptions"
+    href="/members/subscriptions/"
+    description="update billing information"
+  />
+  <LinkCard
+    title="Notes"
+    href="/members/notes/"
+    description="add private staff notes about the member"
+  />
+</CardGrid>

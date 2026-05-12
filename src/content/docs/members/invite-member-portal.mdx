@@ -3,6 +3,8 @@ title: Invite a Member to the Portal
 description: How to give a member their own Kanri login so they can view their profile, bookings, and memberships.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 The **member portal** gives a member their own Kanri login. Once they've been invited and accepted, they can view their own profile, memberships, and more — without needing to contact you for basic information.
 
 ## What members can see in the portal
@@ -78,6 +80,20 @@ Unlinking removes the association between the user account and the member profil
 
 ## Next steps
 
-- [What Members Can See](/member-portal/what-members-can-see/) — a full breakdown of portal access
-- [Edit a Member](/members/edit-member/) — update their email or contact details
-- [Settings → General Behaviors](/settings/behaviors/general-behaviors/) — configure auto-link accounts
+<CardGrid>
+  <LinkCard
+    title="What Members Can See"
+    href="/member-portal/what-members-can-see/"
+    description="a full breakdown of portal access"
+  />
+  <LinkCard
+    title="Edit a Member"
+    href="/members/edit-member/"
+    description="update their email or contact details"
+  />
+  <LinkCard
+    title="Settings → General Behaviors"
+    href="/settings/behaviors/general-behaviors/"
+    description="configure auto-link accounts"
+  />
+</CardGrid>

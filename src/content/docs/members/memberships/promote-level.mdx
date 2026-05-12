@@ -3,11 +3,59 @@ title: Promote a Member to the Next Level
 description: How to promote a member from one level to the next from their membership profile.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- What a promotion means (moving a member from their current level to the next one in the program)
-- Checking if a member is eligible before promoting (min classes attended, min days since last promotion)
-- How to promote from the member's membership page
-- How to promote directly from the kiosk (if the kiosk behavior is enabled)
-- What changes after a promotion (level on membership, last_promotion date resets, attendance counter resets)
-- Using the Promotions report to find members who are ready
+Promote a member when they are ready for the next level in their program.
+
+## Before you start
+
+Make sure:
+
+1. Your school uses [Levels](/programs/levels/).
+2. The membership already has a current level.
+3. The current level has a **next level** set in your level settings.
+
+## Promote a membership to the next level
+
+1. Open the member from the [Members list](/members/).
+2. Click **Memberships**.
+3. Open the membership.
+4. Click **Promote**.
+5. Review the current level and the next level shown on screen.
+6. Enter a promotion date if you want to record one.
+7. Click **Promote**.
+
+Kanri advances the membership to the **next** level in that program's level sequence.
+
+:::note
+You cannot pick any level from the list on this page. Promotion always moves forward to the next level that has been configured in your [Levels](/programs/levels/) setup.
+:::
+
+:::tip
+If a member is ready but you cannot promote them, check whether the current level has a next level linked in your level settings.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Review the Promotions report"
+    href="/programs/levels/promotions-report/"
+    description="Find members ready for their next level."
+  />
+  <LinkCard
+    title="Change membership status if needed"
+    href="/members/memberships/change-status/"
+    description="Update a membership's current status."
+  />
+  <LinkCard
+    title="View attendance history"
+    href="/members/attendance/view-member-attendance/"
+    description="See a member's past attendance records."
+  />
+  <LinkCard
+    title="Return to memberships overview"
+    href="/members/memberships/"
+    description="Manage enrolments, status, and level changes."
+  />
+</CardGrid>

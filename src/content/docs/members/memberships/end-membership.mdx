@@ -3,11 +3,60 @@ title: End a Membership
 description: How to end a member's enrolment in a program.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- When to end a membership vs changing status to Inactive
-- Setting an end date on a membership
-- Whether ended memberships are deleted (no — they stay in history for reports)
-- What happens to attendance records for ended memberships
-- What happens to the member's subscription when a membership ends (nothing automatically — cancel separately if needed)
-- Re-enrolling a member in the same program later
+End a membership when the member is no longer enrolled in that program.
+
+In Kanri, there is no separate close or end button for memberships. You end a membership by changing it to an **inactive** status.
+
+## End a membership
+
+1. Open the member from the [Members list](/members/).
+2. Click **Memberships**.
+3. Open the membership you want to end.
+4. Click **Edit**.
+5. Choose an **inactive** status.
+6. Review the membership details.
+7. Click **Save**.
+
+## Choose the right inactive status
+
+Your school may use different inactive statuses for different situations, such as:
+
+- Cancelled
+- Withdrawn
+- Graduated
+- Finished Trial
+
+:::note
+Ending a membership does not automatically cancel the member's [subscription](/members/subscriptions/). Check billing separately if the member also needs payments to stop.
+:::
+
+:::caution
+If the member should stop being charged, also [cancel the subscription](/members/subscriptions/cancel-subscription/). Memberships and subscriptions are separate records.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Change status details"
+    href="/members/memberships/change-status/"
+    description="Update a membership's current status."
+  />
+  <LinkCard
+    title="Cancel the member's subscription"
+    href="/members/subscriptions/cancel-subscription/"
+    description="Stop future charges for this subscription."
+  />
+  <LinkCard
+    title="Check Only Memberships report"
+    href="/reports/memberships/only-memberships/"
+    description="Find members missing a subscription."
+  />
+  <LinkCard
+    title="Return to memberships overview"
+    href="/members/memberships/"
+    description="Manage enrolments, status, and level changes."
+  />
+</CardGrid>

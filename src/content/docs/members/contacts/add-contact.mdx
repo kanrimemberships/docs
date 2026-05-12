@@ -3,11 +3,86 @@ title: Add a Contact
 description: How to add a parent, guardian, or emergency contact to a member's profile.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Adding a brand-new contact (name, email, phone, relationship)
-- Linking an existing member as a contact (e.g. a parent who is also a member)
-- Setting the relationship type
-- What to do when one parent has multiple children at the school (add as contact on each child)
-- Editing a contact's details after adding them
-- Removing a contact from a member (does not delete the contact's own record)
+You can add a contact in two ways: create a brand new person, or link someone who already has a member record in Kanri.
+
+## Before you start
+
+Decide which option fits your situation:
+
+- Use **New contact** if the person is not already in Kanri.
+- Use **Link existing member** if they already have a record (for example, a parent who is also enrolled in adult classes).
+
+## Add a brand new contact
+
+1. Open the member from the [Members list](/members/).
+2. Click **Contacts**.
+3. Click **New Contact**.
+4. Use the **New Contact** side.
+5. Enter **First Name** (required).
+6. Enter **Last Name** (required).
+7. Enter **Email** (optional).
+8. Enter **Phone** (optional).
+9. Select the **Relationship**.
+10. Turn on **Can Manage** if this person should be able to act on the member's behalf.
+11. Turn on **Receive Communications** if this person should receive messages sent to the member.
+12. Click **Save**.
+
+:::note
+Email and phone are optional, but each must be unique across your school if provided.
+:::
+
+## Link an existing member as a contact
+
+1. Open the member from the [Members list](/members/).
+2. Click **Contacts**.
+3. Click **New Contact**.
+4. Use the **Use Existing Member** tab.
+5. Search for and select the existing member.
+6. Select the **Relationship**.
+7. Turn on **Can Manage** if needed.
+8. Turn on **Receive Communications** if needed.
+9. Click **Save**.
+
+## What each setting does
+
+| Setting                | What it means                                                                                                                                                                                                                                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Can Manage             | The contact can act on the member's behalf. They become a **manager** for the member, and their [payment methods](/members/subscriptions/add-payment-method/) become available to use when creating the member's subscriptions. Managers appear in a separate Managers card on the member's profile. |
+| Receive Communications | Messages sent to the member are also sent to this contact.                                                                                                                                                                                                                                           |
+
+:::tip
+For a parent paying for a child, turn on **Can Manage** and **Receive Communications**. Then add the parent's payment method and use it when creating the child's subscription.
+:::
+
+## Edit or remove a contact
+
+To edit a contact, open the member, click **Contacts**, then click into the contact and use the edit button.
+
+To remove a contact, open the contact detail page and delete it from there.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Add a payment method"
+    href="/members/subscriptions/add-payment-method/"
+    description="Save a card or bank account."
+  />
+  <LinkCard
+    title="Create a subscription"
+    href="/members/subscriptions/create-subscription/"
+    description="Start recurring or fixed-term billing."
+  />
+  <LinkCard
+    title="Send a message to the member"
+    href="/members/messages/send-message-to-member/"
+    description="Send a direct message to a member."
+  />
+  <LinkCard
+    title="Return to contacts overview"
+    href="/members/contacts/"
+    description="See contact and billing options."
+  />
+</CardGrid>

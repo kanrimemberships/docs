@@ -3,6 +3,8 @@ title: View and Manage Leads
 description: How to find, follow up with, and convert leads in Kanri.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 :::note[Professional & Enterprise]
 Lead Management requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
@@ -55,8 +57,25 @@ Once an active membership exists, the profile type changes to **Member** and the
 
 ## Next steps
 
-- [Lead Page](/lead-management/lead-page/) — set up the public sign-up form that creates leads automatically
-- [Add a Member](/members/add-member/) — manually add a new lead profile
-- [Send a Message](/members/messages/send-message-to-member/) — follow up with a lead
-- [Assign a Membership](/members/memberships/assign-membership/) — convert a lead by enrolling them
-
+<CardGrid>
+  <LinkCard
+    title="Lead Page"
+    href="/lead-management/lead-page/"
+    description="set up the public sign-up form that creates leads automatically"
+  />
+  <LinkCard
+    title="Add a Member"
+    href="/members/add-member/"
+    description="manually add a new lead profile"
+  />
+  <LinkCard
+    title="Send a Message"
+    href="/members/messages/send-message-to-member/"
+    description="follow up with a lead"
+  />
+  <LinkCard
+    title="Assign a Membership"
+    href="/members/memberships/assign-membership/"
+    description="convert a lead by enrolling them"
+  />
+</CardGrid>

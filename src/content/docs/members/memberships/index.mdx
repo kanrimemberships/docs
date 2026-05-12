@@ -3,12 +3,71 @@ title: Memberships
 description: A reference for what memberships are — enrolment records linking a member to a program.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- What a membership is (an enrolment record — this member is in this program, at this level, with this status)
-- The difference between a membership and a subscription (critical — enrolment vs billing)
-- Membership status: what Active/Inactive/custom statuses mean
-- The membership timeline: start date, end date, status history
-- What a level on a membership means (current belt/grade)
-- Membership history: past memberships are kept for reporting even after they end
-- One member can have multiple memberships (in different programs simultaneously)
+A [membership](/reference/glossary/) is the member's enrolment record.
+
+It answers the question: **Which program is this member enrolled in?**
+
+This is different from a [subscription](/members/subscriptions/), which answers: **How and when does this member pay?**
+
+## Understand what a membership includes
+
+A membership can store:
+
+- the [program](/programs/) the member is enrolled in
+- their current level, if your school uses [Levels](/programs/levels/)
+- their membership status
+- sessions remaining, if you track classes in blocks
+- the last promotion date, if your school uses levels
+
+## Know how statuses work
+
+Membership statuses are set by your school. They are not fixed across all schools.
+
+Each status has:
+
+- a name, such as `Active`, `On Hold`, or `Withdrawn`
+- an active or inactive setting, which controls how Kanri treats that membership
+
+## Important rules
+
+- A member can only have **one membership per program** at a time.
+- Ending a membership means changing it to an **inactive** status.
+- Memberships and subscriptions are independent. A member can have one without the other.
+
+:::note
+Use the [Only Memberships report](/reports/memberships/only-memberships/) and [Only Subscriptions report](/reports/memberships/only-subscriptions/) to find mismatches between enrolment and billing.
+:::
+
+## Common tasks
+
+1. [Assign a membership](/members/memberships/assign-membership/).
+2. [Change a membership status](/members/memberships/change-status/).
+3. [Promote a level](/members/memberships/promote-level/).
+4. [End a membership](/members/memberships/end-membership/).
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Assign a membership"
+    href="/members/memberships/assign-membership/"
+    description="Enrol the member in a program."
+  />
+  <LinkCard
+    title="Change status"
+    href="/members/memberships/change-status/"
+    description="Update a membership's current status."
+  />
+  <LinkCard
+    title="Promote level"
+    href="/members/memberships/promote-level/"
+    description="Move a member to the next level."
+  />
+  <LinkCard
+    title="Compare with subscriptions"
+    href="/members/subscriptions/"
+    description="Manage billing records for this member."
+  />
+</CardGrid>
