@@ -14,7 +14,6 @@ export default defineConfig({
       title: "Kanri",
       logo: { src: "./src/assets/logo.svg" },
       components: {
-        Banner: "./src/components/Banner.astro",
         Hero: "./src/components/Hero.astro",
       },
       sidebar: [
@@ -26,6 +25,14 @@ export default defineConfig({
               label: "How It All Fits Together",
               slug: "how-it-all-fits-together",
             },
+          ],
+        },
+        {
+          label: "What's New",
+          collapsed: true,
+          items: [
+            { label: "All Releases", slug: "whats-new" },
+            { label: "Spring 2026", slug: "whats-new/spring-2026" },
           ],
         },
         {
@@ -87,10 +94,6 @@ export default defineConfig({
                 {
                   label: "Add a Contact",
                   slug: "members/contacts/add-contact",
-                },
-                {
-                  label: "Set Billing Contact",
-                  slug: "members/contacts/set-billing-contact",
                 },
               ],
             },

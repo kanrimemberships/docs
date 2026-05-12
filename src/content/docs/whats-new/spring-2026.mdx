@@ -1,0 +1,281 @@
+---
+title: Spring 2026
+description: Bookings, calendar, products, terminal payments, a rebuilt billing system, documents, a redesigned schedule editor, level editor, Kanri Domains, and much more.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+**Released Spring 2026**
+
+Spring 2026 is the largest Kanri release to date. It introduces a full bookings system, an integrated calendar, a product catalog and point-of-sale, Stripe Terminal card payments, a redesigned billing system with new subscription types and a proper invoice layer, document management and e-signatures, a redesigned schedule editor, a new level editor, a rebuilt kiosk, booking analytics, school subdomains and custom domains, API access, and a school-wide photo and file gallery. There are also dozens of smaller improvements across the lead page, member management, billing, and settings.
+
+---
+
+## Bookings
+
+Kanri now has a full class bookings system. Members (and the staff who manage their accounts) can reserve spots in sessions before they arrive.
+
+Session capacity is set when you configure your schedule. Each session template can have a total number of spots for members, plus a separate pool of trial spots. You can also allow trial spots to draw from the main pool, or keep them completely separate.
+
+Staff can book any member into any session from the member's profile or from the schedule's session view. From the session view you see everyone who has booked and can mark individual bookings as attended or no-show directly.
+
+Members can book themselves into any upcoming session from their member portal. The booking window and same-day booking rules are configurable in Booking Settings (see below).
+
+Lead page bookings let prospective members pick a trial session when they submit the lead form. Booking-enabled sessions appear automatically. The trial booking window is configured separately from the member window.
+
+Every confirmed booking includes a link that lets the member (or lead) cancel or view their booking from any device, without needing to log in.
+
+:::note[Professional & Enterprise]
+Bookings require a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+:::
+
+### Booking Settings
+
+A new Booking Settings page is available under Settings. You can now configure:
+
+- **Member booking window:** How many days ahead members can book (1–60 days).
+- **Trial booking window:** How far in advance trial members can book.
+- **Allow same-day member bookings:** Whether members can book sessions starting today.
+- **Allow same-day trial bookings:** Whether trial members can book sessions starting today.
+
+### Booking Analytics
+
+A new Booking Analytics report is now available under Reports. It shows booking totals broken down by status (confirmed, attended, no-show, cancelled, trial) across a configurable time range. Group by day, week, or month, drill into a specific month for a day-by-day view, and see breakdowns by class and by program. Useful for spotting which sessions are filling up and which are consistently underattended.
+
+---
+
+## Calendar
+
+A unified calendar is now available at **Calendar** in the sidebar. It gives everyone on your team (and optionally your members) a single view of what's happening at your school.
+
+Schedule sessions appear automatically. Staff see all sessions; members see only the sessions for their enrolled programs.
+
+You can also create custom events: workshops, gradings, team events, or anything else that doesn't fit the regular schedule. Events have a title, start and end time, and an optional all-day toggle.
+
+Closed days are date ranges when your school is not running. Mark a single day or a multi-day block and they appear prominently on the calendar so staff and members know in advance.
+
+- **Multiple calendars:** Create separate calendars (for example, one for competitions and one for school events) and control who can see or edit each one.
+- **Member calendar:** Members who are logged in can view the calendar and see sessions for their enrolled programs, along with any custom events and closed days.
+
+---
+
+## Redesigned Schedule Editor
+
+The schedule editor has been significantly redesigned. The week-view timetable now shows all sessions laid out on a grid, with each session block displaying the class, variant (if any), and times at a glance. Click any session to edit it inline, or click an empty slot to add a new one.
+
+When adding a session you configure the program, class, optional variant, days, start and end time, location, and booking capacity in one place. Booking capacity (member spots, trial spots, and whether trial spots draw from the same pool) is set directly on each session template.
+
+Sync updates all future generated sessions to match your current template. Changes to a session template don't affect already-generated sessions until you sync.
+
+---
+
+## Level Editor
+
+The level management page has been redesigned. Instead of a flat list, levels are now displayed in an interactive editor where you can reorder them using move buttons, edit any level inline, and add or delete levels from the same view.
+
+The editor uses the custom name your school has chosen for "level" (for example, "Belt" or "Grade") throughout.
+
+Level fields across memberships and classes now show levels in their proper defined order rather than through a freeform search selector, making promotion and assignment more intuitive.
+
+A related improvement in this release:
+
+- **Class view:** The class detail page now shows booking spot counts, trial spot counts, min/max level, and variant information at a glance.
+
+---
+
+## Documents & E-Signatures
+
+Kanri now has a full document management system. Create document templates, collect e-signatures from members, and store signed documents against member profiles.
+
+Templates are built using a rich text editor that supports variable substitutions for names, dates, and other member details. A PDF upload is also available as an alternative starting point. Once the content is set, signature fields, initials, text inputs, and checkboxes are placed on the document using a visual overlay editor. Each field is assigned to a signer role so Kanri knows who needs to fill it in.
+
+Signing happens via a secure link sent to the member's email. For junior members, Kanri automatically routes the document to a parent or guardian contact if an adult signature is required. Staff can also add a witness signature to a document when needed.
+
+- **Auto-send:** Attach a document template to a billing plan. When a member subscribes to that plan, Kanri automatically sends the document for signing.
+- **Lead page waivers:** Waivers can be collected as part of the public lead page flow. Prospects fill out the form, book a trial, and sign your waiver all in one visit.
+- **Document certificates:** A completion certificate is appended to the end of the signed document and emailed to the member automatically.
+
+:::note[Professional & Enterprise]
+Documents require a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+:::
+
+---
+
+## Products
+
+Kanri now has a product catalog and point-of-sale. Sell uniforms, gear, merchandise, or anything else your school offers, directly from Kanri.
+
+Products have one or more variants (the actual sellable items). A simple product like a t-shirt might have one variant; a gi might have several sizes and colours, each independently priced and tracked.
+
+When you sell a product through the POS, an invoice is created automatically. You can mix product line items with ad-hoc charges on the same invoice. Sales can be tied to a specific member or left anonymous for walk-in customers.
+
+- **Inventory tracking:** Optional per product. When enabled, Kanri tracks stock levels and records every sale and restock. Low-stock thresholds trigger a warning badge in the product list.
+- **Fulfillment:** Track whether items have been handed over after payment. Mark individual line items as fulfilled when the physical handover happens.
+- **Returns:** Record returns against paid invoices, including which items and quantities were returned.
+- **Purchase orders:** Create restock orders against your suppliers and track what has been received.
+- **Categories:** Organise products into categories like Uniforms, Gear, and Merchandise.
+
+---
+
+## Terminal Payments
+
+Kanri now integrates with Stripe Terminal for in-person card payments. Connect an internet-connected card reader (such as the Stripe Reader S700 or BBPOS WisePOS E) to your school and accept tap, insert, and swipe payments at the counter.
+
+Once a reader is set up in Settings, staff can use it in two ways:
+
+- **Pay on reader:** Any open invoice (whether from a subscription or a product sale) can be presented directly to a reader. The customer taps their card and the invoice is marked paid automatically.
+- **Point of sale:** Open the Terminal screen, add products or ad-hoc items to a new order, and charge the customer on the reader in one flow.
+
+You can register multiple readers per school and set a default. If only one reader is active, it is pre-selected automatically.
+
+---
+
+## Billing
+
+Kanri's billing system has been significantly expanded with new subscription types, a proper invoice layer, and new tools for managing one-off charges, refunds, and cash payments.
+
+### New Subscription Types
+
+Two new ways to bill members are now available when setting up billing plan prices:
+
+- **Session Block (Punch Card):** The member purchases a block of sessions for a fixed price. Sessions are deducted from the block as attendance is recorded. You can configure the block to reload automatically when sessions hit zero, when they fall below a threshold you set, or leave reloading as a manual action for staff.
+- **Pay Per Session:** The member is charged based on how many sessions they attend. Two modes are available: charge immediately after each session, or accumulate sessions over a billing cycle and charge in one batch at the end of the period.
+
+### Invoices
+
+Every payment in Kanri is now tracked through a proper invoice. Invoices have a clear lifecycle:
+
+| Status   | What it means                                                          |
+| -------- | ---------------------------------------------------------------------- |
+| Draft    | Being assembled by staff. Line items can be freely added or removed.   |
+| Open     | Finalized. Items are locked; the invoice is ready to collect or retry. |
+| Paid     | Payment collected in full.                                             |
+| Void     | Cancelled without payment.                                             |
+| Refunded | Fully refunded after being paid.                                       |
+
+Subscription payments continue to generate invoices automatically. Staff can also create draft invoices manually for one-off charges with custom line items. When you open a draft invoice, you choose the payment mode: card on file, terminal, a checkout link sent to the member, or cash.
+
+Partial payments are supported. Multiple payments can be applied to the same invoice (including a mix of cash and card), and the invoice stays open until the balance is settled in full.
+
+Each invoice has a short human-readable reference (for example, `K3XM-9ZPQ`) and a printable version you can share with the member.
+
+### Refunds
+
+Staff can issue full or partial refunds against any paid invoice. A partial refund requires a reason. Full refunds move the invoice to a refunded status. Partial refunds leave the invoice paid with the outstanding refund balance shown on the invoice detail.
+
+### Cash Payments
+
+Subscriptions can now be set to cash as the payment method. Kanri creates invoices as normal but skips automatic charging. Staff record cash payments manually by visiting the invoice and entering the amount received.
+
+### Retry Policy
+
+Failed payment retries now follow a configurable backoff schedule. By default, a failed payment is retried after 1 day, then 3 days, then 7 days (four total attempts). Schools can adjust the number of attempts and the backoff intervals in Settings.
+
+---
+
+## Kiosk
+
+The Kanri kiosk has been completely rewritten. The new kiosk is faster, more reliable, and significantly more capable.
+
+Student photos now appear on the kiosk during sign-in, making it easy for instructors to visually confirm who is checking in.
+
+Trial sign-in is now supported. Members who have a trial booking but no active membership can sign in from the kiosk, as long as the "Allow trial members to sign in" behavior is enabled.
+
+- **Level promotions at the kiosk:** When a member signs in and meets their promotion requirements, a prompt can appear in the attendance view letting staff promote them on the spot. You control whether this prompt appears and whether members who don't yet meet requirements can still be promoted manually.
+- **Photo updates from the attendance view:** Staff can update a member's photo from the kiosk's attendance panel without leaving the kiosk session.
+
+All these capabilities are toggled per-school in [Behaviors settings](/settings/behaviors/kiosk-behaviors/).
+
+<CardGrid>
+  <LinkCard
+    title="Kiosk Overview"
+    href="/kiosk/"
+    description="How the Kanri kiosk works."
+  />
+  <LinkCard
+    title="Kiosk Behaviors"
+    href="/settings/behaviors/kiosk-behaviors/"
+    description="Configure trial sign-in, promotions, and more."
+  />
+</CardGrid>
+
+---
+
+## Gallery
+
+Every school and member profile now has a photo and file gallery. Upload images, videos, PDFs, and other files, organise them into nested folders, and control visibility per item.
+
+Items marked as public are visible to the member in their portal. Private items are staff-only. Folders have their own public/private toggle. A public item in a private folder cannot be made visible to the member.
+
+Thumbnail previews are generated automatically for images and videos.
+
+<CardGrid>
+  <LinkCard
+    title="Member Gallery"
+    href="/members/gallery/"
+    description="Manage photos and files for an individual member."
+  />
+</CardGrid>
+
+---
+
+## Kanri Domains
+
+Every school on any plan now gets a free subdomain under `kanrischool.com`:
+
+```
+yourschool.kanrischool.com
+```
+
+This subdomain is your school's branded home in Kanri. It works for your management dashboard, your lead page, and your default email sending address. You can set or change your subdomain at any time from **Settings → Branding**.
+
+Schools on Professional and Enterprise get access to **Settings → Domains**, which opens up several additional options:
+
+- **Connect your own domain:** Point a domain you already own (such as `manage.bjjschool.com`) to your Kanri dashboard. After adding the domain, Kanri shows you the DNS records to add at your registrar. Once verified, your custom domain goes live alongside your subdomain.
+- **Manage DNS:** Delegate your domain's nameservers to Kanri so you can manage DNS records for it directly from Settings.
+- **Register a new domain:** Search for and purchase a new domain through Kanri. After registration, DNS is configured automatically.
+- **Transfer a domain:** Transfer an existing domain registration to Kanri so renewal billing and DNS management all happen in one place.
+- **Custom email domain:** Send emails from your own domain (such as `hello@bjjschool.com`) instead of Kanri's default sending address.
+
+The **Usage Credits** page (Settings → Billing) now shows your current credit balance broken down by included credits (from your plan) and purchased top-ups. You can buy additional credits and set a minimum balance to top up automatically when credits run low.
+
+The **Billing** page (Settings → Billing) lets school owners view and manage their Kanri plan, payment method, and credit balance directly from Kanri.
+
+:::note[Professional & Enterprise]
+Custom domains require a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+:::
+
+---
+
+## API Access
+
+Kanri now has a REST API. School owners can create API keys from **Settings → API Keys** and use them to integrate external tools with their school's data. Keys are shown once at creation and cannot be retrieved again. They can be revoked at any time from the API Keys list.
+
+:::note[Enterprise]
+API access requires an Enterprise plan. [Compare plans →](/reference/plans/)
+:::
+
+---
+
+## Member Portal
+
+The member portal has been significantly expanded. Members who log in now have access to more of their school activity in one place:
+
+- **Memberships:** Active and past memberships, including progress toward the next level (classes attended and days since last promotion).
+- **Bookings:** Upcoming and past bookings. Managers (contacts with "Can Manage") can also see and manage bookings for the members they look after.
+- **Billing:** Invoices, payment history, and upcoming scheduled payments.
+- **Gallery:** Photos and files that staff have marked as public.
+- **Documents:** Signed documents and any completion certificates.
+- **Calendar:** Sessions for the member's enrolled programs, along with custom events and closed days.
+
+---
+
+## Miscellaneous
+
+- **Member overview cards:** The cards on a member's Overview tab can be reordered per staff account using a drag-and-drop dialog. Cards are also filtered by the permissions and features available to each staff member.
+- **Dashboard redesign:** The main school dashboard has been restyled with an updated layout and card design.
+- **User settings redesign:** The user account settings page has been restyled.
+- **Subscription table:** The price is now shown directly in the subscriptions list on a member's profile.
+- **Payment fields:** The payment interval and interval count fields have been reordered for clarity when creating subscriptions.
+- **Event log:** The event log now captures significantly more field changes across documents, contacts, subscriptions, programs, classes, levels, schedules, memberships, billing plans, and roles.
+- **Referral types removed:** The referral type and referrer fields have been removed from all member forms and reports.
