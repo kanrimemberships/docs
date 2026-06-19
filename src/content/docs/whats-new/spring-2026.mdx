@@ -1,13 +1,13 @@
 ---
 title: Spring 2026
-description: Bookings, calendar, products, terminal payments, a rebuilt billing system, documents, a redesigned schedule editor, level editor, Kanri Domains, and much more.
+description: Bookings, calendar, products, terminal payments, a rebuilt billing system, documents, a redesigned schedule editor, level editor, and much more.
 ---
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
 **Released Spring 2026**
 
-Spring 2026 is the largest Kanri release to date. It introduces a full bookings system, an integrated calendar, a product catalog and point-of-sale, Stripe Terminal card payments, a redesigned billing system with new subscription types and a proper invoice layer, document management and e-signatures, a redesigned schedule editor, a new level editor, a rebuilt kiosk, booking analytics, school subdomains and custom domains, API access, and a school-wide photo and file gallery. There are also dozens of smaller improvements across the lead page, member management, billing, and settings.
+Spring 2026 is the largest Kanri release to date. It introduces a full bookings system, an integrated calendar, a product catalog and point-of-sale, Stripe Terminal card payments, a redesigned billing system with new subscription types and a proper invoice layer, document management and e-signatures, a redesigned schedule editor, a new level editor, a rebuilt kiosk, booking analytics, API access, and a school-wide photo and file gallery. There are also dozens of smaller improvements across the lead page, member management, billing, and settings.
 
 ---
 
@@ -216,34 +216,6 @@ Thumbnail previews are generated automatically for images and videos.
     description="Manage photos and files for an individual member."
   />
 </CardGrid>
-
----
-
-## Kanri Domains
-
-Every school on any plan now gets a free subdomain under `kanrischool.com`:
-
-```
-yourschool.kanrischool.com
-```
-
-This subdomain is your school's branded home in Kanri. It works for your management dashboard, your lead page, and your default email sending address. You can set or change your subdomain at any time from **Settings → Branding**.
-
-Schools on Professional and Enterprise get access to **Settings → Domains**, which opens up several additional options:
-
-- **Connect your own domain:** Point a domain you already own (such as `manage.bjjschool.com`) to your Kanri dashboard. After adding the domain, Kanri shows you the DNS records to add at your registrar. Once verified, your custom domain goes live alongside your subdomain.
-- **Manage DNS:** Delegate your domain's nameservers to Kanri so you can manage DNS records for it directly from Settings.
-- **Register a new domain:** Search for and purchase a new domain through Kanri. After registration, DNS is configured automatically.
-- **Transfer a domain:** Transfer an existing domain registration to Kanri so renewal billing and DNS management all happen in one place.
-- **Custom email domain:** Send emails from your own domain (such as `hello@bjjschool.com`) instead of Kanri's default sending address.
-
-The **Usage Credits** page (Settings → Billing) now shows your current credit balance broken down by included credits (from your plan) and purchased top-ups. You can buy additional credits and set a minimum balance to top up automatically when credits run low.
-
-The **Billing** page (Settings → Billing) lets school owners view and manage their Kanri plan, payment method, and credit balance directly from Kanri.
-
-:::note[Professional & Enterprise]
-Custom domains require a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
 
 ---
 
