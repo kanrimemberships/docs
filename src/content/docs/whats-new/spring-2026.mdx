@@ -171,6 +171,10 @@ Subscriptions can now be set to cash as the payment method. Kanri creates invoic
 
 Failed payment retries now follow a configurable backoff schedule. By default, a failed payment is retried after 1 day, then 3 days, then 7 days (four total attempts). Schools can adjust the number of attempts and the backoff intervals in Settings.
 
+### Auto-Archive Expired Subscriptions
+
+When a subscription expires and the member already has another active subscription, Kanri can now automatically archive the expired one. This keeps member profiles clean without requiring manual cleanup after plan changes or upgrades. Enable this in [Behaviors → Subscription Behaviors](/settings/behaviors/subscription-behaviors/).
+
 ---
 
 ## Kiosk
@@ -183,6 +187,18 @@ Trial sign-in is now supported. Members who have a trial booking but no active m
 
 - **Level promotions at the kiosk:** When a member signs in and meets their promotion requirements, a prompt can appear in the attendance view letting staff promote them on the spot. You control whether this prompt appears and whether members who don't yet meet requirements can still be promoted manually.
 - **Photo updates from the attendance view:** Staff can update a member's photo from the kiosk's attendance panel without leaving the kiosk session.
+
+### Kiosk Messages
+
+Schools can now create custom messages that display when members sign in. Messages can be set globally (shown to all members) or scoped to a specific program (shown only to members of that program). When creating a message, you choose how it appears: as a banner at the top of the sign-in confirmation page, or as a full acknowledgement screen the student must dismiss before the confirmation appears. Configure messages at **Settings → Kiosk Messages**.
+
+### Kiosk Holds
+
+Staff can now place a kiosk hold on any member's profile. When a hold is active, the member sees a custom message at the kiosk and cannot sign in. Holds are useful for outstanding balances, medical clearances, or any situation where you need to flag a member before they step onto the floor. Set a hold from the member's profile.
+
+### Birthday Sign-Ins
+
+When a member signs in on their birthday, the kiosk now shows a happy birthday message with a confetti animation. You can also upload a short video in [Behaviors settings](/settings/behaviors/kiosk-behaviors/) that plays for the member during their birthday sign-in. Turn this feature on in **Behaviors → Kiosk**.
 
 All these capabilities are toggled per-school in [Behaviors settings](/settings/behaviors/kiosk-behaviors/).
 
@@ -201,6 +217,14 @@ All these capabilities are toggled per-school in [Behaviors settings](/settings/
 
 ---
 
+## Member Profile Pictures
+
+Staff can now upload a profile picture for any member from the member's profile. Profile pictures appear throughout Kanri: in the member list, on the member overview, and on the kiosk during sign-in.
+
+To keep photos up to date without a separate upload step, enable kiosk photo capture in **Behaviors → Kiosk**. When this is turned on, staff can take a photo directly from the kiosk's attendance view and it is saved as the member's profile picture on the spot.
+
+---
+
 ## Gallery
 
 Every school and member profile now has a photo and file gallery. Upload images, videos, PDFs, and other files, organise them into nested folders, and control visibility per item.
@@ -216,6 +240,27 @@ Thumbnail previews are generated automatically for images and videos.
     description="Manage photos and files for an individual member."
   />
 </CardGrid>
+
+---
+
+## Custom Domains
+
+Every school now gets a free branded subdomain under `kanrischool.com`. Kanri assigns a slug based on your school name when your account is created. Your dashboard, lead page, and member portal are all accessible at `yourschool.kanrischool.com` on any plan, with no setup required. You can change your slug at any time from **Settings → General**.
+
+Schools on Professional or Enterprise can go further and connect a domain they already own. Once connected, you can activate it for two purposes:
+
+- **Dashboard access:** Give your team a branded URL to reach the Kanri dashboard (for example, `manage.bjjschool.com`). Multiple domains can be active at the same time.
+- **Custom email sender:** Send Kanri messages, member notifications, and invoices from your own address (such as `info@bjjschool.com`) instead of Kanri's default address.
+
+### DNS management
+
+You can delegate your domain's nameservers to Cloudflare and let Kanri manage your DNS zone entirely. Every purpose you activate then configures itself automatically: CNAME records for your branded dashboard, DKIM and SPF records for email delivery, all created with no manual steps. You also get a full DNS editor inside Kanri settings where you can add, edit, and delete any of your domain's records directly.
+
+Set up and manage your domains at **Settings → Domains**.
+
+:::note[Professional & Enterprise]
+Connecting a custom domain requires a Professional or Enterprise plan. The free `yourschool.kanrischool.com` subdomain is available on all plans. [Compare plans →](/reference/plans/)
+:::
 
 ---
 
