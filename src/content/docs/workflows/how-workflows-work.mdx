@@ -1,0 +1,112 @@
+---
+title: How Workflows Work
+description: Understand triggers, steps, versions, runs, and the draft-publish lifecycle before you start building.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+Before you build your first workflow, it helps to understand how Kanri thinks about them. This page explains the key concepts.
+
+---
+
+## Triggers, steps, and runs
+
+A **workflow** is a saved automation made up of two parts: a **trigger** and a **sequence of steps**.
+
+The **trigger** is what causes the workflow to start. When the trigger fires, Kanri creates a **run** — a single execution of that workflow.
+
+The **steps** are what happen during the run. Steps execute in order. Each step does something (sends a message, waits, checks a condition) and then hands off to the next step.
+
+One workflow can produce many runs over time. For example, a "welcome message" workflow triggers every time a new member is created — each new member gets their own run.
+
+---
+
+## The record type
+
+Every workflow is scoped to a **record type** — the kind of record the workflow is about. You choose this when you create the workflow, and it stays fixed forever.
+
+The record type matters because it determines:
+- What fields you can filter on in your trigger
+- What "this record" refers to inside your steps (so an action step on a Member workflow targets the member that triggered the run)
+
+Available record types include: **Member**, **Membership**, **Invoice**, **Booking**, **Subscription**, **Program**, **Level**, and others.
+
+:::tip
+The record type limits what the *trigger* watches — but your steps aren't limited to that record type. For example, a Member workflow can still create an invoice, send a message, or create a booking for that member.
+:::
+
+---
+
+## Versions and the draft-publish lifecycle
+
+Workflows are **versioned**. Here's how it works:
+
+1. When you create a new workflow (or edit an existing one), your changes go into a **draft version**. The draft is saved as you work, but it is not live yet.
+2. When you're ready to go live, you click **Publish**. This freezes the draft into a permanent, numbered version and immediately makes it the active, enabled version.
+3. From that point on, any trigger firing uses the published version. If you need to make changes, you edit the workflow again — a new draft is created, and the live version keeps running unchanged until you publish again.
+
+This design means an edit you're working on can't accidentally affect runs that are already in progress. A member who's mid-way through a multi-day workflow sequence stays on the version that was live when their run started, even if you publish a new version tomorrow.
+
+**Key states a workflow can be in:**
+
+| State | What it means |
+|---|---|
+| Draft only | Created but never published. Trigger never fires. |
+| Published, enabled | Live. Trigger fires. New runs are created when triggered. |
+| Published, disabled | Live version exists, but trigger is paused. No new runs start. |
+| Published + new draft | A live version is running, and you're working on the next version. |
+
+---
+
+## How a run works
+
+When a trigger fires for a record (say, a new member is added):
+
+1. Kanri creates a **run** for that member and pins it to the current published version.
+2. The run starts at the first step.
+3. Each step executes and passes control to the next.
+4. Some steps can pause the run temporarily (a **Delay** step waits before continuing).
+5. The run finishes when it reaches a step with no "next" step defined.
+
+Each run tracks its own state independently. If you have 50 members in different stages of the same workflow, each one is its own run at its own step.
+
+**Run statuses:**
+
+| Status | What it means |
+|---|---|
+| Running | The run is actively executing steps |
+| Waiting | The run is paused (inside a Delay step) |
+| Done | The run completed successfully |
+| Failed | A step encountered an error |
+| Cancelled | The run was cancelled — often because a condition check found the original trigger no longer applies |
+
+---
+
+## Trigger re-checking
+
+Many triggers are condition-based — they fire when something becomes true (for example, "member's subscription is expiring"). Once the trigger fires and the run starts, Kanri can optionally re-check that condition again later.
+
+By default, **Delay steps re-check the trigger condition** when the delay finishes. If the condition is no longer true (the member renewed their subscription while the delay was counting down), the run is cancelled rather than sending a stale reminder. This protects against sending irrelevant messages.
+
+You can turn off re-checking for a specific delay step when it makes sense to do so — for example, a welcome message sent 3 days after signup should still send even though the "just signed up" condition isn't true anymore.
+
+---
+
+## Running a workflow manually
+
+You can also trigger a workflow manually, in two ways:
+
+1. **From the Workflows page** — open a published, enabled workflow and use the Run button to start it against a specific record.
+2. **From lists and reports** — any published, enabled workflow appears as an option in the action menu on a member row, invoice row, etc. Staff with the right permissions can click it to start the workflow for that record without needing access to the Workflows admin area.
+
+See [Run a Workflow Manually](/workflows/run-manually/) for details.
+
+---
+
+## Next steps
+
+- [Create Your First Workflow](/workflows/create-your-first-workflow/) — a hands-on tutorial
+- [Triggers](/workflows/triggers/) — all the ways a workflow can start
+- [Steps](/workflows/steps/) — what a workflow can do

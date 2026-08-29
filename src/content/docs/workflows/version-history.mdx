@@ -1,0 +1,65 @@
+---
+title: Version History
+description: How workflow versioning works, how to view past published versions, and what happens to in-progress runs when you publish a new version.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+Every time you [publish](/workflows/publish-and-enable/) a workflow, Kanri creates a numbered, permanent **version** (v1, v2, v3, etc.). Version history lets you see exactly what each version contained, when it was published, and which runs used it.
+
+---
+
+## Viewing the version list
+
+1. Open any workflow in the editor.
+2. Click **Versions** in the toolbar.
+3. A list of all published versions appears, newest first.
+
+Each entry shows:
+- The version number (v1, v2, v3…)
+- When it was published
+- Whether it's the current active version
+
+---
+
+## Viewing a specific version
+
+Click any version in the list to open it. The workflow canvas opens in **read-only mode**, showing exactly what trigger and steps that version contained.
+
+This is useful for:
+- Auditing what the workflow was doing at a specific point in time.
+- Understanding why a run behaved a certain way (by checking which version it ran on).
+- Comparing the current setup to a previous configuration.
+
+You cannot edit a past version. If you want to revert to an old configuration, you'd need to recreate those settings in a new draft and publish it.
+
+---
+
+## How versioning protects in-progress runs
+
+When you publish a new version of a workflow, **in-progress runs are not affected**. Each run is pinned to the version that was active when the run started.
+
+**Example:** A member is in the middle of a 3-day delay step in v2 of your "Renewal Reminder" workflow. You make changes and publish v3. The member's run stays on v2 — it finishes with the v2 logic. New runs created after the publish use v3.
+
+This means you can safely update a workflow at any time without disrupting members who are mid-run.
+
+---
+
+## The current draft
+
+If you're currently editing a workflow, you'll see a **Draft** badge in the version list. The draft is not a published version — it's a work in progress. It won't appear in run history until it's published.
+
+---
+
+## Tracking which version ran
+
+In [Run History](/workflows/run-history/), every run shows which version number it used. This makes it easy to understand any run's behavior — you can click through to view that exact version on the canvas.
+
+---
+
+## Next steps
+
+- [Run History](/workflows/run-history/) — monitor executions and see which version each run used
+- [Publish and Enable](/workflows/publish-and-enable/) — the full publish lifecycle

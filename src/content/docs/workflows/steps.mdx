@@ -1,0 +1,138 @@
+---
+title: Workflow Steps
+description: Everything a workflow can do — action steps, delay steps, branch steps, read steps, and for each steps.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+Steps are what a workflow does after the trigger fires. Each step runs in order, passing control to the next step when it finishes. A workflow can have as many steps as you need.
+
+There are five step types:
+
+| Step type | What it does |
+|---|---|
+| [Action](#action) | Performs an operation — send a message, create a record, promote a member, etc. |
+| [Delay](#delay) | Pauses the run for a period of time before continuing |
+| [Branch](#branch) | Checks a condition and takes one of two paths |
+| [Read](#read) | Looks up a single record and makes it available to later steps |
+| [For Each](#for-each) | Loops over multiple records and runs a sub-sequence of steps once per record |
+
+---
+
+## Action
+
+An **Action** step performs an operation. You pick the action from a list and fill in the required fields.
+
+**Target** tells Kanri which record to act on:
+
+- **This record** — the record that triggered this workflow (the member, invoice, etc.). This is the most common option.
+- **Create new** — creates a brand-new record (e.g., a new booking, a new invoice). Use this when the action isn't about the triggered record itself, but about something new being created for it.
+- **From previous step** — uses the ID of a record created by an earlier Create step in the same run. For example, if step 2 creates a booking, step 3 can act on that newly created booking.
+
+**Referencing data in fields:**
+When filling in an action's fields, you can pull in values from the triggered record or from an earlier step's output. Click the **[$]** button next to a field to open the data reference picker — it shows all available fields from the triggered record and any previous step outputs you can insert.
+
+**Continue on error:**
+By default, if an action step fails (for example, the member has no email address and the action tries to send an email), the whole run fails. Turn on **Continue on error** to let the run skip that step and continue to the next one instead.
+
+**Available actions:**
+See [Available Actions Reference](/workflows/reference/available-actions/) for the complete list.
+
+---
+
+## Delay
+
+A **Delay** step pauses the run before continuing to the next step.
+
+**Duration options:**
+
+- **Fixed time** — wait a set number of minutes, hours, or days.
+- **Until a date field** — wait until a specific date on the triggered record (for example, wait until the member's contract end date before sending a final notice).
+
+**Execution window (optional):**
+After the delay elapses, you can restrict *when* the run resumes. For example, "only continue on weekdays between 9am and 5pm." This prevents messages from going out in the middle of the night if a delay happens to end at 3am.
+
+**Re-check trigger condition:**
+This option only applies to workflows triggered by **Condition Becomes True** or **Condition Stops Being True**. When the delay finishes, Kanri re-evaluates whether the original condition is still true. If not, the run is cancelled instead of continuing.
+
+This is usually the right behavior — for example, a "your subscription is expiring" reminder shouldn't fire if the member already renewed during the delay.
+
+Turn this off for steps where the condition being "no longer true" is expected and the step should still run. For example:
+- A welcome message 3 days after signup: the "just signed up" condition isn't true anymore, but you still want to send the message.
+
+:::tip
+If you have a long delay (several days) inside a condition-triggered workflow, re-checking is your safety net against sending stale messages.
+:::
+
+---
+
+## Branch
+
+A **Branch** step evaluates a condition and sends the run down one of two paths — "if true" or "if false."
+
+You build the condition using the same filter builder used in [reports](/reports/) and [groups](/groups/).
+
+**Example uses:**
+- After a delay, check if a member's membership is still inactive. If inactive, send a follow-up message. If active again, end the run.
+- Check if a member has an email address on file. If yes, send an email. If no, send an SMS.
+- After creating an invoice, check if the invoice amount is over $500. If yes, add a note. If no, continue normally.
+
+**Either path can have more steps**, including more branches. You can build fairly complex decision trees this way.
+
+**Branching on data from other records:**
+By default, a branch filters against the record that triggered the workflow. To branch on data from a different record type, add a [Read](#read) step first to fetch that data — the Read step's output is then available in the branch condition.
+
+---
+
+## Read
+
+A **Read** step looks up a single record (or an aggregated value) and makes it available to later steps.
+
+This is useful when you need information that isn't on the triggered record itself. For example, a member workflow might need to read the member's most recent invoice to decide what to do next.
+
+You choose the record type, define a filter to find the right record, and pick the fields you want. Later steps can reference that data using the **[$]** button.
+
+If no record matches the filter, the result is empty — later steps that reference it will get a blank value rather than causing an error.
+
+**Example uses:**
+- In a member workflow, read the member's most recent invoice to get the amount due.
+- In a membership workflow, read the related program to include the program name in a message.
+
+---
+
+## For Each
+
+A **For Each** step matches multiple records and runs a sub-sequence of steps once per matched record. The parent run waits for all iterations to complete before continuing.
+
+This is useful when you want the same action to happen for every item in a set. For example:
+
+- In a school-level workflow, send a message to every active member in a specific program.
+- In a member workflow, loop over every open invoice and send a separate reminder for each one.
+
+You set a **limit** (the maximum number of records to process per run) and define the steps that should run for each matched record. Inside the loop, "this record" refers to the current iteration's record — use the **[$]** button to access it.
+
+:::note
+You can nest a For Each inside another For Each (up to two levels deep), but keep limits reasonable — a For Each with a limit of 100 inside another with a limit of 50 could produce up to 5,000 step executions from a single run.
+:::
+
+---
+
+## Connecting steps
+
+Steps are connected in the workflow editor, which runs left to right. Each step has an outgoing connector on its right side.
+
+- **Action, Delay, Read, and For Each** steps have one outgoing connection.
+- **Branch** steps have two outgoing connections: "if true" and "if false".
+- A step with no outgoing connection is a **terminal step** — the run ends there.
+
+See [Building in the Editor](/workflows/building-in-the-editor/) for how to add, connect, and rearrange steps on the canvas.
+
+---
+
+## Next steps
+
+- [Available Actions Reference](/workflows/reference/available-actions/) — complete list of action step types
+- [Building in the Editor](/workflows/building-in-the-editor/) — how to use the visual canvas
+- [Create Your First Workflow](/workflows/create-your-first-workflow/) — guided tutorial

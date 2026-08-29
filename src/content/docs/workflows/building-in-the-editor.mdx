@@ -1,0 +1,140 @@
+---
+title: Building in the Editor
+description: How to use the Kanri workflow visual editor — adding steps, connecting them, configuring triggers, and saving your work.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+The **workflow editor** is the visual canvas where you design your workflow. This page explains how to use it.
+
+---
+
+## Opening the editor
+
+1. Go to **Workflows** in the left sidebar.
+2. Click an existing workflow to open it, or click **New Workflow** to start from scratch.
+
+When creating a new workflow, you'll first enter a **name** and choose a **record type**. Once you confirm, the editor opens with a blank canvas.
+
+---
+
+## The canvas
+
+The canvas is a visual space where your workflow's trigger and steps appear as **nodes** connected by **arrows**. The flow runs **left to right** — the trigger is on the left and each subsequent step connects to the right.
+
+At the top of the canvas, you'll always see:
+- **Save Draft** button — saves your current changes without publishing.
+- **Publish** button — makes the current draft live immediately.
+- **Enabled/Disabled** toggle — turns the published workflow on or off.
+- Navigation links to **Runs** and **Versions** history.
+
+---
+
+## Adding a trigger
+
+Every workflow needs a trigger. Click the **Trigger** node on the canvas to configure it.
+
+A panel opens where you choose the trigger type and fill in the details:
+
+- **Manual** — no settings needed.
+- **Action Event Occurs** — choose the event type from a searchable list.
+- **Condition Becomes True / Stops Being True** — build a filter using the filter builder.
+- **Scheduled Time Field Due** — choose a date field and enter the offset in days.
+- **Recurring Schedule** — choose a preset (daily, weekly, monthly) or enter a cron expression, and optionally add a filter for fan-out.
+
+See [Triggers](/workflows/triggers/) for a full explanation of each type.
+
+---
+
+## Adding steps
+
+To add a step after an existing node, click the **+** button on the right side of that node. Choose the step type from the menu: **Action**, **Delay**, **Branch**, or **Read**.
+
+To **insert a step between two connected nodes**, drag the new step node onto the **+** button that appears in the middle of the arrow connecting them. The step is inserted and the connections are updated automatically.
+
+---
+
+## Configuring a step
+
+Click any step node to open its settings panel. The settings available depend on the step type:
+
+**Action step:**
+- Choose the **action** from a searchable list (e.g., "Send message", "Promote to next level").
+- Choose the **target** (This record, Create new, or From previous step).
+- Fill in the action's required and optional fields.
+- Use the **[$]** button next to any field to reference data from the triggered record or from a previous step's output.
+- Optionally enable **Continue on error** to skip this step if it fails.
+
+**Delay step:**
+- Choose **Fixed time** or **Until date field**.
+- For fixed time: enter the number of minutes, hours, or days.
+- Optionally set an **execution window** (only resume on certain days or times).
+- For condition-triggered workflows: optionally turn off **Re-check trigger condition**.
+
+**Branch step:**
+- Build the condition using the filter builder.
+- Connect the **if true** output to one step, and the **if false** output to another.
+
+**Read step:**
+- Choose **Fetch** (single record) or **For Each** (loop over multiple records).
+- Choose the record type, build a filter, and select the fields you want.
+
+---
+
+## Connecting steps
+
+Each node has a **+** connector on its right side. Click it to add a next step, or drag a new node onto it.
+
+- **Action, Delay, and Read** steps have one outgoing connection.
+- **Branch** steps have two outgoing connections: "if true" and "if false".
+- A step with no outgoing connection is a **terminal step** — the run ends there.
+
+---
+
+## Deleting a step
+
+Click the step you want to delete and click **Delete** in its settings panel. When you delete a step that sits between two other connected steps, Kanri automatically reconnects the surrounding steps so your flow stays intact.
+
+---
+
+## Saving your work
+
+Use the **Save Draft** button to save your changes. The draft is not live until you publish it — saving just preserves your work in progress.
+
+:::caution
+If you navigate away without saving, unsaved changes will be lost. Save your draft regularly while working.
+:::
+
+---
+
+## Publishing
+
+When your workflow is ready, click **Publish**. Kanri validates the workflow first:
+
+- Every step must be reachable from the trigger (no disconnected orphan steps).
+- Required fields must be filled in.
+- Action targets must match the selected action's expected record type.
+
+If there are errors, they'll appear inline on the affected nodes. Fix them and try publishing again.
+
+Once published, the workflow is immediately live and its trigger starts firing.
+
+---
+
+## Viewing a previous version
+
+To see what an older version of a workflow looked like:
+
+1. Click **Versions** in the editor toolbar.
+2. Select a published version from the list.
+3. The canvas opens in **read-only mode** showing exactly what that version contained.
+
+---
+
+## Next steps
+
+- [Publish and Disable](/workflows/deploy-and-enable/) — the full publish lifecycle
+- [Version History](/workflows/version-history/) — understanding workflow versions
+- [Run History](/workflows/run-history/) — monitoring runs and debugging issues

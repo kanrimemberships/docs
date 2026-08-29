@@ -1,0 +1,100 @@
+---
+title: Run History
+description: How to monitor workflow runs, understand run statuses, and debug problems when a run fails or behaves unexpectedly.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+Every time a workflow's trigger fires, Kanri creates a **run**. The Run History page shows all runs for a workflow — what triggered them, which record they're for, what step they're on, and whether they succeeded.
+
+---
+
+## Viewing run history for a workflow
+
+1. Open any workflow in the editor.
+2. Click **Runs** in the toolbar.
+
+The Runs page shows a list of all runs, most recent first. You can filter by status (Running, Done, Failed, Cancelled, etc.).
+
+Each row shows:
+- The record the run is for (e.g., member name or invoice number), if applicable
+- The run status
+- What triggered the run (event, schedule, or manual)
+- When the run started
+- When it finished (if complete)
+- The workflow version it's using
+
+---
+
+## Run statuses
+
+| Status | What it means |
+|---|---|
+| Running | The run is actively executing, or waiting inside a Delay step |
+| Waiting for children | The run is paused while sub-runs (a For Each loop) complete |
+| Done | The run completed all steps successfully |
+| Failed | A step encountered an error the run couldn't recover from |
+| Cancelled | The run was cancelled — see below |
+
+**When does a run get cancelled?**
+
+A run is cancelled when:
+- A Delay step's **re-check trigger condition** setting is on (condition-triggered workflows only), and when the delay finishes, the original trigger condition is no longer true.
+- You [disable](/workflows/deploy-and-enable/) the workflow — disabling cancels all in-progress runs immediately.
+- The workflow is deleted.
+
+---
+
+## Viewing a run's details
+
+Click any run in the list to open the **run detail view**. This shows:
+
+- The record the run is for
+- The current (or last completed) step
+- A step-by-step trace of everything that happened: which steps ran, what they did, and their results
+- Any error details if a step failed
+- The workflow version number (with a link to view that version in the canvas)
+
+The step trace is particularly useful for debugging — you can see exactly what data each action received and what it returned.
+
+---
+
+## Viewing all runs across all workflows
+
+Go to **Workflows** in the sidebar and click **All Runs** (top right of the Workflows list page). This shows every run across every workflow, not just one.
+
+You can filter by status to quickly find failing runs that need attention.
+
+---
+
+## Debugging a failed run
+
+If a run shows a **Failed** status:
+
+1. Click the run to open its detail view.
+2. Look at the step trace. Find the step marked as failed.
+3. Check the error details — it will usually say what went wrong (for example, "member has no email address", "invalid template ID", or "required field is missing").
+4. Fix the underlying issue (update the member's record, fix the template, or adjust the workflow).
+5. Kanri automatically retries failed runs a few times before marking them as permanently failed. If a run is permanently failed and you want to try again, you can run the workflow manually against the affected record.
+
+**Common failure causes:**
+- A required field (like an email address) is missing on the record.
+- A template referenced in a step was deleted.
+- A record referenced in a step no longer exists.
+- An action's required parameters weren't filled in correctly.
+
+---
+
+## What happens to runs when you publish a new version
+
+Runs that started before a new publish keep running on the version they started with. Publishing a new version only affects *new* runs created after the publish. See [Version History](/workflows/version-history/) for more details.
+
+---
+
+## Next steps
+
+- [Version History](/workflows/version-history/) — view past workflow versions
+- [Run a Workflow Manually](/workflows/run-manually/) — start a run without waiting for the trigger
+- [Publish and Disable](/workflows/deploy-and-enable/) — managing the workflow lifecycle

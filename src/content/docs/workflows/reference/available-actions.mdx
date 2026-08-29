@@ -1,0 +1,106 @@
+---
+title: Available Actions
+description: Reference table of all built-in actions available in workflow Action steps.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+This page lists every built-in action you can use in a workflow [Action step](/workflows/steps/#action). Actions are grouped by the type of record they affect.
+
+**Column definitions:**
+- **Action** — the name shown in the builder
+- **Entity** — the record type the action targets (or creates)
+- **Type** — whether this action *creates* a new record or *mutates* (changes) an existing one
+- **Bulk safe** — whether this action can safely run as part of a bulk or fan-out operation
+
+---
+
+## Member actions
+
+These actions affect [member](/members/) records.
+
+| Action | Entity | Type | Bulk safe | Parameters |
+|---|---|---|---|---|
+| Add member | Member | Create | No | First name, last name, email, phone, birthday, sex, family status, member type |
+| Edit member | Member | Mutate | No | First name, last name, email, phone, birthday, sex, family status, member type, lead status |
+| Send message | Member | Mutate | Yes | Template (required), message type (email or SMS) |
+| Add note | Member | Mutate | Yes | Title (required), note text (required) |
+| Delete member | Member | Mutate | No | — |
+
+:::caution
+**Delete member** is permanent and cannot be undone. Use it with care — typically only in cleanup or data management workflows where deletion is intentional.
+:::
+
+---
+
+## Membership actions
+
+These actions affect [membership](/members/memberships/) records (a member's enrolment in a program).
+
+| Action | Entity | Type | Bulk safe | Parameters |
+|---|---|---|---|---|
+| Create membership | Member | Mutate | No | Program (required), level, status (required), waiver handling, sessions remaining |
+| Edit membership | Membership | Mutate | No | Program, level, status, sessions remaining, last promotion, next promotion override |
+| Promote to next level | Membership | Mutate | Yes | Promotion date |
+
+:::note
+"Create membership" targets a **Member** record (it adds a membership *to* a member), while "Edit membership" and "Promote to next level" target a **Membership** record directly.
+:::
+
+---
+
+## Invoice actions
+
+These actions affect [invoice](/billing/) records.
+
+| Action | Entity | Type | Bulk safe | Parameters |
+|---|---|---|---|---|
+| Create invoice | Invoice | Create | No | Member, due date (required), notes, receipt email |
+| Edit invoice | Invoice | Mutate | Yes | Due date (required), notes, receipt email |
+| Open invoice | Invoice | Mutate | Yes | — |
+| Void invoice | Invoice | Mutate | Yes | — |
+| Send receipt email | Invoice | Mutate | Yes | Email address (required) |
+
+---
+
+## Booking actions
+
+These actions affect [booking](/members/bookings/) records.
+
+| Action | Entity | Type | Bulk safe | Parameters |
+|---|---|---|---|---|
+| Create booking | Booking | Create | No | Member (required), session (required), date (required), trial, notes |
+| Cancel booking | Booking | Mutate | Yes | Cancellation reason |
+| Mark attendance | Booking | Mutate | Yes | Status (Attended or No show — required) |
+
+---
+
+## Member note actions
+
+These actions affect notes on member profiles.
+
+| Action | Entity | Type | Bulk safe | Parameters |
+|---|---|---|---|---|
+| Edit note | Member Note | Mutate | No | Title (required), note text (required) |
+| Delete note | Member Note | Mutate | No | — |
+
+---
+
+## Using references in parameters
+
+When filling in an action's parameters, you can pull values from the triggered record or from earlier steps:
+
+- **`{record.field_name}`** — reads a field from the record that triggered this workflow. For example, `{record.email}` in an invoice action gets the member's email from the run's member record.
+- **`{step.STEP_ID.field_name}`** — reads a field from the output of an earlier step. Useful when a previous Create step produces a new record you want to reference.
+
+These references are evaluated at the time the step runs, using the live values from the record at that moment.
+
+---
+
+## Next steps
+
+- [Steps](/workflows/steps/) — how to use Action steps in your workflow
+- [Trigger Events Reference](/workflows/reference/trigger-events/) — event types for the Action Event Occurs trigger
+- [Create Your First Workflow](/workflows/create-your-first-workflow/) — guided tutorial

@@ -1,0 +1,76 @@
+---
+title: Workflows
+description: Automate repetitive tasks in Kanri — send messages, update records, and take action based on triggers you define.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. Some features may change. [Compare plans →](/reference/plans/)
+:::
+
+A **workflow** is an automation that runs in Kanri automatically, without you having to do anything. You tell it *when* to start and *what to do*, and it handles the rest.
+
+For example:
+- When a new member is added, automatically send them a welcome message.
+- Three days before a member's contract ends, send a renewal reminder.
+- On the first of every month, message all active members about upcoming billing.
+- When a membership becomes inactive, wait a week, then check if they've rejoined — and if not, add a note to their file.
+
+Once a workflow is running, you don't need to remember to do those things. Kanri does them for you.
+
+---
+
+## What a workflow is made of
+
+Every workflow has three parts:
+
+**1. A trigger** — what causes the workflow to start. This could be something that happens (a new member is added), a condition being met (an invoice is overdue), a date-related event (a birthday is approaching), or a set schedule (every Monday morning).
+
+**2. Steps** — what the workflow does after it starts. Steps run in order. You can send a message, update a record, wait a period of time, check a condition, or create a new record.
+
+**3. A version** — workflows are versioned. When you create or edit a workflow, your changes are saved as a **draft**. Nothing happens until you **publish** the draft. Once published, the workflow is live and starts running when its trigger fires.
+
+---
+
+## What workflows can do
+
+A workflow step can:
+
+- **Send a message** to a member (email or SMS)
+- **Add or edit a note** on a member's profile
+- **Create a membership** for a member
+- **Promote a member** to the next level
+- **Create or edit an invoice**
+- **Create or cancel a booking**
+- **Wait** for a fixed time, or until a specific date
+- **Branch** based on a condition — take one path if something is true, another if it's not
+
+See [Available Actions](/workflows/reference/available-actions/) for the complete list.
+
+---
+
+## How to get started
+
+<CardGrid>
+  <LinkCard
+    title="How Workflows Work"
+    description="Understand triggers, steps, versions, and runs before you build."
+    href="/workflows/how-workflows-work/"
+  />
+  <LinkCard
+    title="Create Your First Workflow"
+    description="A step-by-step tutorial: build a welcome message automation."
+    href="/workflows/create-your-first-workflow/"
+  />
+  <LinkCard
+    title="Triggers"
+    description="Learn about all the ways a workflow can start."
+    href="/workflows/triggers/"
+  />
+  <LinkCard
+    title="Steps"
+    description="What a workflow can do — actions, delays, branches, and reads."
+    href="/workflows/steps/"
+  />
+</CardGrid>

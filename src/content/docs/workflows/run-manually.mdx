@@ -1,0 +1,80 @@
+---
+title: Run a Workflow Manually
+description: How to start a workflow run manually — from the workflow editor, or from a record's action menu in a report or member list.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+Workflows with automatic triggers start on their own. But you can also start a workflow run manually — either from the Workflows admin area, or directly from a record in a report or member list.
+
+---
+
+## From the workflow editor
+
+Use this method to start a workflow for one specific record, without waiting for the trigger to fire.
+
+1. Open the workflow in the editor.
+2. Make sure the workflow is **published** (a live version exists).
+3. Click **Run** in the editor toolbar.
+4. You'll be prompted to enter (or search for) the record to run the workflow against.
+5. Confirm. Kanri creates a new run for that record immediately.
+
+The new run appears in [Run History](/workflows/run-history/) with a "manual" trigger indicator.
+
+:::note
+Manual runs from the editor require the **Manage Workflows** permission. For triggering a workflow from a member's profile (without needing workflow admin access), see below.
+:::
+
+---
+
+## From a record's action menu
+
+**Manual trigger workflows** also appear as options in the action menus on records — for example, in the member list, in a report, or on a member's profile page.
+
+This lets staff with appropriate permissions start a workflow on a specific record without needing access to the Workflows admin area.
+
+**How it works:**
+1. Find the record you want to run the workflow for (e.g., go to **Members** and find the member).
+2. Click the **Actions** menu (usually on the row, or on the member's profile).
+3. Any published, enabled workflows whose trigger type is **Manual** will appear in the list.
+4. Click the workflow name to start a run for that record.
+
+**Permission required:**
+The required permission is determined by the workflow itself — specifically, the union of permissions needed by all the actions and filters in the workflow. This is usually something like **Manage Members** rather than **Manage Workflows**. A staff member with day-to-day permissions can run workflows published for their use, without needing workflow admin access.
+
+:::tip
+Only **Manual** trigger workflows appear in record action menus. Workflows with automatic triggers (event, condition, schedule) don't appear there — they run on their own.
+:::
+
+---
+
+## Bulk manual triggers
+
+In reports and data tables, you can select multiple records and run a workflow on all of them at once. This is useful for:
+- Running a "send renewal offer" workflow on a filtered list of expiring members.
+- Triggering a "process batch" workflow on multiple invoices.
+
+1. In a report or member list, filter to the records you want.
+2. Select multiple rows (usually with a checkbox).
+3. Open the bulk **Actions** menu.
+4. Choose a manual trigger workflow from the list.
+
+Kanri starts a separate run for each selected record. The runs are independent — each one tracks its own progress.
+
+---
+
+## Manual vs. automatic runs — what's the difference?
+
+Functionally, a manual run behaves identically to an automatically triggered run. It goes through the same steps, respects the same delays, and re-checks the trigger condition on delays (unless you've turned that off for specific steps).
+
+The only difference is attribution — the run history shows "Manual" as the trigger kind, and records which staff member started it.
+
+---
+
+## Next steps
+
+- [Run History](/workflows/run-history/) — monitor the runs you've started
+- [Steps](/workflows/steps/) — understand what happens during a run
+- [Publish and Enable](/workflows/publish-and-enable/) — make sure your workflow is published and enabled before running manually

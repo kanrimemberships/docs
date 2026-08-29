@@ -1,0 +1,148 @@
+---
+title: Triggers
+description: Learn about all the ways a Kanri workflow can start — events, conditions, schedules, date fields, and manual triggers.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+A **trigger** is what causes a workflow to start a new run. Every workflow has exactly one trigger. Choosing the right trigger is the first step in building any automation.
+
+---
+
+## Trigger types
+
+Kanri supports six trigger types:
+
+| Trigger | When it fires |
+|---|---|
+| [Manual](#manual) | Only when someone clicks Run |
+| [Action Event Occurs](#action-event-occurs) | When a specific event happens in Kanri |
+| [Condition Becomes True](#condition-becomes-true) | When a filter changes from false to true for a record |
+| [Condition Stops Being True](#condition-stops-being-true) | When a filter changes from true to false for a record |
+| [Scheduled Time Field Due](#scheduled-time-field-due) | A set number of days before or after a date field |
+| [Recurring Schedule](#recurring-schedule) | On a cron schedule (daily, weekly, monthly, etc.) |
+
+---
+
+## Manual
+
+**When to use it:** You want to run the workflow on demand, for a specific record, without it firing automatically.
+
+Manual workflows don't have an automatic trigger — they only run when someone explicitly starts them. They appear in the action menu on matching records (member rows, invoice rows, etc.) so staff can trigger them from the record itself. They can also be started from the Workflows admin page.
+
+**Example uses:**
+- A "send renewal offer" workflow that staff trigger manually when speaking with a member.
+- An onboarding checklist workflow that an admin starts after a new member's first session.
+
+:::tip
+Manual workflows are a good way to expose a multi-step automation to staff without requiring them to have workflow admin access. A team member with member permissions can run the workflow from the member's profile.
+:::
+
+---
+
+## Action Event Occurs
+
+**When to use it:** You want the workflow to fire every time a specific thing happens in Kanri — a member is created, an invoice is paid, a membership is promoted, etc.
+
+Select the **event type** you want to watch. Kanri fires the trigger every time that event is logged for a record of the workflow's record type.
+
+**Example uses:**
+- When a member is created → send a welcome message.
+- When a membership is promoted → log a note to their profile.
+- When an invoice is paid → send a receipt email.
+
+**What counts as an event?**
+Kanri logs events automatically whenever records are created, updated, or changed. You pick which type of event fires the trigger. See [Event Types Reference](/workflows/reference/trigger-events/) for the complete list.
+
+:::caution
+The event trigger fires for *every* matching event, including changes made by staff or automated processes. If a member's record is updated frequently, a workflow on "Member Update" could create many runs. Add a [Branch step](/workflows/steps/#branch) right after the trigger to filter down to the cases you care about.
+:::
+
+---
+
+## Condition Becomes True
+
+**When to use it:** You want the workflow to fire the moment a record first meets a condition — when it transitions from *not matching* to *matching*.
+
+You define the condition using Kanri's filter builder — the same filters used in reports and groups. The workflow fires once, at the moment the condition becomes true for a record. It won't fire again for the same record unless the condition goes false and then becomes true again later.
+
+**Example uses:**
+- When a member's subscription status becomes "Expired" → send a re-engagement message.
+- When an invoice's amount overdue passes 30 days → trigger a late notice sequence.
+- When a membership's sessions remaining reaches 0 → alert the member to renew.
+
+**How transitions are detected:**
+Kanri detects condition transitions in two ways:
+1. **After a write** — whenever a record is saved, Kanri checks whether the save caused the condition to flip. This covers any field change made by staff or by an automated process.
+2. **Daily sweep** — for conditions involving date comparisons (like "days since last visit > 30"), Kanri runs a daily sweep to catch transitions caused by time passing rather than a record change.
+
+:::note
+Because date-based transitions are checked daily (not in real time), there can be up to a 24-hour delay before a date-based condition workflow fires. For time-sensitive automations based on a specific date, use [Scheduled Time Field Due](#scheduled-time-field-due) instead.
+:::
+
+---
+
+## Condition Stops Being True
+
+**When to use it:** The mirror of "Condition Becomes True" — fires when a record transitions from *matching* to *not matching* a filter.
+
+**Example uses:**
+- When a member's subscription is no longer active → pause access-related workflows.
+- When an overdue invoice is paid (so "is overdue" becomes false) → cancel a pending reminder.
+
+The same two detection mechanisms apply (write-triggered and daily sweep).
+
+---
+
+## Scheduled Time Field Due
+
+**When to use it:** You want to fire a workflow a set number of days before or after a specific date field on the record.
+
+Pick a **date field** (like "birthday", "contract end date", or "last visit") and set an **offset in days**:
+- Positive number = *after* the date (e.g., +2 = "2 days after the contract ends")
+- Negative number = *before* the date (e.g., -3 = "3 days before the birthday")
+
+Kanri runs a daily check and fires the workflow for any record where the calculation matches today.
+
+**Example uses:**
+- 3 days before a member's birthday → send a birthday greeting.
+- 7 days before a contract end date → send a renewal reminder.
+- 1 day after a membership's last promotion → send a congratulations message.
+
+:::tip
+This trigger fires once per record per day — you can't accidentally trigger it twice for the same date.
+:::
+
+---
+
+## Recurring Schedule
+
+**When to use it:** You want the workflow to fire on a schedule, regardless of what's happening with individual records.
+
+Set a **cron schedule** (e.g., every day at 9am, every Monday, the first of every month) using plain-language presets or a custom cron expression. The schedule fires in your school's local timezone.
+
+You can optionally add a **filter** to fan out the workflow to multiple records at once. With a filter, instead of one global run, Kanri starts one run *per matching record*.
+
+**Example uses (global — no filter):**
+- Every Monday at 8am → email staff a class attendance summary.
+- First of every month → run an end-of-month report workflow.
+
+**Example uses (with filter — one run per matched record):**
+- Every Sunday at 6pm, for all active members → send a "see you this week" message.
+- First of every month, for members with an expiring subscription → send a billing heads-up.
+
+**Presets available in the builder:**
+- Every day (at a chosen time)
+- Every week (on chosen days, at a chosen time)
+- First of the month (at a chosen time)
+- Custom cron expression
+
+---
+
+## Next steps
+
+- [Steps](/workflows/steps/) — learn what a workflow can do once it starts
+- [Event Types Reference](/workflows/reference/trigger-events/) — full list of event types for the Action Event Occurs trigger
+- [Create Your First Workflow](/workflows/create-your-first-workflow/) — hands-on tutorial

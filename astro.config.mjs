@@ -556,6 +556,46 @@ export default defineConfig({
           ],
         },
         {
+          label: "Workflows",
+          collapsed: true,
+          badge: { text: "Beta", variant: "caution" },
+          items: [
+            { label: "Overview", slug: "workflows" },
+            { label: "How Workflows Work", slug: "workflows/how-workflows-work" },
+            {
+              label: "Create Your First Workflow",
+              slug: "workflows/create-your-first-workflow",
+            },
+            { label: "Triggers", slug: "workflows/triggers" },
+            { label: "Steps", slug: "workflows/steps" },
+            {
+              label: "Building in the Editor",
+              slug: "workflows/building-in-the-editor",
+            },
+            { label: "Publish and Disable", slug: "workflows/deploy-and-enable" },
+            { label: "Version History", slug: "workflows/version-history" },
+            { label: "Run History", slug: "workflows/run-history" },
+            {
+              label: "Run a Workflow Manually",
+              slug: "workflows/run-manually",
+            },
+            {
+              label: "Reference",
+              collapsed: true,
+              items: [
+                {
+                  label: "Available Actions",
+                  slug: "workflows/reference/available-actions",
+                },
+                {
+                  label: "Trigger Event Types",
+                  slug: "workflows/reference/trigger-events",
+                },
+              ],
+            },
+          ],
+        },
+        {
           label: "Audit Log",
           collapsed: true,
           badge: { text: "Pro", variant: "tip" },

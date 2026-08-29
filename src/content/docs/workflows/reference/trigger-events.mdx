@@ -1,0 +1,268 @@
+---
+title: Trigger Event Types
+description: Complete reference of all event types available for the "Action Event Occurs" workflow trigger.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+The **Action Event Occurs** trigger fires when a specific event is logged in Kanri. This page lists all available event types, grouped by category.
+
+Use this as a reference when building workflows — the event types shown here match exactly what appears in the trigger configuration in the builder.
+
+---
+
+## How event types work
+
+Every time something meaningful happens in Kanri (a member is added, an invoice is paid, a schedule is synced, etc.), an event log entry is created. The "Action Event Occurs" trigger watches for a specific type of event and starts a workflow run whenever one is logged.
+
+Each event type has a **name** (what Kanri uses internally, shown in the builder) and a **label** (the human-readable name).
+
+Events are scoped to your school — a workflow will only fire for events in your own school, not events from other schools.
+
+---
+
+## Member events
+
+| Name | Label |
+|---|---|
+| `member.create` | Member Create |
+| `member.update` | Member Update |
+| `member.delete` | Member Delete |
+| `member.address.update` | Member Address Update |
+| `member.lead_dedup` | Lead Dedup |
+| `invite.member` | Invite Member |
+
+---
+
+## Member note events
+
+| Name | Label |
+|---|---|
+| `member_note.create` | Member Note Create |
+| `member_note.update` | Member Note Update |
+| `member_note.delete` | Member Note Delete |
+
+---
+
+## Member interaction events
+
+[Interactions](/members/interactions/) are the immutable log entries on a member's profile (incident reports, call notes, etc.).
+
+| Name | Label |
+|---|---|
+| `member_interaction.create` | Member Interaction Create |
+| `member_interaction.update` | Member Interaction Update |
+| `member_interaction.delete` | Member Interaction Delete |
+
+---
+
+## Membership events
+
+| Name | Label |
+|---|---|
+| `membership.create` | Membership Create |
+| `membership.update` | Membership Update |
+| `membership.delete` | Membership Delete |
+| `membership.promotion` | Membership Promotion |
+
+---
+
+## Membership status events
+
+| Name | Label |
+|---|---|
+| `membership_status.create` | Membership Status Create |
+| `membership_status.update` | Membership Status Update |
+| `membership_status.delete` | Membership Status Delete |
+
+---
+
+## Program and level events
+
+| Name | Label |
+|---|---|
+| `program.create` | Program Create |
+| `program.update` | Program Update |
+| `program.delete` | Program Delete |
+| `level.create` | Level Create |
+| `level.update` | Level Update |
+| `level.delete` | Level Delete |
+
+---
+
+## Class events
+
+| Name | Label |
+|---|---|
+| `class.create` | Class Create |
+| `class.update` | Class Update |
+| `class.delete` | Class Delete |
+| `class_variant.create` | Class Variant Create |
+| `class_variant.update` | Class Variant Update |
+| `class_variant.delete` | Class Variant Delete |
+| `class_program.add` | Class Program Add |
+| `class_program.remove` | Class Program Remove |
+| `class_program.update` | Class Program Update |
+
+---
+
+## Schedule and session events
+
+| Name | Label |
+|---|---|
+| `schedule.create` | Schedule Create |
+| `schedule.update` | Schedule Update |
+| `schedule.delete` | Schedule Delete |
+| `schedule.activate` | Schedule Activate |
+| `schedule.deactivate` | Schedule Deactivate |
+| `schedule.expire` | Schedule Expire |
+| `schedule.sync` | Schedule Sync |
+| `session_template.create` | Session Template Create |
+| `session_template.update` | Session Template Update |
+| `session_template.delete` | Session Template Delete |
+
+---
+
+## Attendance events
+
+| Name | Label |
+|---|---|
+| `attendance.create` | Attendance Create |
+| `attendance.confirm` | Attendance Confirm |
+| `attendance.kiosk_confirm` | Attendance Kiosk Confirm |
+
+---
+
+## Subscription events
+
+| Name | Label |
+|---|---|
+| `subscription.create` | Subscription Create |
+| `subscription.update` | Subscription Update |
+| `subscription.delete` | Subscription Delete |
+| `subscription.cancel` | Subscription Cancel |
+| `subscription.extend` | Subscription Extend |
+| `subscription.archive` | Subscription Archive |
+| `subscription_payment.cancelled` | Subscription Payment Cancel |
+| `subscription_payment.update` | Subscription Payment Edit |
+| `subscription_payment.edit.date` | Subscription Payment Edit Date |
+
+---
+
+## Billing plan events
+
+| Name | Label |
+|---|---|
+| `billing_plan.create` | Billing Plan Create |
+| `billing_plan.update` | Billing Plan Update |
+| `billing_plan.delete` | Billing Plan Delete |
+| `billing_plan.archive` | Billing Plan Archive |
+| `billing_plan_price.create` | Billing Plan Price Create |
+| `billing_plan_price.update` | Billing Plan Price Update |
+| `billing_plan_price.delete` | Billing Plan Price Delete |
+| `billing_plan_price.archive` | Billing Plan Price Archive |
+| `billing_plan_program_access.create` | Billing Plan Program Access Create |
+| `billing_plan_program_access.delete` | Billing Plan Program Access Delete |
+
+---
+
+## Payment method events
+
+| Name | Label |
+|---|---|
+| `payment_method.create` | Payment Method Create |
+| `payment_method.update` | Payment Method Update |
+| `payment_method.payment_method.update` | Payment Method Payment Method Update |
+| `payment_method_token.create` | Payment Method Token Create |
+
+---
+
+## Booking events
+
+| Name | Label |
+|---|---|
+| `booking.create` | *(logged via attendance and booking services)* |
+
+---
+
+## Message and conversation events
+
+| Name | Label |
+|---|---|
+| `message.create` | Message Create |
+| `message_template.create` | Message Template Create |
+| `message_template.update` | Message Template Update |
+| `message_template.delete` | Message Template Delete |
+| `conversation.mark_read` | Conversation Mark Read |
+| `conversation.mark_unread` | Conversation Mark Unread |
+| `conversation.flag` | Conversation Flag |
+| `conversation.unflag` | Conversation Unflag |
+| `conversation.archive` | Conversation Archive |
+| `conversation.unarchive` | Conversation Unarchive |
+| `conversation.update` | Conversation Update |
+
+---
+
+## Group events
+
+| Name | Label |
+|---|---|
+| `group.create` | Group Create |
+| `group.update` | Group Update |
+| `group.delete` | Group Delete |
+| `group_assignment.create` | Group Assignment Create |
+| `group_assignment.delete` | Group Assignment Delete |
+
+---
+
+## Role and staff events
+
+| Name | Label |
+|---|---|
+| `role.create` | Role Create |
+| `role.update` | Role Update |
+| `role.delete` | Role Delete |
+| `role.assign` | Role Assign |
+| `role.unassign` | Role Unassign |
+| `invite.user` | Invite User |
+
+---
+
+## Kiosk events
+
+| Name | Label |
+|---|---|
+| `kiosk_session.create` | Kiosk Session Create |
+
+---
+
+## School and settings events
+
+| Name | Label |
+|---|---|
+| `school.update` | School Update |
+| `behaviors.update` | Behaviors Update |
+| `admin_fee.create` | Admin Fee Create |
+| `admin_fee.update` | Admin Fee Update |
+
+---
+
+## Workflow events
+
+| Name | Label |
+|---|---|
+| `workflow.create` | Workflow Create |
+| `workflow.update` | Workflow Update |
+| `workflow.version.deploy` | Workflow Version Deploy |
+| `workflow.enable` | Workflow Enable |
+| `workflow.disable` | Workflow Disable |
+| `workflow.delete` | Workflow Delete |
+
+---
+
+## Next steps
+
+- [Triggers](/workflows/triggers/) — how to configure the Action Event Occurs trigger
+- [Available Actions Reference](/workflows/reference/available-actions/) — what Action steps can do

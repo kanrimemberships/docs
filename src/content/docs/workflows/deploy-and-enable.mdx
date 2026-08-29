@@ -1,0 +1,108 @@
+---
+title: Publish and Disable
+description: How to publish a draft workflow, disable it, delete it, and manage the lifecycle from draft to live.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+When you're happy with your workflow, you **publish** it. Publishing freezes your draft into a permanent, numbered version and immediately makes the workflow live.
+
+---
+
+## The draft-publish lifecycle
+
+When you create or edit a workflow, your changes are always in a **draft** first. The draft:
+- Is saved manually using the **Save Draft** button.
+- Does **not** affect any members, invoices, or other records.
+- Does **not** fire any triggers.
+
+To make a workflow live, you **publish** the draft. Publishing freezes the current draft into a permanent, immutable version (labeled v1, v2, v3, etc.), makes it the active version, and **immediately enables the workflow**.
+
+Once published:
+- The workflow starts firing its trigger right away.
+- A new draft can be created without affecting the live version.
+- Runs that were already in progress continue using the version that was live when they started.
+- You can [view the published version](/workflows/version-history/) at any time.
+
+---
+
+## How to publish
+
+1. Open the workflow in the editor.
+2. Check that the canvas looks correct and all steps are configured.
+3. Click **Publish** (top right of the editor).
+4. Kanri validates the workflow — if there are errors, they'll appear inline. Fix them and try again.
+5. When validation passes, the draft is published and the workflow goes live immediately.
+
+---
+
+## How to disable
+
+Disabling a workflow stops it from running. Any runs currently in progress are **cancelled**.
+
+To disable:
+
+1. Open the workflow.
+2. Toggle the **Enabled** switch to off.
+
+**When to disable:**
+- You need to pause a workflow (a promotion ended, a campaign is over).
+- You want to investigate a problem before letting it run further.
+- You're working on significant changes and don't want the current version firing while you do.
+
+:::caution
+Disabling cancels all in-progress runs immediately — it doesn't just stop new ones. If you have runs mid-way through a multi-day sequence, they will not complete.
+:::
+
+---
+
+## Editing a published workflow
+
+To change a workflow that's already live:
+
+1. Open it in the editor.
+2. Make your changes — Kanri creates a new draft version, leaving the live version untouched.
+3. Save the draft as you work using **Save Draft**.
+4. When ready, click **Publish** to go live (this becomes v2, v3, etc.).
+
+The previous published version is preserved in [Version History](/workflows/version-history/). In-progress runs from the old version continue on that version unless the workflow is disabled.
+
+---
+
+## Deleting a workflow
+
+To permanently delete a workflow:
+
+1. Open the workflow.
+2. Click **Delete** (usually in a settings or overflow menu).
+3. Confirm the deletion.
+
+Deleting a workflow:
+- **Cancels all in-progress runs immediately.**
+- Prevents any new runs from being created.
+- Removes the workflow from the list permanently.
+
+:::caution
+Deletion is permanent and cannot be undone. If you just want to stop the workflow temporarily, [disable it](#how-to-disable) instead.
+:::
+
+---
+
+## Summary
+
+| Action | Effect |
+|---|---|
+| Save Draft | Updates the draft. Nothing live is affected. |
+| Publish | Creates a new immutable version and immediately enables the workflow. |
+| Disable | Stops the workflow. Cancels all in-progress runs. |
+| Delete | Removes the workflow permanently. Cancels all in-progress runs. |
+
+---
+
+## Next steps
+
+- [Version History](/workflows/version-history/) — view and compare past published versions
+- [Run History](/workflows/run-history/) — monitor runs after publishing
+- [Triggers](/workflows/triggers/) — understand when your workflow will fire

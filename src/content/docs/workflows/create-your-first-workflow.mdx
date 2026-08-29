@@ -1,0 +1,128 @@
+---
+title: Create Your First Workflow
+description: A step-by-step tutorial that walks you through building, publishing, and testing a welcome message workflow for new members.
+---
+
+:::note[Professional & Enterprise — Beta]
+Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::
+
+This tutorial walks you through creating a simple but useful workflow: **sending a welcome message to every new member**. By the end, you'll understand how to build any workflow in Kanri.
+
+**What we're building:**
+> When a new member is added, wait 10 minutes, then send them a welcome email using a message template.
+
+**Before you start:**
+- You'll need a message template already set up. [Create a template →](/settings/templates/create-template/)
+- You'll need the **Manage Workflows** permission. Ask your admin if you're not sure.
+
+---
+
+## Step 1: Open Workflows
+
+1. In the left sidebar, click **Workflows**.
+2. Click **New Workflow**.
+
+---
+
+## Step 2: Name your workflow and choose a record type
+
+You'll see a form with two fields:
+
+1. **Name** — Enter something descriptive, like "Welcome New Member". This name appears in the workflow list and in run history.
+2. **Record type** — Choose **Member**. This tells Kanri that each run of this workflow is about one member.
+
+3. Click **Create**.
+
+Kanri creates the workflow and opens the **workflow builder** — a visual canvas where you'll design the automation.
+
+---
+
+## Step 3: Choose a trigger
+
+The trigger is what causes your workflow to start. For a welcome message, we want to fire when a new member is created.
+
+1. On the canvas, click the **Trigger** node (it appears at the top or left).
+2. Choose **Action Event Occurs**.
+3. Under **Event**, search for and select **Member Create**.
+
+This means: "every time a new member is added, start a run of this workflow."
+
+:::tip
+"Member Create" fires whenever a member record is created — including members added by staff or submitted through your lead page. If you only want to target members added through a specific path, you can add a Branch step later to filter by member type.
+:::
+
+---
+
+## Step 4: Add a Delay step
+
+It's often good to wait a few minutes before sending a welcome message — it gives the system time to finish setting up the member's profile, and it feels more natural than an instant automated message.
+
+1. Click the **+** button to add a step after the trigger.
+2. Choose **Delay**.
+3. Set the duration to **10 minutes**.
+4. Leave **Re-check trigger condition** turned on. (This is the default — see [How Workflows Work](/workflows/how-workflows-work/) for why this matters.)
+5. Click the **+** button below the delay to continue.
+
+---
+
+## Step 5: Add an Action step — Send a message
+
+1. Click **+** and choose **Action**.
+2. Under **Action**, select **Send message**.
+3. Under **Target**, leave it as **This record** — this means "the member this workflow is running for."
+4. Under **Template**, search for and select your welcome message template.
+5. Under **Message type**, choose **Email** (or **SMS** if you prefer).
+6. Leave this as the last step (no "next" step). When the message sends, the run is done.
+
+---
+
+## Step 6: Save your draft
+
+Your workflow is saved manually using the **Save Draft** button. Nothing runs until you publish it.
+
+1. Click **Save Draft** to save your current work.
+
+---
+
+## Step 7: Publish the workflow
+
+When you're ready to go live, click **Publish** (top right of the builder).
+
+Kanri will check for any errors (like missing required fields). If everything is valid, the workflow is published as version 1. It's immediately live and enabled — the trigger will start firing for new members right away.
+
+---
+
+## Step 8: Test it
+
+To make sure everything works:
+
+1. Add a test member to Kanri (or use an existing member for a manual run).
+2. On the workflow page, click **Run** and select that member to start a manual run.
+3. Go to **Runs** (top right of the builder) to watch the run in progress.
+4. After 10 minutes, the delay will complete and the message will be sent.
+
+:::note
+Manual runs respect the delay step — it will actually wait 10 minutes before sending. If you want to test without waiting, you can temporarily set the delay to 1 minute for testing, then change it back before going live.
+:::
+
+---
+
+## What you've built
+
+You now have a fully working welcome workflow. Here's what it does:
+
+1. **Trigger**: fires every time a new member is created.
+2. **Delay**: waits 10 minutes.
+3. **Action**: sends a welcome email using your template.
+
+From here, you could add more steps — a branch to check whether the member is a lead or a full member, or a second message 3 days later if they haven't booked a class yet.
+
+---
+
+## Next steps
+
+- [Triggers](/workflows/triggers/) — learn about all the other ways a workflow can start
+- [Steps](/workflows/steps/) — discover all the step types available
+- [Run History](/workflows/run-history/) — how to monitor and debug your workflows
+- [Publish and Disable](/workflows/deploy-and-enable/) — more on the publish lifecycle
