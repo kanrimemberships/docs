@@ -84,6 +84,10 @@ You build the condition using the same filter builder used in [reports](/reports
 **Branching on data from other records:**
 By default, a branch filters against the record that triggered the workflow. To branch on data from a different record type, add a [Read](#read) step first to fetch that data — the Read step's output is then available in the branch condition.
 
+:::tip
+A Branch step only affects the path taken at that point in the run — it doesn't stop the run early on its own. If you need a condition that can cancel the whole run at any point, see [exit conditions](/workflows/how-workflows-work/#exit-conditions) instead.
+:::
+
 ---
 
 ## Read

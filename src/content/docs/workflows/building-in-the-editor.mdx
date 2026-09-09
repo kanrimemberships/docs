@@ -16,7 +16,34 @@ The **workflow editor** is the visual canvas where you design your workflow. Thi
 1. Go to **Workflows** in the left sidebar.
 2. Click an existing workflow to open it, or click **New Workflow** to start from scratch.
 
-When creating a new workflow, you'll first enter a **name** and choose a **record type**. Once you confirm, the editor opens with a blank canvas.
+When creating a new workflow, you'll first enter a **name** and choose a **record type** — or start from a **template** (see below). Once you confirm, the editor opens with the canvas ready to go.
+
+---
+
+## Starting from a template
+
+Instead of building a workflow from a blank canvas, you can start from a pre-built **template**. Templates are pre-configured workflows for common scenarios — the trigger and steps are already filled in, and you can tweak them to fit your school.
+
+When you click **New Workflow**, you'll see a template picker before the blank-canvas option:
+
+1. Browse templates by category (**Members**, **Communication**, **Finance**, **Automation**), or search by name.
+2. Click a template to select it. Its name and record type are filled in automatically.
+3. Click **Create** to open the editor with the template's trigger and steps already in place, ready to review and adjust.
+
+Templates currently available include:
+
+| Template | Category | What it does |
+|---|---|---|
+| Welcome New Member | Members | Adds a welcome note whenever a new member is created |
+| Birthday Reminder Note | Members | Adds a birthday note to each member on their birthday every year |
+| Promote to Next Level | Members | Manual workflow — select a membership and promote it to the next belt or level |
+| New Member — Lead vs. Full Member | Members | When a member is created, adds a follow-up note for leads or a welcome note for full members |
+| Weekly New Lead Follow-Up | Communication | Every Monday, adds a follow-up note to every new lead that hasn't been contacted yet |
+| Open Overdue Invoice | Finance | One day after an invoice is due, automatically opens it for collection |
+| Cancel No-Show Bookings | Automation | Manual workflow — select bookings and cancel them in bulk for no-shows |
+| Mark Class Attendance | Automation | Manual workflow — mark selected bookings as attended in bulk |
+
+A template is just a starting point — nothing is saved or published until you review it and click Publish yourself, so it's safe to pick one and adjust it to match how your school actually works.
 
 ---
 
@@ -29,6 +56,7 @@ At the top of the canvas, you'll always see:
 - **Publish** button — makes the current draft live immediately.
 - **Enabled/Disabled** toggle — turns the published workflow on or off.
 - Navigation links to **Runs** and **Versions** history.
+- A **help icon** that opens this documentation in a new tab.
 
 ---
 
@@ -41,16 +69,32 @@ A panel opens where you choose the trigger type and fill in the details:
 - **Manual** — no settings needed.
 - **Action Event Occurs** — choose the event type from a searchable list.
 - **Condition Becomes True / Stops Being True** — build a filter using the filter builder.
-- **Scheduled Time Field Due** — choose a date field and enter the offset in days.
+- **Scheduled Time Field Due** — choose a date field and enter the offset in days. A hint reminds you that negative numbers run before the date and positive numbers run after, along with a live preview (e.g. "3 days before Contract End Date") so you can confirm the direction before saving.
 - **Recurring Schedule** — choose a preset (daily, weekly, monthly) or enter a cron expression, and optionally add a filter for fan-out.
 
 See [Triggers](/workflows/triggers/) for a full explanation of each type.
 
 ---
 
+## Exit conditions
+
+Below the Trigger bar, you'll see an **Exit condition** bar. Click it to open the exit condition editor.
+
+By default it says "None — run always continues to completion." To add one:
+
+1. Click the Exit condition bar.
+2. Build a filter using the same filter builder used for Branch steps and condition-based triggers.
+3. Click **Save exit condition**.
+
+Once set, Kanri checks this filter before every step of every run. If a run's record matches it, the run is cancelled immediately, no matter which step it was on. Leave it unset if you don't need this — most workflows don't.
+
+See [How Workflows Work](/workflows/how-workflows-work/#exit-conditions) for why this is different from a Delay step's re-check trigger condition option.
+
+---
+
 ## Adding steps
 
-To add a step after an existing node, click the **+** button on the right side of that node. Choose the step type from the menu: **Action**, **Delay**, **Branch**, or **Read**.
+To add a step after an existing node, click the **+** button on the right side of that node. Choose the step type from the menu: **Action**, **Delay**, **Branch**, **Read**, or **For Each**.
 
 To **insert a step between two connected nodes**, drag the new step node onto the **+** button that appears in the middle of the arrow connecting them. The step is inserted and the connections are updated automatically.
 
@@ -78,8 +122,11 @@ Click any step node to open its settings panel. The settings available depend on
 - Connect the **if true** output to one step, and the **if false** output to another.
 
 **Read step:**
-- Choose **Fetch** (single record) or **For Each** (loop over multiple records).
 - Choose the record type, build a filter, and select the fields you want.
+
+**For Each step:**
+- Choose the record type, build a filter, and set a **limit** (the maximum number of records to process per run).
+- Add the steps that should run for each matched record, inside the loop body.
 
 ---
 
@@ -87,7 +134,7 @@ Click any step node to open its settings panel. The settings available depend on
 
 Each node has a **+** connector on its right side. Click it to add a next step, or drag a new node onto it.
 
-- **Action, Delay, and Read** steps have one outgoing connection.
+- **Action, Delay, Read, and For Each** steps have one outgoing connection.
 - **Branch** steps have two outgoing connections: "if true" and "if false".
 - A step with no outgoing connection is a **terminal step** — the run ends there.
 
@@ -138,3 +185,4 @@ To see what an older version of a workflow looked like:
 - [Publish and Disable](/workflows/deploy-and-enable/) — the full publish lifecycle
 - [Version History](/workflows/version-history/) — understanding workflow versions
 - [Run History](/workflows/run-history/) — monitoring runs and debugging issues
+- [How Workflows Work](/workflows/how-workflows-work/) — core concepts, including exit conditions

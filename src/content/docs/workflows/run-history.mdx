@@ -38,10 +38,11 @@ Each row shows:
 | Failed | A step encountered an error the run couldn't recover from |
 | Cancelled | The run was cancelled — see below |
 
-**When does a run get cancelled?**
+### When does a run get cancelled?
 
 A run is cancelled when:
 - A Delay step's **re-check trigger condition** setting is on (condition-triggered workflows only), and when the delay finishes, the original trigger condition is no longer true.
+- The workflow has an [exit condition](/workflows/how-workflows-work/#exit-conditions) set, and the run's record matches it. Unlike the re-check above, this is evaluated before *every* step, not just after a delay.
 - You [disable](/workflows/deploy-and-enable/) the workflow — disabling cancels all in-progress runs immediately.
 - The workflow is deleted.
 

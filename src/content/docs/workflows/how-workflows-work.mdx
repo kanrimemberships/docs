@@ -80,7 +80,7 @@ Each run tracks its own state independently. If you have 50 members in different
 | Waiting | The run is paused (inside a Delay step) |
 | Done | The run completed successfully |
 | Failed | A step encountered an error |
-| Cancelled | The run was cancelled — often because a condition check found the original trigger no longer applies |
+| Cancelled | The run was cancelled — see [Run History](/workflows/run-history/#when-does-a-run-get-cancelled) for every reason this can happen |
 
 ---
 
@@ -91,6 +91,20 @@ Many triggers are condition-based — they fire when something becomes true (for
 By default, **Delay steps re-check the trigger condition** when the delay finishes. If the condition is no longer true (the member renewed their subscription while the delay was counting down), the run is cancelled rather than sending a stale reminder. This protects against sending irrelevant messages.
 
 You can turn off re-checking for a specific delay step when it makes sense to do so — for example, a welcome message sent 3 days after signup should still send even though the "just signed up" condition isn't true anymore.
+
+---
+
+## Exit conditions
+
+Trigger re-checking only re-evaluates the *original trigger condition*, and only when a Delay step finishes. Sometimes you need something broader: a way to stop a run early if *any* unrelated condition becomes true, checked continuously throughout the run, not just at delays.
+
+That's what an **exit condition** is for. It's a single filter you set once for the whole workflow (separate from the trigger and from any individual step). Kanri checks it right before every step runs — not only after delays — and if the record matches, the run is cancelled immediately with no further steps executed.
+
+For example, a "subscription expiring soon" workflow could have an exit condition of "member status is Cancelled." Even if that workflow has several steps and delays, the moment a run's member is marked Cancelled, the run stops, regardless of which step it's currently on.
+
+Exit conditions are optional — leave them unset and a run will only stop for the reasons covered above (reaching a step with no next step, a re-checked trigger condition no longer being true, or the workflow being disabled or deleted).
+
+See [Building in the Editor](/workflows/building-in-the-editor/#exit-conditions) for how to set one up.
 
 ---
 
