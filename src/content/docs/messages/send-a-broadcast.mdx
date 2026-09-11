@@ -1,0 +1,104 @@
+---
+title: Send a Broadcast
+description: How to send one message to a program, a group, or a custom list of members at once.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+A broadcast sends the same message to many members at once, unlike a [conversation](/messages/),
+which is a one-to-one thread. Use a broadcast for announcements, reminders, and newsletters where
+you don't need individual replies threaded back to you.
+
+## Before you start
+
+- Broadcasts are either **Email** or **SMS**, not both in the same send. If you want to reach
+  members by both, send two broadcasts.
+- SMS requires a phone number set up under
+  [Settings → Branding → Phone Number](/settings/branding/phone-number/).
+- If you're using the [Email Builder](/messages/templates/build-with-email-builder/) for the
+  content, the broadcast must be Email. Email Builder content can't be sent as SMS.
+
+## Send a broadcast
+
+1. Go to **Messages** and click **Compose**.
+2. Switch the recipient mode from **Individual** to **Broadcast**.
+3. Choose **Email** or **SMS** for this broadcast.
+4. Search the **To** box and add one or more **programs** and/or **groups** to target. See
+   "Choose who to target" below for what each option includes.
+5. Click **Templates** to start from a saved [template](/messages/templates/), or write the
+   message from scratch.
+6. Enter a **Subject** if you're sending by email.
+7. Write your message in the content editor.
+8. Optionally, set a date and time to send the broadcast later instead of right away.
+9. Click **Send** (or **Schedule**, if you set a send time).
+
+Kanri shows a progress modal while the broadcast goes out, since sending to a large number of
+members happens in the background rather than all at once. You can dismiss it and keep working;
+click **View details** to jump straight to the broadcast's entry in the [Outbox](/messages/outbox/).
+
+:::tip
+Changed your mind about a broadcast you scheduled for later? You can cancel it from the Outbox
+right up until it sends. See [Cancel a scheduled broadcast](/messages/outbox/#cancel-a-scheduled-broadcast).
+:::
+
+## Choose who to target
+
+You can combine any number of these in a single broadcast:
+
+- **A program** — every member with an active [membership](/members/memberships/) in that
+  program.
+- **A group** — every member in that [group](/groups/), whether they were added directly or
+  through a program assignment (with any level range the group specifies).
+- **All members** — every active member at your school.
+- **Lead programs** *(requires [Lead Management](/lead-management/))* — every
+  [lead](/lead-management/) whose enquiry lists that program.
+
+:::note[Professional & Enterprise]
+Broadcasting to leads by lead program requires the Lead Management feature, available on
+Professional and Enterprise plans. [Compare plans →](/reference/plans/)
+:::
+
+### Broadcasting to a custom filter
+
+If programs and groups aren't specific enough, click **Broadcast by filter…** in the To box
+instead. This replaces the program/group search with a filter builder, the same one used for
+[custom reports](/reports/), so you can target members by any combination of fields, such as
+membership status, level, or last attendance date. A filter is evaluated at send time and can't be
+combined with programs, groups, or lead programs in the same broadcast.
+
+## Placeholders still work
+
+Broadcasts support the same placeholders as a one-to-one message, like the recipient's first name.
+Because every broadcast recipient is a real member, there's no risk of an unresolved placeholder.
+See [Message Placeholders](/reference/message-placeholders/) for the full list.
+
+## Where broadcasts show up afterward
+
+Every broadcast you send appears in the **Outbox** tab, under the **Broadcasts** view, with its
+overall progress and a per-recipient delivery status. See [The Outbox](/messages/outbox/) for
+details.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Review the Outbox"
+    href="/messages/outbox/"
+    description="Track delivery status for a broadcast you've sent."
+  />
+  <LinkCard
+    title="Create a group"
+    href="/groups/create-group/"
+    description="Build a reusable target list for future broadcasts."
+  />
+  <LinkCard
+    title="Build an email with the Email Builder"
+    href="/messages/templates/build-with-email-builder/"
+    description="Design a richer, visual email for your next newsletter or announcement."
+  />
+  <LinkCard
+    title="Send a message to one member"
+    href="/messages/send-a-message/"
+    description="For a single conversation instead of a bulk send."
+  />
+</CardGrid>

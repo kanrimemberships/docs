@@ -1,0 +1,83 @@
+---
+title: The Outbox
+description: How to review every email your school has sent, and check on a broadcast's delivery status.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+The **Outbox** tab in **Messages** is a record of everything your school has sent, not just what
+you've written by hand. Alongside messages staff composed from the [Inbox](/messages/), it
+includes emails Kanri sends automatically, like payment receipts, staff invites, and
+document-signing links, and every [broadcast](/messages/send-a-broadcast/) you've sent, with its
+own delivery progress.
+
+## Browse the Outbox
+
+1. Go to **Messages** and open the **Outbox** tab.
+2. Use the search box to find something by recipient.
+3. Use the **All** / **Messages** / **System** filter to narrow the list: **Messages** shows only
+   things staff composed, **System** shows only automatic emails.
+4. Select an entry from the list to see it on the right.
+
+A broadcast, or a bulk send to several individually-selected members, shows up as its own entry in
+the list (labeled **Broadcast** or **Group**), alongside individual emails, rather than one row per
+recipient.
+
+:::note
+Sensitive details inside an email, like a password reset link or a one-time PIN, are replaced with
+a redacted placeholder in this view. This lets you review what a member received without being
+able to use the link or code yourself.
+:::
+
+## Check a broadcast's progress
+
+Selecting a broadcast or bulk-send entry shows:
+
+- Its overall progress, how many recipients have been processed out of the total
+- A preview of the message that was sent (placeholders show as their raw form, like
+  `{{member.first_name}}`, not the substituted value, since a broadcast doesn't have one single
+  recipient)
+- A list of every recipient, their delivery status, and a link to that recipient's own copy of the
+  message
+
+Selecting **View details** from the send-progress modal right after sending a broadcast takes you
+straight to that broadcast's entry here.
+
+### Cancel a scheduled broadcast
+
+If you scheduled a broadcast to send later, its entry shows **Scheduled for** the date and time you
+chose, with a **Cancel Scheduled Broadcast** button. Cancelling stops it from sending, it's the
+only way to stop a scheduled broadcast once you've confirmed the send.
+
+## Delivery statuses
+
+| Status | Meaning |
+|---|---|
+| Queued | Waiting to be sent |
+| Sending | Being sent right now |
+| Sent | Handed off to the email or SMS provider |
+| Delivered | Confirmed as delivered to the recipient's inbox or phone |
+| Opened | The recipient opened the email |
+| Failed | Sending failed, and won't be retried |
+| Bounced | The recipient's email address rejected the message (email only) |
+| Suppressed | Not sent, because that address has previously opted out or hard-bounced |
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Send a broadcast"
+    href="/messages/send-a-broadcast/"
+    description="Start a new broadcast to check on here afterward."
+  />
+  <LinkCard
+    title="Reply & manage conversations"
+    href="/messages/reply-and-manage-conversations/"
+    description="For one-to-one threads instead of sent-mail history."
+  />
+  <LinkCard
+    title="Failed Payments"
+    href="/billing/troubleshooting/failed-payments/"
+    description="If a payment receipt shows a delivery problem, start here."
+  />
+</CardGrid>

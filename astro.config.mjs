@@ -378,13 +378,28 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: "Overview", slug: "messages" },
-            { label: "Send a Broadcast", slug: "messages/send-broadcast" },
-            { label: "Send to One Member", slug: "messages/send-to-member" },
-            { label: "Using Templates", slug: "messages/using-templates" },
+            { label: "Send a Message", slug: "messages/send-a-message" },
             {
-              label: "View Message History",
-              slug: "messages/view-message-history",
+              label: "Reply & Manage Conversations",
+              slug: "messages/reply-and-manage-conversations",
             },
+            { label: "Send a Broadcast", slug: "messages/send-a-broadcast" },
+            {
+              label: "Templates",
+              collapsed: true,
+              items: [
+                { label: "Overview", slug: "messages/templates" },
+                {
+                  label: "Create a Template",
+                  slug: "messages/templates/create-a-template",
+                },
+                {
+                  label: "Build with the Email Builder",
+                  slug: "messages/templates/build-with-email-builder",
+                },
+              ],
+            },
+            { label: "The Outbox", slug: "messages/outbox" },
           ],
         },
         {
@@ -674,17 +689,6 @@ export default defineConfig({
                 },
               ],
             },
-            {
-              label: "Templates",
-              collapsed: true,
-              items: [
-                { label: "About Templates", slug: "settings/templates" },
-                {
-                  label: "Create a Template",
-                  slug: "settings/templates/create-template",
-                },
-              ],
-            },
           ],
         },
         {
@@ -723,6 +727,10 @@ export default defineConfig({
             },
             { label: "Member Fields", slug: "reference/member-fields" },
             { label: "Schedule Fields", slug: "reference/schedule-fields" },
+            {
+              label: "Message Placeholders",
+              slug: "reference/message-placeholders",
+            },
             { label: "Report Index", slug: "reference/report-index" },
           ],
         },

@@ -1,0 +1,89 @@
+---
+title: Build with the Email Builder
+description: How to design a visual, block-based email using the Email Builder.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+The Email Builder is a drag-and-drop alternative to the [Rich Text](/messages/templates/create-a-template/)
+editor, for a more polished, newsletter-style layout. It's built from stackable blocks: text,
+images, buttons, and more.
+
+:::caution
+Email Builder content is HTML only. A template built this way can't be sent as SMS, and it can't
+be used in a broadcast that includes any SMS recipients.
+:::
+
+## Create an Email Builder template
+
+1. Go to **Messages** and open the **Templates** tab.
+2. Click **New**, and give it a **Name**.
+3. Next to **Message**, switch from **Rich Text** to **Email Builder**.
+4. Enter a **Subject** (subjects always use plain rich text, even for an Email Builder template).
+5. Build your layout using blocks (see below).
+6. Click **Create**.
+
+## Add and arrange blocks
+
+Click **Add block** and choose from:
+
+| Block | What it's for |
+|---|---|
+| Text | A paragraph or heading, with the same formatting as the Rich Text editor |
+| Image | A single image, with alt text and alignment |
+| Image + Text | An image next to a block of text, side by side |
+| Columns | Two side-by-side columns of text |
+| Button | A call-to-action link styled as a button |
+| Divider | A thin horizontal line to separate sections |
+| Spacer | Blank vertical space |
+
+Drag a block to reorder it. Click a block to open its settings, for example an image's alt text
+and alignment, or a button's label and link.
+
+:::tip
+Each image block has its own upload control — just drag an image in or click to choose a file. It
+uploads directly into the template and doesn't need to already be in your school's
+[Gallery](/gallery/).
+:::
+
+## Reuse layouts with saved sections
+
+If you build a layout you'll want again, for example a header with your logo and a button, select
+**Save canvas as section**, name it, and it's saved for reuse in any future Email Builder
+template. Saved sections appear under **Custom sections** in the same panel where you add blocks.
+Kanri also ships with a set of built-in **Preset** sections (an intro paragraph, a call-to-action
+button, a two-column layout, and others) you can insert as a starting point.
+
+## Email-wide settings
+
+Under **Email Settings**, you can set:
+
+- **Font** — the font used across the whole email
+- **Email preview text** — the short snippet shown next to the subject line in most email apps,
+  before the email is opened. Kanri fills this in automatically from your content, but you can
+  type your own to override it, and reset back to automatic any time.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Send a broadcast with this template"
+    href="/messages/send-a-broadcast/"
+    description="Use your Email Builder template for a newsletter or announcement."
+  />
+  <LinkCard
+    title="Create a Rich Text template"
+    href="/messages/templates/create-a-template/"
+    description="A simpler option that also works for SMS."
+  />
+  <LinkCard
+    title="All templates"
+    href="/messages/templates/"
+    description="Compare Rich Text and Email Builder before you start."
+  />
+  <LinkCard
+    title="Message placeholders"
+    href="/reference/message-placeholders/"
+    description="Personalize text blocks and buttons with the recipient's details."
+  />
+</CardGrid>

@@ -1,0 +1,99 @@
+---
+title: Send a Message
+description: How to start a new conversation with a member or contact by email or SMS.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+This guide covers sending a one-to-one message, called a [conversation](/messages/), to a single
+member or one of their [contacts](/members/contacts/). To message many members at once, see
+[Send a Broadcast](/messages/send-a-broadcast/) instead.
+
+## Before you start
+
+The member (or the contact you want to reach) needs at least one usable contact method: an email
+address, or a phone number if you want to send SMS. Add one from the member's
+[Edit Member](/members/edit-member/) page or their [Contacts](/members/contacts/) tab if it's
+missing.
+
+## Start a conversation from the Inbox
+
+1. Go to **Messages** in the sidebar.
+2. Click **Compose**.
+3. Leave the recipient mode on **Individual** (this is the default).
+4. In the **To** box, search for the member or contact by name and select them. You can add more
+   than one recipient.
+5. Click **Templates** if you want to start from a saved [template](/messages/templates/), or
+   write the message from scratch.
+6. If you're sending by email, enter a **Subject**. Subjects aren't needed for SMS.
+7. Write your message in the content editor.
+8. Optionally, set a date and time to send the message later instead of right away.
+9. Click **Send** (or **Schedule**, if you set a send time).
+
+Kanri creates one conversation per recipient. If you selected several people, each gets their own
+separate thread, not a group thread.
+
+:::tip
+Type `{{` in the subject or content editor to insert a placeholder, like the recipient's first
+name. See [Message Placeholders](/reference/message-placeholders/) for the full list.
+:::
+
+## Start a conversation from a member's profile
+
+If you're already on a member's page, you don't need to search for them:
+
+1. Open the member from the [Members list](/members/).
+2. Click the **Messages** tab.
+3. Click **Compose**.
+4. Pick which contact method to use: the member's own email or phone, or one of their linked
+   contacts.
+5. Follow the same steps as above (template, subject, content, send).
+
+This starts the same kind of conversation as composing from the main Inbox. It will also show up
+in the school-wide Inbox, not just on the member's profile.
+
+## Message an email address or phone number that isn't in Kanri yet
+
+On a member's profile and their [Contacts](/members/contacts/) tab, email addresses and phone
+numbers are clickable. Clicking one opens Compose in the main Inbox with that address or number
+pre-filled, even for a contact who isn't fully set up with their own member profile. This only
+works from the school-wide Inbox, not the member-scoped one.
+
+:::note
+If a phone number or email doesn't match any member or contact, Kanri can still send the message,
+but only if it doesn't contain a personal placeholder like the recipient's name. Since there's no
+member or contact to pull that value from, Kanri blocks the send instead of letting a broken,
+unfilled placeholder go out.
+:::
+
+## If the same contact info is shared by more than one member
+
+If the email address or phone number you're sending to belongs to more than one member profile,
+Kanri won't send the message until you sort out which member it actually belongs to. This usually
+means two member profiles were created for the same person by mistake — see
+[Merge Duplicate Members](/members/merge-duplicate-members/).
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Reply & manage conversations"
+    href="/messages/reply-and-manage-conversations/"
+    description="Reply, flag, and archive conversations in your Inbox."
+  />
+  <LinkCard
+    title="Send a broadcast"
+    href="/messages/send-a-broadcast/"
+    description="Message a program, group, or custom list of members at once."
+  />
+  <LinkCard
+    title="Create a template"
+    href="/messages/templates/create-a-template/"
+    description="Save a message you send often so you can reuse it."
+  />
+  <LinkCard
+    title="Add a contact"
+    href="/members/contacts/add-contact/"
+    description="Give a member's guardian or emergency contact their own contact details."
+  />
+</CardGrid>

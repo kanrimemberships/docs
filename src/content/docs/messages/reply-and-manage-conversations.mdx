@@ -1,0 +1,73 @@
+---
+title: Reply & Manage Conversations
+description: How to reply to messages and keep your Inbox organised in Kanri.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+Once a [conversation](/messages/) exists, whether a member started it or you did, it behaves like
+an email inbox: you can reply, search, flag important threads, and archive ones you're done with.
+
+## Reply to a conversation
+
+1. Go to **Messages** and open the **Inbox** tab (this is the default view).
+2. Select the conversation from the list.
+3. Write your reply in the box at the bottom of the thread.
+4. Optionally, set a date and time to send the reply later instead of right away.
+5. Click **Send** (or **Schedule**, if you set a send time).
+
+:::note
+Replying doesn't automatically mark a conversation as read. If you want it to disappear from your
+unread count, mark it read separately (see below).
+:::
+
+If the conversation is by SMS and the member's phone number on file has changed since the
+conversation started, Kanri will stop you from replying until that's resolved, so you don't text
+the wrong number.
+
+## Search and filter your Inbox
+
+Use the search box at the top of the Inbox to find a conversation by name, email, or phone number.
+Combine it with the filter buttons:
+
+- **Unread** — only conversations you haven't read yet
+- **Flagged** — only conversations you've flagged (see below)
+- **Archived** — only conversations you've archived, hidden from the main list by default
+
+## Mark a conversation read or unread
+
+Open a conversation to mark it read automatically, or use the read/unread toggle on a conversation
+to flip its status without opening it, useful for marking something unread as a reminder to follow
+up later.
+
+## Flag a conversation
+
+Flag a conversation to make it easy to find again, for example something that needs a follow-up
+call. Click the flag icon on the conversation, then use the **Flagged** filter to see everything
+you've flagged in one place. Unflag it the same way once you're done.
+
+## Archive a conversation
+
+Archive a conversation once it's resolved to keep your main Inbox list focused on what's still
+active. Archived conversations aren't deleted. Use the **Archived** filter to find them again, and
+unarchive one if it needs attention again.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Send a message"
+    href="/messages/send-a-message/"
+    description="Start a new conversation with a member or contact."
+  />
+  <LinkCard
+    title="Send a broadcast"
+    href="/messages/send-a-broadcast/"
+    description="Message a program, group, or custom list of members at once."
+  />
+  <LinkCard
+    title="Review the Outbox"
+    href="/messages/outbox/"
+    description="See every email your school has sent, including automatic ones."
+  />
+</CardGrid>

@@ -1,0 +1,51 @@
+---
+title: Message Placeholders
+description: Every dynamic value you can insert into a message or template, and how they work.
+---
+
+A placeholder is a small piece of text you insert into a message or template that Kanri replaces
+with a real value for each recipient when it's sent, so "Hi `{{member.first_name}}`" becomes "Hi
+Alex" for one recipient and "Hi Jordan" for another.
+
+## Inserting a placeholder
+
+While composing a [message](/messages/send-a-message/), a [broadcast](/messages/send-a-broadcast/),
+or a [template](/messages/templates/), type `{{` in the subject or content editor to open a dropdown
+of every available placeholder. Selecting one inserts it as a small, non-editable chip in the text,
+so you can't accidentally leave it half-typed or misspelled.
+
+## Available placeholders
+
+| Placeholder | Resolves to |
+|---|---|
+| `school.name` | Your school's name |
+| `member.first_name` | The member's first name |
+| `member.last_name` | The member's last name |
+| `member.full_name` | The member's full name |
+| `member.email` | The member's email address |
+| `member.phone` | The member's phone number |
+| `contact.first_name` | The contact's first name |
+| `contact.last_name` | The contact's last name |
+| `contact.full_name` | The contact's full name |
+| `contact.email` | The contact's email address |
+| `contact.phone` | The contact's phone number |
+
+The `contact.*` placeholders only make sense when you're messaging one of a member's
+[contacts](/members/contacts/) rather than the member directly, for example a parent or guardian.
+
+## What happens if a placeholder can't be resolved
+
+If you're messaging a raw email address or phone number that isn't linked to any member or contact
+(for example, one you typed in directly rather than searching for a member), Kanri has no name or
+details to fill a placeholder in with. Rather than sending a message with a broken, unresolved
+`{{...}}` left in it, Kanri blocks the send and asks you to remove the placeholder or add that
+person as a member first.
+
+This can't happen for a [broadcast](/messages/send-a-broadcast/), since every broadcast recipient
+is always a real member.
+
+## Next steps
+
+- [Send a message](/messages/send-a-message/)
+- [Send a broadcast](/messages/send-a-broadcast/)
+- [Create a template](/messages/templates/create-a-template/)

@@ -1,0 +1,64 @@
+---
+title: Message Templates
+description: Reusable subject and body content you can drop into a message, plus the visual Email Builder.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+A template is a saved subject and body you can reuse instead of writing the same message from
+scratch every time, useful for welcome messages, class reminders, and payment follow-ups. Templates
+live in the **Templates** tab of **Messages**, alongside your [Inbox](/messages/) and
+[Outbox](/messages/outbox/).
+
+Any template can be picked from the **Templates** button when
+[sending a message](/messages/send-a-message/) or [broadcast](/messages/send-a-broadcast/) — it
+pre-fills the subject and content, which you can still edit before sending.
+
+## Two ways to build a template
+
+- **Rich Text** — a single rich-text box for the subject and one for the body, with bold,
+  italic, links, lists, and [placeholders](/reference/message-placeholders/). Works for both email
+  and SMS. See [Create a Template](/messages/templates/create-a-template/).
+- **Email Builder** — a visual, drag-and-drop layout made of blocks (text, images, buttons,
+  columns, and more), for a more polished, newsletter-style email. Email-only, it can't be used for
+  SMS. See [Build with the Email Builder](/messages/templates/build-with-email-builder/).
+
+You choose which one to use when you create the template, and every template keeps that choice.
+
+:::caution
+If you plan to reuse a template for both email and SMS broadcasts, use **Rich Text**. An
+Email Builder template can only be used when sending by email — it's not available if any
+recipient would receive the message by SMS.
+:::
+
+## Managing templates
+
+From the Templates tab you can create, edit, rename, and delete templates. Deleting a template
+doesn't affect messages you've already sent using it. Past messages keep their own copy of what
+was actually sent, so editing or deleting a template later never changes something you already
+sent.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Create a template"
+    href="/messages/templates/create-a-template/"
+    description="Build a reusable message with the Rich Text editor."
+  />
+  <LinkCard
+    title="Build with the Email Builder"
+    href="/messages/templates/build-with-email-builder/"
+    description="Design a richer, visual email using blocks and saved sections."
+  />
+  <LinkCard
+    title="Message placeholders"
+    href="/reference/message-placeholders/"
+    description="Every dynamic value you can insert into a template."
+  />
+  <LinkCard
+    title="Send a broadcast"
+    href="/messages/send-a-broadcast/"
+    description="Use a template when messaging a program or group."
+  />
+</CardGrid>

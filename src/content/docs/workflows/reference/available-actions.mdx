@@ -11,7 +11,7 @@ This page lists every built-in action you can use in a workflow [Action step](/w
 
 **Column definitions:**
 - **Action** — the name shown in the builder
-- **Entity** — the record type the action targets (or creates)
+- **Record** — the record type the action targets (or creates)
 - **Type** — whether this action *creates* a new record or *mutates* (changes) an existing one
 - **Bulk safe** — whether this action can safely run as part of a bulk or fan-out operation
 
@@ -21,7 +21,7 @@ This page lists every built-in action you can use in a workflow [Action step](/w
 
 These actions affect [member](/members/) records.
 
-| Action | Entity | Type | Bulk safe | Parameters |
+| Action | Record | Type | Bulk safe | Parameters |
 |---|---|---|---|---|
 | Add member | Member | Create | No | First name, last name, email, phone, birthday, sex, family status, member type |
 | Edit member | Member | Mutate | No | First name, last name, email, phone, birthday, sex, family status, member type, lead status |
@@ -39,7 +39,7 @@ These actions affect [member](/members/) records.
 
 These actions affect [membership](/members/memberships/) records (a member's enrolment in a program).
 
-| Action | Entity | Type | Bulk safe | Parameters |
+| Action | Record | Type | Bulk safe | Parameters |
 |---|---|---|---|---|
 | Create membership | Member | Mutate | No | Program (required), level, status (required), waiver handling, sessions remaining |
 | Edit membership | Membership | Mutate | No | Program, level, status, sessions remaining, last promotion, next promotion override |
@@ -55,7 +55,7 @@ These actions affect [membership](/members/memberships/) records (a member's enr
 
 These actions affect [invoice](/billing/) records.
 
-| Action | Entity | Type | Bulk safe | Parameters |
+| Action | Record | Type | Bulk safe | Parameters |
 |---|---|---|---|---|
 | Create invoice | Invoice | Create | No | Member, due date (required), notes, receipt email |
 | Edit invoice | Invoice | Mutate | Yes | Due date (required), notes, receipt email |
@@ -69,7 +69,7 @@ These actions affect [invoice](/billing/) records.
 
 These actions affect [booking](/members/bookings/) records.
 
-| Action | Entity | Type | Bulk safe | Parameters |
+| Action | Record | Type | Bulk safe | Parameters |
 |---|---|---|---|---|
 | Create booking | Booking | Create | No | Member (required), session (required), date (required), trial, notes |
 | Cancel booking | Booking | Mutate | Yes | Cancellation reason |
@@ -81,7 +81,7 @@ These actions affect [booking](/members/bookings/) records.
 
 These actions affect notes on member profiles.
 
-| Action | Entity | Type | Bulk safe | Parameters |
+| Action | Record | Type | Bulk safe | Parameters |
 |---|---|---|---|---|
 | Edit note | Member Note | Mutate | No | Title (required), note text (required) |
 | Delete note | Member Note | Mutate | No | — |

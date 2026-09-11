@@ -1,18 +1,79 @@
 ---
 title: Messages & Communication
-description: How to send email and SMS messages to your members in Kanri.
+description: How to email and text your members, individually or in bulk, from one inbox in Kanri.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-## What this page will cover
+Kanri's Messages area is where every email and text message to your members lives, whether it's a
+one-to-one reply to a parent's question or a broadcast to your whole school. It has three tabs:
+**Inbox**, **Outbox**, and **Templates**.
 
-- Message types: Email vs SMS — when to use each
-- Individual messages (from a member's profile) vs broadcast messages (to many members)
-- How message history is stored (per member and school-wide)
-- Deliverability basics: what affects whether emails land in the inbox vs spam
-- SMS: what it requires (a phone number set up in Settings → Branding → Phone Number)
-- Message templates: saving time on common messages
-- Groups: targeting a broadcast at a specific collection of members
+You'll find Messages in two places:
+
+- **Messages** in the main sidebar — the school-wide inbox, with every conversation, the full
+  Outbox, and all your Templates.
+- The **Messages** tab on a member's profile — the same inbox, filtered down to just that member
+  and their [contacts](/members/contacts/). Handy when you're already looking at someone's profile
+  and want to see or continue a conversation with them.
+
+## Conversations vs. broadcasts
+
+These are the two ways messages get sent, and it's worth keeping them straight:
+
+- A **conversation** is a one-to-one thread with a single member or [contact](/members/contacts/),
+  by email or by text message (SMS). Conversations behave like an email inbox: you can reply, mark
+  them read or unread, flag important ones, and archive old ones.
+- A **broadcast** is one message sent out to many members at once, targeted at a
+  [program](/programs/), a [group](/groups/), or a custom filter. Broadcasts don't create back-and-forth
+  threads. They're for announcements, reminders, and newsletters.
+
+See [Send a Message](/messages/send-a-message/) for conversations and
+[Send a Broadcast](/messages/send-a-broadcast/) for broadcasts.
+
+## The three tabs
+
+- **Inbox** — every conversation with a member or contact. Search, filter, reply, flag, and
+  archive. See [Send a Message](/messages/send-a-message/) and
+  [Reply & Manage Conversations](/messages/reply-and-manage-conversations/).
+- **Outbox** — every email your school has ever sent, including automatic emails like receipts and
+  invites, plus a dedicated view of past broadcasts and their delivery progress. See
+  [The Outbox](/messages/outbox/).
+- **Templates** — reusable subject/body content you can drop into a message instead of writing it
+  from scratch every time, including a drag-and-drop email builder. See
+  [Templates](/messages/templates/).
+
+## What you need to send messages
+
+- **Email** works out of the box for every school.
+- **SMS (text messages)** requires a phone number set up under
+  [Settings → Branding → Phone Number](/settings/branding/phone-number/). Until that's done, the
+  SMS option won't be available when composing.
+- You'll need the **View Messages** permission to read conversations, and **Manage Messages** to
+  send, compose broadcasts, or manage templates. See your school's [Roles](/settings/roles/) to
+  check or grant these.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Send a message"
+    href="/messages/send-a-message/"
+    description="Start a new conversation with a member or contact."
+  />
+  <LinkCard
+    title="Send a broadcast"
+    href="/messages/send-a-broadcast/"
+    description="Message a whole program, group, or custom list of members at once."
+  />
+  <LinkCard
+    title="Create a template"
+    href="/messages/templates/"
+    description="Save time on messages you send often."
+  />
+  <LinkCard
+    title="Review the Outbox"
+    href="/messages/outbox/"
+    description="See everything your school has sent, including automatic emails."
+  />
+</CardGrid>
