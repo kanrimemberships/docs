@@ -1,0 +1,49 @@
+---
+title: Automatic Lead Sync from Aquila
+description: Automatically bring new leads from Aquila into Kanri without relying on Zapier.
+---
+
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
+:::note[Professional & Enterprise]
+Lead Management requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+:::
+
+If your school previously used Aquila and migrated to Kanri, you can turn on **Aquila Lead Sync** to automatically pull newly-registered leads from Aquila into Kanri every few minutes — no need to rely on Zapier forwarding them.
+
+## Before you start
+
+You'll need the **Manage Settings** permission to change these settings. You'll also need your Aquila **Location ID** and **API Key** — the same credentials used during your original migration from Aquila.
+
+## Turning on Aquila Lead Sync
+
+1. Go to **Settings** in the main navigation.
+2. Click the **Leads** tab.
+3. Scroll to the **Aquila Lead Sync** section.
+4. Enter your Aquila **Location ID** and **API Key**.
+5. Toggle **Enable Aquila Lead Sync** to on.
+6. Click **Save**.
+
+Once enabled, Kanri checks Aquila every few minutes for newly registered leads and creates a matching Lead profile in Kanri automatically, with status **New**.
+
+## What counts as "new"
+
+Only leads registered in Aquila **after** you turned sync on are brought into Kanri. Leads that were already in Aquila (or already in Kanri) when you enabled sync are never imported — this avoids creating duplicate profiles for people you already know about.
+
+## Updating your credentials
+
+To change your Location ID or API Key, go to **Settings → Leads → Aquila Lead Sync**, update the fields, and click **Save**. Leaving the API Key field blank keeps your currently saved key.
+
+## Disabling Aquila Lead Sync
+
+Toggle **Enable Aquila Lead Sync** off and click **Save**. Existing lead profiles already created in Kanri are not affected.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="View and Manage Leads"
+    href="/lead-management/view-leads/"
+    description="see who has been added and follow up"
+  />
+</CardGrid>

@@ -433,6 +433,10 @@ export default defineConfig({
               slug: "lead-management/view-leads",
             },
             {
+              label: "Automatic Lead Sync from Aquila",
+              slug: "lead-management/aquila-lead-sync",
+            },
+            {
               label: "Lead Page",
               collapsed: true,
               items: [
