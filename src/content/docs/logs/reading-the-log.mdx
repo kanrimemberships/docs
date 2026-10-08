@@ -3,19 +3,36 @@ title: Reading the Audit Log
 description: How to navigate and filter the school-wide audit log.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
-
 :::note[Professional & Enterprise]
 The Audit Log requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
 
-## What this page will cover
+Go to **Logs → Events** to see the school-wide audit log. Each row shows the type of action, who
+performed it (or "System" if it was automated), and when it happened. Click a row to see full
+details in the panel on the right — for a wider screen, this opens alongside the list; on a
+narrower screen, it opens its own page.
 
-- Opening the Audit Log from the sidebar
-- What each log entry shows: timestamp, actor (who did it), action type, subject (what was affected), detail
-- Filtering by date range
-- Filtering by action type (e.g. only show billing events, only show member changes)
-- Searching by member name or staff member name
-- Understanding the log format: what "system" actions are (automated events, not triggered by a specific user)
+## Filtering the log
+
+Use the filter bar above the list to narrow down the events shown. You can combine any of these at
+once:
+
+- **Event Type** — pick one or more specific kinds of events (for example, only membership changes
+  or only billing events) from the dropdown.
+- **Since / Until** — show only events between two dates.
+- **All Sources** — show only events triggered directly by a staff/portal user ("User Action") or
+  only events triggered by an automated process ("Job Queue", e.g. a scheduled billing run).
+- **Performed by (first name) / (last name)** — show only events performed by a staff or portal
+  user matching that name.
+- **System only** — show only automated events with no specific person attached, instead of
+  filtering by name.
+- **Affected member** — search for a member to see every event connected to them: not just changes
+  to their own profile, but also changes to their memberships, subscriptions, invoices, and other
+  linked records.
+- **Object ID** — if you have the internal ID of a specific record (for example from a support
+  conversation), search for it directly.
+- **IP address** / **User agent** — useful for security investigations, e.g. confirming which
+  device or location a login or change came from.
+
+Filters apply together (not one-or-the-other) — for example, you can look for events "performed by
+Jane" **and** "since last Monday" at the same time.

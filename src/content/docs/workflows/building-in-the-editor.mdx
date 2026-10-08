@@ -94,7 +94,7 @@ See [How Workflows Work](/workflows/how-workflows-work/#exit-conditions) for why
 
 ## Adding steps
 
-To add a step after an existing node, click the **+** button on the right side of that node. Choose the step type from the menu: **Action**, **Delay**, **Branch**, **Read**, or **For Each**.
+To add a step after an existing node, click the **+** button on the right side of that node. Choose the step type from the menu: **Action**, **Delay**, **Branch**, **Switch**, **Read**, or **For Each**.
 
 To **insert a step between two connected nodes**, drag the new step node onto the **+** button that appears in the middle of the arrow connecting them. The step is inserted and the connections are updated automatically.
 
@@ -121,6 +121,11 @@ Click any step node to open its settings panel. The settings available depend on
 - Build the condition using the filter builder.
 - Connect the **if true** output to one step, and the **if false** output to another.
 
+**Switch step:**
+- Choose **Match first** (take the first matching case's path) or **Match all** (take every matching case's path).
+- Add, reorder, or remove cases; build each case's condition with the filter builder.
+- Connect each case's output to its own step, and connect the **default** output to a fallback step for when nothing matches.
+
 **Read step:**
 - Choose the record type, build a filter, and select the fields you want.
 
@@ -130,12 +135,19 @@ Click any step node to open its settings panel. The settings available depend on
 
 ---
 
+## Renaming a step
+
+By default, a step's name on the canvas summarizes its settings (for example, a Branch step shows its condition). Click the step's name in its settings panel and type your own label to override this — useful for giving a step a clearer, more memorable name in a complex workflow. Clear the label to go back to the automatic summary.
+
+---
+
 ## Connecting steps
 
 Each node has a **+** connector on its right side. Click it to add a next step, or drag a new node onto it.
 
 - **Action, Delay, Read, and For Each** steps have one outgoing connection.
 - **Branch** steps have two outgoing connections: "if true" and "if false".
+- **Switch** steps have one outgoing connection per case, plus one for "default".
 - A step with no outgoing connection is a **terminal step** — the run ends there.
 
 ---

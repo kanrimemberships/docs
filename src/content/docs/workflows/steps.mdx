@@ -9,13 +9,14 @@ Workflows require a Professional or Enterprise plan and are currently in beta. [
 
 Steps are what a workflow does after the trigger fires. Each step runs in order, passing control to the next step when it finishes. A workflow can have as many steps as you need.
 
-There are five step types:
+There are six step types:
 
 | Step type | What it does |
 |---|---|
 | [Action](#action) | Performs an operation — send a message, create a record, promote a member, etc. |
 | [Delay](#delay) | Pauses the run for a period of time before continuing |
 | [Branch](#branch) | Checks a condition and takes one of two paths |
+| [Switch](#switch) | Checks a condition against several possible options and takes the matching path(s) |
 | [Read](#read) | Looks up a single record and makes it available to later steps |
 | [For Each](#for-each) | Loops over multiple records and runs a sub-sequence of steps once per record |
 
@@ -90,6 +91,25 @@ A Branch step only affects the path taken at that point in the run — it doesn'
 
 ---
 
+## Switch
+
+A **Switch** step is like a Branch step with more than two possible outcomes. You add one **case** per outcome, each with its own condition, plus a **default** path used when nothing matches.
+
+Choose a mode:
+
+- **Match first** — checks each case in order and takes the path of the *first* one that matches. If none match, the run takes the default path. Use this when your cases are mutually exclusive (e.g., a membership tier: "Basic," "Premium," "Elite").
+- **Match all** — checks every case and takes the path of *every* case that matches, running each matched path independently at the same time. If nothing matches, the run takes the default path instead. Use this when more than one outcome can apply at once (e.g., sending different notices for "overdue," "low attendance," and "expiring soon" — a member could hit more than one).
+
+**Example uses:**
+- Route a new lead to a different follow-up sequence depending on which class they inquired about (Match first).
+- Send one or more targeted reminders to a member depending on which conditions apply to them at once — overdue balance, expiring membership, low attendance — without the reminders being mutually exclusive (Match all).
+
+:::note
+In **Match all** mode, matched paths don't rejoin back into the main run afterward — each one runs to completion on its own. If you need the run to continue with a single next step after the Switch, put that step on each matched path individually, or restructure using Match first if the cases are exclusive.
+:::
+
+---
+
 ## Read
 
 A **Read** step looks up a single record (or an aggregated value) and makes it available to later steps.
@@ -129,6 +149,7 @@ Steps are connected in the workflow editor, which runs left to right. Each step 
 
 - **Action, Delay, Read, and For Each** steps have one outgoing connection.
 - **Branch** steps have two outgoing connections: "if true" and "if false".
+- **Switch** steps have one outgoing connection per case, plus one for "default".
 - A step with no outgoing connection is a **terminal step** — the run ends there.
 
 See [Building in the Editor](/workflows/building-in-the-editor/) for how to add, connect, and rearrange steps on the canvas.

@@ -99,13 +99,13 @@ Kanri will check for any errors (like missing required fields). If everything is
 
 To make sure everything works:
 
-1. Add a test member to Kanri (or use an existing member for a manual run).
-2. On the workflow page, click **Run** and select that member to start a manual run.
-3. Go to **Runs** (top right of the builder) to watch the run in progress.
-4. After 10 minutes, the delay will complete and the message will be sent.
+1. Create a test member in Kanri, or choose a safe existing test record.
+2. In the builder, click **Test Run** and select the member.
+3. Confirm the warning, then follow the run detail page as it refreshes while the workflow runs.
+4. On a waiting Delay step, click **Skip delay** to continue immediately.
 
 :::note
-Manual runs respect the delay step — it will actually wait 10 minutes before sending. If you want to test without waiting, you can temporarily set the delay to 1 minute for testing, then change it back before going live.
+Test runs use the published workflow and perform real actions. Messages send and data changes apply. Use test records, and check each selected record before starting. Skipping a delay advances the run but does not skip later actions.
 :::
 
 ---
