@@ -3,16 +3,30 @@ title: Groups
 description: A reference for what groups are — custom collections of members for broadcasts and other purposes.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
+:::note[Guide coming soon]
+This overview will explain how group membership works and how to choose the right assignment type.
 :::
 
-## What this page will cover
+## How group membership works
 
-- What a group is (a named collection of members — currently used for targeting broadcasts, but designed as a general-purpose grouping tool that will be used for more features in the future)
-- Two types of assignments that make up a group:
-  1. **Member assignments** — specific members added directly to the group
-  2. **Program assignments** — all active members of a program, optionally filtered by a level range (min and max level)
-- Groups are dynamic: program assignments reflect current membership, not a snapshot
-- How groups are used: as a broadcast recipient target in Messages → Compose
-- Viewing who is in a group (current members shown based on assignments)
+A group is a named collection of people connected to your school. You can use it to organize members and target a [broadcast](/messages/send-a-broadcast/). Group assignments determine who is included. You can combine multiple assignment types in one group.
+
+| Assignment type | Who it includes |
+|---|---|
+| **Individual members** | Specific profiles you select. They stay in the group until you remove the assignment. |
+| **Program and level** | Members with an active membership in a selected program. You can limit the group to a level range. Membership updates change who matches. |
+| **Custom filter** | Members whose profiles match conditions you choose in the filter builder. Kanri checks the filter against member records when resolving the group. |
+
+If a person matches more than one assignment, they are still included only once.
+
+## Planned guides
+
+- [Create a Group](/groups/create-group/): name a group and open its member list.
+- [Add Members to a Group](/groups/add-members-to-group/): select specific profiles to include.
+- [Add a Program to a Group](/groups/add-program-to-group/): include members by program and optional level range.
+- [Add Members Using a Custom Filter](/groups/add-members-by-filter/): define conditions to include matching member profiles.
+- [Send a Broadcast to a Group](/groups/send-broadcast-to-group/): review recipients and send a message.
+
+:::tip
+Use individual assignments for a hand-picked list, program assignments for an enrolled cohort, and a custom filter when you want the group to follow changing profile details.
+:::

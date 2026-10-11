@@ -86,6 +86,24 @@ export default defineConfig({
             { label: "Member Number", slug: "members/member-number" },
             { label: "Notes", slug: "members/notes" },
             { label: "Interactions", slug: "members/interactions" },
+            { label: "Discounts", slug: "members/discounts" },
+            { label: "Evaluations", slug: "members/evaluations" },
+            { label: "Documents", slug: "members/documents" },
+            {
+              label: "Billing",
+              collapsed: true,
+              items: [
+                { label: "Overview", slug: "members/billing" },
+                {
+                  label: "View Invoices",
+                  slug: "members/billing/view-invoices",
+                },
+                {
+                  label: "Review Charges",
+                  slug: "members/billing/view-charges",
+                },
+              ],
+            },
             {
               label: "Contacts",
               collapsed: true,
@@ -95,6 +113,7 @@ export default defineConfig({
                   label: "Add a Contact",
                   slug: "members/contacts/add-contact",
                 },
+                { label: "Contact Of", slug: "members/contact-of" },
               ],
             },
             {
@@ -142,6 +161,10 @@ export default defineConfig({
                   slug: "members/subscriptions/extend-subscription",
                 },
                 {
+                  label: "Archive a Subscription",
+                  slug: "members/subscriptions/archive-subscription",
+                },
+                {
                   label: "Cancel a Subscription",
                   slug: "members/subscriptions/cancel-subscription",
                 },
@@ -152,6 +175,10 @@ export default defineConfig({
                 {
                   label: "View Payment History",
                   slug: "members/subscriptions/view-payment-history",
+                },
+                {
+                  label: "Session Credits",
+                  slug: "members/subscriptions/session-credits",
                 },
               ],
             },
@@ -189,6 +216,14 @@ export default defineConfig({
                   slug: "members/bookings/cancel-booking",
                 },
                 {
+                  label: "Reschedule a Booking",
+                  slug: "members/bookings/reschedule-booking",
+                },
+                {
+                  label: "Edit Booking Notes",
+                  slug: "members/bookings/edit-booking",
+                },
+                {
                   label: "Mark Attended / No-Show",
                   slug: "members/bookings/mark-attended-no-show",
                 },
@@ -204,6 +239,54 @@ export default defineConfig({
                   label: "Manage Folders",
                   slug: "members/gallery/manage-folders",
                 },
+              ],
+            },
+            {
+              label: "Shop & Inventory",
+              collapsed: true,
+              items: [
+                { label: "Overview", slug: "shop" },
+                { label: "Products and Variants", slug: "shop/products" },
+                { label: "Manage Inventory", slug: "shop/inventory" },
+                { label: "Suppliers", slug: "shop/suppliers" },
+                { label: "Purchase Orders", slug: "shop/purchase-orders" },
+                { label: "Fulfil Product Sales", slug: "shop/fulfil-sales" },
+                { label: "Process Returns", slug: "shop/returns" },
+                { label: "Shop Reports", slug: "shop/reports" },
+              ],
+            },
+            {
+              label: "Documents",
+              collapsed: true,
+              items: [
+                { label: "Overview", slug: "documents" },
+                { label: "Document Templates", slug: "documents/templates" },
+                { label: "Upload and Manage Documents", slug: "documents/upload-and-manage" },
+                { label: "Request a Signature", slug: "documents/request-signature" },
+                { label: "Waivers", slug: "documents/waivers" },
+              ],
+            },
+            {
+              label: "Staff & Shifts",
+              collapsed: true,
+              items: [
+                { label: "Overview", slug: "staff" },
+                { label: "Create and Manage Shifts", slug: "staff/manage-shifts" },
+                { label: "Offer and Swap Shifts", slug: "staff/shift-swaps" },
+                { label: "Clock In and Out", slug: "staff/time-tracking" },
+                { label: "Timesheets", slug: "staff/timesheets" },
+                { label: "Staff Departments", slug: "staff/departments" },
+              ],
+            },
+            {
+              label: "Website",
+              collapsed: true,
+              items: [
+                { label: "Overview", slug: "website" },
+                { label: "Set Up Your Website", slug: "website/setup" },
+                { label: "Pages and Navigation", slug: "website/pages-and-navigation" },
+                { label: "Write a Blog Post", slug: "website/blog" },
+                { label: "Publish Your Website", slug: "website/publish" },
               ],
             },
             {
@@ -243,6 +326,10 @@ export default defineConfig({
                 {
                   label: "Promotions Report",
                   slug: "programs/levels/promotions-report",
+                },
+                {
+                  label: "Manage Gradings",
+                  slug: "programs/levels/gradings",
                 },
               ],
             },
@@ -307,10 +394,33 @@ export default defineConfig({
           ],
         },
         {
+          label: "Calendar",
+          collapsed: true,
+          items: [
+            { label: "Overview", slug: "calendar" },
+            { label: "Manage Calendars", slug: "calendar/manage-calendars" },
+            { label: "Create and Edit Events", slug: "calendar/events" },
+            { label: "Set Closed Days", slug: "calendar/closed-days" },
+            { label: "Share a Calendar Feed", slug: "calendar/share-calendar-feed" },
+          ],
+        },
+        {
           label: "Billing",
           collapsed: true,
           items: [
             { label: "Overview", slug: "billing" },
+            {
+              label: "Invoices",
+              collapsed: true,
+              items: [
+                { label: "About Invoices", slug: "billing/invoices" },
+                { label: "Create an Invoice", slug: "billing/invoices/create-invoice" },
+                { label: "Edit an Invoice", slug: "billing/invoices/edit-invoice" },
+                { label: "Collect a Payment", slug: "billing/invoices/collect-payment" },
+                { label: "Refund or Void a Payment", slug: "billing/invoices/refunds-and-voids" },
+                { label: "Receipts and Payment History", slug: "billing/invoices/receipts-and-history" },
+              ],
+            },
             {
               label: "Billing Plans",
               collapsed: true,
@@ -336,6 +446,15 @@ export default defineConfig({
                   label: "Set Program Access",
                   slug: "billing/billing-plans/set-program-access",
                 },
+              ],
+            },
+            {
+              label: "In-Person Payments",
+              collapsed: true,
+              items: [
+                { label: "About In-Person Payments", slug: "billing/terminal" },
+                { label: "Set Up a Card Reader", slug: "billing/terminal/set-up-reader" },
+                { label: "Take an In-Person Payment", slug: "billing/terminal/take-payment" },
               ],
             },
             {
@@ -417,6 +536,10 @@ export default defineConfig({
               slug: "groups/add-program-to-group",
             },
             {
+              label: "Add Members Using a Custom Filter",
+              slug: "groups/add-members-by-filter",
+            },
+            {
               label: "Broadcast to a Group",
               slug: "groups/send-broadcast-to-group",
             },
@@ -431,6 +554,10 @@ export default defineConfig({
             {
               label: "View & Convert Leads",
               slug: "lead-management/view-leads",
+            },
+            {
+              label: "Front-Desk Intake",
+              slug: "lead-management/front-desk-intake",
             },
             {
               label: "Automatic Lead Sync from Aquila",
@@ -465,6 +592,30 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: "Overview", slug: "reports" },
+            { label: "Home Dashboard", slug: "reports/dashboard" },
+            {
+              label: "Custom Reports",
+              collapsed: true,
+              items: [
+                { label: "About Custom Reports", slug: "reports/custom-reports" },
+                { label: "Create a Custom Report", slug: "reports/custom-reports/create-report" },
+                { label: "Build Filters", slug: "reports/custom-reports/filter-builder" },
+                { label: "Configure Tables", slug: "reports/custom-reports/configure-tables" },
+                { label: "Configure Charts and Summary Cards", slug: "reports/custom-reports/configure-charts-and-stats" },
+                { label: "Manage Report Views", slug: "reports/custom-reports/report-views" },
+                { label: "Share a Report", slug: "reports/custom-reports/share-report" },
+                { label: "Use Report Actions", slug: "reports/custom-reports/report-actions" },
+              ],
+            },
+            {
+              label: "KPIs",
+              collapsed: true,
+              items: [
+                { label: "About KPIs", slug: "reports/kpis" },
+                { label: "Create a KPI", slug: "reports/kpis/create-kpi" },
+                { label: "Set KPI Goals", slug: "reports/kpis/set-goals" },
+              ],
+            },
             {
               label: "Attendance",
               collapsed: true,
@@ -476,6 +627,11 @@ export default defineConfig({
                 },
                 { label: "Absentees", slug: "reports/attendance/absentees" },
               ],
+            },
+            {
+              label: "Lead Reports",
+              collapsed: true,
+              items: [{ label: "Lead Funnel and Follow-Up", slug: "reports/leads" }],
             },
             {
               label: "Memberships",
@@ -490,6 +646,10 @@ export default defineConfig({
                   slug: "reports/memberships/historical-memberships",
                 },
                 {
+                  label: "New Members",
+                  slug: "reports/memberships/new-members",
+                },
+                {
                   label: "Only Memberships",
                   slug: "reports/memberships/only-memberships",
                 },
@@ -498,6 +658,7 @@ export default defineConfig({
                   slug: "reports/memberships/only-subscriptions",
                 },
                 { label: "Promotions", slug: "reports/memberships/promotions" },
+                { label: "Recent Promotions", slug: "reports/memberships/recent-promotions" },
               ],
             },
             {
@@ -538,6 +699,7 @@ export default defineConfig({
               items: [
                 { label: "Birthdays", slug: "reports/other/birthdays" },
                 { label: "Health", slug: "reports/other/health" },
+                { label: "Member Record Checks", slug: "reports/other/member-records" },
               ],
             },
           ],
@@ -559,7 +721,9 @@ export default defineConfig({
             { label: "Overview", slug: "kiosk" },
             { label: "Set Up a Kiosk Device", slug: "kiosk/set-up-kiosk" },
             { label: "Member Numbers", slug: "kiosk/member-numbers" },
+            { label: "Mobile Check-In", slug: "kiosk/mobile-check-in" },
             { label: "Kiosk Behaviors", slug: "kiosk/kiosk-behaviors" },
+            { label: "Manage Member Holds", slug: "kiosk/member-holds" },
           ],
         },
         {
@@ -568,6 +732,7 @@ export default defineConfig({
           items: [
             { label: "Overview", slug: "member-portal" },
             { label: "Invite a Member", slug: "member-portal/invite-member" },
+            { label: "View Invoices and Receipts", slug: "member-portal/view-and-pay-invoices" },
             {
               label: "What Members Can See",
               slug: "member-portal/what-members-can-see",
@@ -638,6 +803,10 @@ export default defineConfig({
             { label: "Referral Types", slug: "settings/referral-types" },
             { label: "Account", slug: "settings/account" },
             { label: "Usage", slug: "settings/usage" },
+            { label: "Evaluation Forms", slug: "settings/evaluations" },
+            { label: "Connected Domains", slug: "settings/domains" },
+            { label: "API Keys", slug: "settings/api-keys" },
+            { label: "Kiosk Messages", slug: "settings/kiosk-messages" },
             {
               label: "Branding",
               collapsed: true,
@@ -752,7 +921,11 @@ export default defineConfig({
           "users",
           "tournament",
           "calendar-event",
+          "calendar",
           "credit-card",
+          "building-store",
+          "file-description",
+          "clock",
           "mail",
           "chart-bar",
           "device-desktop",
@@ -760,6 +933,7 @@ export default defineConfig({
           "settings",
           "layout-grid",
           "photo",
+          "world",
           "door-enter",
         ],
       },
