@@ -3,10 +3,67 @@ title: Edit a Subscription
 description: How to change a member's subscription plan, price, or billing dates.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- What can be edited on an active subscription (plan, price, dates)
-- What cannot be changed without cancelling and recreating (billing interval, currency)
-- How to change a member from one price to another within the same plan
-- How changing a price affects the next billing date
-- Editing the subscription end date (for fixed-term subscriptions)
+Edit a subscription when the member's billing details change.
+
+## What you can change
+
+Depending on the subscription, you can update:
+
+- the attached payment method
+- the next payment date
+- the payment type used for your records
+- the selected price
+- the payment amount override
+- the payment interval and interval count overrides
+- admin fees
+- the end date, if the subscription is already fixed-term
+
+## Edit a subscription
+
+1. Open the member from the [Members list](/members/).
+2. Click **Billing**, then **Subscriptions**.
+3. Open the subscription.
+4. Click **Edit**.
+5. Update the fields you need.
+6. Click **Save**.
+
+## Important rules
+
+- You can change or remove the attached payment method.
+- You can only edit **End Date** on subscriptions that already have an end date.
+- You cannot add an end date to an ongoing subscription from the edit screen.
+
+:::note
+If you remove the payment method, the subscription can stay on file. It simply will not have an attached method for automatic collection.
+:::
+
+:::tip
+If the member is switching to a different payer, add the new payer's [payment method](/members/subscriptions/add-payment-method/) and select it on the subscription.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Extend a fixed-term subscription"
+    href="/members/subscriptions/extend-subscription/"
+    description="Add more time to a fixed term."
+  />
+  <LinkCard
+    title="Cancel a subscription"
+    href="/members/subscriptions/cancel-subscription/"
+    description="Stop future charges for this subscription."
+  />
+  <LinkCard
+    title="Retry a failed payment"
+    href="/members/subscriptions/retry-failed-payment/"
+    description="Try collecting a missed payment again."
+  />
+  <LinkCard
+    title="View payment history"
+    href="/members/subscriptions/view-payment-history/"
+    description="See past payments for this subscription."
+  />
+</CardGrid>

@@ -3,11 +3,68 @@ title: Upload Files to a Member's Gallery
 description: How to upload photos, videos, or documents to a member's profile gallery.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Going to the Gallery tab on a member's profile
-- Uploading a single file or multiple files at once
-- Supported formats (images, video, documents)
-- File size limits
-- Adding a title and description to an uploaded file
-- Setting whether the file is visible to the member in their portal
+Upload files to keep member-specific documents and media in one place.
+
+## Before you start
+
+Decide:
+
+1. What name staff should see for the file.
+2. Whether the file belongs in a folder.
+3. Whether the member should be able to see it in the [Member Portal](/member-portal/).
+
+## Upload a file
+
+1. Open the member from the [Members list](/members/).
+2. Click **Gallery**.
+3. Click **Upload**.
+4. Drag the file into the drop zone, or click the drop zone to choose a file.
+5. Enter a **Name**.
+6. Add a **Description** if helpful.
+7. Select a **Folder** if you want to organize the file.
+8. Turn on **Public** if the member should see it in the portal.
+9. Save the upload.
+
+## Know what each field means
+
+| Field | What it does |
+| --- | --- |
+| Name | Required. This is the label staff will see. |
+| Description | Optional. Add extra context, such as `Black belt test photos`. |
+| Folder | Optional. Places the file inside a folder. |
+| Public | Makes the file visible in the member portal, if the folder also allows it. |
+
+:::caution
+If you place a file inside a private folder, the file cannot be public.
+:::
+
+:::tip
+Give files names that make sense later. For example, `Yellow Belt Certificate - May 2025` is easier to find than `IMG_2048`.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Manage folders"
+    href="/members/gallery/manage-folders/"
+    description="Organize member files into folders."
+  />
+  <LinkCard
+    title="Return to gallery overview"
+    href="/members/gallery/"
+    description="View gallery files saved for members."
+  />
+  <LinkCard
+    title="Review member portal visibility"
+    href="/member-portal/"
+    description="Learn how the member portal works."
+  />
+  <LinkCard
+    title="Open the school gallery docs"
+    href="/gallery/"
+    description="Learn about your school's shared gallery."
+  />
+</CardGrid>

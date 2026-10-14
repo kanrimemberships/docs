@@ -3,10 +3,52 @@ title: Member Messages
 description: How to view and send messages to an individual member from their profile.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Viewing the message history for a specific member (Messages tab on their profile)
-- What information each message log entry shows (date, type, subject/preview, staff sender)
-- Sending a new message to the member directly from their profile
-- The difference between messaging from a profile vs from the Messages section
-- Link to the full Send a Message guide
+Every member's profile has its own **Messages** tab. It's the same [Inbox](/messages/) as the
+main **Messages** area in the sidebar, filtered down to just this member and their
+[contacts](/members/contacts/), so you can see and continue a conversation without leaving their
+profile.
+
+## What you can do here
+
+- See every conversation with this member or their contacts, in one place
+- [Send a new message](/members/messages/send-message-to-member/) to the member or a contact
+- Reply, mark read/unread, flag, or archive a conversation, exactly as you would in the main Inbox
+
+For the full detail on any of these actions, see
+[Reply & Manage Conversations](/messages/reply-and-manage-conversations/). Broadcasting to many
+members at once isn't available from a member's profile. See
+[Send a Broadcast](/messages/send-a-broadcast/).
+
+:::tip
+You can message any contact directly from this tab regardless of their settings. **Receive
+Communications**, set on the contact's [edit page](/members/contacts/), only controls whether that
+contact is automatically included when you later [broadcast](/messages/send-a-broadcast/) to this
+member's whole program or group.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Send a message to a member"
+    href="/members/messages/send-message-to-member/"
+    description="Send a direct message to a member or one of their contacts."
+  />
+  <LinkCard
+    title="Add or update contacts"
+    href="/members/contacts/"
+    description="See contact and billing options."
+  />
+  <LinkCard
+    title="Reply & manage conversations"
+    href="/messages/reply-and-manage-conversations/"
+    description="Flagging, archiving, and replying, in full detail."
+  />
+  <LinkCard
+    title="Use message templates"
+    href="/messages/templates/"
+    description="Create and manage reusable message templates."
+  />
+</CardGrid>

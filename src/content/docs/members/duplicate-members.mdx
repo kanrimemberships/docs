@@ -7,11 +7,11 @@ import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
 Kanri has a **Duplicate** feature that creates a copy of a member's profile. This is useful when you need to register a family member or someone in similar circumstances who shares most of the same details (address, contacts, family status, and so on).
 
-Kanri does not currently have an automated merge tool. If two separate profiles exist for the same person, you'll need to handle that manually. This page covers both situations.
+If two separate profiles exist for the same person, Kanri has a merge tool under **Reports → Resolve** that can combine them into one. This page covers both situations.
 
 ## Duplicating a member profile
 
-Use **Duplicate** when you want to create a new member whose profile is largely the same as an existing one — for example, registering a second child in the same family.
+Use **Duplicate** when you want to create a new member whose profile is largely the same as an existing one, such as a second child in the same family.
 
 1. Open the existing member's profile.
 2. Click the **Duplicate** icon (two overlapping pages) in the top right of the **Information** card.
@@ -20,17 +20,14 @@ Use **Duplicate** when you want to create a new member whose profile is largely 
    - Family status
    - Sex
    - Birthday
-   - Can manage self
-4. **First Name is intentionally left blank** — you must enter it before saving.
-5. Phone and email are also left blank (since these must be unique per member).
+4. Enter the new member's **First Name**. Kanri leaves this field blank.
+5. Phone and email are also left blank. Enter the correct details for the new person if they have their own phone number or email address.
 6. Click **Duplicate** to create the new profile.
 
 What gets copied to the new profile:
 
 - All of the original's **contacts** (including family relationships)
 - All of the original's **notes**
-- The original's address
-
 What is **not** copied:
 
 - [Memberships](/members/memberships/)
@@ -38,6 +35,7 @@ What is **not** copied:
 - [Attendance history](/members/attendance/)
 - [Gallery files](/members/gallery/)
 - [Interactions](/members/interactions/)
+- The original's address and profile photo
 
 :::note
 After duplicating, you'll need to set up memberships and billing for the new member separately, just as you would for any new member.
@@ -45,60 +43,9 @@ After duplicating, you'll need to set up memberships and billing for the new mem
 
 ## Handling duplicate members (same person, two profiles)
 
-If the same person was accidentally added twice, you won't find a one-click merge button in Kanri. Here's how to handle it manually:
+Duplicate profiles, shared emails or phones, and leftover legacy notes are all handled in **Reports → Resolve**. See [Resolve](/reports/other/resolve/) for the full guide.
 
-### 1. Identify which profile to keep
-
-Open both profiles and compare them. Choose the one with more complete information as the profile to keep. Key things to check:
-
-- Which has a [membership](/members/memberships/)?
-- Which has a [subscription](/members/subscriptions/)?
-- Which has attendance history?
-- Which has the correct email and phone number?
-
-### 2. Move any important notes
-
-Go to the duplicate profile and copy the content of any [notes](/members/notes/) that aren't on the profile you're keeping. Add them as new notes on the correct profile.
-
-Do the same for any [interactions](/members/interactions/) — copy the key details into a new interaction on the correct profile, noting that the entry was transferred from a duplicate.
-
-### 3. Update the profile you're keeping
-
-Make sure the profile you're keeping has the correct email, phone number, address, and photo. Use [Edit a Member](/members/edit-member/) to update anything that's missing.
-
-### 4. Delete the duplicate
-
-Once you're confident the correct profile is complete, you can delete the duplicate from the member's profile page. Deletion is permanent.
-
-## Preventing duplicates
-
-The most common cause of duplicates is adding a member manually while they already submitted a lead form or booked a trial. To reduce the chances of this happening:
-
-- Search by email before adding a new member manually.
-- Use the [auto-link accounts](/settings/behaviors/general-behaviors/) behavior, which automatically links portal accounts to member profiles when emails match.
-- When a lead comes in through your [lead page](/lead-management/lead-page/), check the [Leads list](/lead-management/view-leads/) before creating a new member manually.
-
-## Next steps
-
-<CardGrid>
-  <LinkCard
-    title="Add a Member"
-    href="/members/add-member/"
-    description="create a fresh member profile"
-  />
-  <LinkCard
-    title="Edit a Member"
-    href="/members/edit-member/"
-    description="update details on an existing profile"
-  />
-  <LinkCard
-    title="Notes"
-    href="/members/notes/"
-    description="add and manage staff notes"
-  />
-  <LinkCard
-    title="Interactions"
-    href="/members/interactions/"
-    description="log permanent event records"
-  />
-</CardGrid>
+- Safe cases (for example two identical profiles) are merged automatically when automatic fixes are on.
+- Likely duplicates appear as cases with the profiles side by side. Click **Apply selected steps** to merge. Merging moves bookings, attendance, documents, conversations, notes and history onto the kept profile. If either profile has billing, Kanri's records move but Stripe does not change, so double-check billing afterwards.
+- When profiles share only a name, Kanri asks. Click **Same person, merge** or **Different people**. Your answer is remembered.
+- When two different people (often a parent and child) share a phone or email, do not merge. The shared-details cases let you pick who keeps the value.

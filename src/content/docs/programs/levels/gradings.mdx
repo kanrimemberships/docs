@@ -1,0 +1,40 @@
+---
+title: Manage Gradings
+description: Schedule grading dates, review eligible members, and promote members in a group.
+---
+
+Gradings let you schedule an event for one or more programs, review members due to advance, and promote eligible members together.
+
+Grading management is available to staff with program-view access. Members can see scheduled gradings for their active programs in the calendar, but cannot open the grading roster or management pages.
+
+## Create a grading
+
+1. Open **Programs → Gradings** and select **New Grading**.
+2. Enter a name and date and time. The time shown and submitted is interpreted directly in the school's time zone, regardless of your device's time zone.
+3. Select one or more programs.
+4. Optionally enable **Close the selected programs for this grading**.
+5. Select **Create Grading**.
+
+When you close the selected programs, Kanri creates a closed day for the grading's date. It blocks attendance, student bookings, and trial bookings for those programs. Editing the grading updates the linked closed day.
+
+## Review the roster
+
+Open a grading to see summary counts and separate, paginated lists:
+
+- **Confirmed eligible** includes members who meet both the minimum-days and attendance requirements, plus anyone manually included. Attendance is counted through the grading's date in the school's time zone.
+- **May be eligible** includes members who meet one requirement but not both. This includes members who have attended enough classes but still need more time at their current level.
+- **Not met** includes members who meet neither requirement.
+
+Only active memberships whose current level is marked for grading and has a next level appear in these lists. Members already promoted in this grading are removed from the roster.
+
+Use **Include manually** from the **May be eligible** or **Not met** list to bypass the remaining thresholds. Manual inclusion does not bypass the need for an active membership, a current level marked for grading, and a next level. You can remove manual inclusion from the Confirmed eligible list.
+
+Use **Exclude from this grading** to leave a member off one grading's promotion list without changing their eligibility elsewhere. Excluded members remain visible in that grading, and **Restore to grading** reverses the exclusion. Excluded members cannot be selected for promotion.
+
+After a grading starts, eligible members who were not promoted can appear in the next eligible future grading. They remain visible on the earlier grading's roster. Once a member is promoted, Kanri keeps their earlier grading eligibility and level details in that historical roster.
+
+## Promote members
+
+Members on the current **Confirmed eligible** page are selected by default. Uncheck anyone absent, then select **Promote N selected one level** to advance only the remaining selections. Selections apply only to the current page. Kanri rechecks eligibility when processing promotions and advances each selected member by one level. A member cannot be promoted twice in the same grading.
+
+Members and kiosk screens identify next promotion dates tied to gradings with **(grading)**. These dates are calculated from each level's setting and upcoming gradings; they are not saved as membership dates. A member-specific promotion date takes precedence.

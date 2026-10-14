@@ -3,12 +3,57 @@ title: Retry a Failed Payment
 description: What to do when a member's payment fails and how to retry it.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Why payments fail (expired card, insufficient funds, card blocked)
-- Where failed payments appear (member's payment history, Failing Subscriptions report)
-- How to contact the member to update their payment method
-- How to retry a payment once the card is updated
-- How many retries happen automatically (Stripe retry logic)
-- What to do if the member disputes the charge
-- When to cancel the subscription vs keep trying
+Retry a payment when a subscription payment has failed and you want to charge again right away.
+
+## Before you start
+
+Make sure:
+
+1. the payment you are looking at has failed
+2. the subscription has an attached payment method
+
+## Retry a failed payment
+
+1. Open the member from the [Members list](/members/).
+2. Click **Billing**, then **Subscriptions**.
+3. Open the subscription.
+4. Open the failed payment in the payment history.
+5. Click **Retry**.
+6. Confirm the retry.
+
+Kanri creates a new charge attempt and charges the attached payment method immediately.
+
+:::note
+Retry uses the payment method currently attached to the subscription.
+:::
+
+:::caution
+If the subscription does not have a payment method attached, you cannot retry the charge. Add a payment method first, then try again.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Add a payment method"
+    href="/members/subscriptions/add-payment-method/"
+    description="Save a card or bank account."
+  />
+  <LinkCard
+    title="Edit the subscription"
+    href="/members/subscriptions/edit-subscription/"
+    description="Change billing details or timing."
+  />
+  <LinkCard
+    title="View payment history"
+    href="/members/subscriptions/view-payment-history/"
+    description="See past payments for this subscription."
+  />
+  <LinkCard
+    title="Read failed payment troubleshooting"
+    href="/billing/troubleshooting/failed-payments/"
+    description="Fix common payment collection problems."
+  />
+</CardGrid>

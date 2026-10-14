@@ -3,10 +3,74 @@ title: View Member Attendance History
 description: How to see a complete record of classes a member has attended.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Opening the Attendance tab on a member's profile
-- What each attendance record shows (date, class, schedule, confirmed/unconfirmed, who confirmed it)
-- Filtering attendance by date range or program
-- Understanding total class counts and how they relate to level promotion eligibility
-- Viewing attendance across multiple memberships
+Use the attendance page to see one member's training history in one place.
+
+## What you can see on this page
+
+The attendance list shows the entries recorded for that member. Because attendance is tied to a [membership](/members/memberships/), one member can appear with attendance from more than one program.
+
+This page helps you answer questions like:
+
+- How often has this member attended recently?
+- Which class was recorded?
+- Which membership did that attendance belong to?
+- Is the member building toward their next [level](/programs/levels/)?
+
+## Open a member's attendance history
+
+1. Open the member from the [Members list](/members/).
+2. Click **Attendance**.
+3. Review the list of recorded entries.
+
+## Understand what the list means
+
+Each row shows when attendance was recorded and, when available, the related class.
+
+If the member is enrolled in more than one program, their attendance can span multiple memberships. This is normal. Kanri keeps each attendance entry tied to the correct enrolment record.
+
+:::note
+Attendance only counts toward promotion requirements when the class is set to count toward attendance. Some classes, such as special events or extra practice sessions, may be excluded.
+:::
+
+## Use attendance history when checking progress
+
+If you are tracking belt or level progress:
+
+1. Open the member's [membership](/members/memberships/).
+2. Compare their attendance with the program's [levels](/programs/levels/).
+3. Use the [Promotions report](/programs/levels/promotions-report/) to spot members who may be ready.
+
+## Fix a mistake in the list
+
+If you find an incorrect entry:
+
+1. Open the attendance record from the list.
+2. Delete it from the member attendance area.
+3. Re-add it correctly if needed.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Add attendance manually"
+    href="/members/attendance/add-attendance-manually/"
+    description="Add a missed attendance record by hand."
+  />
+  <LinkCard
+    title="Delete an attendance entry"
+    href="/members/attendance/delete-attendance/"
+    description="Remove an attendance entry from history."
+  />
+  <LinkCard
+    title="View memberships for this member"
+    href="/members/memberships/"
+    description="Manage enrolments, status, and level changes."
+  />
+  <LinkCard
+    title="Take attendance from a schedule"
+    href="/schedules/taking-attendance/"
+    description="Mark attendance from a class session."
+  />
+</CardGrid>

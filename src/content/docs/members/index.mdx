@@ -5,9 +5,9 @@ description: A complete reference for what a member is and everything you can do
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-A **member** is anyone in your school's database — students, parents, staff, and leads all live in the Members list as separate profiles.
+A **member profile** holds details about a student or another person connected to your school. Use profiles for students, prospective students, parents, guardians, and other contacts. Staff accounts and permissions are managed separately.
 
-Members are the centre of everything in Kanri. A member can have [memberships](/members/memberships/) (enrolment records), [subscriptions](/members/subscriptions/) (billing records), [attendance](/members/attendance/), [bookings](/members/bookings/), [notes](/members/notes/), [interactions](/members/interactions/), and a [gallery](/members/gallery/).
+Members are the centre of everything in Kanri. A member can have [memberships](/members/memberships/) (enrolment records), [subscriptions](/members/subscriptions/) (billing records), [attendance](/members/attendance/), [bookings](/members/bookings/), [notes](/members/notes/), [interactions](/members/interactions/), [documents](/members/documents/), and a [gallery](/members/gallery/).
 
 ## Member types
 
@@ -15,15 +15,17 @@ Every profile in the Members list has a **type** that describes their relationsh
 
 | Type        | Who it is                                                                                                                                        |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Lead**    | A prospective student who hasn't yet joined. The default type for all new profiles.                                                              |
-| **Member**  | A student with an active membership or subscription. Automatically assigned when a membership or subscription is created.                        |
-| **Contact** | A parent, guardian, or other associated person added as a contact for another member. Automatically assigned when someone is added as a contact. |
-| **Staff**   | A person with a staff role in Kanri. Automatically assigned when a role is assigned to them.                                                     |
+| **Lead**    | A prospective student. You can choose this type when creating a profile. Lead-management tools require a Professional or Enterprise plan. |
+| **Member**  | A student. Membership or subscription setup can also change a Lead, Contact, or Staff profile to Member. |
+| **Contact** | A parent, guardian, or other person linked to a member. A Lead or Staff profile can become a Contact when you link them this way. |
+| **Staff**   | A person with a staff role. Staff access and roles are managed separately from member profiles. |
 
-Kanri assigns types automatically in most cases. The type updates when something changes. For example, a profile becomes type **Member** as soon as it has an active membership or subscription.
+Choose **Member**, **Lead**, or **Contact** when creating a profile. Kanri can update the type later when you give the person a staff role, link them as a contact, or add a membership or subscription.
+
+The **Lead** option is available with a Professional or Enterprise plan.
 
 :::note
-To use [Lead Management](/lead-management/) features — the public lead page, lead statuses, and lead pipeline — you need a Professional or Enterprise plan. The Lead type itself is visible on all plans.
+Lead-management tools, including the public lead page and lead pipeline, require a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
 
 ## Profile fields
@@ -33,21 +35,20 @@ When you open a member's profile, you'll see the following information:
 | Field                      | Description                                                                                                                                                    |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **First name / Last name** | The member's full name. Both are required.                                                                                                                     |
-| **Email**                  | Used for sending messages and for portal login. Must be unique within your school.                                                                             |
-| **Phone**                  | Used for SMS messages. Must be unique within your school.                                                                                                      |
+| **Email**                  | Used for sending messages and for portal login. The same email cannot be saved on multiple profiles in your school. |
+| **Phone**                  | Used for SMS messages. The same phone number cannot be saved on multiple profiles in your school. |
 | **Birthday**               | Used in the [Birthday report](/reports/other/birthdays/) and displayed as an age on the profile.                                                               |
-| **Sex**                    | Male, Female, or Other. Optional.                                                                                                                              |
+| **Gender**                 | Male, Female, or Other. Optional. |
 | **Family Status**          | Single, Married, Divorced, Widowed, Separated, Common Law, or Other. Optional.                                                                                 |
 | **Address**                | Street address, city, province/state, postal code, and country. Edited separately from other profile fields.                                                   |
 | **Photo**                  | A headshot used for visual identification at the kiosk. Uploaded and cropped separately.                                                                       |
-| **Member number**          | A unique number automatically assigned when the member is created. Members can use this number — or search by first name — to sign in at the [kiosk](/kiosk/). |
-| **Can manage self**        | When enabled, this member can be their own account manager in the portal.                                                                                      |
+| **Member number**          | A unique number automatically assigned when the member is created. Members can use it or search by first name to sign in at the [kiosk](/kiosk/). |
 
 ## The members list
 
-Go to **Members** in the main navigation to see a list of all your members.
+Go to **Members** in the main navigation to find student, lead, and contact profiles.
 
-By default, the list shows only profiles that have at least one active [membership](/members/memberships/). To see all profiles (including leads, contacts, and inactive members), check **Show inactive** in the filter bar.
+The list has separate **Active Members**, **All Members**, **Leads**, and **Contacts** tabs. **Active Members** includes members with an active membership. **All Members** includes member profiles with active or inactive memberships. Leads and contacts have their own tabs.
 
 The list shows each member's name, last attendance date, and the active programs they're enrolled in. Click a member's name to open their profile.
 
@@ -61,21 +62,26 @@ A member's profile is organised into tabs. Each tab shows a different aspect of 
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Overview**      | Key information cards: personal details, address, memberships, subscriptions, contacts, notes, interactions, and more. Customisable per staff account. |
 | **Contacts**      | People linked to this member (parents, guardians, spouses, etc.) and who can manage them.                                                              |
+| **Contact Of**    | Members linked to this person as their contact, including each relationship and whether this person can manage them. |
 | **Memberships**   | Enrolment records showing which programs the member is enrolled in, their level, and status.                                                           |
-| **Subscriptions** | Billing records showing payment plans, amounts, and schedule.                                                                                          |
+| **Billing**       | Links to subscriptions, payments, invoices, charges, discounts, and saved payment methods. |
 | **Attendance**    | A log of every class session this member has attended.                                                                                                 |
 | **Bookings**      | Upcoming and past class bookings for this member.                                                                                                      |
 | **Messages**      | Email and SMS conversations with this member.                                                                                                          |
 | **Interactions**  | Immutable log entries recording events, incidents, and calls.                                                                                          |
 | **Notes**         | Editable staff notes (medical info, reminders, special arrangements).                                                                                  |
 | **Gallery**       | Files and photos uploaded for this member.                                                                                                             |
+| **Documents**      | [Documents](/members/documents/) sent to or stored for this member. Document Management requires a Professional or Enterprise plan. |
+| **Evaluation**    | Evaluation forms and responses, when enabled for your school. |
 | **Logs**          | A full audit trail of every change made to this member's record. Requires a Professional or Enterprise plan.                                           |
+
+You can also manage a member's [discounts](/members/discounts/), [session credits](/members/subscriptions/session-credits/), and [evaluation](/members/evaluations/) from their record. See the [billing overview](/members/billing/) for the billing tools available from the profile.
 
 ## The member profile vs. a user account
 
 A **member profile** is a record in your school's data. It holds training history, billing, and personal details.
 
-A **user account** is a login credential. It lets someone access Kanri — either as staff or as a member through the portal.
+A **user account** is a login credential. It lets someone access Kanri as staff or as a member through the portal.
 
 These are two separate things. A member profile can exist without any user account. When you [invite a member to the portal](/members/invite-member-portal/), Kanri links their user account to their member profile.
 
@@ -85,7 +91,7 @@ If your school has **Auto-link accounts** turned on (in [Settings → Behaviors]
 
 Every member is automatically assigned a unique member number when their profile is created.
 
-Members can use this number — or search by their first name — to sign in at the [kiosk](/kiosk/). See [Member Number](/members/member-number/) for more detail.
+Members can use this number or search by their first name to sign in at the [kiosk](/kiosk/). See [Member Number](/members/member-number/) for more detail.
 
 ## Next steps
 

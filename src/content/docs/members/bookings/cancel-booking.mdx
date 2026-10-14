@@ -3,14 +3,48 @@ title: Cancel a Booking
 description: How to cancel a member's booking for a specific class session.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 :::note[Professional & Enterprise]
-Member self-booking requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+This feature requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
 
+Cancel a booking when a member no longer needs their spot.
 
-## What this page will cover
+## Cancel a booking
 
-- Cancelling from the member's Bookings tab vs from the schedule session view
-- What happens to the freed-up spot (available for other members)
-- Whether cancelling a booking removes attendance if already marked (yes)
-- Cancellation notification to the member (if configured)
+1. Open the member from the [Members list](/members/).
+2. Open the **Bookings** tab.
+3. Open the booking you want to cancel.
+4. Click **Cancel Booking** and confirm.
+
+The booking remains in the member's history with a cancelled status. If the member still wants to attend, [book them into another session](/members/bookings/book-member-into-class/).
+
+:::note
+Cancel a booking when the member gives up the spot. Use **No-show** when they kept the booking but did not attend.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Book into another class"
+    href="/members/bookings/book-member-into-class/"
+    description="Reserve another available session."
+  />
+  <LinkCard
+    title="Reschedule a booking"
+    href="/members/bookings/reschedule-booking/"
+    description="Move a confirmed booking to another session."
+  />
+  <LinkCard
+    title="Mark attended or no-show"
+    href="/members/bookings/mark-attended-no-show/"
+    description="Record what happened after class."
+  />
+  <LinkCard
+    title="View schedule bookings"
+    href="/schedules/bookings/"
+    description="See bookings for upcoming sessions."
+  />
+</CardGrid>

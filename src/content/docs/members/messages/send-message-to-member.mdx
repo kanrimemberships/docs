@@ -3,11 +3,59 @@ title: Send a Message to a Member
 description: How to send an email or SMS directly to one member from their profile.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Choosing email vs SMS and when to use each
-- Composing the message: subject (email only), body, using a template
-- Who the message is sent to (the member's email/phone, or a contact's if set)
-- Sending and confirming delivery
-- Viewing the sent message in the member's message history
-- Link to full Messages section for bulk sending and templates
+Send a message from a member's profile when you want the conversation tied to that specific
+person, without searching for them from the main Inbox.
+
+## Before you start
+
+Make sure the member, or one of their [contacts](/members/contacts/), has at least one contact
+method you can use, an email address for email, or a phone number for SMS.
+
+## Send a message
+
+1. Open the member from the [Members list](/members/).
+2. Click the **Messages** tab.
+3. Click **Compose**.
+4. Choose which contact method to message: the member's own email or phone, or one of their
+   linked contacts.
+5. Click **Templates** if you want to start from a saved [template](/messages/templates/), or
+   write the message from scratch.
+6. Enter a **Subject** if you're sending by email.
+7. Write your message in the content editor.
+8. Optionally, set a date and time to send the message later instead of right away.
+9. Click **Send** (or **Schedule**, if you set a send time).
+
+The conversation appears both on this member's **Messages** tab and in the school-wide
+[Inbox](/messages/).
+
+:::tip
+Type `{{` in the subject or content editor to insert a placeholder, like the member's first name.
+See [Message Placeholders](/reference/message-placeholders/) for the full list.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Member messages overview"
+    href="/members/messages/"
+    description="See everything you can do from a member's Messages tab."
+  />
+  <LinkCard
+    title="Add a contact who should receive messages"
+    href="/members/contacts/add-contact/"
+    description="Give a member's guardian or emergency contact their own contact details."
+  />
+  <LinkCard
+    title="Create a template"
+    href="/messages/templates/create-a-template/"
+    description="Save time on messages you send often."
+  />
+  <LinkCard
+    title="Send a broadcast"
+    href="/messages/send-a-broadcast/"
+    description="Message a whole program or group instead of one member."
+  />
+</CardGrid>

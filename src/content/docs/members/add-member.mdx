@@ -5,20 +5,21 @@ description: How to create a new member profile in Kanri.
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-When someone joins your school, the first thing you do is create a member profile for them. This takes less than a minute for a basic profile, and you can always fill in more details later.
+Create a profile when you add a student, contact, or prospective student to Kanri. The first screen asks which kind of profile you want to create.
 
 ## Before you start
 
 You need the **Manage Members** permission to add members. If you don't see a **New Member** button on the Members page, ask your school administrator to check your [role permissions](/settings/roles/).
 
-## Add a member
+## Create a profile
 
 1. Go to **Members** in the main navigation.
 2. Click **New Member** in the top right.
-3. Fill in the member's details (see the field reference below).
-4. Click **Create Member**.
+3. Choose **Member**, **Lead** (if available on your plan), or **Contact**.
+4. Enter the person's details (see the field reference below).
+5. Click **Create Member**.
 
-Kanri saves the new profile and takes you straight to the member's overview page.
+Kanri then guides you through any relevant setup steps. A contact goes straight to their profile. A member can continue by adding contacts, completing an evaluation if your school uses one, and setting up memberships or billing. A lead goes through a shorter setup.
 
 ## Field reference
 
@@ -29,38 +30,39 @@ Only **First Name** and **Last Name** are required. Everything else is optional 
 | **First Name** | Required. |
 | **Last Name** | Required. |
 | **Family Status** | The member's family situation: Single, Married, Divorced, Widowed, Separated, Common Law, or Other. |
-| **Sex** | Male, Female, or Other. |
+| **Gender** | Male, Female, or Other. |
 | **Birthday** | Used in the [Birthday report](/reports/other/birthdays/) and shown as an age on the profile. |
-| **Phone** | Used for SMS messages. Must be unique within your school — if another profile already has this number, you'll see an error. |
+| **Phone** | Used for SMS messages. Must be unique within your school. Kanri shows an error if another profile already has this number. |
 | **Email** | Used for sending emails and for [portal login](/members/invite-member-portal/). Must be unique within your school. |
-| **Can manage self** | When enabled, this member can be their own account manager in the portal (they don't need a separate guardian or contact to manage them). |
+| **Lead details** | When you choose **Lead**, you can also record their status, programs of interest, and how they heard about your school. Lead-management features require a Professional or Enterprise plan. |
 
 :::tip
-If you're in a hurry, enter just the first name, last name, and email, then click **Create Member**. You can add the rest later by [editing the member](/members/edit-member/).
+If you're in a hurry, enter just the first and last name. You can add other details later by [editing the profile](/members/edit-member/).
 :::
 
 ## Member types
 
-Every new profile starts as a **Lead** — Kanri's default type for anyone who doesn't yet have a membership, subscription, or staff role. The type updates automatically as you set up the member:
+Choose the profile type when you create it. Kanri also updates a profile's type when its role changes:
 
-- Assign a **membership or subscription** and they become a **Member**
-- Add them as a **contact** for another member and they become a **Contact**
-- Assign them a **staff role** and they become **Staff**
+- New student profiles are **Members**. A membership or subscription can also change a Lead, Contact, or Staff profile to a Member.
+- Choose **Lead** for a prospective student. Lead-management features require a Professional or Enterprise plan.
+- Choose **Contact** for a parent, guardian, or another person connected to a member.
+- A Lead can become **Staff** when you assign them a staff role. Staff access is managed separately from member profiles.
 
-You don't need to manage types manually. See [Members overview](/members/) for a full breakdown of member types.
+See the [Members overview](/members/) for more about profile types.
 
 ## What happens after you save
 
 When Kanri creates the profile:
 
-- A unique **member number** is automatically assigned. Members can use this number — or search by first name — to sign in at the [kiosk](/kiosk/).
+- A unique **member number** is automatically assigned. Members can use it, or search by first name, to sign in at the [kiosk](/kiosk/).
 - If the email or phone number matches any existing unassigned message conversations, Kanri links them to the new profile.
 
-The new profile exists but has no memberships, subscriptions, or billing set up yet. Typical next steps:
+For a new student, these are common next steps:
 
 1. [Assign a membership](/members/memberships/assign-membership/) to enrol them in a program.
 2. [Create a subscription](/members/subscriptions/create-subscription/) to set up recurring billing.
-3. [Add a payment method](/members/subscriptions/add-payment-method/) so billing can process automatically.
+3. [Add a payment method](/members/subscriptions/add-payment-method/) if you want Kanri to collect payments automatically.
 4. [Upload a photo](/members/edit-member/) for kiosk identification.
 5. [Invite them to the portal](/members/invite-member-portal/) so they can log in.
 

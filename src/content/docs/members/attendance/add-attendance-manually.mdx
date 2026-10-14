@@ -3,10 +3,75 @@ title: Add Attendance Manually
 description: How to manually record that a member attended a class, outside of a booking or kiosk check-in.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- When you'd add attendance manually (walk-ins, backdating missed records, classes without schedules)
-- How to add an attendance record from the member's profile
-- Selecting the class and date for the manual record
-- Confirming a manually-added attendance record
-- The difference between confirmed and unconfirmed attendance and why it matters for promotions
+Use manual attendance when you need to add training history for one member.
+
+## Before you start
+
+Make sure:
+
+1. The member already has an **active** [membership](/members/memberships/assign-membership/).
+2. You know which class the attendance belongs to.
+3. The class belongs to the same program as the membership you plan to use.
+
+## Add attendance manually
+
+1. Open the member from the [Members list](/members/).
+2. Click **Attendance**.
+3. Click **New** or **Add Attendance**.
+4. Select the **Membership** you want to use.
+5. Select the **Class**.
+6. Enter **Number of Attendances**.
+7. Click **Create**.
+
+## Know what each field does
+
+| Field | What to enter |
+| --- | --- |
+| Membership | Choose one of the member's active memberships. |
+| Class | Choose a class from the same program as that membership. |
+| Number of Attendances | Enter how many attendance entries to add. The default is 1. You can add between 1 and 25 at a time. |
+
+:::caution
+If you choose a class from a different program, Kanri will not allow the attendance to be created.
+:::
+
+:::tip
+If you sell classes in blocks, check **Sessions Remaining** on the membership after adding attendance. Kanri reduces the remaining sessions when that membership tracks sessions.
+:::
+
+## When to use manual attendance
+
+Manual attendance is useful when:
+
+- You are catching up after a missed class.
+- You need to correct a paper sign-in sheet.
+- You want to add several past visits for one member.
+
+For day-to-day class management, [Take Attendance](/schedules/taking-attendance/) is usually faster.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="View the member's attendance history"
+    href="/members/attendance/view-member-attendance/"
+    description="See a member's past attendance records."
+  />
+  <LinkCard
+    title="Delete an attendance entry"
+    href="/members/attendance/delete-attendance/"
+    description="Remove an attendance entry from history."
+  />
+  <LinkCard
+    title="Review the member's membership"
+    href="/members/memberships/"
+    description="Manage enrolments, status, and level changes."
+  />
+  <LinkCard
+    title="Take attendance from a schedule"
+    href="/schedules/taking-attendance/"
+    description="Mark attendance from a class session."
+  />
+</CardGrid>

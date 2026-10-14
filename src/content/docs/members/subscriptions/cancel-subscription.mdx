@@ -3,11 +3,55 @@ title: Cancel a Subscription
 description: How to cancel a member's subscription in Kanri.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- The difference between cancelling immediately vs cancelling at period end
-- How to cancel from the member's subscription tab
-- What happens to the member's membership status when a subscription is cancelled (depends on your Behaviors settings)
-- Whether cancelled subscriptions can be reactivated (no — you create a new one)
-- Archiving a cancelled subscription to keep the view tidy
-- Handling refunds when cancelling (refunds are processed separately via Stripe)
+Cancel a subscription when future billing should stop.
+
+## Understand what cancelling does
+
+Cancelling a subscription sets a **cancellation date**. The subscription stays active until that date arrives.
+
+This is useful when a member has already paid through the end of the current period.
+
+## Cancel a subscription
+
+1. Open the member from the [Members list](/members/).
+2. Click **Billing**, then **Subscriptions**.
+3. Open the subscription.
+4. Click **Cancel**.
+5. Enter the **Cancellation Date**.
+6. Enter a **Cancellation Reason** if you want to keep one on file.
+7. Click **Cancel**.
+
+:::note
+You cannot cancel a subscription that is already cancelled or archived.
+:::
+
+:::caution
+Cancelling a subscription does not end the member's [membership](/members/memberships/). If the member is also leaving the program, update both records.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="End the member's membership if needed"
+    href="/members/memberships/end-membership/"
+    description="Close a membership when training ends."
+  />
+  <LinkCard
+    title="View payment history"
+    href="/members/subscriptions/view-payment-history/"
+    description="See past payments for this subscription."
+  />
+  <LinkCard
+    title="Check failing subscriptions report"
+    href="/reports/billing/failing-subscriptions/"
+    description="Find subscriptions with payment problems."
+  />
+  <LinkCard
+    title="Return to subscriptions overview"
+    href="/members/subscriptions/"
+    description="Manage billing records for this member."
+  />
+</CardGrid>

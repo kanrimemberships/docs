@@ -88,7 +88,6 @@ export default defineConfig({
             { label: "Interactions", slug: "members/interactions" },
             { label: "Discounts", slug: "members/discounts" },
             { label: "Evaluations", slug: "members/evaluations" },
-            { label: "Documents", slug: "members/documents" },
             {
               label: "Billing",
               collapsed: true,
@@ -238,65 +237,6 @@ export default defineConfig({
                 {
                   label: "Manage Folders",
                   slug: "members/gallery/manage-folders",
-                },
-              ],
-            },
-            {
-              label: "Shop & Inventory",
-              collapsed: true,
-              items: [
-                { label: "Overview", slug: "shop" },
-                { label: "Products and Variants", slug: "shop/products" },
-                { label: "Manage Inventory", slug: "shop/inventory" },
-                { label: "Suppliers", slug: "shop/suppliers" },
-                { label: "Purchase Orders", slug: "shop/purchase-orders" },
-                { label: "Fulfil Product Sales", slug: "shop/fulfil-sales" },
-                { label: "Process Returns", slug: "shop/returns" },
-                { label: "Shop Reports", slug: "shop/reports" },
-              ],
-            },
-            {
-              label: "Documents",
-              collapsed: true,
-              items: [
-                { label: "Overview", slug: "documents" },
-                { label: "Document Templates", slug: "documents/templates" },
-                { label: "Upload and Manage Documents", slug: "documents/upload-and-manage" },
-                { label: "Request a Signature", slug: "documents/request-signature" },
-                { label: "Waivers", slug: "documents/waivers" },
-              ],
-            },
-            {
-              label: "Staff & Shifts",
-              collapsed: true,
-              items: [
-                { label: "Overview", slug: "staff" },
-                { label: "Create and Manage Shifts", slug: "staff/manage-shifts" },
-                { label: "Offer and Swap Shifts", slug: "staff/shift-swaps" },
-                { label: "Clock In and Out", slug: "staff/time-tracking" },
-                { label: "Timesheets", slug: "staff/timesheets" },
-                { label: "Staff Departments", slug: "staff/departments" },
-              ],
-            },
-            {
-              label: "Website",
-              collapsed: true,
-              items: [
-                { label: "Overview", slug: "website" },
-                { label: "Set Up Your Website", slug: "website/setup" },
-                { label: "Pages and Navigation", slug: "website/pages-and-navigation" },
-                { label: "Write a Blog Post", slug: "website/blog" },
-                { label: "Publish Your Website", slug: "website/publish" },
-              ],
-            },
-            {
-              label: "Messages",
-              collapsed: true,
-              items: [
-                { label: "Message History", slug: "members/messages" },
-                {
-                  label: "Send a Message",
-                  slug: "members/messages/send-message-to-member",
                 },
               ],
             },
@@ -519,6 +459,17 @@ export default defineConfig({
               ],
             },
             { label: "The Outbox", slug: "messages/outbox" },
+            {
+              label: "From a Member Profile",
+              collapsed: true,
+              items: [
+                { label: "Member Messages", slug: "members/messages" },
+                {
+                  label: "Send a Message to a Member",
+                  slug: "members/messages/send-message-to-member",
+                },
+              ],
+            },
           ],
         },
         {
@@ -700,6 +651,7 @@ export default defineConfig({
                 { label: "Birthdays", slug: "reports/other/birthdays" },
                 { label: "Health", slug: "reports/other/health" },
                 { label: "Member Record Checks", slug: "reports/other/member-records" },
+                { label: "Resolve", slug: "reports/other/resolve" },
               ],
             },
           ],
@@ -712,6 +664,55 @@ export default defineConfig({
             { label: "Upload Files", slug: "gallery/upload-files" },
             { label: "Manage Folders", slug: "gallery/manage-folders" },
             { label: "Share with Members", slug: "gallery/share-gallery" },
+          ],
+        },
+        {
+          label: "Documents",
+          collapsed: true,
+          items: [
+            { label: "Overview", slug: "documents" },
+            { label: "Document Templates", slug: "documents/templates" },
+            { label: "Upload and Manage Documents", slug: "documents/upload-and-manage" },
+            { label: "Request a Signature", slug: "documents/request-signature" },
+            { label: "Waivers", slug: "documents/waivers" },
+            { label: "Member Profile Documents", slug: "members/documents" },
+          ],
+        },
+        {
+          label: "Shop & Inventory",
+          collapsed: true,
+          items: [
+            { label: "Overview", slug: "shop" },
+            { label: "Products and Variants", slug: "shop/products" },
+            { label: "Manage Inventory", slug: "shop/inventory" },
+            { label: "Suppliers", slug: "shop/suppliers" },
+            { label: "Purchase Orders", slug: "shop/purchase-orders" },
+            { label: "Fulfil Product Sales", slug: "shop/fulfil-sales" },
+            { label: "Process Returns", slug: "shop/returns" },
+            { label: "Shop Reports", slug: "shop/reports" },
+          ],
+        },
+        {
+          label: "Staff & Shifts",
+          collapsed: true,
+          items: [
+            { label: "Overview", slug: "staff" },
+            { label: "Create and Manage Shifts", slug: "staff/manage-shifts" },
+            { label: "Offer and Swap Shifts", slug: "staff/shift-swaps" },
+            { label: "Clock In and Out", slug: "staff/time-tracking" },
+            { label: "Timesheets", slug: "staff/timesheets" },
+            { label: "Staff Departments", slug: "staff/departments" },
+          ],
+        },
+        {
+          label: "Website",
+          collapsed: true,
+          items: [
+            { label: "Overview", slug: "website" },
+            { label: "Set Up Your Website", slug: "website/setup" },
+            { label: "Pages and Navigation", slug: "website/pages-and-navigation" },
+            { label: "Write a Blog Post", slug: "website/blog" },
+            { label: "Publish Your Website", slug: "website/publish" },
           ],
         },
         {

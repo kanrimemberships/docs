@@ -3,12 +3,75 @@ title: Create a Subscription
 description: How to assign a billing plan to a member and start recurring payments.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Prerequisites: member must have a payment method on file (or billing contact does)
-- Selecting a billing plan and price from the member's Payments tab
-- Setting the subscription start date
-- What happens on the start date (first charge triggered)
-- Understanding the billing interval and when subsequent charges occur
-- Confirming the subscription is Active
-- What to do if the first charge fails immediately
+Create a subscription when you are ready to record how a member will pay.
+
+## Before you start
+
+Make sure:
+
+1. You already have a [billing plan](/billing/billing-plans/) and price.
+2. You understand that this is separate from the member's [membership](/members/memberships/).
+3. You have a payment method on file if you want automatic charging.
+
+## Create a subscription
+
+1. Open the member from the [Members list](/members/).
+2. Click **Billing**, then **Subscriptions**.
+3. Click **New Subscription**.
+4. Select a **Payment Method** if you want Kanri to charge automatically.
+5. Enter the **Start Date**.
+6. Select the **Billing Plan**.
+7. Select the **Price**.
+8. Choose the **Payment Type**.
+9. Enter the **First Payment Date** if needed.
+10. Enter **Already Paid Date** if the member has already paid.
+11. Enter **Admin Fees** if you use them.
+12. Save the subscription.
+
+## Know what each field means
+
+| Field | What it means |
+| --- | --- |
+| Payment Method | Optional. Attach one for automatic charging. Leave blank for offline or manual billing. |
+| Start Date | Required. The date the subscription begins. |
+| Billing Plan | Required. The named product, such as `Monthly Karate`. |
+| Price | Required. The amount and interval on that plan. |
+| Payment Type | Required. How the member pays for your records, such as Card, Bank, E-transfer, Cash, Paid in Full, Scholarship, or Other. |
+| First Payment Date | Optional. If a payment method is attached, this usually defaults to the start date. |
+| Already Paid Date | Optional. Use this if payment has already been collected. |
+| Admin Fees | Optional. Add any extra admin fee amount. |
+
+:::note
+If you attach a payment method, Kanri can schedule automatic charges. If you leave it blank, the subscription can still exist for record-keeping or offline payment tracking.
+:::
+
+:::caution
+Creating a subscription does not automatically create a membership. If the billing plan is linked to programs, Kanri may show an **Add Memberships** page after saving. It lists linked programs where the member has no membership or has an inactive one. If the plan has no linked programs, or the member is already set up, you go straight to the subscription. Check that the member also has the right [membership](/members/memberships/assign-membership/).
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Edit the subscription later"
+    href="/members/subscriptions/edit-subscription/"
+    description="Change billing details or timing."
+  />
+  <LinkCard
+    title="View payment history"
+    href="/members/subscriptions/view-payment-history/"
+    description="See past payments for this subscription."
+  />
+  <LinkCard
+    title="Assign a membership"
+    href="/members/memberships/assign-membership/"
+    description="Enrol the member in a program."
+  />
+  <LinkCard
+    title="Review billing plans"
+    href="/billing/billing-plans/"
+    description="Review plans, prices, and program access."
+  />
+</CardGrid>

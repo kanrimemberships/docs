@@ -3,10 +3,64 @@ title: Attendance
 description: How attendance is tracked per member in Kanri.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- How attendance works: attendance is recorded per membership (not just per member)
-- The difference between confirmed and unconfirmed attendance
-- How attendance is created (via kiosk sign-in, booking mark-attended, or manual entry)
-- What "counts towards attendance" means on a class (some classes can be excluded from promotion eligibility counting)
-- Attendance and level promotions: how classes attended since last promotion is calculated
+Attendance helps you track how often a member trains in each [membership](/members/memberships/).
+
+In Kanri, attendance is recorded **per membership**, not just per member. This matters when one person is enrolled in more than one [program](/programs/). For example, a member could have one attendance history for Adult Karate and another for Weapons.
+
+## Understand how attendance works
+
+- Each attendance entry belongs to one membership.
+- A member can have attendance across multiple memberships.
+- You can only add attendance to an **active** membership.
+- When you add attendance manually, the class must belong to the same program as the selected membership.
+- Attendance can count toward level progress, unless the class has **counts towards attendance** turned off.
+- If the membership tracks sessions, Kanri reduces **Sessions Remaining** when attendance is added.
+
+:::note
+Attendance and [subscriptions](/members/subscriptions/) are separate. Attendance follows the member's enrolment in a program. It does not depend on how the member pays.
+:::
+
+## Manage attendance from the member profile
+
+From a member's profile, you can:
+
+1. [View attendance history](/members/attendance/view-member-attendance/).
+2. [Add attendance manually](/members/attendance/add-attendance-manually/).
+3. [Delete an attendance entry](/members/attendance/delete-attendance/) if it was added by mistake.
+
+## Choose the right way to record attendance
+
+Use the member attendance area when you need to fix or add attendance for one person.
+
+Use [Take Attendance](/schedules/taking-attendance/) when you are working from a scheduled class and want to record the whole session.
+
+:::tip
+If a member seems ready for their next level, check their attendance together with their current [membership](/members/memberships/) and your [Promotions report](/programs/levels/promotions-report/).
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="View a member's attendance history"
+    href="/members/attendance/view-member-attendance/"
+    description="See a member's past attendance records."
+  />
+  <LinkCard
+    title="Add attendance manually"
+    href="/members/attendance/add-attendance-manually/"
+    description="Add a missed attendance record by hand."
+  />
+  <LinkCard
+    title="Delete an attendance entry"
+    href="/members/attendance/delete-attendance/"
+    description="Remove an attendance entry from history."
+  />
+  <LinkCard
+    title="Take attendance from a schedule"
+    href="/schedules/taking-attendance/"
+    description="Mark attendance from a class session."
+  />
+</CardGrid>

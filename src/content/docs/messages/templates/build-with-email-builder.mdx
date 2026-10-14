@@ -30,8 +30,8 @@ Click **Add block** and choose from:
 | Block | What it's for |
 |---|---|
 | Text | A paragraph or heading, with the same formatting as the Rich Text editor |
-| Image | A single image, with alt text, alignment, and an optional height limit |
-| Image + Text | An image next to a block of text, side by side |
+| Image | A single image, with alt text, alignment, crop, and max height |
+| Image + Text | An image next to a block of text, with its own crop and max height |
 | Columns | Two side-by-side columns of text |
 | Button | A call-to-action link styled as a button |
 | Divider | A thin horizontal line to separate sections |
@@ -47,18 +47,18 @@ uploads directly into the template and doesn't need to already be in your school
 [Gallery](/gallery/).
 :::
 
-### Limiting an image's height
+### Crop and size an image
 
-By default, a tall image is capped at a reasonable height so it can't overwhelm the email —
-leave **Limit height** off and it fits that default. If you want a different maximum height
-(shorter or taller), turn on **Limit height** and set your own value in pixels — the
-**alignment** setting above still controls whether it's centered, left, or right. With a height
-limit set, you can also choose how the image fits that space:
+Select an **Image** or **Image + Text** block to edit its crop. Drag inside the crop frame to move
+it; drag any edge or corner handle to resize it to the shape you want. Making the frame smaller
+zooms in. The preview updates as you work, and you can crop to portrait, landscape, or square shapes.
 
-- **Fit** (default) — shows the whole image, adding empty space above/below if needed.
-- **Crop to fill** — fills the entire height, cropping any part of the image that doesn't fit. Use
-  the **focal point** picker (click or drag on the image preview) to choose which part of the
-  image stays visible when it's cropped.
+Set **Max height (px)** to control how tall the image can appear. New images start at **300px**.
+Width follows the crop shape automatically, so there is no width setting. Standalone images fit
+within the email width; **Image + Text** images also fit within their column.
+
+Cropping changes only the image used in the email. Kanri keeps the original upload so you can
+adjust the crop later or replace it.
 
 ### Social Links block
 

@@ -3,10 +3,57 @@ title: Extend a Subscription
 description: How to give a member extra time on their subscription (e.g. for a refund, holiday freeze, or goodwill gesture).
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- What "extending" a subscription means (pushes the next billing date forward without charging)
-- Common reasons to extend: school was closed, member was sick, goodwill gesture
-- How to extend: number of days to push the next billing date by
-- How extension affects the subscription timeline
-- Whether extending creates a credit or just delays the next charge
+Extend a subscription when a fixed-term plan should continue for longer.
+
+## Before you start
+
+You can only extend a subscription when:
+
+1. it is a fixed-term subscription with an end date
+2. it is not already cancelled
+
+## Extend a subscription
+
+1. Open the member from the [Members list](/members/).
+2. Click **Billing**, then **Subscriptions**.
+3. Open the subscription.
+4. Click **Extend**.
+5. Enter the date the extended term should begin.
+6. Click **Extend**.
+
+Kanri uses that date to create the next part of the subscription and move the end date further into the future.
+
+:::note
+Ongoing subscriptions do not need to be extended. They continue until you [cancel the subscription](/members/subscriptions/cancel-subscription/).
+:::
+
+:::caution
+You cannot extend a cancelled subscription. If the member should continue paying, create a new plan arrangement instead of relying on a cancelled subscription.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Edit the subscription"
+    href="/members/subscriptions/edit-subscription/"
+    description="Change billing details or timing."
+  />
+  <LinkCard
+    title="View payment history"
+    href="/members/subscriptions/view-payment-history/"
+    description="See past payments for this subscription."
+  />
+  <LinkCard
+    title="Cancel the subscription"
+    href="/members/subscriptions/cancel-subscription/"
+    description="Stop future charges for this subscription."
+  />
+  <LinkCard
+    title="Return to subscriptions overview"
+    href="/members/subscriptions/"
+    description="Manage billing records for this member."
+  />
+</CardGrid>

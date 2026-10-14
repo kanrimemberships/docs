@@ -1,14 +1,73 @@
 ---
 title: Subscriptions
-description: A reference for what subscriptions are — billing records that automatically charge a member's payment method.
+description: A reference for member billing records, from automatic charges to offline payment tracking.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- What a subscription is (a billing record tying a member to a billing plan price, with automatic recurring charges)
-- The full subscription lifecycle: Active → Cancelled → Archived
-- The difference between a subscription and a membership (billing vs enrolment)
-- Single subscription mode vs multiple subscription mode (school-level setting)
-- How billing dates work (charge date, next charge date, proration)
-- What happens when a subscription fails, is retried, or is cancelled
-- The relationship between subscriptions and program access (if program access gating is enabled)
+A [subscription](/reference/glossary/) is the member's billing record.
+
+It answers the question: **How and when does this member pay?**
+
+This is different from a [membership](/members/memberships/), which answers: **Which program is this member enrolled in?**
+
+## Understand what a subscription includes
+
+A subscription can store:
+
+- the billing plan and price being used
+- the payment type used for the school's records, such as card, bank, cash, or scholarship
+- the next payment date
+- an optional saved payment method for automatic collection
+- current billing status and payment history
+
+## Subscription statuses
+
+| Status | What it means |
+| --- | --- |
+| Pending | The subscription starts in the future. |
+| Active | The subscription is currently in effect. |
+| Expired | A fixed-term subscription has ended. |
+| Cancelling | The subscription has a future cancellation date. |
+| Cancelled | The cancellation date has passed. |
+| Archived | The subscription has been archived. |
+
+Kanri only attempts automatic collection when the subscription has an eligible saved payment method. You can also keep subscriptions on file for payments handled outside Kanri.
+
+## Common tasks
+
+1. [Add a payment method](/members/subscriptions/add-payment-method/).
+2. [Create a subscription](/members/subscriptions/create-subscription/).
+3. [Edit a subscription](/members/subscriptions/edit-subscription/).
+4. [Extend, cancel, or review payments](/members/subscriptions/view-payment-history/).
+5. [Review or adjust session credits](/members/subscriptions/session-credits/) on an eligible session-block subscription.
+6. [Archive a subscription](/members/subscriptions/archive-subscription/) when it should no longer appear in the active list.
+
+:::note
+A member can have a subscription without a membership, or a membership without a subscription. These records are independent.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Add a payment method"
+    href="/members/subscriptions/add-payment-method/"
+    description="Save a card or bank account."
+  />
+  <LinkCard
+    title="Create a subscription"
+    href="/members/subscriptions/create-subscription/"
+    description="Start recurring or fixed-term billing."
+  />
+  <LinkCard
+    title="Edit a subscription"
+    href="/members/subscriptions/edit-subscription/"
+    description="Change billing details or timing."
+  />
+  <LinkCard
+    title="View payment history"
+    href="/members/subscriptions/view-payment-history/"
+    description="See past payments for this subscription."
+  />
+</CardGrid>

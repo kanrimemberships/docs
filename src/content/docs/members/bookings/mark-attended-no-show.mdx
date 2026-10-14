@@ -1,17 +1,46 @@
 ---
 title: Mark a Booking as Attended or No-Show
-description: How to update a booking to show whether the member actually came to the class.
+description: How to update a booking to show whether the member came to class.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 :::note[Professional & Enterprise]
-Member self-booking requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+This feature requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
 
+After class, update the booking so the member's record shows what happened.
 
-## What this page will cover
+## Mark a booking as attended
 
-- The difference between "booked" and "attended" — a booking doesn't automatically mean they came
-- Marking a booking as attended (creates a confirmed attendance record)
-- Marking a booking as no-show (booking stays, no attendance recorded)
-- How this differs from taking bulk attendance from the schedule view
-- Correcting a mark-attended if you made a mistake
+1. Open the member from the [Members list](/members/).
+2. Open the **Bookings** tab and select the booking.
+3. Click **Mark Attended**.
+
+## Mark a booking as no-show
+
+1. Open the member from the [Members list](/members/).
+2. Open the **Bookings** tab and select the booking.
+3. Click **Mark No-show**.
+
+These actions do not require extra form details. For a session-wide workflow, see [Take Attendance](/schedules/taking-attendance/).
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Book another class"
+    href="/members/bookings/book-member-into-class/"
+    description="Reserve a spot in another session."
+  />
+  <LinkCard
+    title="Cancel a booking"
+    href="/members/bookings/cancel-booking/"
+    description="Remove a booking the member no longer needs."
+  />
+  <LinkCard
+    title="Return to bookings overview"
+    href="/members/bookings/"
+    description="Learn how member bookings work."
+  />
+</CardGrid>

@@ -3,11 +3,75 @@ title: View Payment History
 description: How to read a member's individual payment history in Kanri.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Where to find a member's payment history (Payments tab on their profile)
-- What each payment record shows (date, amount, status, plan name)
-- Payment statuses: Paid, Failed, Refunded, Pending
-- How to view the receipt for a payment
-- Issuing a refund on a payment (redirects to Stripe)
-- Downloading or exporting payment history for a member
+Use payment history to review what has happened on a subscription.
+
+## What this page shows
+
+Kanri shows two groups of payments for a subscription:
+
+- **Open payments**, which are upcoming or still pending, up to 5 items
+- **Past payments**, which are the most recent completed or failed payments, up to 5 items
+
+Past payments do not include cancelled items in this summary.
+
+## Open a subscription's payment history
+
+1. Open the member from the [Members list](/members/).
+2. Click **Billing**, then **Subscriptions**.
+3. Open the subscription.
+4. Review the payments section.
+5. Open a payment to see more detail.
+
+## Payment statuses you may see
+
+| Status | Meaning |
+| --- | --- |
+| Open | Upcoming or waiting to be processed. |
+| Cancelled | The payment was cancelled before processing. |
+| Processing | The payment attempt is in progress. |
+| Success | The payment went through. |
+| Failure | The payment failed. |
+| Disputed Open | A dispute has been opened. |
+| Disputed Won | The dispute was won. |
+| Disputed Lost | The dispute was lost. |
+| Disputed Warning | Stripe has warned of a likely dispute. |
+
+## Use payment history to answer common questions
+
+Payment history can help you check:
+
+1. when the next payment is due
+2. whether the last payment succeeded
+3. whether a failed payment should be retried
+4. whether a member needs billing follow-up
+
+:::tip
+If you see a failed payment and the subscription still has a valid payment method, use [Retry Failed Payment](/members/subscriptions/retry-failed-payment/).
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Retry a failed payment"
+    href="/members/subscriptions/retry-failed-payment/"
+    description="Try collecting a missed payment again."
+  />
+  <LinkCard
+    title="Edit the subscription"
+    href="/members/subscriptions/edit-subscription/"
+    description="Change billing details or timing."
+  />
+  <LinkCard
+    title="Cancel the subscription"
+    href="/members/subscriptions/cancel-subscription/"
+    description="Stop future charges for this subscription."
+  />
+  <LinkCard
+    title="View payment reports"
+    href="/reports/billing/payments/"
+    description="Review payments collected across your school."
+  />
+</CardGrid>

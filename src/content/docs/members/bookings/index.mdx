@@ -3,14 +3,53 @@ title: Member Bookings
 description: How to view and manage an individual member's class bookings.
 ---
 
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
+
 :::note[Professional & Enterprise]
-Member self-booking requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
+This feature requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
 :::
 
+Use a member's **Bookings** tab to place them in a class session and review the result afterward. Bookings are tied to a specific session, date, and time. See [Schedules](/schedules/) to learn how sessions are created.
 
-## What this page will cover
+## Understand booking options
 
-- What a booking means from the member's perspective (a reservation for a specific session)
-- Booking statuses: booked, attended, no-show, cancelled
-- Where to find a member's upcoming and past bookings (Bookings tab on their profile)
-- The difference between managing bookings from a member's profile vs from the schedule view
+- A member with an active [membership](/members/memberships/) in a program can book a regular spot when that session allows it.
+- A member without an active membership in a program can only book a trial spot when that session allows trial bookings.
+- The school's booking settings and the session's available capacity also apply.
+
+## Manage a member's booking
+
+1. [Book the member into a session](/members/bookings/book-member-into-class/).
+2. [Reschedule a confirmed booking](/members/bookings/reschedule-booking/) when the member needs a different session.
+3. [Edit the booking note](/members/bookings/edit-booking/) without changing its session.
+4. [Cancel a booking](/members/bookings/cancel-booking/) when the member no longer needs the spot.
+5. [Mark the booking attended or no-show](/members/bookings/mark-attended-no-show/) after class.
+
+:::tip
+Regular and trial bookings can have separate capacity limits. Check the session before booking if you are unsure which type to use.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Book a member into a class"
+    href="/members/bookings/book-member-into-class/"
+    description="Reserve a spot in an available session."
+  />
+  <LinkCard
+    title="Reschedule a booking"
+    href="/members/bookings/reschedule-booking/"
+    description="Move a confirmed booking to another session."
+  />
+  <LinkCard
+    title="Cancel a booking"
+    href="/members/bookings/cancel-booking/"
+    description="Remove a member from a class."
+  />
+  <LinkCard
+    title="Take attendance from a schedule"
+    href="/schedules/taking-attendance/"
+    description="Record who attended the session."
+  />
+</CardGrid>

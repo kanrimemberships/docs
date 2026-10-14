@@ -3,9 +3,63 @@ title: Delete an Attendance Record
 description: How to remove an incorrect attendance record from a member's profile.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- When you'd delete an attendance record (entered in error, duplicate, wrong member)
-- How to find and delete a specific attendance record
-- Whether deleted attendance is recoverable (check audit log)
-- How deletion affects promotion eligibility counts
+Delete an attendance entry when it was added by mistake.
+
+## Before you delete attendance
+
+Deleting attendance is a **soft delete**. That means the entry is removed from the normal list, but Kanri keeps a record in the background.
+
+Deleting attendance can affect:
+
+- attendance totals
+- level progress
+- reports that use attendance data
+- sessions remaining on a block-style membership
+
+## Delete an attendance entry
+
+1. Open the member from the [Members list](/members/).
+2. Click **Attendance**.
+3. Find the entry you want to remove.
+4. Click **Delete** on that entry.
+5. Review the confirmation screen.
+6. Click **Delete** again to confirm.
+
+:::caution
+Only delete attendance if you are sure the entry should not be there. If the member did attend, it is better to leave the record in place.
+:::
+
+## Check the member after deleting
+
+After you delete attendance:
+
+1. Review the member's attendance list.
+2. Check their [membership](/members/memberships/) if you track level progress or sessions remaining.
+3. Re-add the attendance correctly if needed.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="View the member's attendance history"
+    href="/members/attendance/view-member-attendance/"
+    description="See a member's past attendance records."
+  />
+  <LinkCard
+    title="Add attendance manually"
+    href="/members/attendance/add-attendance-manually/"
+    description="Add a missed attendance record by hand."
+  />
+  <LinkCard
+    title="Review memberships"
+    href="/members/memberships/"
+    description="Manage enrolments, status, and level changes."
+  />
+  <LinkCard
+    title="Check attendance reports"
+    href="/reports/attendance/attendance/"
+    description="Review attendance totals across your school."
+  />
+</CardGrid>

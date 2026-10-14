@@ -3,10 +3,61 @@ title: Member Gallery
 description: How to manage photos, videos, and files attached to an individual member's profile.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- What the member gallery is (photos, videos, documents specific to one member)
-- Visibility: member gallery items are visible to the member themselves and staff with appropriate permissions
-- Difference between member gallery and school-wide gallery
-- Supported file types
-- How members can view their own gallery in the portal
+The member gallery stores files and folders for one specific member.
+
+This gallery is separate from the school-wide [Gallery](/gallery/). Use it for items that belong to one person, such as grading photos, signed forms, or progress documents.
+
+## Understand member gallery privacy
+
+Each gallery item and folder can be marked **Public** or private.
+
+- Public items can be seen by the member in their [Member Portal](/member-portal/).
+- Private items stay staff-only.
+- If a file is inside a non-public folder, that file cannot be public.
+
+## Organize files with folders
+
+You can create folders and nested folders to keep a member's files tidy.
+
+For example, you might create folders such as:
+
+- Grading Photos
+- Waivers
+- Competition Forms
+- Progress Videos
+
+## What you can do here
+
+1. [Upload files](/members/gallery/upload-files/).
+2. [Manage folders](/members/gallery/manage-folders/).
+
+:::tip
+Use clear folder names so staff can find files quickly. For example, use `2025 Grading Photos` instead of `Misc`.
+:::
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Upload files"
+    href="/members/gallery/upload-files/"
+    description="Upload files to a member gallery."
+  />
+  <LinkCard
+    title="Manage folders"
+    href="/members/gallery/manage-folders/"
+    description="Organize member files into folders."
+  />
+  <LinkCard
+    title="Learn about the school gallery"
+    href="/gallery/"
+    description="Learn about your school's shared gallery."
+  />
+  <LinkCard
+    title="Open the member portal docs"
+    href="/member-portal/"
+    description="Learn how the member portal works."
+  />
+</CardGrid>

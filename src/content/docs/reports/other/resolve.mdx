@@ -1,0 +1,46 @@
+---
+title: Resolve
+description: Clean up duplicate people, old contact notes and shared emails or phone numbers from one queue.
+---
+
+**Reports → Resolve** is one queue for tidying up member contact data. It finds four kinds of problems:
+
+- **Duplicates**: the same person entered twice, or the same parent entered once per child.
+- **Notes**: old Email, Phone and Parents notes (usually from an earlier import) that hold contact details which should live on real profiles.
+- **Shared**: an email or phone number held by more than one profile.
+- **Aquila gaps**: contact details that were in Aquila but did not make it into Kanri.
+
+You need permission to manage members to use it.
+
+## Working through the queue
+
+Each case shows why it was found, the people involved, and the steps Kanri will take. Cases are shown in a sensible order: organisation values and test data first, then duplicates, then notes, then shared details, then Aquila. Cleaning the earlier ones first makes the later ones simpler, and many disappear on their own.
+
+For each case you can:
+
+1. Click **Apply selected steps** to carry out the steps shown. Every step has a tick box; untick any you do not want and Kanri skips it, along with steps that rely on it. Skipped steps may be suggested again on a later scan.
+2. Click **Skip** to look at another case first. It comes back later.
+3. Click **Not an issue** to say these really are different people or the details are correct. You can add a reason. The case stays hidden until the people's details change.
+
+While you have a case open, nobody else is shown it for 15 minutes, so two people do not fix the same thing. Skipping releases it.
+
+Two kinds of case ask you a question:
+
+- **Same name only:** click **Same person, merge** (the merge then shows up to apply) or **Different people** (the pair is never suggested again).
+- **In Aquila but not in Kanri:** click **Link to someone existing** and search for the member, or **Ignore**. Apply the case itself to create them.
+
+Other cases need a choice that the queue cannot make for you, for example when two different phone numbers could be right. These have no Apply button. Mark them **Not an issue**, or fix the profiles by hand.
+
+The original text of an old note is never changed. Kanri renames it (for example to "Resolved: Email") and adds a "Resolution" note that lists what was found and what was done, so you can always check later.
+
+## Review in bulk
+
+When many cases follow the same rule, a **Review in bulk** link appears for it. Untick any you do not want and click **Apply selected**.
+
+## Organisation values
+
+A phone number or email that belongs to the school itself (not a person) would otherwise make dozens of people look as if they share contact details. Kanri proposes these as a case. When you apply it, the value is removed from every profile and ignored from then on. The list at the bottom of the page shows registered values, and **Remove** makes one count as a normal shared value again.
+
+## Automatic fixes
+
+Kanri can apply the obviously safe fixes by itself, such as merging two identical profiles. This is on by default for schools that were migrated and off otherwise. Use the setting at the bottom of the page to change it. Kanri also rescans every hour for schools that use the queue. Kanri also scans a school right after a migration finishes. Click **Rescan** to look for new problems right away.

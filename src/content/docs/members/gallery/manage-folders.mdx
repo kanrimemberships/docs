@@ -3,9 +3,73 @@ title: Manage Gallery Folders
 description: How to organise a member's gallery into folders.
 ---
 
-## What this page will cover
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-- Creating a folder in a member's gallery (e.g. "Grading Day", "Competition 2024")
-- Moving uploaded files into folders
-- Renaming and deleting folders
-- Navigating the folder structure
+Use folders to keep a member's gallery neat and easy to search.
+
+## Create a folder
+
+1. Open the member from the [Members list](/members/).
+2. Click **Gallery**.
+3. Choose the option to add a folder.
+4. Enter a **Name**.
+5. Add a **Description** if helpful.
+6. Turn on **Public** if the member should be able to see files in that folder.
+7. Choose a **Parent Folder** if you want this folder nested inside another folder.
+8. Save the folder.
+
+## Use nested folders
+
+Nested folders let you group files inside a larger folder.
+
+For example:
+
+- Progress Photos
+  - 2024
+  - 2025
+- Competition
+  - Registrations
+  - Results
+
+## Edit a folder carefully
+
+When you change a folder from public to private, the privacy change affects items inside it.
+
+:::caution
+If a parent folder is private, child folders and items inside it cannot stay public.
+:::
+
+## Choose a simple structure
+
+Try to keep folder names consistent.
+
+A good structure often uses one of these approaches:
+
+1. Organize by year.
+2. Organize by document type.
+3. Organize by event.
+
+## Next steps
+
+<CardGrid>
+  <LinkCard
+    title="Upload files into a folder"
+    href="/members/gallery/upload-files/"
+    description="Upload files to a member gallery."
+  />
+  <LinkCard
+    title="Return to gallery overview"
+    href="/members/gallery/"
+    description="View gallery files saved for members."
+  />
+  <LinkCard
+    title="Learn about the member portal"
+    href="/member-portal/"
+    description="Learn how the member portal works."
+  />
+  <LinkCard
+    title="Open the school gallery docs"
+    href="/gallery/"
+    description="Learn about your school's shared gallery."
+  />
+</CardGrid>
