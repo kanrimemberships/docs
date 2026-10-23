@@ -1,0 +1,23 @@
+{
+  "thresholds": {
+    "top_five_rate": 0.9,
+    "p95_latency_ms": 5000,
+    "safe_citation_rate": 1,
+    "max_queries": 20
+  },
+  "cases": [
+    { "query": "What is the difference between a membership and a subscription?", "paths": ["/how-it-all-fits-together/"] },
+    { "query": "How do I add a card for recurring payments?", "paths": ["/members/subscriptions/add-payment-method/", "/getting-started/set-up-billing/"] },
+    { "query": "How do I create a KPI?", "paths": ["/reports/kpis/create-kpi/"] },
+    { "query": "How do I set monthly KPI goals?", "paths": ["/reports/kpis/set-goals/"] },
+    { "query": "How do I reply to a text message?", "paths": ["/messages/reply-and-manage-conversations/"] },
+    { "query": "How do I send a broadcast to members?", "paths": ["/messages/send-a-broadcast/"] },
+    { "query": "Why can't a member check in at the kiosk?", "paths": ["/troubleshooting/member-cant-check-in/"] },
+    { "query": "How do I promote a member to the next belt?", "paths": ["/members/memberships/promote-level/"] },
+    { "query": "How do I cancel a subscription?", "paths": ["/members/subscriptions/cancel-subscription/"] },
+    { "query": "Where do I see historical attendance?", "paths": ["/reports/attendance/historical-attendance/"] },
+    { "query": "What does the Only Memberships report show?", "paths": ["/reports/memberships/only-memberships/"] },
+    { "query": "How do I create a billing plan?", "paths": ["/billing/billing-plans/create-plan/", "/getting-started/set-up-billing/"] },
+    { "query": "How do I renew a Canadian passport?", "paths": [] }
+  ]
+}

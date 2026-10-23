@@ -341,7 +341,10 @@ export default defineConfig({
             { label: "Manage Calendars", slug: "calendar/manage-calendars" },
             { label: "Create and Edit Events", slug: "calendar/events" },
             { label: "Set Closed Days", slug: "calendar/closed-days" },
-            { label: "Share a Calendar Feed", slug: "calendar/share-calendar-feed" },
+            {
+              label: "Share a Calendar Feed",
+              slug: "calendar/share-calendar-feed",
+            },
           ],
         },
         {
@@ -354,11 +357,26 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "About Invoices", slug: "billing/invoices" },
-                { label: "Create an Invoice", slug: "billing/invoices/create-invoice" },
-                { label: "Edit an Invoice", slug: "billing/invoices/edit-invoice" },
-                { label: "Collect a Payment", slug: "billing/invoices/collect-payment" },
-                { label: "Refund or Void a Payment", slug: "billing/invoices/refunds-and-voids" },
-                { label: "Receipts and Payment History", slug: "billing/invoices/receipts-and-history" },
+                {
+                  label: "Create an Invoice",
+                  slug: "billing/invoices/create-invoice",
+                },
+                {
+                  label: "Edit an Invoice",
+                  slug: "billing/invoices/edit-invoice",
+                },
+                {
+                  label: "Collect a Payment",
+                  slug: "billing/invoices/collect-payment",
+                },
+                {
+                  label: "Refund or Void a Payment",
+                  slug: "billing/invoices/refunds-and-voids",
+                },
+                {
+                  label: "Receipts and Payment History",
+                  slug: "billing/invoices/receipts-and-history",
+                },
               ],
             },
             {
@@ -393,8 +411,14 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { label: "About In-Person Payments", slug: "billing/terminal" },
-                { label: "Set Up a Card Reader", slug: "billing/terminal/set-up-reader" },
-                { label: "Take an In-Person Payment", slug: "billing/terminal/take-payment" },
+                {
+                  label: "Set Up a Card Reader",
+                  slug: "billing/terminal/set-up-reader",
+                },
+                {
+                  label: "Take an In-Person Payment",
+                  slug: "billing/terminal/take-payment",
+                },
               ],
             },
             {
@@ -548,14 +572,38 @@ export default defineConfig({
               label: "Custom Reports",
               collapsed: true,
               items: [
-                { label: "About Custom Reports", slug: "reports/custom-reports" },
-                { label: "Create a Custom Report", slug: "reports/custom-reports/create-report" },
-                { label: "Build Filters", slug: "reports/custom-reports/filter-builder" },
-                { label: "Configure Tables", slug: "reports/custom-reports/configure-tables" },
-                { label: "Configure Charts and Summary Cards", slug: "reports/custom-reports/configure-charts-and-stats" },
-                { label: "Manage Report Views", slug: "reports/custom-reports/report-views" },
-                { label: "Share a Report", slug: "reports/custom-reports/share-report" },
-                { label: "Use Report Actions", slug: "reports/custom-reports/report-actions" },
+                {
+                  label: "About Custom Reports",
+                  slug: "reports/custom-reports",
+                },
+                {
+                  label: "Create a Custom Report",
+                  slug: "reports/custom-reports/create-report",
+                },
+                {
+                  label: "Build Filters",
+                  slug: "reports/custom-reports/filter-builder",
+                },
+                {
+                  label: "Configure Tables",
+                  slug: "reports/custom-reports/configure-tables",
+                },
+                {
+                  label: "Configure Charts and Summary Cards",
+                  slug: "reports/custom-reports/configure-charts-and-stats",
+                },
+                {
+                  label: "Manage Report Views",
+                  slug: "reports/custom-reports/report-views",
+                },
+                {
+                  label: "Share a Report",
+                  slug: "reports/custom-reports/share-report",
+                },
+                {
+                  label: "Use Report Actions",
+                  slug: "reports/custom-reports/report-actions",
+                },
               ],
             },
             {
@@ -582,7 +630,9 @@ export default defineConfig({
             {
               label: "Lead Reports",
               collapsed: true,
-              items: [{ label: "Lead Funnel and Follow-Up", slug: "reports/leads" }],
+              items: [
+                { label: "Lead Funnel and Follow-Up", slug: "reports/leads" },
+              ],
             },
             {
               label: "Memberships",
@@ -609,7 +659,10 @@ export default defineConfig({
                   slug: "reports/memberships/only-subscriptions",
                 },
                 { label: "Promotions", slug: "reports/memberships/promotions" },
-                { label: "Recent Promotions", slug: "reports/memberships/recent-promotions" },
+                {
+                  label: "Recent Promotions",
+                  slug: "reports/memberships/recent-promotions",
+                },
               ],
             },
             {
@@ -650,7 +703,10 @@ export default defineConfig({
               items: [
                 { label: "Birthdays", slug: "reports/other/birthdays" },
                 { label: "Health", slug: "reports/other/health" },
-                { label: "Member Record Checks", slug: "reports/other/member-records" },
+                {
+                  label: "Member Record Checks",
+                  slug: "reports/other/member-records",
+                },
                 { label: "Resolve", slug: "reports/other/resolve" },
               ],
             },
@@ -672,8 +728,14 @@ export default defineConfig({
           items: [
             { label: "Overview", slug: "documents" },
             { label: "Document Templates", slug: "documents/templates" },
-            { label: "Upload and Manage Documents", slug: "documents/upload-and-manage" },
-            { label: "Request a Signature", slug: "documents/request-signature" },
+            {
+              label: "Upload and Manage Documents",
+              slug: "documents/upload-and-manage",
+            },
+            {
+              label: "Request a Signature",
+              slug: "documents/request-signature",
+            },
             { label: "Waivers", slug: "documents/waivers" },
             { label: "Member Profile Documents", slug: "members/documents" },
           ],
@@ -710,7 +772,10 @@ export default defineConfig({
           items: [
             { label: "Overview", slug: "website" },
             { label: "Set Up Your Website", slug: "website/setup" },
-            { label: "Pages and Navigation", slug: "website/pages-and-navigation" },
+            {
+              label: "Pages and Navigation",
+              slug: "website/pages-and-navigation",
+            },
             { label: "Write a Blog Post", slug: "website/blog" },
             { label: "Publish Your Website", slug: "website/publish" },
           ],
@@ -733,7 +798,10 @@ export default defineConfig({
           items: [
             { label: "Overview", slug: "member-portal" },
             { label: "Invite a Member", slug: "member-portal/invite-member" },
-            { label: "View Invoices and Receipts", slug: "member-portal/view-and-pay-invoices" },
+            {
+              label: "View Invoices and Receipts",
+              slug: "member-portal/view-and-pay-invoices",
+            },
             {
               label: "What Members Can See",
               slug: "member-portal/what-members-can-see",
@@ -746,7 +814,10 @@ export default defineConfig({
           badge: { text: "Beta", variant: "caution" },
           items: [
             { label: "Overview", slug: "workflows" },
-            { label: "How Workflows Work", slug: "workflows/how-workflows-work" },
+            {
+              label: "How Workflows Work",
+              slug: "workflows/how-workflows-work",
+            },
             {
               label: "Create Your First Workflow",
               slug: "workflows/create-your-first-workflow",
@@ -757,7 +828,10 @@ export default defineConfig({
               label: "Building in the Editor",
               slug: "workflows/building-in-the-editor",
             },
-            { label: "Publish and Disable", slug: "workflows/deploy-and-enable" },
+            {
+              label: "Publish and Enable",
+              slug: "workflows/publish-and-enable",
+            },
             { label: "Version History", slug: "workflows/version-history" },
             { label: "Run History", slug: "workflows/run-history" },
             {

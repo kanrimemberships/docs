@@ -7,7 +7,12 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "node scripts/ai-search.mjs check && wrangler deploy && node scripts/ai-search.mjs sync --wait",
+    "search:sync": "node scripts/ai-search.mjs sync --wait",
+    "search:health": "node scripts/ai-search.mjs health",
+    "search:evaluate": "node scripts/ai-search-evaluate.mjs",
+    "test:search": "node --test scripts/ai-search.test.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.5",

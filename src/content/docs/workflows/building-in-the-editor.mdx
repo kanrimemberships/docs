@@ -32,16 +32,16 @@ When you click **New Workflow**, you'll see a template picker before the blank-c
 
 Templates currently available include:
 
-| Template | Category | What it does |
-|---|---|---|
-| Welcome New Member | Members | Adds a welcome note whenever a new member is created |
-| Birthday Reminder Note | Members | Adds a birthday note to each member on their birthday every year |
-| Promote to Next Level | Members | Manual workflow — select a membership and promote it to the next belt or level |
-| New Member — Lead vs. Full Member | Members | When a member is created, adds a follow-up note for leads or a welcome note for full members |
-| Weekly New Lead Follow-Up | Communication | Every Monday, adds a follow-up note to every new lead that hasn't been contacted yet |
-| Open Overdue Invoice | Finance | One day after an invoice is due, automatically opens it for collection |
-| Cancel No-Show Bookings | Automation | Manual workflow — select bookings and cancel them in bulk for no-shows |
-| Mark Class Attendance | Automation | Manual workflow — mark selected bookings as attended in bulk |
+| Template                          | Category      | What it does                                                                                 |
+| --------------------------------- | ------------- | -------------------------------------------------------------------------------------------- |
+| Welcome New Member                | Members       | Adds a welcome note whenever a new member is created                                         |
+| Birthday Reminder Note            | Members       | Adds a birthday note to each member on their birthday every year                             |
+| Promote to Next Level             | Members       | Manual workflow — select a membership and promote it to the next belt or level               |
+| New Member — Lead vs. Full Member | Members       | When a member is created, adds a follow-up note for leads or a welcome note for full members |
+| Weekly New Lead Follow-Up         | Communication | Every Monday, adds a follow-up note to every new lead that hasn't been contacted yet         |
+| Open Overdue Invoice              | Finance       | One day after an invoice is due, automatically opens it for collection                       |
+| Cancel No-Show Bookings           | Automation    | Manual workflow — select bookings and cancel them in bulk for no-shows                       |
+| Mark Class Attendance             | Automation    | Manual workflow — mark selected bookings as attended in bulk                                 |
 
 A template is just a starting point — nothing is saved or published until you review it and click Publish yourself, so it's safe to pick one and adjust it to match how your school actually works.
 
@@ -52,6 +52,7 @@ A template is just a starting point — nothing is saved or published until you 
 The canvas is a visual space where your workflow's trigger and steps appear as **nodes** connected by **arrows**. The flow runs **left to right** — the trigger is on the left and each subsequent step connects to the right.
 
 At the top of the canvas, you'll always see:
+
 - **Save Draft** button — saves your current changes without publishing.
 - **Publish** button — makes the current draft live immediately.
 - **Enabled/Disabled** toggle — turns the published workflow on or off.
@@ -105,6 +106,7 @@ To **insert a step between two connected nodes**, drag the new step node onto th
 Click any step node to open its settings panel. The settings available depend on the step type:
 
 **Action step:**
+
 - Choose the **action** from a searchable list (e.g., "Send message", "Promote to next level").
 - Choose the **target** (This record, Create new, or From previous step).
 - Fill in the action's required and optional fields.
@@ -112,24 +114,29 @@ Click any step node to open its settings panel. The settings available depend on
 - Optionally enable **Continue on error** to skip this step if it fails.
 
 **Delay step:**
+
 - Choose **Fixed time** or **Until date field**.
 - For fixed time: enter the number of minutes, hours, or days.
 - Optionally set an **execution window** (only resume on certain days or times).
 - For condition-triggered workflows: optionally turn off **Re-check trigger condition**.
 
 **Branch step:**
+
 - Build the condition using the filter builder.
 - Connect the **if true** output to one step, and the **if false** output to another.
 
 **Switch step:**
+
 - Choose **Match first** (take the first matching case's path) or **Match all** (take every matching case's path).
 - Add, reorder, or remove cases; build each case's condition with the filter builder.
 - Connect each case's output to its own step, and connect the **default** output to a fallback step for when nothing matches.
 
 **Read step:**
+
 - Choose the record type, build a filter, and select the fields you want.
 
 **For Each step:**
+
 - Choose the record type, build a filter, and set a **limit** (the maximum number of records to process per run).
 - Add the steps that should run for each matched record, inside the loop body.
 
@@ -194,7 +201,7 @@ To see what an older version of a workflow looked like:
 
 ## Next steps
 
-- [Publish and Disable](/workflows/deploy-and-enable/) — the full publish lifecycle
+- [Publish and Enable](/workflows/publish-and-enable/) — the full publish lifecycle
 - [Version History](/workflows/version-history/) — understanding workflow versions
 - [Run History](/workflows/run-history/) — monitoring runs and debugging issues
 - [How Workflows Work](/workflows/how-workflows-work/) — core concepts, including exit conditions

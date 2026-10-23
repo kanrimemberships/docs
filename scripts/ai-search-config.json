@@ -1,0 +1,47 @@
+{
+  "account_id": "a58d11951210d070b5eb3dd16d43d569",
+  "namespace": "default",
+  "instance": {
+    "id": "kanri-help",
+    "type": "web-crawler",
+    "source": "docs.kanrimemberships.com",
+    "index_method": { "vector": true, "keyword": true },
+    "fusion_method": "rrf",
+    "cache": false,
+    "rewrite_query": false,
+    "reranking": false,
+    "max_num_results": 5,
+    "sync_interval": 21600,
+    "public_endpoint_params": { "enabled": false },
+    "source_params": {
+      "include_items": ["https://docs.kanrimemberships.com/**"],
+      "exclude_items": [
+        "**/_astro/**",
+        "**/pagefind/**",
+        "**/sitemap*.xml",
+        "**/404",
+        "**/404/",
+        "**/preview/**",
+        "**/drafts/**"
+      ],
+      "web_crawler": {
+        "parse_type": "discover",
+        "discover_options": {
+          "source": "links",
+          "limit": 500,
+          "depth": 10,
+          "max_age": 0,
+          "include_external_links": false,
+          "include_subdomains": false
+        },
+        "parse_options": {
+          "content_selector": [
+            { "path": "https://docs.kanrimemberships.com/**", "selector": ".sl-markdown-content" }
+          ],
+          "use_browser_rendering": false,
+          "include_images": false
+        }
+      }
+    }
+  }
+}

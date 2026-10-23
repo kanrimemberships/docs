@@ -31,6 +31,10 @@ The **Enable Bookings on Lead Page** toggle is only available when the Lead Page
 
 The trial booking step only appears if there are eligible sessions available. A session is eligible when it belongs to a program with **Show on Lead Page** enabled, and the session itself has trial bookings turned on. If no eligible sessions exist when someone visits the page, the trial booking step is skipped automatically.
 
+Some shared Lead Page links can limit the programs a visitor may choose.
+Visitors using one of these links only see matching, age-eligible programs;
+trial bookings and waivers stay limited to those choices.
+
 ## Enabling waiver signing
 
 When waivers are on, prospective members must sign a waiver during the Lead Page flow — before they can complete their submission.
@@ -53,6 +57,14 @@ You can control how the waiver is presented:
 **Inline** is the default and the most straightforward. Use **Email code** if you want to verify that the visitor controls the email address they entered. Use **Async** if you'd rather not block the submission on waiver signing and are happy to follow up with unsigned waivers.
 
 If trial bookings are enabled, Kanri sends waivers only for programs where the lead actually booked a session. Selecting or expressing interest in another program does not send that program's waiver. If trial bookings are off, waivers follow the programs selected on the Lead Page.
+
+If a required waiver is unavailable or has no published version, the visitor
+can still continue. Kanri skips that waiver and records the configuration problem
+for investigation; other available waivers are processed normally.
+
+Visitors must click **Continue** after booking to reach the waiver step. Saving a
+booking alone does not send the Lead Page waivers, so a visitor who leaves the
+booking confirmation may have a booking but no waiver request.
 
 ## Next steps
 
