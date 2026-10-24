@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { setTimeout as sleep } from "node:timers/promises";
+import { corpusSitemap } from "./ai-search-corpus.mjs";
 
 export const config = JSON.parse(await readFile(new URL("./ai-search-config.json", import.meta.url), "utf8"));
 const directory = fileURLToPath(new URL("../", import.meta.url));
@@ -13,7 +14,6 @@ const exclusions = [
 
 export function validateConfig(value) {
   const source = value.instance.source_params;
-  const discover = source?.web_crawler?.discover_options;
   const options = source?.web_crawler?.parse_options;
   if (value.account_id !== "a58d11951210d070b5eb3dd16d43d569" ||
       value.namespace !== "default" || value.instance.id !== "kanri-help" ||
@@ -24,11 +24,9 @@ export function validateConfig(value) {
       value.instance.reranking !== false ||
       JSON.stringify(source?.include_items) !== JSON.stringify([`${origin}/**`]) ||
       JSON.stringify(source?.exclude_items) !== JSON.stringify(exclusions) ||
-      source?.web_crawler?.parse_type !== "discover" ||
-      discover?.source !== "links" || discover?.limit !== 500 || discover?.depth !== 10 ||
-      discover?.max_age !== 0 || discover?.include_external_links !== false ||
-      discover?.include_subdomains !== false ||
-      options?.specific_sitemaps !== undefined ||
+      source?.web_crawler?.parse_type !== "sitemap" ||
+      source?.web_crawler?.discover_options != null ||
+      JSON.stringify(options?.specific_sitemaps) !== JSON.stringify([corpusSitemap]) ||
       JSON.stringify(options?.content_selector) !== JSON.stringify([
         { path: `${origin}/**`, selector: ".sl-markdown-content" },
       ]) || options?.use_browser_rendering !== false || options?.include_images !== false ||
@@ -56,10 +54,9 @@ export async function publishedUrls() {
     if (Buffer.byteLength(xml) > 2_000_000) throw new Error("Sitemap exceeds size cap.");
     return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));
   };
-  const sitemaps = await read(`${origin}/sitemap-index.xml`);
-  if (!sitemaps.length || sitemaps.length > 5) throw new Error("Unexpected sitemap index size.");
-  const urls = [...new Set((await Promise.all(sitemaps.map(read))).flat())];
-  if (!urls.length || urls.length > 500 || urls.some((url) => !isDocsUrl(url))) {
+  const urls = await read(corpusSitemap);
+  if (!urls.length || urls.length > 500 || new Set(urls).size !== urls.length ||
+      urls.some((url) => !isDocsUrl(url) || !url.endsWith("/") || new URL(url).hash)) {
     throw new Error("Published corpus outside approved source or 500-page limit.");
   }
   return urls;
@@ -215,6 +212,20 @@ async function main() {
       validateConfig({ ...config, instance: await request(instancePath) });
       result = { id: config.instance.id, configuration_verified: true };
       break;
+    case "configure": {
+      // Never switch an existing index until the deployed corpus is available.
+      const urls = await publishedUrls();
+      const existing = await request(instancePath);
+      if (existing.id !== config.instance.id || existing.type !== "web-crawler" ||
+          existing.source !== config.instance.source || existing.public_endpoint_params?.enabled !== false) {
+        throw new Error("Refusing to reconfigure an unexpected or public documentation source.");
+      }
+      const { id, ...settings } = config.instance;
+      const updated = await request(instancePath, "PUT", settings);
+      validateConfig({ ...config, instance: updated });
+      result = { id, configuration_verified: true, corpus_pages: urls.length };
+      break;
+    }
     case "health":
       result = await health();
       break;
@@ -234,7 +245,7 @@ async function main() {
       result = await request(`${instancePath}/items?status=error&per_page=50`);
       break;
     default:
-      throw new Error("Usage: node scripts/ai-search.mjs provision|get|check|sync [--wait]|health|jobs|stats|errors");
+      throw new Error("Usage: node scripts/ai-search.mjs provision|configure|get|check|sync [--wait]|health|jobs|stats|errors");
   }
   console.log(JSON.stringify(result, null, 2));
 }

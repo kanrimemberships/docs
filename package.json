@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "node scripts/ai-search.mjs check && wrangler deploy && node scripts/ai-search.mjs sync --wait",
+    "deploy": "wrangler deploy && node scripts/ai-search.mjs configure && node scripts/ai-search.mjs sync --wait",
     "search:sync": "node scripts/ai-search.mjs sync --wait",
     "search:health": "node scripts/ai-search.mjs health",
     "search:evaluate": "node scripts/ai-search-evaluate.mjs",

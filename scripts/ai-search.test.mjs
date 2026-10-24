@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { checkHealth, config, isDocsUrl, validateConfig } from "./ai-search.mjs";
+import { corpusUrls, renderSitemap } from "./ai-search-corpus.mjs";
 
 test("provisioning stays private and bound to the approved public source", () => {
   validateConfig(config);
@@ -12,8 +13,8 @@ test("provisioning stays private and bound to the approved public source", () =>
     (value) => { value.instance.source = "https://app.kanrimemberships.com"; },
     (value) => { value.instance.source_params.include_items = ["**"]; },
     (value) => { value.instance.source_params.exclude_items = []; },
-    (value) => { value.instance.source_params.web_crawler.discover_options.include_external_links = true; },
-    (value) => { value.instance.source_params.web_crawler.discover_options.limit = 100000; },
+    (value) => { value.instance.source_params.web_crawler.parse_type = "discover"; },
+    (value) => { value.instance.source_params.web_crawler.parse_options.specific_sitemaps = ["https://example.com/sitemap.xml"]; },
     (value) => { value.instance.source_params.web_crawler.parse_options.content_selector = []; },
     (value) => { value.instance.source_params.web_crawler.parse_options.include_headers = { Authorization: "secret" }; },
     (value) => { value.instance.rewrite_query = true; },
@@ -22,6 +23,33 @@ test("provisioning stays private and bound to the approved public source", () =>
     mutate(value);
     assert.throws(() => validateConfig(value));
   }
+});
+
+test("Kai sitemap includes completed guides only, independently of navigation and SEO sitemap", () => {
+  const entry = (id, body, data = {}) => ({ id, body, data });
+  const entries = [
+    entry("members/add-member", "## Add a member\n1. Click New Member."),
+    entry("workflows/publish-and-enable", "Publish your draft."),
+    entry("reports/attendance/grades", ":::note[Guide coming soon]\nPlanned topics\n:::"),
+    entry("old", ":::caution[Work in progress]\nNot complete.\n:::"),
+    entry("planned", ":::caution[In progress]\nBeing planned.\n:::"),
+    entry("index", "Landing page", { template: "splash" }),
+    entry("draft", "Finished text", { draft: true }),
+    entry("404", "Not found"),
+  ];
+  const urls = corpusUrls(entries);
+  assert.deepEqual(urls, [
+    "https://docs.kanrimemberships.com/members/add-member/",
+    "https://docs.kanrimemberships.com/workflows/publish-and-enable/",
+  ]);
+  const xml = renderSitemap(urls, "2026-10-24T00:00:00.000Z");
+  assert.equal((xml.match(/<lastmod>/g) ?? []).length, 2);
+  assert.ok(xml.includes("<loc>https://docs.kanrimemberships.com/workflows/publish-and-enable/</loc>"));
+  assert.throws(() => corpusUrls([entry("missing", "")]));
+  assert.throws(() => corpusUrls([entry("a", "Text"), entry("a", "Text")]));
+  assert.throws(() => corpusUrls([entry("../private", "Text")]));
+  assert.throws(() => corpusUrls([entry("stub", ":::note[Guide coming soon]\n:::")]));
+  assert.throws(() => renderSitemap(urls, "not a date"));
 });
 
 test("offline baseline extracts article text without navigation and handles nested and void tags", () => {

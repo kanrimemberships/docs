@@ -62,9 +62,13 @@ If a required waiver is unavailable or has no published version, the visitor
 can still continue. Kanri skips that waiver and records the configuration problem
 for investigation; other available waivers are processed normally.
 
-Visitors must click **Continue** after booking to reach the waiver step. Saving a
-booking alone does not send the Lead Page waivers, so a visitor who leaves the
-booking confirmation may have a booking but no waiver request.
+In **Async** mode, waiver requests are sent as soon as a trial booking is saved.
+Kanri also runs a background recovery check to catch any new booking that did
+not get a waiver request within about 15 minutes.
+
+When the visitor clicks **Continue**, Kanri opens any unsigned waiver directly
+in the browser. If there are multiple waivers, Kanri shows them one-by-one
+until all required waivers are signed, then continues the lead flow.
 
 ## Next steps
 

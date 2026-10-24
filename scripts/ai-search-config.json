@@ -25,16 +25,9 @@
         "**/drafts/**"
       ],
       "web_crawler": {
-        "parse_type": "discover",
-        "discover_options": {
-          "source": "links",
-          "limit": 500,
-          "depth": 10,
-          "max_age": 0,
-          "include_external_links": false,
-          "include_subdomains": false
-        },
+        "parse_type": "sitemap",
         "parse_options": {
+          "specific_sitemaps": ["https://docs.kanrimemberships.com/kai-sitemap.xml"],
           "content_selector": [
             { "path": "https://docs.kanrimemberships.com/**", "selector": ".sl-markdown-content" }
           ],

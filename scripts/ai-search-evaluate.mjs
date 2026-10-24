@@ -87,6 +87,7 @@ async function main() {
   let citations = 0;
   let safeCitations = 0;
   for (const item of suite.cases) {
+    const eligiblePaths = item.paths.filter((path) => urls.some((url) => new URL(url).pathname === path));
     const started = performance.now();
     const response = await request(`/${config.instance.id}/search`, "POST", {
       query: item.query,
@@ -105,17 +106,20 @@ async function main() {
       if (!urls.includes(chunk.item.key)) throw new Error("Citation absent from published sitemap.");
       return { url: chunk.item.key, excerpt: chunk.text.slice(0, 1200) };
     });
-    const hit = (found) => item.paths.length
-      ? found.some((url) => item.paths.includes(new URL(url).pathname))
+    const hit = (found) => eligiblePaths.length
+      ? found.some((url) => eligiblePaths.includes(new URL(url).pathname))
       : found.length === 0;
     const match = baseline.find((value) => value.query === item.query);
     if (!match) throw new Error("Baseline query missing.");
     results.push({
-      query: item.query, latency_ms: latency, topic_hit: hit(chunks.map((chunk) => chunk.url)),
+      query: item.query, in_corpus: eligiblePaths.length > 0,
+      excluded_placeholder_topic: item.paths.length > 0 && !eligiblePaths.length,
+      latency_ms: latency, topic_hit: hit(chunks.map((chunk) => chunk.url)),
       postgres_topic_hit: hit(match.urls), postgres_urls: match.urls, chunks,
     });
   }
-  const supported = results.filter((_, index) => suite.cases[index].paths.length);
+  const supported = results.filter((item) => item.in_corpus);
+  if (!supported.length) throw new Error("Evaluation has no supported questions in the completed corpus.");
   const latencies = results.map((item) => item.latency_ms).sort((a, b) => a - b);
   const metrics = {
     corpus_pages: articles.length,
@@ -124,7 +128,8 @@ async function main() {
     top_five_topic_rate: supported.filter((item) => item.topic_hit).length / supported.length,
     postgres_top_five_topic_rate: supported.filter((item) => item.postgres_topic_hit).length / supported.length,
     safe_citation_rate: citations ? safeCitations / citations : 0,
-    unsupported_empty: results.filter((_, index) => !suite.cases[index].paths.length).every((item) => item.topic_hit),
+    excluded_placeholder_topics: results.filter((item) => item.excluded_placeholder_topic).length,
+    unsupported_empty: results.filter((item) => !item.in_corpus).every((item) => item.topic_hit),
     p95_latency_ms: latencies[Math.ceil(latencies.length * 0.95) - 1],
     retrieval_list_price_usd: results.length * 0.75 / 1000,
   };
