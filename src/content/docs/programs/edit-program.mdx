@@ -1,14 +1,57 @@
 ---
 title: Edit a Program
-description: How to update a program's name and details.
+description: Update program details and choose how level changes affect existing members.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
+You can change a program's name and age range from its **Edit** page. Programs supplied by a locked system template may not be editable.
+
+## Update program details
+
+1. Open **Programs** and select the program.
+2. Select **Edit**.
+3. Update the **Name**, **Minimum Age**, or **Maximum Age** as needed.
+4. If shown, review **Show on Lead Page**.
+5. If Documents is enabled, choose the adult and minor waiver templates and whether to auto-send a waiver when a membership is created.
+6. If Levels is enabled, review **Keep level requirements until next promotion** before changing any level rules.
+7. Select **Save**.
+
+Use a name that staff can distinguish in member profiles, schedules, and reports. Changing a program name does not create a new program or move members to another program.
+
+## Keep level requirements until next promotion
+
+Turn on **Keep level requirements until next promotion**, then save the program
+**before** editing its levels. Members already at an affected level keep the
+minimum classes, minimum days, grading setting, and next level that applied
+before the change. Members who reach the level afterwards use the new rules.
+
+For example, White Belt currently requires 20 classes before Yellow Belt. You
+want future White Belt members to complete 25 classes without changing the
+target for students already training. Enable this setting first, save, then
+[edit White Belt](/programs/levels/edit-level/) to require 25 classes. Existing
+White Belt memberships keep 20; new arrivals use 25.
+
+The same protection applies when you reorder the progression. An existing
+member keeps their previously assigned next level until their next promotion.
+A member who previously had no next level keeps that state; adding another
+level does not automatically give that member a promotion destination.
+
+Further edits do not replace the first set of kept requirements. After a
+membership's level changes, its kept requirements clear and it follows the
+rules for its new level.
+
+:::caution
+Turning this setting off clears the kept requirements for the program's current
+memberships. Current level rules and next-level assignments then apply
+immediately. Turning it back on does not recover the earlier requirements.
+Enabling it after an edit also does not undo that edit.
 :::
 
-## What this page will cover
+If you leave the setting off, level requirement and progression changes apply
+immediately. Review the [Promotions report](/programs/levels/promotions-report/)
+before and after changing either the setting or the levels.
 
-- Editing a program's name and description
-- Warning: renaming a program updates everywhere it appears (memberships, reports)
-- Deleting a program (only possible if no members are enrolled — archive members first)
+## Next steps
+
+- [Manage Classes](/programs/classes/)
+- [Edit Level Requirements](/programs/levels/edit-level/)
+- [Configure the Lead Page](/lead-management/lead-page/configure-lead-page/)

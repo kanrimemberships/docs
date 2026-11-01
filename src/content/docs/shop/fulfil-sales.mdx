@@ -3,12 +3,46 @@ title: Fulfil Product Sales
 description: Prepare product orders and record when items are handed to members.
 ---
 
-:::note[Guide coming soon]
-This guide will explain how payment, stock allocation, and handing over products fit together.
-:::
 
-## Planned topics
+Fulfillment means handing a physical product to the person who bought it. Kanri tracks fulfillment separately from payment, so a paid invoice may still have items waiting for pickup.
 
-- Find sales that need products.
-- Allocate available stock or identify items that must be ordered.
-- Mark items as handed to the member.
+The invoice is the record of what the member bought. Fulfillment is the record of what your staff reserved or handed over. A member can therefore have a paid invoice while one or more items still need to be collected.
+
+## Fulfill items from an invoice
+
+1. Open **Invoices**, then select the shop invoice. Fulfillment actions accept paid, partially paid, and refunded invoices; check the payment and refund history before handing anything over.
+2. Select **Manage Fulfillment**.
+3. Review each product line's status and quantity.
+4. Choose what to do with available stock:
+   - Select **Allocate** to reserve stock for the member without handing it over. The item appears in **Ready for Pickup**.
+   - Select **Fulfill Now** when you hand the item over. This records the handover and reduces inventory.
+5. Repeat for each item or quantity, then close the fulfillment panel.
+
+You can allocate part of a line and fulfill another part. Kanri shows how many units are allocated, fulfilled, and ordered.
+
+For example, a member pays for two shirts but takes only one home. Select **Fulfill Now** for one shirt and **Allocate** the other. The second shirt stays on **Ready for Pickup** until the member returns.
+
+## Record a pickup
+
+1. Open **Shop**, then **Inventory**, and select **Ready for Pickup**.
+2. Find the member and item.
+3. Confirm the quantity with the member.
+4. Select **Fulfill** and confirm the handover.
+
+The **Ready for Pickup** list contains allocated items that have not yet been handed over. If a member is not collecting all of them, open the invoice and fulfill only the quantity they are taking.
+
+Before confirming a pickup, check the member and variant as well as the quantity. This helps avoid handing out a different size or another member's reserved item. If the member changes their mind, open the invoice and update fulfillment there rather than leaving a reservation that staff may mistake for a pending pickup.
+
+## When stock is unavailable
+
+The invoice's fulfillment panel shows when an item is waiting for stock. Create a [purchase order](/shop/purchase-orders/) for the missing quantity. After recording the delivery, allocate stock to the waiting sale. Then use **Ready for Pickup** when the member collects it.
+
+Products with **Track Inventory / Fulfillment** turned off do not need a pickup step. Kanri marks those items fulfilled when the invoice is paid. Your school's **Auto Fulfill In Stock** behavior can also automatically fulfill eligible items when available stock is on hand.
+
+If there is not enough stock to allocate, do not mark an unavailable unit as handed over. Create a [purchase order](/shop/purchase-orders/), record the delivery, and allocate the arriving stock to the waiting invoice. If an invoice is still unpaid, complete or record its payment using [Collect a Payment](/billing/invoices/collect-payment/); payment and product handover remain separate records.
+
+## Next steps
+
+- [Manage inventory](/shop/inventory/)
+- [Create purchase orders](/shop/purchase-orders/)
+- [Review invoices and payment history](/billing/invoices/)

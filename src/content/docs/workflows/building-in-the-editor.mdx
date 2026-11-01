@@ -3,8 +3,8 @@ title: Building in the Editor
 description: How to use the Kanri workflow visual editor — adding steps, connecting them, configuring triggers, and saving your work.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
 The **workflow editor** is the visual canvas where you design your workflow. This page explains how to use it.
@@ -35,7 +35,7 @@ Templates currently available include:
 | Template                          | Category      | What it does                                                                                 |
 | --------------------------------- | ------------- | -------------------------------------------------------------------------------------------- |
 | Welcome New Member                | Members       | Adds a welcome note whenever a new member is created                                         |
-| Birthday Reminder Note            | Members       | Adds a birthday note to each member on their birthday every year                             |
+| Birthday Reminder Note            | Members       | Birthday-themed note using the stored full birth date, not an annual reminder |
 | Promote to Next Level             | Members       | Manual workflow — select a membership and promote it to the next belt or level               |
 | New Member — Lead vs. Full Member | Members       | When a member is created, adds a follow-up note for leads or a welcome note for full members |
 | Weekly New Lead Follow-Up         | Communication | Every Monday, adds a follow-up note to every new lead that hasn't been contacted yet         |
@@ -43,7 +43,14 @@ Templates currently available include:
 | Cancel No-Show Bookings           | Automation    | Manual workflow — select bookings and cancel them in bulk for no-shows                       |
 | Mark Class Attendance             | Automation    | Manual workflow — mark selected bookings as attended in bulk                                 |
 
-A template is just a starting point — nothing is saved or published until you review it and click Publish yourself, so it's safe to pick one and adjust it to match how your school actually works.
+A template is a starting point. Creating it saves a draft, not a live workflow. Review the
+trigger and every step, then save and publish only when ready.
+
+:::caution[Birthday preset limitation]
+The Birthday Reminder Note preset selects **Birthday**, but date-field triggers use the full
+stored date, including its year. Do not publish it expecting yearly birthday notes.
+See [date-trigger limitations](/workflows/triggers/#scheduled-time-field-due).
+:::
 
 ---
 
@@ -87,7 +94,9 @@ By default it says "None — run always continues to completion." To add one:
 2. Build a filter using the same filter builder used for Branch steps and condition-based triggers.
 3. Click **Save exit condition**.
 
-Once set, Kanri checks this filter before every step of every run. If a run's record matches it, the run is cancelled immediately, no matter which step it was on. Leave it unset if you don't need this — most workflows don't.
+Once set, Kanri checks this filter before each step executes. If the run's record matches,
+the run is cancelled before that step. This does not continuously monitor a sleeping delay or
+interrupt an action already in progress.
 
 See [How Workflows Work](/workflows/how-workflows-work/#exit-conditions) for why this is different from a Delay step's re-check trigger condition option.
 
@@ -108,7 +117,9 @@ Click any step node to open its settings panel. The settings available depend on
 **Action step:**
 
 - Choose the **action** from a searchable list (e.g., "Send message", "Promote to next level").
-- Choose the **target** (This record, Create new, or From previous step).
+- For an action on an existing record, choose **Workflow record** or **Expression**.
+  Expression lets you reference a record ID, including one returned by an earlier step.
+  Create actions show that they create a new record instead.
 - Fill in the action's required and optional fields.
 - Use the **[$]** button next to any field to reference data from the triggered record or from a previous step's output.
 - Optionally enable **Continue on error** to skip this step if it fails.
@@ -118,7 +129,9 @@ Click any step node to open its settings panel. The settings available depend on
 - Choose **Fixed time** or **Until date field**.
 - For fixed time: enter the number of minutes, hours, or days.
 - Optionally set an **execution window** (only resume on certain days or times).
-- For condition-triggered workflows: optionally turn off **Re-check trigger condition**.
+- Review **Recheck trigger**, which starts on for new delays. Read the
+  [condition and recurring-filter rules](/workflows/steps/#delay). Condition Stops Being True
+  checks that the original filter remains false.
 
 **Branch step:**
 
@@ -152,7 +165,9 @@ By default, a step's name on the canvas summarizes its settings (for example, a 
 
 Each node has a **+** connector on its right side. Click it to add a next step, or drag a new node onto it.
 
-- **Action, Delay, Read, and For Each** steps have one outgoing connection.
+- **Action, Delay, and Read** steps have one outgoing connection.
+- **For Each** has a loop-body connection and an **After** connection for continuing when its
+  child runs complete.
 - **Branch** steps have two outgoing connections: "if true" and "if false".
 - **Switch** steps have one outgoing connection per case, plus one for "default".
 - A step with no outgoing connection is a **terminal step** — the run ends there.

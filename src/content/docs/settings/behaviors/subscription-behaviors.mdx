@@ -1,16 +1,31 @@
 ---
 title: Subscription Behaviors
-description: How to configure billing-related behaviors including subscription modes, billing plan pricing mode, program access gating, and receipts.
+description: Choose billing-plan price mode, program access rules, and receipt behavior.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Subscription behaviors affect billing and member access. You need **Manage Settings** and the Billing feature to change them. Review your billing plans and current subscriptions before changing these settings.
 
-## What this page will cover
+## Choose subscription and price modes
 
-- **Single vs Multiple subscription mode**: whether a member can have one active subscription at a time or multiple simultaneously. Default is Single (most schools only need one).
-- **Billing plan mode (Single vs Multiple prices)**: whether each billing plan has one price or can have multiple prices (e.g. Adult $120/mo and Junior $80/mo on the same plan). Most schools can use Single.
-- **Program access gating**: when enabled, a member's active subscriptions determine which programs they can sign in to at the kiosk. Only enable this if you need to restrict access by subscription.
-- **Subscription receipts**: whether members automatically receive an email receipt after each successful payment.
-- When to use each mode and the trade-offs of enabling them
+- **Billing plan mode** controls whether each billing plan has one price (**Single**) or can offer multiple prices for different intervals and amounts (**Multiple**).
+
+Choose **Multiple** only if your school's billing setup needs different prices for the same billing plan. This setting changes the prices a plan can offer; it does not set how many subscriptions a member may have.
+
+## Gate program access by billing plan
+
+**Use billing plans to gate program access** makes plan-to-program access settings part of member access checks. When enabled, Kanri uses the member's subscriptions to determine which programs they may access at the kiosk. Set the allowed programs on each relevant [billing plan](/billing/billing-plans/set-program-access/) before enabling this behavior.
+
+Test a member with the expected plan and a member without it. If access does not match your expectations, check the plan's program access and the member's active subscription.
+
+## Send receipts and archive older subscriptions
+
+- **Send subscription receipts** emails a receipt after a subscription payment completes.
+- **Auto-archive superseded subscriptions** archives expired or cancelled subscriptions when the member already has a newer active subscription.
+
+These settings do not replace reviewing the member's subscription history. See [View Payment History](/members/subscriptions/view-payment-history/) and [Archive a Subscription](/members/subscriptions/archive-subscription/).
+
+## Next steps
+
+- [Create a Billing Plan](/billing/billing-plans/create-plan/)
+- [Set Program Access on a Billing Plan](/billing/billing-plans/set-program-access/)
+- [Manage Member Subscriptions](/members/subscriptions/)

@@ -1,24 +1,34 @@
 ---
 title: Add Members to a Group Using a Custom Filter
-description: Set conditions so a group includes member profiles that match a custom filter.
+description: Build a dynamic group from member-profile conditions.
 ---
 
-:::note[Guide coming soon]
-This guide will explain how to build and save a member filter as a group assignment.
-:::
+A dynamic filter defines conditions for matching member records. Kanri reevaluates the filter when resolving the group, so the audience can change as member details change. Use it when the group should follow profile data rather than remain a fixed list.
 
-## Planned topics
+## Create a filter assignment
 
-- Open a group and choose the **Dynamic Filter** assignment option.
-- Choose member fields and related information to create filter conditions.
-- Combine conditions that all must match or any of which can match.
-- Save the filter and preview the profiles it currently includes.
-- Understand that the group membership can change as member details change.
-- Edit or remove a filter assignment without changing member records.
-- Combine filter assignments with individually selected members or [program assignments](/groups/add-program-to-group/).
+1. Open **Groups** and choose a group.
+2. Select **Assign**, then choose **Dynamic Filter**.
+3. Add a condition using the field or relationship that describes the audience.
+4. Choose whether all conditions must match or any condition may match, then review any nested
+   condition groups.
+5. Save the filter.
+6. Return to the group and select **Preview Members**.
+7. Adjust the conditions if the preview includes people who should not receive the communication.
 
-## Related guides
+Filter options depend on the fields and relationships available to your school. Prefer precise conditions. For example, use a program and active-membership condition for enrolled students rather than relying on a free-text note.
 
-- [About Groups](/groups/)
-- [Add Members to a Group](/groups/add-members-to-group/)
-- [Send a Broadcast to a Group](/groups/send-broadcast-to-group/)
+Separate group assignments are combined as alternatives: matching any assignment includes the
+member. A filter assignment cannot exclude someone included by another assignment.
+
+## Example: members in one program with a current status
+
+Build a filter for the intended program and membership status, save it to the group, then preview the resulting list. Before sending a time-sensitive message, preview again because new members may have started matching since the group was created.
+
+Use [individual assignments](/groups/add-members-to-group/) for a fixed hand-picked list or [Program & Level](/groups/add-program-to-group/) for a program cohort with a level range.
+
+## Next steps
+
+- [Review how groups work](/groups/)
+- [Create a group](/groups/create-group/)
+- [Send a broadcast to a group](/groups/send-broadcast-to-group/)

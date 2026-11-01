@@ -1,14 +1,31 @@
 ---
 title: General Behaviors
-description: How to configure general account and member behaviors in Kanri.
+description: Control account linking, age-rule checks, and file uploads by member managers.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+General behaviors affect how Kanri connects user accounts to member profiles and enforces age rules.
 
-## What this page will cover
+## Automatically link accounts to members
 
-- Auto-link user accounts to members: when a staff/member account's email matches a member profile, automatically link them (recommended on for most schools)
-- What "linking" means: the member can log in to the Member Portal and see their own profile
-- When to turn this off (e.g. if you have staff accounts that also appear as member profiles for a different reason)
+When **Automatically link users to members** is on, Kanri links a user to a member profile with a matching email address when the user signs in. Kanri links only when exactly one unlinked member at the school matches; if there are multiple matches, it skips the link. Linking lets that account access the member's self-service portal.
+
+1. Open **Settings → Behaviors**.
+2. Find **General**.
+3. Turn on or off **Automatically link users to members**.
+4. Confirm the saved setting.
+
+Before enabling automatic linking, check that member email addresses are correct and not shared by unrelated people. If a link is incorrect, contact your school administrator for help correcting the account relationship.
+
+## Choose where age restrictions apply
+
+**Enforce age restrictions on** controls whether program and class minimum/maximum ages apply to bookings, kiosk sign-in, both, or neither. Review your school's booking and check-in process before changing this setting. The options are **Booking and kiosk**, **Booking only**, **Kiosk only**, and **Neither**.
+
+## Allow member managers to upload files
+
+**Allow managers to upload files** lets contacts who manage a member upload photos and documents for that member without staff doing the upload. Enable it only if that matches your school's privacy process. See [Member Gallery](/members/gallery/) and [Member Documents](/members/documents/).
+
+## Next steps
+
+- [Member Portal](/member-portal/)
+- [Kiosk Behaviors](/settings/behaviors/kiosk-behaviors/)
+- [Subscription Behaviors](/settings/behaviors/subscription-behaviors/)

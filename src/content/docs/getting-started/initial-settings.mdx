@@ -5,6 +5,8 @@ description: The first settings to configure after creating your school, includi
 
 Before you start adding members, creating [programs](/programs/), or building [schedules](/schedules/), take a few minutes to configure the essentials. Getting these right from the start saves you having to fix things later.
 
+You need permission to manage settings for general settings and membership statuses. Branding requires owner access. If an option is missing, ask your school's owner to review it with you.
+
 ## 1. General settings
 
 Go to **Settings → General**. The fields here affect how Kanri behaves across your whole school.
@@ -13,34 +15,36 @@ Go to **Settings → General**. The fields here affect how Kanri behaves across 
 
 **Default active status** and **Default inactive status** are the membership statuses Kanri assigns automatically when you enrol a member or end a membership. The defaults are Active and Inactive. You can change these after you've set up your statuses in the next step.
 
-**Level name** and **Level name (plural)** let you rename the levels system to match your school's terminology. If your school uses belt grades, you might enter "Belt" and "Belts". If you use something else entirely, change it here. Leave these blank to use the default "Level" and "Levels".
+**Tax settings** show the school's jurisdiction and let you set a tax-rate override and whether tax is included in prices or added on top. The jurisdiction is displayed here, not selected in this form. If you're not sure which settings to use, check with your accountant before changing them.
 
-**Tax settings** control whether Kanri applies tax to subscription payments. Set your tax jurisdiction, rate, and whether tax is included in the displayed price or added on top. If you're not sure, check with your accountant before enabling this.
-
-Click **Save** after making changes.
+Each settings card has its own **Save** button. Save each card you change.
 
 ## 2. Membership statuses
 
 Kanri comes with two default statuses: **Active** and **Inactive**. You can rename these and add more to suit how your school works. Common additions include Trial, On Hold, and Suspended.
 
-1. Go to **Settings → Membership Statuses**.
+1. Go to **Settings → Membership Status**.
 2. Click the edit icon next to a status to rename it.
-3. Click **New Status** to add a custom one.
+3. Click **New Membership Status**, enter a name, choose whether **Active** applies, then select **Create Membership Status**.
 4. For each status, choose whether it counts as active or inactive. This affects reports and [kiosk access](/kiosk/).
 
 :::tip
 Set up all the statuses you think you'll need now, before you start adding members. It's easy to add more later, but renaming a status that's already in use affects all members who have it.
 :::
 
+Changing an existing status's **Active** flag also changes how current and historical memberships using that status are classified. Create another status when you need a new category without reclassifying existing records.
+
 Once you're happy with your statuses, go back to **Settings → General** and confirm the default active and inactive statuses are set correctly.
 
 ## 3. Branding
 
-Adding your brand colour makes Kanri feel like your school. Your members will see your branding in emails and on the Member Portal.
+Adding your brand colour makes Kanri feel like your school. Email branding has separate controls, so choosing a colour alone does not turn it on in every email.
 
 1. Go to **Settings → Branding**.
 2. Set your **brand colour** using a hex code or the colour picker.
 3. Click **Save**.
+
+In the email branding controls, enable **Apply brand color to emails** if you want to use it in outgoing emails. If your school uses levels, the **Levels** card on this same Branding page contains **Level Name (singular)** and **Level Name (plural)**. For example, enter *Belt* and *Belts*. These labels are not part of General settings.
 
 On the Starter plan, you can also set a phone number for SMS sending. Professional and Enterprise plans unlock a [custom email sender address](/settings/branding/email-address/) and a [vanity URL](/settings/branding/vanity-url/).
 

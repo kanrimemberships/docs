@@ -3,8 +3,8 @@ title: Triggers
 description: Learn about all the ways a Kanri workflow can start — events, conditions, schedules, date fields, and manual triggers.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
 A **trigger** is what causes a workflow to start a new run. Every workflow has exactly one trigger. Choosing the right trigger is the first step in building any automation.
@@ -46,7 +46,10 @@ Manual workflows are a good way to expose a multi-step automation to staff witho
 
 **When to use it:** You want the workflow to fire every time a specific thing happens in Kanri — a member is created, an invoice is paid, a membership is promoted, etc.
 
-Select the **event type** you want to watch. Kanri fires the trigger every time that event is logged for a record of the workflow's record type.
+Select the **event type** you want to watch. Kanri starts a run when that event is logged for
+your school. Choose a record type compatible with the event: the run uses the event's affected
+record, not an automatic conversion to a related member. For example, an invoice event does
+not automatically make its customer the run's Member record.
 
 **Example uses:**
 - When a member is created → send a welcome message.
@@ -54,7 +57,9 @@ Select the **event type** you want to watch. Kanri fires the trigger every time 
 - When an invoice is paid → send a receipt email.
 
 **What counts as an event?**
-Kanri logs events automatically whenever records are created, updated, or changed. You pick which type of event fires the trigger. See [Event Types Reference](/workflows/reference/trigger-events/) for the complete list.
+Many operations log events, but not every change emits every selectable event. You pick which
+logged event fires the trigger. See [Event Types Reference](/workflows/reference/trigger-events/)
+for the complete selectable list, and test that the intended operation actually emits it.
 
 :::caution
 The event trigger fires for *every* matching event, including changes made by staff or automated processes. If a member's record is updated frequently, a workflow on "Member Update" could create many runs. Add a [Branch step](/workflows/steps/#branch) right after the trigger to filter down to the cases you care about.
@@ -70,16 +75,20 @@ You define the condition using Kanri's filter builder — the same filters used 
 
 **Example uses:**
 - When a member's subscription status becomes "Expired" → send a re-engagement message.
-- When an invoice's amount overdue passes 30 days → trigger a late notice sequence.
+- When an invoice has been overdue for more than 30 days → trigger a late notice sequence.
 - When a membership's sessions remaining reaches 0 → alert the member to renew.
 
 **How transitions are detected:**
 Kanri detects condition transitions in two ways:
-1. **After a write** — whenever a record is saved, Kanri checks whether the save caused the condition to flip. This covers any field change made by staff or by an automated process.
+1. **After supported saved operations** — Kanri compares records before and after service-backed
+   changes to detect a filter changing from false to true. This is not a guarantee that every
+   possible background update, import, or direct database change is observed.
 2. **Daily sweep** — for conditions involving date comparisons (like "days since last visit > 30"), Kanri runs a daily sweep to catch transitions caused by time passing rather than a record change.
 
 :::note
-Because date-based transitions are checked daily (not in real time), there can be up to a 24-hour delay before a date-based condition workflow fires. For time-sensitive automations based on a specific date, use [Scheduled Time Field Due](#scheduled-time-field-due) instead.
+Date-based transitions are checked daily, not continuously. Scheduled Time Field Due also uses
+the daily check; it is not a real-time alternative. Allow for background processing delays and
+use a recurring schedule when the automation genuinely needs a selected time of day.
 :::
 
 ---
@@ -104,12 +113,19 @@ Pick a **date field** (like "birthday", "contract end date", or "last visit") an
 - Positive number = *after* the date (e.g., +2 = "2 days after the contract ends")
 - Negative number = *before* the date (e.g., -3 = "3 days before the birthday")
 
-Kanri runs a daily check and fires the workflow for any record where the calculation matches today.
+Kanri compares the stored date with the day being checked in the school's timezone. It starts
+runs for records newly due since the previous daily check. This is not a precise time-of-day
+alarm; processing depends on the background date check.
 
 **Example uses:**
-- 3 days before a member's birthday → send a birthday greeting.
-- 7 days before a contract end date → send a renewal reminder.
+- 7 days before a subscription's end date → send a renewal reminder.
 - 1 day after a membership's last promotion → send a congratulations message.
+
+:::caution[Full dates, not annual anniversaries]
+This trigger uses the full stored date, including its year. It does not turn a date of birth
+into an annual birthday reminder. Do not rely on the Birthday Reminder Note preset for yearly
+birthday automation in the current beta.
+:::
 
 :::tip
 This trigger fires once per record per day — you can't accidentally trigger it twice for the same date.
@@ -125,9 +141,9 @@ Set a **cron schedule** (e.g., every day at 9am, every Monday, the first of ever
 
 You can optionally add a **filter** to fan out the workflow to multiple records at once. With a filter, instead of one global run, Kanri starts one run *per matching record*.
 
-**Example uses (global — no filter):**
-- Every Monday at 8am → email staff a class attendance summary.
-- First of every month → run an end-of-month report workflow.
+**No filter:** Kanri creates one run with no bound record. Actions that need **Workflow record**,
+record-field references, Branch, and Switch need a record and cannot use that empty target.
+Use a For Each step to select records, or add a trigger filter.
 
 **Example uses (with filter — one run per matched record):**
 - Every Sunday at 6pm, for all active members → send a "see you this week" message.
@@ -138,6 +154,10 @@ You can optionally add a **filter** to fan out the workflow to multiple records 
 - Every week (on chosen days, at a chosen time)
 - First of the month (at a chosen time)
 - Custom cron expression
+
+Schedules are checked in the background, so a due run may start after the displayed time.
+Test the selected record filter and message recipients; a recurring schedule does not itself
+generate a report or choose a staff email address.
 
 ---
 

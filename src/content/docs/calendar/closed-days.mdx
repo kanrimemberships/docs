@@ -1,16 +1,45 @@
 ---
 title: Set Closed Days
-description: Mark holidays and other dates when your school is closed.
+description: Mark dates when classes, attendance, or bookings should not take place.
 ---
 
-:::note[Guide coming soon]
-This guide will explain how closed days affect the school calendar and scheduled activities.
+A closed day marks a date or date range when your school, or selected programs, are not available. Closed-day rules can block attendance, member bookings, and trial bookings. Review the options before saving because a closure can affect bookings that already exist.
+
+## Add a closed day
+
+1. Open **Calendar** with a role that can manage calendars.
+2. Select **Closed Day**.
+3. Enter the start and end dates. Use the same date for a one-day closure.
+4. Select programs under **Applies to programs**, or leave the selection blank for the whole school.
+5. Add a note staff will recognize, such as *Winter break* or *Studio closed for maintenance*.
+6. Review **Student bookings**, **Trial bookings**, and **Attendance** under **Blocks**. All three start on, and at least one must stay on.
+7. Select **Add closed day**. If prompted about existing bookings, review the count and choose **Cancel bookings & save** or **Save without cancelling**.
+8. Review the closure and affected booking records.
+
+Both **From** and **To** are included. The end cannot be earlier than the start. The optional **Note** can contain up to 500 characters.
+
+### Example: close one program for a grading
+
+If the Adult Karate program is unavailable during grading on Saturday, select the grading date as both the start and end date, choose Adult Karate, and enable the blocks that apply. Leave other programs out of the rule so their activities remain available.
+
+## Existing bookings
+
+A closed day blocks new activity according to its switches. If either booking block is on and existing bookings are found, Kanri offers to cancel them or save without cancelling. Attendance-only closures do not show that booking-cancellation prompt.
+
+:::caution[Review the full cancellation count]
+The cancellation action covers both regular and trial bookings in the selected dates and programs, regardless of which booking block you enabled. It can include bookings marked attended as well as confirmed bookings, and it does not remove their attendance records. Review past dates carefully.
 :::
 
-A grading can optionally create a closed day for its selected programs. This blocks attendance, student bookings, and trial bookings for those programs on the grading date. The linked closed day stays in sync when you edit the grading.
+Cancellation emails are requested for cancelled bookings, but a closed-day notice is not sent to every family. Use the [closure checklist](/calendar/school-closure-checklist/) to plan communication.
 
-## Planned topics
+The cancellation action runs before the closure is saved. If saving the closure fails, check both the closure and booking records before retrying; do not assume cancelled bookings were restored.
 
-- Add and remove a closed day.
-- Check for overlapping dates and scheduled activities.
-- See [Schedules](/schedules/) for recurring class timetables.
+An **Attendance** block also applies to mobile check-in. Members cannot select or confirm a mobile check-in for a closed program on those dates. A closure for selected programs does not block mobile check-in for other programs. A closure that blocks only bookings does not block attendance.
+
+Grading records can create a related closed day for selected programs. When you edit the grading, its linked closed day stays in sync. Avoid creating a duplicate closure for the same grading unless you intend to maintain it separately.
+
+## Edit or remove a closed day
+
+Open the closed-day entry to change its dates, programs, note, or blocking options. If the closure should no longer apply, remove it and check the calendar. Removing a closure does not recreate bookings that were previously cancelled.
+
+For regular weekly classes, use [Schedules](/schedules/). For one-time school activities, see [Create and Edit Events](/calendar/events/).

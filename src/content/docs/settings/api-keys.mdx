@@ -1,20 +1,38 @@
 ---
 title: API Keys
-description: Create and manage keys used to connect other software to Kanri.
+description: Create, limit, edit, and revoke keys used by approved integrations.
 ---
 
 :::note[Enterprise]
-API access requires an Enterprise plan. [Compare plans →](/reference/plans/)
+API-key access requires an Enterprise plan. [Compare plans](/reference/plans/).
 :::
 
-:::note[Guide coming soon]
-This guide will cover creating, naming, reviewing, and revoking API keys.
-:::
+API keys allow external integrations to access school data. The API Keys page requires owner access and a plan that includes API access. Create a key only for a trusted integration, and grant only the permissions it needs. Anyone who obtains a key may be able to use its permissions.
 
-## Planned topics
+## Create a key
 
-- Create a key and choose its permissions.
-- Store and share a key safely.
-- Revoke a key that is no longer needed.
+1. Open **Settings → API Keys**.
+2. Select **New API Key**.
+3. Enter a recognizable name, such as **Approved attendance export**.
+4. Select only the permissions required by the integration.
+5. Create the key.
+6. Copy it immediately and store it in a password manager or secrets vault.
 
-For technical endpoint details, see the planned [API access reference](/reference/api-access/).
+Kanri shows the full key only once. If you leave the creation screen without saving it, create a replacement key.
+
+## Review and edit access
+
+The API Keys list shows each key's name, prefix, permissions, creation date, and last-used date. Select **Edit** to change its permissions. If the integration no longer needs a permission, remove it.
+
+## Revoke a key
+
+1. Find the key in **Settings → API Keys**.
+2. Choose **Revoke** and confirm.
+3. Update or disable the integration using that key.
+
+Revocation immediately stops integrations using that key. Do not paste API keys into support messages, public documents, or source code.
+
+## Next steps
+
+- [Settings Overview](/settings/)
+- [Connected Domains](/settings/domains/)

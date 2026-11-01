@@ -3,19 +3,23 @@ title: Invite Your Team
 description: How to create staff roles and invite team members to your school in Kanri.
 ---
 
-Kanri uses a **role-based** permission system. Every staff member is assigned a role, and roles control exactly what that person can see and do in your school. You set up roles first, then add people into them.
+Kanri uses roles to control staff access. Adding someone as staff and assigning their permissions are separate steps. Create or review the role, add the person, then assign the role on their staff record.
+
+## Before you start
+
+You need permission to manage roles. Only owner-tier staff can assign owner-level access or change school assignments. Use a separate account for each team member rather than sharing an owner's login.
 
 ## Step 1: Create a role (if needed)
 
-Kanri doesn't have fixed staff roles built in. You create your own, with exactly the permissions you want. This lets you give a front-desk volunteer read-only access while giving your head instructor full access to members and scheduling.
+Your school may already have built-in administrative roles. Review them before creating another one. For routine work, create a narrower role, such as *Instructor* or *Front Desk*, instead of giving everyone unrestricted access.
 
 1. Go to **Settings → Roles**.
-2. Click **New Role**.
+2. Click **Add Role**.
 3. Give the role a name (e.g. "Instructor", "Front Desk", "Admin").
 4. Toggle on the permissions this role should have. Permissions are grouped by area (Members, Billing, Schedules, etc.).
-5. Click **Save**.
+5. Click **Create**.
 
-See [Permissions](/reference/permissions/) for a full breakdown of what each permission controls.
+Choose at least one permission. You cannot grant permissions you do not have yourself. See [Permissions](/reference/permissions/) for what each permission controls.
 
 :::tip
 Start with a conservative set of permissions and add more if staff tell you they need access to something. It's easier to grant access than to explain why something was visible that shouldn't have been.
@@ -23,29 +27,37 @@ Start with a conservative set of permissions and add more if staff tell you they
 
 ## Step 2: Add a staff member
 
-1. Go to **Settings → Roles** and open the role you want to assign.
-2. Click **Add User**.
-3. Either search for an existing member of your school, or enter an email address directly.
-4. Click **Add**.
+1. Go to **Settings → Staff**.
+2. Click **Add Staff**.
+3. Search for an existing member, or enter the person's email address. Choose the existing member when you want to use that person's linked account.
+4. Optionally enter a **Job Title**.
+5. Click **Add Staff**.
 
 What happens next depends on the person's situation:
 
-- **Not yet in the system**: Kanri sends them an invitation email with a link to create their account. The link expires after 7 days. If they miss it, simply add them again to send a new one.
-- **Already a Kanri user connected to your school** (for example, an existing member who has a portal account, or someone already in another role): they're added to the role directly with no email.
+- **Selected member with a linked account:** Kanri adds that account as staff directly.
+- **Email address already verified on a Kanri account:** Kanri adds the existing account directly.
+- **Selected member without a linked account, or an email without a verified account:** Kanri sends an invitation. The selected member must have an email address. Ask the person to accept the invitation; it expires after seven days.
 
-In most cases, Kanri will send an invitation email.
+If an invitation expires, repeat **Add Staff** with the correct email to send a fresh one. Adding staff does not assign a role, so continue with the next step once the staff record is available.
 
-Once added, the staff member can log in and will see your school alongside any other schools they belong to.
+## Step 3: Assign the role
+
+1. Open **Settings → Staff** and select the staff member.
+2. Click **Edit**.
+3. Under **Roles**, select the role or roles the person needs.
+4. Click **Save**.
+5. Ask the person to sign in and check that they can access the intended school and tools.
 
 ## What the staff member can see
 
-The staff member's access is determined entirely by the role's permissions. They won't see areas they don't have permission to access. If they need additional access later, edit the role or assign them to a different role.
+Access depends on the person's combined roles and the features enabled for your school. A role does not enable a feature your school does not have. If something is missing, check both the role's permissions and the school's feature availability.
 
 ## Managing your team
 
-To see all users in a role, open the role in **Settings → Roles** and click **View Users**. From there you can remove a staff member from the role.
+Open a role under **Settings → Roles** to see its users. To change one person's assignments, open their staff record, select **Edit**, change **Roles**, and save.
 
-To move someone to a different role, remove them from their current role, then open the new role and add them there.
+A person can have several roles. Removing one role does not remove access granted by another. Kanri also protects the last owner from losing owner access.
 
 ## You're set up
 

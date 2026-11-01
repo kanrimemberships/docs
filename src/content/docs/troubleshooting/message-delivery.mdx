@@ -1,0 +1,59 @@
+---
+title: Troubleshoot Message Delivery
+description: Find out why an email or text message is delayed, failed, bounced, or not received.
+---
+
+Use the **Outbox** to check messages sent by staff and automatic Kanri emails. A message marked **Sent** was handed to the email or SMS provider. It does not guarantee that the recipient saw it.
+
+## Find the message
+
+1. Open **Messages → Outbox**.
+2. Search an email recipient address, SMS message text, or the broadcast's label. Outbox search
+   does not search every recipient's name or phone number.
+3. Select the matching message to review its details and status. If needed, use the member's
+   Messages tab to find their conversation.
+4. For a broadcast, open its entry and check the status for the specific recipient.
+
+The Outbox also shows automatic emails, such as invitations, payment receipts, and document-signing links. If the message is a broadcast, see [Review broadcast delivery](/messages/outbox/).
+
+## Understand the status
+
+| Status | What it tells you | What to check |
+|---|---|---|
+| **Queued** or **Pending** | Kanri has not confirmed delivery yet. | Give a newly queued message time to process, then check again. |
+| **Sending** | A broadcast is still being processed. | Check its recipient-level statuses after processing continues. |
+| **Sent** | The provider accepted the message for sending. | Ask the recipient to check their inbox, spam folder, or phone. |
+| **Delivered** | The provider reported delivery to the destination. | Confirm the recipient is checking the correct email inbox or phone. |
+| **Opened** | The channel reported an open event, not necessarily a person reading it. | If the recipient still cannot find it, verify which inbox or phone they checked. |
+| **Delayed** | The email provider reported a delay. | Check again later. Do not send another copy just because delivery is delayed. |
+| **Failed** | Sending failed, and the attempt will not be retried automatically. | Check the recipient details and requirements for the chosen channel before sending a new message. |
+| **Bounced** | The recipient's email provider rejected the address. | Correct the email address before sending another message. |
+| **Failed to send** | The queued sending task failed. | Review the recipient-level error before starting another send. |
+| **Suppressed (opted out)** | Marketing email was blocked by the address's preference for this school. | Respect the preference; do not keep resending marketing messages. |
+| **Suppressed (hard bounce)** | Non-security email was blocked because the address previously hard-bounced. | Confirm the address and contact support if the suppression appears incorrect. |
+
+Delivery information can take time to appear. A provider's **Delivered** status is not proof that a person read the message.
+
+## Check the recipient and channel
+
+- **Email:** Confirm the member or contact has the correct email address. For a broadcast, linked contacts qualify when **Receive Communications** or **Can Manage** is enabled. A member preview is not the final list of delivery addresses.
+- **SMS:** Confirm the phone number is correct and the school has a configured [SMS phone number](/settings/branding/phone-number/). Check [usage credits](/settings/usage/) if SMS sending is unavailable.
+- **Member or guardian invitation:** Confirm the invitation went to the email address the recipient can access. See [Member Portal Access](/troubleshooting/member-portal-access/).
+- **Automatic email:** Confirm the related member or billing record has the intended recipient details, then inspect the message entry in the Outbox.
+
+If a message contains a personal placeholder, make sure Kanri can resolve it for the recipient. For placeholder details, see [Message Placeholders](/reference/message-placeholders/).
+
+Marketing opt-out does not block every automatic email. Security messages, such as password resets,
+are exempt from the email suppression checks.
+
+## Before sending again
+
+Correct the cause first. For example, fix a misspelled email address or phone number, confirm SMS is configured, or contact support about an unexpected suppression. Then send a new message only if the message type and current status allow it. Avoid repeated attempts to a bounced or opted-out address.
+
+For a broadcast, review the recipient's individual status before deciding whether to contact them another way. See [The Outbox](/messages/outbox/) for the full status list and broadcast progress details.
+
+## Next steps
+
+- [Review the Outbox](/messages/outbox/)
+- [Send a message](/messages/send-a-message/)
+- [Configure SMS](/settings/branding/phone-number/)

@@ -1,15 +1,37 @@
 ---
 title: Create a Class
-description: How to create a class within a program.
+description: Add a class to a program and set attendance and booking options.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Create a class for each type of training you want to schedule separately. For example, an **Adult Karate** program might contain **Karate Fundamentals** and **Open Mat**.
 
-## What this page will cover
+## Add a class
 
-- Going to Programs → [Program] → Classes → New Class
-- Setting the class name
-- The "counts towards attendance" toggle — this lives on the **class**. When turned off, sessions of that class (regardless of variant) don't count toward level promotion requirements.
-- When to create a new class vs a new variant (different audience or belt range → new class; same class, different style or format → variant on existing class)
+1. Open **Classes** and select **New Class**.
+2. Enter a class **Name** that is not already used by another class in your school.
+3. Search for and select the **Program** the class belongs to.
+4. If applicable, choose a **Minimum Level** and **Maximum Level** for the class.
+5. Optionally set a **Minimum Age** and **Maximum Age** as whole numbers from 0 to 120. The maximum cannot be lower than the minimum.
+6. Turn on **Counts towards attendance** if the class should count toward level-promotion class totals. It starts off on the new-class form.
+7. Set **Member booking spots** and **Trial booking spots**, or leave each blank for unlimited capacity. Enter 0 to allow no spots in the applicable capacity pool.
+8. If trial spots should not use the member capacity, enable **Trial spots are separate from member spots**.
+9. If group-based class access is available, choose the **Allowed Groups**. Leave it empty to allow all members.
+10. Select **Create Class**.
+
+## Choose capacity carefully
+
+If trial spots are separate, the class can reserve the specified trial capacity independently from member capacity. For instance, setting 12 member spots and 2 separate trial spots leaves space for up to 12 member bookings and 2 trial bookings. Review your room and staffing limits before setting either number.
+
+If trial spots are not separate, regular and trial bookings share the member-spot limit. The trial-spot number does not create an extra allowance or a separate limit in that mode.
+
+Capacity alone does not enable bookings. Open the saved class's **Program Eligibility** section and edit its program assignment to enable **Enable bookings for this program** or **Enable lead/trial bookings**. A schedule entry can override these settings. See [Create a Schedule](/schedules/create-schedule/).
+
+## Share a class between programs
+
+A class can serve more than one program. After saving, use the add control in **Program Eligibility**, or open that section's list and select **Add Program**. Choose the program's level limits and booking options. The class's attendance setting, age limits, capacity, and variants are shared across its program assignments.
+
+## Next steps
+
+- [Create a Class Variant](/programs/classes/create-class-variant/)
+- [Add the Class to a Schedule](/schedules/create-schedule/)
+- [Review Attendance](/members/attendance/)

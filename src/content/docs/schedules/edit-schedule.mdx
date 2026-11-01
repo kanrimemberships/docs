@@ -1,15 +1,32 @@
 ---
 title: Edit a Schedule
-description: How to change a schedule's details, time, or class.
+description: Change a schedule's name or date range and understand the effect on future sessions.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Edit a schedule to update its name, effective date, or end date. To change the recurring classes or times inside it, use the schedule editor and then [sync the schedule](/schedules/sync-schedule/).
 
-## What this page will cover
+## Change the schedule details
 
-- What fields can be edited (name, time, location, capacity, class)
-- What editing a schedule does to existing upcoming sessions (nothing automatically — use Sync to apply changes)
-- The difference between editing and syncing (edit changes the template, sync applies the template to upcoming sessions)
-- Editing a specific individual session (override for one week without changing the recurring schedule)
+1. Open **Schedules** and select the schedule.
+2. Choose **Edit**.
+3. Update the name, **Effective Date**, or **End Date**.
+4. Select **Save**.
+5. If Kanri warns that confirmed future bookings will be cancelled because they fall outside the new date range, review the count and confirm only if that is intended.
+
+The effective date controls when sessions begin appearing. The end date controls when they stop, and the schedule deactivates automatically on that date. The end date must be later than the effective date.
+
+## Change class entries
+
+Open the schedule and edit its entries to change a class, variant, day, time, location, or booking setting. If the schedule is active, those changes remain pending until you sync. Review the confirmation before syncing: removed entries, dates no longer offered, reduced capacity, or incompatible booking rules can cancel future confirmed bookings.
+
+## Example
+
+If a whole timetable changes next term, [duplicate the schedule](/schedules/duplicate-schedule/), prepare the new entries, and set non-overlapping date ranges before activating the new schedule. An effective date is not a way to keep the old version of an edited entry running until then.
+
+For an immediate change, edit the entry, select **Save** in the editor, and sync. Compatible future confirmed bookings keep their dates and use the updated entry. If a weekday change removes their booked date, they are cancelled, not moved to another day. When capacity settings change, the earliest reservations receive the available spaces first. Review the resulting bookings and contact affected members.
+
+## Next steps
+
+- [Sync a Schedule](/schedules/sync-schedule/)
+- [Duplicate a Schedule](/schedules/duplicate-schedule/)
+- [Activate or Deactivate a Schedule](/schedules/activate-deactivate/)

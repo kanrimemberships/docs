@@ -1,22 +1,62 @@
 ---
 title: Use Report Actions
-description: Take supported actions on records that appear in a custom report.
+description: Run supported actions on individual records or selected groups from a report table.
 ---
 
-:::note[Guide coming soon]
-This guide will explain the actions available in report tables and how to run them safely.
-:::
+Actions let staff work with records directly from a report table. They are available only for
+table blocks, and the actions each person sees depend on their role permissions.
 
-## Planned topics
+## Choose which actions appear
 
-- Find the available actions in a table row or the selection toolbar.
-- Run an action for one record or for a selected group of records.
-- Understand why some actions cannot be run on a group.
-- Use a toolbar button to create a new record from a report.
-- Learn how your role's permissions affect the actions you can see and use.
-- Follow action progress and review any errors.
+1. Open the table's **Actions** control while editing the report.
+2. Leave **Show all actions** selected to let Kanri show each viewer the actions their role
+   permits, or select a smaller set for this table.
+3. Optionally select **Create actions** to add shortcuts for creating the selected record type
+   or opening a related page.
+4. Save the block, then check the table as a viewer who has the intended role.
 
-## Related guides
+An action hidden by role permissions cannot be enabled for that person just by adding it to
+the table. The available record actions and creation shortcuts also depend on the table's
+record type.
 
-- [Configure Custom Report Tables](/reports/custom-reports/configure-tables/)
-- [Manage Custom Report Views](/reports/custom-reports/report-views/)
+## Run an action on one record
+
+1. Find the row for the record you intend to change.
+2. Open that row's action menu and choose the action.
+3. Read any confirmation or requested fields carefully, then confirm only if the target and
+   values are correct.
+4. Recheck the row or open the record to verify the result.
+
+Actions can change records. Confirm that the report's filters and columns identify the right
+record before proceeding.
+
+## Run a bulk action
+
+1. Select the records to work with in the table.
+2. Choose a bulk action from the selection controls. Only actions marked as safe for bulk use
+   are offered for a selection.
+3. Check the selected-record count and any requested values before confirming.
+4. Follow the progress display. Open the job details if you need to review the outcome.
+
+If a needed action is not available for a selection, run it on records individually or ask an
+administrator whether another supported workflow fits the task. Do not assume that an action
+can be made bulk-safe by changing the report.
+
+## Use a creation shortcut
+
+Configured **Create actions** appear as labeled shortcuts on the table. Depending on the
+record type, a shortcut may open a page or start a registered create action. If Kanri asks for
+values, check them before submitting; the new record is created using your own permissions.
+
+## Troubleshooting
+
+- **An action is missing:** your role may not have the required permission, or the action may
+  not apply to this record type.
+- **Bulk action is missing:** the action may not be marked safe for bulk use.
+- **The result is not what you expected:** open the record and review its activity or history.
+  If the report's filter is too broad, narrow it before taking further action.
+
+## Next steps
+
+- [Configure table columns and filters](/reports/custom-reports/configure-tables/)
+- [Share a report with staff](/reports/custom-reports/share-report/)

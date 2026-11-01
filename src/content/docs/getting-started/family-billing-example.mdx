@@ -1,0 +1,60 @@
+---
+title: Set Up Billing for a Child and Parent
+description: Worked example for linking a parent as contact and payer for a child's membership and subscription.
+---
+
+This example shows how to set up a child who trains at your school while a parent or guardian manages communication and payment. A member profile, contact relationship, membership, payment method, and subscription each serve a different purpose.
+
+## 1. Add the child as a member
+
+Create a profile for the child using the usual [Add a Member](/members/add-member/) steps. Enter the child's own details and birthday so staff can identify the correct profile.
+
+## 2. Link the parent or guardian
+
+1. Open the child's profile and select **Contacts**.
+2. Choose **New Contact**, or link the parent if they already have a member profile.
+3. Enter or confirm the parent's contact details and select **Parent** or the appropriate relationship.
+4. Turn on **Can Manage** if the parent should act on the child's behalf.
+5. Turn on **Receive Communications** if the parent should receive messages sent to the child.
+6. Save the contact.
+
+These settings do different things: **Can Manage** controls access on the child's behalf, while **Receive Communications** includes the parent in communications. See [Contacts](/members/contacts/) for details.
+
+## 3. Enrol the child
+
+Open the child's **Memberships** tab and [assign a membership](/members/memberships/assign-membership/) in the correct program. Confirm the program, level, status, and start date.
+
+A membership records the child's enrolment. It does not create billing by itself.
+
+## 4. Set up who pays
+
+If you will collect payment through Kanri, first connect your school's Stripe account and create a [billing plan and price](/billing/billing-plans/create-plan/). Then add a payment method from the child's **Billing** tab:
+
+1. Choose **Add Payment Method**.
+2. Enter a recognizable label.
+3. Select the parent in **Bill To**.
+4. Choose an available setup method, such as an email link or connected terminal.
+5. Ask the parent to complete the card setup, then confirm the method appears on the child's profile.
+
+Kanri does not ask staff to enter the parent's card details into the admin form. The **Email Link** and **Collect via Terminal** setup options collect cards. See [Add a Payment Method](/members/subscriptions/add-payment-method/) for the full instructions.
+
+## 5. Create the subscription
+
+From the child's **Billing → Subscriptions** area, create a subscription using the appropriate plan and price. Select the saved payment method if Kanri should collect automatically. Confirm that the selected method belongs to the intended payer, and review the start and first payment dates before saving.
+
+The subscription belongs to the child's member profile, even when the parent is the payer. A subscription and membership are separate records, so confirm both exist if the child needs enrolment and billing.
+
+## Optional: add a one-time charge
+
+For a one-time registration or equipment fee, create an [invoice](/billing/invoices/create-invoice/) for the child instead of changing the recurring subscription price. Check the receipt email and line items before sending or collecting payment.
+
+## Example summary
+
+For a child named Sam Rivera taking Junior Karate, the school creates Sam's member profile, links Sam's parent as a contact with the right permissions, assigns Sam a Junior Karate membership, then creates the tuition subscription on Sam's profile with the parent's payment method selected as **Bill To**.
+
+## Next steps
+
+- [Add a contact](/members/contacts/add-contact/)
+- [Assign a membership](/members/memberships/assign-membership/)
+- [Create a subscription](/members/subscriptions/create-subscription/)
+- [Review a member's billing](/members/billing/)

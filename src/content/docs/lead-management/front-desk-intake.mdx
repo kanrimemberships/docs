@@ -1,21 +1,70 @@
 ---
 title: Front-Desk Intake
-description: Let walk-in visitors enter their details and sign a waiver from their phone.
+description: Set up a QR-code form for walk-in visitors to register and sign a waiver.
 ---
 
-:::note[Professional & Enterprise]
-Lead and intake tools require a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
 
-:::note[Guide coming soon]
-This guide will explain how to enable the intake page, choose waiver templates, and share its QR code.
-:::
+Use Front-Desk Intake for visitors who are already at your school. They scan a
+QR code, enter their details, and complete or receive a waiver. For prospects
+who want to explore programs before visiting, use the [Lead Page](/lead-management/lead-page/).
 
-## Planned topics
+## Set up intake
 
-- Set up the adult and optional minor waiver templates.
-- Choose how a visitor signs the waiver.
-- Download and display a QR code at your front desk.
-- Understand how a visitor's details and guardian contact are added to Kanri.
+1. Go to **Settings → Leads** and find the **Leads & Intake** section.
+2. Turn on Front-Desk Intake.
+3. Choose the adult waiver template. Optionally choose a separate template for
+   minors; if you leave it blank, the adult template is used.
+4. Choose how visitors sign (see below), then save.
+5. Use **QR Code** to download the intake code. Print or display it where
+   visitors can scan it.
 
-The front-desk intake page is for walk-in visitors. For prospective members who want to explore programs, see the [Lead Page](/lead-management/lead-page/).
+The form requires the Documents feature and a selected adult waiver template even if you
+expect mostly child visitors. With neither available, the public form cannot open.
+Publish the selected templates before sharing the code. If a selected template is unavailable
+or unpublished at submission, registration can be retained, but the visitor returns to the
+intake start without completing a waiver. Fix the template and arrange signing; do not treat
+that registration as proof of a signed waiver.
+
+## What visitors do
+
+Visitors scan your code, choose whether they are here for themselves or with a
+child, then fill in the requested details. When registering a child, the form
+also collects guardian details, including email, so the appropriate signer can
+receive the waiver.
+
+Submitting the form saves the registration and creates its waiver immediately when the configured
+template is available. For a child registration, the guardian is the signer and email recipient.
+
+Registration creates a Lead profile, or reuses a same-name lead and fills in missing details.
+It does not enroll the visitor in a program or create a subscription. Check the existing profile
+before adding a walk-in manually, especially if they already started the public Lead Page.
+
+The signing mode decides whether an email is sent immediately. Inline and Email code modes first
+offer browser signing; an unsigned waiver becomes eligible for email recovery after 15 minutes.
+
+## Choose signing mode
+
+The signing mode controls what happens after the visitor submits the form:
+
+| Mode | What happens |
+|---|---|
+| **Inline** | The waiver opens in the visitor's browser for signing. |
+| **Email code** | The visitor verifies their email with a code, then signs the saved waiver in the browser. |
+| **Async** | Kanri sends the signing link immediately. The browser shows confirmation and does not open the signing page; the visitor signs later from the email. |
+
+Inline and email-code signing use the same saved waiver version. Signing from
+the browser does not invalidate a separate email link. If an email provider
+cannot send a link, Kanri reports delivery as pending rather than saying it
+was sent; delivery can be retried. If an inline or email-code waiver remains
+unsigned for about 15 minutes, Kanri can send a signing link so the visitor can
+finish later.
+
+An emailed intake link can already verify the matching email address. In that case, Kanri
+opens browser signing directly rather than requiring another code or sending the visitor away
+to wait for a second email, even if a different signing mode is selected in settings.
+
+## Related guides
+
+- [View and manage leads](/lead-management/view-leads/)
+- [Configure the Lead Page](/lead-management/lead-page/configure-lead-page/)
+- [Enable and share the Lead Page](/lead-management/lead-page/enable-lead-page/)

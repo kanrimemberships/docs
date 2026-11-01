@@ -1,17 +1,38 @@
 ---
 title: Classes
-description: A reference for what classes are within a program, and how class variants work.
+description: Create the class types that appear on your school's timetable.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+A **class** is a type of training, such as Beginner Karate or Open Mat. A **class variant** is an optional subtype, such as Kata or Sparring. A class can be used in a schedule to create its recurring sessions.
 
-## What this page will cover
+## Create a class
 
-- What a class is (a named type of training within a program — e.g. "Karate (Blue–Black Belt)", "Beginner Karate", "Open Mat")
-- What a class variant is (an optional sub-type of a class — e.g. "Sparring" or "Kata" as variants of "Karate (Blue–Black Belt)"). Variants are optional; a class without variants just runs as itself.
-- What a session is (a single scheduled occurrence of a class, optionally with a specific variant, at a specific time — e.g. Monday 7–8pm)
-- The relationship: Program → Class → (optional) Variant; Schedule → Sessions
-- The "counts towards attendance" flag on the **class** (if off, attending any session of that class, regardless of variant, does not count toward level promotion requirements)
-- When to create multiple classes vs multiple variants of one class (different audience/belt range = new class; same class, different style = variant)
+1. Open **Classes** and select **New Class**.
+2. Enter a name and choose the related program.
+3. Optionally set age limits and booking spots for members or trial visitors.
+4. Turn on **Counts towards attendance** if attendance should count toward level progression. It starts off on the new-class form.
+5. Save the class, then add a [variant](/programs/classes/create-class-variant/) if you need one.
+6. Add the class to a [schedule](/schedules/create-schedule/).
+
+Booking spots can be unlimited when left blank. Trial spots can be separate from member spots, so check both limits when planning capacity.
+
+Classes are managed from the school's **Classes** menu. A class can have several program assignments in its **Program Eligibility** section, each with its own level limits and booking switches. Setting capacity does not turn bookings on; enable them on the program assignment or override them on the schedule entry.
+
+## Control who can sign in
+
+When group-based kiosk access is enabled, you can optionally choose allowed groups for a class. Members in any selected group may sign in; leaving the group list empty allows all members. This setting controls kiosk access, not membership in the program.
+
+## Attendance and progression
+
+The **Counts towards attendance** setting belongs to the class. If it is off, attendance at sessions of that class does not count toward a level's minimum-class requirement. Review it before staff begin taking attendance.
+
+## Example
+
+For **Adult Karate**, create **Karate Fundamentals** and **Open Mat** as separate classes. If the Fundamentals class includes distinct training formats, create variants such as **Kata** and **Sparring**. Schedule each class at its usual time.
+
+## Next steps
+
+- [Create a Class](/programs/classes/create-class/)
+- [Create a Class Variant](/programs/classes/create-class-variant/)
+- [Create a Schedule](/schedules/create-schedule/)
+- [Create Levels](/programs/levels/create-level/)

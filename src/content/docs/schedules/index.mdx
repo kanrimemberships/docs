@@ -1,19 +1,44 @@
 ---
-title: Schedules & Bookings
-description: A reference for how Kanri models recurring classes, individual sessions, and member bookings.
+title: Schedules and Bookings
+description: Understand recurring schedules, individual class sessions, and member bookings.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Kanri uses three connected records to manage the timetable:
 
-## What this page will cover
+1. A **schedule** is a recurring timetable that contains one or more class entries.
+2. A **session** is one occurrence of a class on a particular date and time.
+3. A **booking** is a reservation for a session.
 
-- The three-layer model: Schedule → Session → Booking
-- What a Schedule is (a recurring template: day, time, class, capacity)
-- What a Session is (a single occurrence of a schedule on a specific date)
-- What a Booking is (a member's reservation for a specific session)
-- How sessions are generated from schedules (automatically, one at a time going forward)
-- Capacity: how it limits bookings and what happens when a session is full
-- Booking window: how far in advance members can book (configured in Settings → Booking Settings)
-- Trial bookings vs regular bookings (different booking window)
+For example, a Monday 6 p.m. Karate Fundamentals entry in a schedule produces individual Monday sessions. A member can book a specific session when booking is enabled.
+
+## Set up the timetable
+
+1. Create a [program](/programs/create-program/) and [class](/programs/classes/create-class/).
+2. Create a [schedule](/schedules/create-schedule/).
+3. Add the class, day, time, and location to the schedule.
+4. Activate the schedule to create its sessions.
+5. Review the current timetable and test booking availability if you use bookings.
+
+An active schedule can be changed, but changes to its entries are not applied to sessions until you sync it. Review [Sync a Schedule](/schedules/sync-schedule/) before publishing a timetable change.
+
+Select **Save** in the timetable editor before syncing. If you are preparing next term, use a separate schedule with its own effective and end dates instead of expecting an entry edit to preserve the old timetable until a future date.
+
+## Change the timetable safely
+
+- **Edit** the schedule name or its effective and end dates.
+- **Edit entries** to change class, variant, time, location, or booking settings.
+- **Sync** to apply changed entries to generated sessions.
+- **Deactivate** to stop the schedule and cancel future confirmed bookings.
+
+Kanri warns you when a date change or sync will cancel future confirmed bookings. Check the warning before confirming.
+
+## Bookings
+
+Booking availability depends on the class or session settings, whether the schedule is active, and the school's booking behavior. Staff can review an individual member's bookings from their profile. See [Member Bookings](/members/bookings/) and [Session Bookings](/schedules/bookings/).
+
+## Next steps
+
+- [Create a Schedule](/schedules/create-schedule/)
+- [Edit a Schedule](/schedules/edit-schedule/)
+- [Take Attendance](/schedules/taking-attendance/)
+- [Manage Session Bookings](/schedules/bookings/)

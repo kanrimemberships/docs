@@ -1,18 +1,43 @@
 ---
 title: Why Can't a Member Check In?
-description: Step-by-step guide to diagnosing why a member is blocked or can't sign in at the kiosk.
+description: Check the class, membership, subscription, and kiosk rules that can affect check-in.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+When a member cannot check in, first note the exact message on the kiosk. Then review the school's check-in rules and the member's records. Do not change a school-wide rule until you know which condition is blocking this person.
 
-## What this page will cover
+## Check the member and class
 
-- Check 1: Does the member have an active membership? (Members without an active membership can't sign in to a class)
-- Check 2: Is the "Block expired subscriptions" kiosk behavior enabled? If so, do they have an active subscription?
-- Check 3: Is program access gating enabled? Does their subscription grant access to the program they're trying to sign in for?
-- Check 4: Does the class restrict sign-in to groups? The member must belong to at least one selected group. Check the class under Programs → program → Classes.
-- Check 5: Is the schedule showing correctly on the kiosk? (Might be deactivated, or outside the booking window)
-- Check 6: Is the kiosk connected to the internet?
-- How to allow a member in manually (take their attendance as staff instead)
+1. Confirm that you selected the right member. Search by name or member number.
+2. Confirm the class or session is available on the kiosk and is the one the member is attending.
+3. Check whether the member has an active membership for the class's program.
+4. If the class restricts attendance to selected groups, confirm that the member belongs to an allowed group.
+5. If the person is a trial visitor at the shared kiosk, confirm **Allow trial members to sign in** is enabled and they have a trial booking for this session today that is not cancelled or marked no-show.
+6. Check the member's level against the class's program assignment, and check age limits if your school applies them at the kiosk.
+7. Check for an active [kiosk hold](/kiosk/member-holds/) on the profile. Clear it only after resolving the reason.
+8. Check whether the membership's session allowance or the subscription's session credits have run out.
+
+## Check subscription rules
+
+Open **Settings → Behaviors → Kiosk** and review the subscription options. Depending on your school's settings, sign-in may require an active subscription or may be blocked when only expired subscriptions exist. If billing-plan program access is enabled, confirm the member's subscription grants access to the class's program.
+
+Do not disable a school-wide subscription rule just to resolve one member's case. Check the member's subscription and the relevant plan first.
+
+For session-based billing, a failed payment can also block sign-in. Resolve the billing problem instead of repeatedly submitting check-ins.
+
+## Check dates and closures
+
+The kiosk shows nearby class times, not every future session. Check the schedule's effective and end dates, any unsynced changes, and [closed days](/calendar/closed-days/) that block attendance for the school or program.
+
+Mobile check-in also checks attendance closures and allowed groups when the member selects a session and when they confirm it. If a rule changed while the confirmation page was open, return to **Check In** and choose from the current session list. A closure that blocks only bookings does not stop check-in.
+
+## Check confirmation and connection
+
+If kiosk sign-ins require staff confirmation, the member's check-in may be pending rather than missing. Open **Kiosk → Open Attendance**, choose the session, and use **Confirm Sign-In** once the member is present. Mobile check-in has its own confirmation setting. Confirm that the kiosk or device is connected to the internet, and check whether attendance was already confirmed before trying again.
+
+If the member attended but could not check in, staff can record attendance manually. Use this only after confirming the member was present.
+
+## Next steps
+
+- [Review Kiosk Behaviors](/settings/behaviors/kiosk-behaviors/)
+- [Set Up a Kiosk Device](/kiosk/set-up-kiosk/)
+- [Record Attendance Manually](/members/attendance/add-attendance-manually/)

@@ -3,12 +3,40 @@ title: Suppliers
 description: Save supplier details and connect suppliers with the products you order.
 ---
 
-:::note[Guide coming soon]
-This guide will show how to create, update, and select suppliers when ordering stock.
-:::
 
-## Planned topics
+Save your vendors in **Shop** so your team can find them when setting up products and purchase orders.
 
-- Add and update a supplier.
-- Set a product's usual supplier.
-- Select products for a purchase order.
+A supplier record is a reference for your staff. Saving a supplier does not place an order or contact that supplier.
+
+## Add a supplier
+
+1. Open **Shop**, then select **Suppliers**.
+2. Select **New Supplier**.
+3. Enter the supplier's name. Add a contact name, email, and phone number if useful.
+4. Select **Create Supplier**.
+
+The name is required and must be different from an existing supplier's name. Supplier and contact names can contain up to 200 characters. Email and phone are optional, but must be valid if entered.
+
+To update a supplier later, open the supplier list and use its edit action. A supplier cannot be deleted while a product still uses it. Edit the product or variant to choose a different supplier first.
+
+## Set a product's usual supplier
+
+1. Open **Products** and select a product.
+2. Select **Edit Product** to set the product's supplier, or edit a specific variant to set its supplier.
+3. Save your changes.
+
+A variant's supplier takes precedence when you create a purchase order for that variant. If the variant has no supplier, Kanri uses the product's supplier. This is a suggestion, not a restriction. You can still add an item to an order for a different supplier.
+
+For example, if most uniform sizes come from one vendor but size 4 comes from another, set the supplier on the size 4 variant. When you add that variant to an order, Kanri can suggest the more specific supplier.
+
+## Use a supplier on a purchase order
+
+When you create a [purchase order](/shop/purchase-orders/), choose a supplier if you have one. Search for products and variants to add them to the order. The supplier helps your team organize orders and does not send the order automatically.
+
+Keep the supplier's name and contact details current so staff can use them when they export or download an order to send manually. If an order must be split across vendors, create a separate purchase order for each supplier.
+
+## Next steps
+
+- [Create a purchase order](/shop/purchase-orders/)
+- [Add products and variants](/shop/products/)
+- [Manage inventory](/shop/inventory/)

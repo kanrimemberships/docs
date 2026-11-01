@@ -1,0 +1,104 @@
+---
+title: Report Records and Fields
+description: Choose the right records and fields for custom reports, with practical examples.
+---
+
+Custom reports start with a **record type**—the kind of record that appears in a block. You
+then choose fields from that record, add filters, and select how to display the results.
+
+The field picker is the live reference for your school. It shows supported records, fields,
+and related information available to your role. It is not a list of every piece of data in
+Kanri, and another staff member may see a different selection.
+
+## Choose the right record type
+
+Start with the item you want one row, group, or total to represent:
+
+| Question | Start with | Why |
+|---|---|---|
+| Which member profiles were created this month? | **Member** | Each matching member is one record. |
+| Which bookings have each status? | **Booking** | Each matching booking is one record. |
+| Which invoices meet a particular condition? | **Invoice** | Each matching invoice is one record. |
+| What changed for a member over time? | Choose a history or activity record type if it is available to you. | A history record describes an event or change, not the current member profile. |
+
+The record type determines the meaning of counts and rows. For example, counting **Member**
+records is not the same as counting **Membership** records: one member may have more than one
+membership over time.
+
+## Understand field types
+
+The picker may offer these kinds of fields:
+
+- **Text** — names, labels, and other words. Use text conditions to find or exclude values.
+- **Enum** — a defined choice such as a status or member type. Choose from the available
+  options instead of guessing the stored wording.
+- **Date** — a date or time used for filters and time-based grouping. Check which date answers
+  your question: a member's **Signed Up On** date is not necessarily the date a membership
+  started.
+- **Number** or **Currency** — quantities and money. Sum, average, minimum, and maximum are
+  available only when the chosen field supports that calculation.
+- **Boolean** — a true/false choice. Use the field's true or false condition.
+- **Related record** — information reached through a connection, such as a member's
+  membership or a booking's class. The picker lets you follow available connections; some
+  connections can contain several records and may be offered as a list or count.
+
+The exact fields and conditions vary by record type. If you cannot find a field, check that
+you chose the right record type and ask an administrator to verify your role's access.
+
+## Example: members created this month
+
+To review member profiles created this month:
+
+1. Add a table and choose **Member** records.
+2. Add **First Name**, **Last Name**, **Email**, **Member Type**, and **Signed Up On** as columns.
+3. Open **Filter** and add a condition for **Signed Up On** in the current month.
+4. Review the matching rows and confirm that the total looks reasonable.
+5. If you mean membership record dates rather than profile sign-up dates, choose
+   **Membership** and its **Enrolled On** field. It shows when that record was created, not
+   when its status changed to active.
+
+The date filter uses a rolling calendar period. As the month changes, the report automatically
+uses the new current month.
+
+## Example: compare bookings by status
+
+To compare the number of bookings in each status:
+
+1. Add a chart and choose **Booking** records.
+2. Set **Group By** to **Status**.
+3. Set the aggregate to **Count** and choose a bar chart.
+4. Add a **Date** filter if you only want a particular time period.
+
+This counts bookings, not unique people. If one person has several bookings in the period,
+each booking contributes to the count.
+
+## Use related information thoughtfully
+
+When a field picker offers a related record, open that connection and then choose a field on
+the related record. For example, a membership report might let you add the associated program
+or level. Give the resulting column a heading staff will understand.
+
+Some connections lead to multiple related records. Depending on the field, you may be able to
+show the related values as a list or summarize them with a count or numeric calculation.
+These summaries do not create a separate table row for each related item. Choose a different
+record type if your question needs one row per related item.
+
+For conditions using related information, follow the relation in the filter picker and choose
+the appropriate field there. See [Build Filters](/reports/custom-reports/filter-builder/) for
+combining conditions and for attendance-specific date behavior.
+
+## Permission and data checks
+
+- The field picker is permission-aware. Do not assume that a colleague can see every field
+  you can select.
+- Sharing a report does not grant access to data. Staff still need the relevant report and
+  record permissions.
+- Preview the results and verify what the count represents before using it in a decision.
+- Use a narrow filter and only the columns staff need, especially before downloading CSV data.
+
+## Next steps
+
+- [Create a custom report](/reports/custom-reports/create-report/)
+- [Build filters](/reports/custom-reports/filter-builder/)
+- [Configure tables](/reports/custom-reports/configure-tables/)
+- [Configure charts and stats](/reports/custom-reports/configure-charts-and-stats/)

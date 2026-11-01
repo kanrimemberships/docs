@@ -1,11 +1,15 @@
 ---
 title: Manage Gradings
-description: Schedule grading dates, review eligible members, and promote members in a group.
+description: Schedule grading windows, check eligibility on a chosen date, and promote members in a group.
 ---
+
+:::caution[Beta feature]
+Grading-based promotion scheduling is in beta and may change. Contact support if you run into a problem.
+:::
 
 Gradings let you schedule an event for one or more programs, review members due to advance, and promote eligible members together.
 
-Grading management is available to staff with program-view access. Members can see scheduled gradings for their active programs in the calendar, but cannot open the grading roster or management pages.
+Your school needs the grading feature. Staff need permission to view programs to open grading pages, manage programs to create or edit gradings, and promote memberships to promote members. Members can see scheduled gradings for their active programs in the calendar, but cannot open the grading roster or management pages.
 
 ## Create a grading
 
@@ -13,17 +17,64 @@ Grading management is available to staff with program-view access. Members can s
 2. Enter a name and date and time. The time shown and submitted is interpreted directly in the school's time zone, regardless of your device's time zone.
 3. Select one or more programs.
 4. Optionally enable **Close the selected programs for this grading**.
-5. Select **Create Grading**.
+5. Set **Grading window (extra days after the start date)**. Use **0** for a single-day grading, or a whole number up to **366** to allow promotions on later days too.
+6. Review **Move members who were not promoted to the next grading after the window ends**. It starts enabled.
+7. Select **Create Grading**.
 
-When you close the selected programs, Kanri creates a closed day for the grading's date. It blocks attendance, student bookings, and trial bookings for those programs. Editing the grading updates the linked closed day.
+When you close the selected programs, Kanri creates a closed day for the grading's date. It blocks attendance, student bookings, and trial bookings for those programs. Editing the grading updates the linked closed day. This does not cancel existing bookings; review them separately using the [closure checklist](/calendar/school-closure-checklist/).
+
+The linked closed day covers the **start date only**, even when the grading
+window lasts longer. Add separate [closed-day rules](/calendar/closed-days/)
+if normal classes should stop on other dates too.
+
+## Choose a grading window
+
+The start date and the last day are both included. For example, a grading
+starting November 7 with **2** extra days allows promotion dates of
+November 7, 8, or 9. **0** means November 7 only.
+
+A window is useful when students complete assessments across several classes.
+It does not create extra timetable sessions or automatically promote anyone.
+
+On a roster page for a multi-day window:
+
+1. Choose **Promotion date** within the window.
+2. Select **Check eligibility on this date**.
+3. Review the updated roster before promoting.
+
+Kanri checks the days requirement and confirmed qualifying attendance through
+that date in the school's timezone. A student who is not eligible on the first
+day may qualify later in the window. Overview counts use today's date when
+today is inside the window; otherwise they use the start date.
+
+### Decide what happens after the window
+
+With **Move members who were not promoted to the next grading after the window
+ends** enabled, unpromoted members can move to the next eligible grading
+starting the day after the last day. They can still appear in the earlier
+grading's history.
+
+Turn it off when you want qualifying members to stay assigned to that grading
+until staff finish reviewing them. A member who met the days requirement by
+the window's end, or was manually included, can remain held there until
+promoted or excluded. This hold does not itself mean they have met the
+attendance requirement.
+
+For example, with the November 7–9 window above, automatic rollover can start
+on November 10. Without rollover, review unpromoted members in the November
+grading instead of expecting everyone to appear in the next event.
 
 ## Review the roster
 
 Open a grading to see summary counts and separate, paginated lists:
 
-- **Confirmed eligible** includes members who meet both the minimum-days and attendance requirements, plus anyone manually included. Attendance is counted through the grading's date in the school's time zone.
+- **Confirmed eligible** includes members who meet both the minimum-days and attendance requirements, plus anyone manually included. Confirmed attendance is counted through the selected promotion date in the school's time zone.
 - **May be eligible** includes members who meet one requirement but not both. This includes members who have attended enough classes but still need more time at their current level.
 - **Not met** includes members who meet neither requirement.
+
+Attendance from other schools counts toward the same membership's grading
+requirements, including classes attended before a program change. Classes
+excluded from attendance counts still do not count.
 
 Upcoming grading lists include active members whose level is set to advance at a grading and has a next level. Eligible members remain visible on past grading rosters after promotion, with their promotion status shown.
 
@@ -31,10 +82,25 @@ Use **Include manually** from the **May be eligible** or **Not met** list to byp
 
 Use **Exclude from this grading** to leave a member off one grading's promotion list without changing their eligibility elsewhere. Excluded members remain visible in that grading, and **Restore to grading** reverses the exclusion. Excluded members cannot be selected for promotion.
 
-The grading remains the member's next grading through the grading date in the school's time zone. Starting the following local day, eligible members who were not promoted can appear in the next eligible grading. They remain visible on the earlier grading's roster. Once a member is promoted, Kanri keeps their earlier grading eligibility and level details in that historical roster.
+The grading remains the member's next grading through its window, subject to
+its rollover setting. Once a member is promoted through a grading, Kanri keeps
+their earlier grading eligibility and level details in that historical roster.
+If the program [keeps existing level requirements](/programs/edit-program/#keep-level-requirements-until-next-promotion),
+those requirements and the kept next level are used for that membership.
 
 ## Promote members
 
 Eligible, non-excluded, unpromoted members on the current **Confirmed eligible** page are selected by default. Uncheck anyone absent, then select **Promote N selected one level** to advance only the remaining selections. Selections apply only to the current page. Kanri rechecks eligibility when processing promotions and advances each selected member by one level. A member cannot be promoted twice in the same grading.
 
+Check the date shown beside the promotion action. For a multi-day grading,
+the promotion is recorded on the selected promotion date, using the grading's
+scheduled local start time. A single-day grading uses its scheduled timestamp,
+not the time you press the button. Kanri rejects a submitted date outside the window.
+
 Members and kiosk screens identify next promotion dates tied to gradings with **(grading)**. These dates are calculated from each level's setting and upcoming gradings; they are not saved as membership dates. A member-specific promotion date takes precedence.
+
+## Next steps
+
+- [Set a level to advance at a grading](/programs/levels/create-level/)
+- [Promote a single member](/members/memberships/promote-level/)
+- [See who is due for promotion](/programs/levels/promotions-report/)

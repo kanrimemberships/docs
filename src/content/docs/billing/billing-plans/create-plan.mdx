@@ -1,16 +1,50 @@
 ---
 title: Create a Billing Plan
-description: How to create a new billing plan in Kanri.
+description: Create a plan and its first price for a member offering.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+A plan is the named offering you assign to a member. Its first price is created as part of the same form, so decide what the member is buying and how payment should work before you begin. For an overview of the available price types, see [Billing Plans](/billing/billing-plans/).
 
-## What this page will cover
+## Before you start
 
-- Going to Billing → Plans → New Plan
-- Setting the plan name (e.g. "Monthly Karate", "Annual Membership")
-- Adding the first price after creating the plan
-- Choosing a good naming convention for plans (tip: name by the product, not the amount — amounts go on the price)
-- When to create a new plan vs a new price on an existing plan
+- Confirm your school has the **Billing** feature and you have permission to manage billing.
+- If the plan will collect card or bank payments through Kanri, connect the school's Stripe account and make sure the member will have an eligible payment method.
+- Decide whether this is an ongoing subscription, one-time term payment, fixed number of installments, session block, per-session arrangement, or zero-payment scholarship.
+- If members will have different rates, check whether **Settings → Behaviors → Billing plan mode** is set to **Multiple**.
+
+## Create the plan
+
+1. Go to **Billing → Plans**.
+2. Select **New Plan**.
+3. Enter a recognizable **Plan Name**, such as *Adult Karate* or *Junior Competition Team*. Keep the amount and interval in the price details rather than the plan name.
+4. Choose a **Price Type**. The form changes to show the fields for that type:
+   - **Ongoing**: amount and payment interval.
+   - **Paid in Full**: amount and term length, such as `1 Year`.
+   - **Fixed Term**: amount, payment interval, and number of payments.
+   - **Scholarship**: saves as a zero-payment price.
+   - **Session Block**: amount and number of sessions per block, with optional auto reload settings.
+   - **Per Session**: amount per session and whether usage is billed immediately or in a recurring cycle.
+5. Fill in the price fields. For example, for monthly tuition enter the amount, `1`, and `Month`. For payment every two weeks, enter `2` and `Week`.
+6. If needed, mark the plan as a **Trial Plan**. This marks the offering; it does not, by itself, set a delayed first payment.
+7. If the **Documents** feature is available, optionally choose a contract template and whether to auto-send it when a subscription is created.
+8. Review the plan name and all payment details, then select **Create Plan**.
+
+Kanri opens the new plan. Check the price summary before assigning it to a member. For a plan with multiple rates, [add another price](/billing/billing-plans/add-price/) and choose the default price when editing the plan.
+
+## Example: fixed-term tuition
+
+Suppose a program costs C$90 per month for a 10-month school year. Create a *School-Year Karate* plan with:
+
+- Price type: **Fixed Term**
+- Payment amount: **C$90**
+- Payment interval count and unit: **1 Month**
+- Number of payments: **10**
+
+This defines ten monthly payments. A paid-in-full offer would instead be one payment for the selected term; it is not the same as ten installments.
+
+## If you need a different price
+
+- In **Single** mode, edit the plan to change its one price. Review existing subscriptions first; changing the plan's price does not automatically move members to a new subscription.
+- In **Multiple** mode, add a separate price for another rate or schedule. Use a distinct name such as *Junior Monthly* or *Adult Annual*, then set the default price if appropriate.
+
+See [Edit a Billing Plan](/billing/billing-plans/edit-plan/) and [Create a Subscription](/members/subscriptions/create-subscription/).

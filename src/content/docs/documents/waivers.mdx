@@ -1,14 +1,40 @@
 ---
 title: Waivers
-description: Collect signed waivers during enrolment or from an existing member.
+description: Set up a waiver template and use it for program enrolment or visitor intake.
 ---
 
-:::note[Guide coming soon]
-This guide will explain how waiver templates connect to the lead page, member enrolment, and member records.
-:::
+A waiver is a document template that a member or guardian signs to acknowledge your school's terms. First create and test the template, then attach it to the program or intake flow that should use it.
 
-## Planned topics
+## Create a waiver template
 
-- Choose a waiver template and signing options.
-- Collect a waiver during enrolment or send a link later.
-- Find signed waivers on the member's record.
+1. Open **Documents → Templates** and select **New Template**.
+2. Choose a clear name, such as **Adult Training Waiver**.
+3. Select a rich-text template or PDF overlay.
+4. Set the member signer to **Adult required** if a guardian should sign for minors.
+5. Add a staff witness only if your school's process requires it.
+6. Set the validity and signing deadline.
+7. Add the waiver text or PDF fields, then preview and test it.
+
+## Use the waiver for a program
+
+1. Open **Programs** and select the program.
+2. Choose **Edit**.
+3. Select the adult waiver template and, if needed, a separate minor waiver template.
+4. Choose whether to **Auto-send waiver when membership is created**.
+5. Save the program.
+
+These settings are available when the Documents feature is enabled. Check the program and member records after testing so you know which template is sent and who receives it.
+
+For a minor, Kanri uses the minor waiver when one is configured, otherwise it falls back to the program's main waiver. The member's date of birth and the school's age-of-majority rules determine this choice. Keep the main template's adult-signature rules appropriate for that fallback.
+
+## Use a waiver for visitor intake
+
+For front-desk intake, enable the intake page and choose the waiver template in **Settings → Leads**. Visitors can then complete their information and sign using the school's configured intake mode. See [Front-Desk Intake](/lead-management/front-desk-intake/).
+
+The public Lead Page has its own waiver setup for trial enrolment. See [Configure the Lead Page](/lead-management/lead-page/configure-lead-page/).
+
+## Next steps
+
+- [Create Document Templates](/documents/templates/)
+- [Request a Signature](/documents/request-signature/)
+- [Configure Front-Desk Intake](/lead-management/front-desk-intake/)

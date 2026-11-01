@@ -32,12 +32,13 @@ Each status has:
 
 ## Important rules
 
-- A member can only have **one membership per program** at a time.
+- A member can have only **one non-deleted membership per program**. An inactive membership still occupies that slot.
 - Ending a membership means changing it to an **inactive** status.
 - Memberships and subscriptions are independent. A member can have one without the other.
 - Changing a membership's program does not change the program saved on earlier
   attendance. Qualifying attendance still counts toward promotion on that same
   membership, even if it was recorded under an earlier program.
+- The member-profile **Promote** action advances to the membership's applicable next level without checking attendance thresholds. Kiosk promotion eligibility uses the applicable requirements and confirmed attendance linked to the membership. When a program [keeps level requirements](/programs/edit-program/#keep-level-requirements-until-next-promotion), existing members can use their earlier requirements and next-level assignment.
 
 :::note
 Use the [Only Memberships report](/reports/memberships/only-memberships/) and [Only Subscriptions report](/reports/memberships/only-subscriptions/) to find mismatches between enrolment and billing.

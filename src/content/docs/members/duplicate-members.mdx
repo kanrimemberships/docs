@@ -5,7 +5,7 @@ description: How to create a copy of a member, and how to handle duplicate membe
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Kanri has a **Duplicate** feature that creates a copy of a member's profile. This is useful when you need to register a family member or someone in similar circumstances who shares most of the same details (address, contacts, family status, and so on).
+Kanri has a **Duplicate** feature that creates a member profile with some details copied from an existing profile. This is useful when you register a family member, such as a second child who shares the same contacts.
 
 If two separate profiles exist for the same person, Kanri has a merge tool under **Reports → Resolve** that can combine them into one. This page covers both situations.
 
@@ -18,8 +18,9 @@ Use **Duplicate** when you want to create a new member whose profile is largely 
 3. Review the pre-filled form. The following fields are copied from the original:
    - Last name
    - Family status
-   - Sex
+   - Gender
    - Birthday
+   - Profile type and lead details, when the original is a Lead
 4. Enter the new member's **First Name**. Kanri leaves this field blank.
 5. Phone and email are also left blank. Enter the correct details for the new person if they have their own phone number or email address.
 6. Click **Duplicate** to create the new profile.
@@ -35,11 +36,20 @@ What is **not** copied:
 - [Attendance history](/members/attendance/)
 - [Gallery files](/members/gallery/)
 - [Interactions](/members/interactions/)
-- The original's address and profile photo
+- The original's address information
+- The original's profile photo
+
+The duplicate keeps the original profile type. If the original is a Lead, its lead status, programs of interest, and further details are copied as well.
 
 :::note
 After duplicating, you'll need to set up memberships and billing for the new member separately, just as you would for any new member.
 :::
+
+## Next steps
+
+- [Add a membership](/members/memberships/assign-membership/)
+- [Set up a subscription](/members/subscriptions/create-subscription/)
+- [Add or review contacts](/members/contacts/)
 
 ## Handling duplicate members (same person, two profiles)
 

@@ -3,15 +3,48 @@ title: KPIs
 description: Create reusable measures to track school performance, goals, and change over time.
 ---
 
-:::note[Guide coming soon]
-This section will explain how to build key performance indicators (KPIs), set goals, and show KPI cards on your school's home page.
+:::note[Beta]
+KPIs are currently in beta. Features may change as the feature develops.
 :::
 
 A **KPI** is a measure you choose to keep an eye on, such as active members, new leads, or monthly revenue. You can define which records count, choose how Kanri calculates the number, and optionally track it against a goal over time.
 
-## Planned guides
+## How KPIs work
+
+Each KPI has a record type, a calculation, optional filters, and optional
+period settings. For example, a KPI could count membership records created during each
+month, or count active memberships at the end of each month. These answer
+different questions: one measures activity during a period; the other is a
+snapshot of the state at a point in time.
+
+A KPI detail page shows its current result, configured calculation and
+filters, history, and goal progress when a goal is set. Its history length
+can be configured from 1 to 24 periods. The record types and fields available
+to you depend on your permissions.
+
+## Create and use a KPI
+
+1. Choose a template or start from scratch. Templates are starting points;
+   you can adjust their settings before saving.
+2. Name the KPI, choose whether it measures activity over time or a snapshot
+   at each period end, and select a record type.
+3. Choose an aggregate calculation and field, then add a filter if you only
+   want to count matching records.
+4. Choose a period and comparison where appropriate, set the number of
+   history periods, and save.
+5. Open the KPI to review the current value and history. Add a goal if you
+   need to compare results with a target.
+6. To show it on the homepage, add it in the
+   [Home Dashboard editor](/reports/dashboard/).
+
+Creating and changing KPIs requires **Manage Reports** and the necessary
+access to the source records. Viewing a KPI also requires access to the data
+it uses. If a KPI or field is unavailable, ask an administrator to review your
+role.
+
+## Guides
 
 - [Create a KPI](/reports/kpis/create-kpi/): choose a measure, filter, and time period.
-- [Set KPI Goals](/reports/kpis/set-goals/): set a fixed target, growth goal, deadline, or targets for individual periods.
+- [Set KPI Goals](/reports/kpis/set-goals/): choose a fixed target, growth goal, deadline, or per-period targets.
 - [Home Dashboard](/reports/dashboard/): choose and arrange KPI cards on the school's home page.
 - [Configure Custom Report Charts and Summary Cards](/reports/custom-reports/configure-charts-and-stats/): use a saved KPI in a report.

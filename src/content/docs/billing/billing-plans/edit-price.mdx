@@ -1,15 +1,29 @@
 ---
 title: Edit a Price
-description: How to change the amount, interval, or name of a price on a billing plan.
+description: Understand which price details can be changed and when to create a replacement price.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+A price defines a plan's amount and charging rules. Be careful when changing those terms: subscriptions already assigned to a price do not automatically move to another price.
 
-## What this page will cover
+## Check whether the price can be edited
 
-- What can be edited on a price (name/label)
-- What cannot be changed (amount, currency, interval — these are fixed in Stripe once created; create a new price instead)
-- How to replace a price: create the new price, migrate existing subscriptions to it, archive the old price
-- Archiving a price (hides it from future use, doesn't affect active subscriptions using it)
+1. Go to **Billing → Plans** and open the plan.
+2. Review the **Prices** list.
+3. If an edit control is available, open it and review the current price fields.
+
+The workflow depends on the billing-plan mode:
+
+- In **Multiple** mode, a price with payment history is read-only. Add a separate price for new terms; do not try to change the historical price.
+- In **Single** mode, price fields are part of **Edit Plan**. If the values differ, Kanri creates a replacement price record. Existing subscriptions remain associated with their original price.
+
+## When terms change, add a new price
+
+If you are changing the amount, interval, term, block size, or billing behavior for an offer that is already in use, use the workflow for your mode. In **Multiple** mode, add a clearly named price. In **Single** mode, edit the plan; when the fields differ, Kanri creates a replacement price instead of changing the old record. For example, if *Adult Monthly* changes from C$120 to C$130, do not assume a member's current subscription will change with the plan.
+
+Then:
+
+1. Confirm the replacement's price type, amount, and schedule.
+2. Choose the correct default for future subscriptions if the plan has multiple prices.
+3. Review each existing member subscription separately. Do not assume existing subscribers have been transferred.
+
+If Kanri does not show the price controls you expect, check the plan mode and whether the price already has payments. See [Add a Price](/billing/billing-plans/add-price/) or [Edit a Billing Plan](/billing/billing-plans/edit-plan/).

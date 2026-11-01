@@ -41,8 +41,12 @@ details to fill a placeholder in with. Rather than sending a message with a brok
 `{{...}}` left in it, Kanri blocks the send and asks you to remove the placeholder or add that
 person as a member first.
 
-This can't happen for a [broadcast](/messages/send-a-broadcast/), since every broadcast recipient
-is always a real member.
+This check does not guarantee that every field is available. For example, a member
+can have no email address, and a message sent directly to a member has no contact
+details to fill `contact.*` placeholders. Missing values can appear as unresolved
+placeholder text in the message, including in a [broadcast](/messages/send-a-broadcast/).
+Use fields you know are present for every intended recipient. For a general greeting,
+prefer `member.first_name` over a contact field unless you are specifically addressing contacts.
 
 ## Next steps
 

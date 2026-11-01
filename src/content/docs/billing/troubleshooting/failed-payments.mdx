@@ -1,18 +1,46 @@
 ---
 title: Failed Payments
-description: What to do when a member's payment fails — step-by-step.
+description: Diagnose a failed invoice or subscription payment without creating a duplicate charge.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Start by identifying the billing record and checking its latest status. A failed payment is not money received. A payment that is still processing is not yet a final failure.
 
-## What this page will cover
+## Check the payment
 
-- Why payments fail (expired card, insufficient funds, card blocked by bank, card stolen/cancelled)
-- Where to find failed payments (member's payment history, Failing Subscriptions report)
-- Stripe's automatic retry logic (Stripe retries failed payments automatically over a few days)
-- How to contact the member and ask them to update their card
-- How to update the payment method and manually retry the payment
-- When to cancel the subscription after repeated failures
-- Whether the member is notified automatically (depends on whether subscription receipts behavior is enabled)
+1. Open the invoice or the member's subscription payment history.
+2. Find the latest charge or payment and read its status and any displayed message.
+3. If the payment is processing, wait for the result. Do not create another charge while the first attempt may still complete.
+4. If it failed, confirm the amount and payment method before choosing the next step.
+
+For an invoice, the member's [Charges page](/members/billing/view-charges/) shows charge history. For a subscription, see [View Payment History](/members/subscriptions/view-payment-history/).
+
+## Resolve common causes
+
+- **Card or bank payment was declined:** Ask the payer to contact their bank or provide another valid payment method.
+- **Saved method is expired or no longer valid:** Update the member's payment method, then retry using the subscription's current payment method.
+- **No eligible automatic payment method is attached:** Add or select a suitable payment method on the subscription. A cash or offline record does not make an online charge.
+- **Invoice balance is already paid or has a pending charge:** Recheck the invoice status before charging again.
+- **Reader payment failed:** Check the reader status and confirm the charge result before trying another device.
+
+Never ask a member to send full card or bank details by email or message. Use Kanri's secure payment-method flow.
+
+## Subscription retries
+
+Kanri can retry open subscription invoices according to the school's configured retry schedule. The schedule is under **Settings → Behaviors → Billing Notifications**. It accepts one to five comma-separated delays, with each delay from 1 to 7 days. These values are the wait between attempts.
+
+This is Kanri's subscription retry schedule; it is not a guarantee that Stripe will independently retry the same payment. Review the invoice and subscription history to see what happened.
+
+To retry a failed subscription payment manually:
+
+1. Open the member's subscription.
+2. Check or update the payment method attached to that subscription.
+3. Open the failed payment and select the retry action.
+4. Confirm the result in the subscription payment history and the related invoice.
+
+Kanri uses the payment method currently attached to the subscription for a manual retry. See [Retry a Failed Payment](/members/subscriptions/retry-failed-payment/).
+
+## If it keeps failing
+
+Do not repeatedly retry without checking the displayed failure reason. Confirm the member's payment details through the secure flow, review the invoice and subscription dates, and contact the payer's bank or Stripe as appropriate. If the Kanri record appears inconsistent or the payment status never resolves, contact Kanri support with the invoice or subscription details.
+
+If a subscription is not being charged at all, see [Subscription Not Charging](/billing/troubleshooting/subscription-not-charging/).

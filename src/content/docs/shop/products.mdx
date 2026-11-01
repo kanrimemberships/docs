@@ -3,12 +3,172 @@ title: Products and Variants
 description: Create products and the sizes, colours, or other options you sell.
 ---
 
-:::note[Guide coming soon]
-This guide will explain product categories, product details, and product variants.
+
+Use a product for the item you sell, such as a karate uniform. Add a variant for each option that needs its own price, stock count, or supplier, such as each uniform size.
+
+## Before you start
+
+- Decide whether the item has one sellable option or several.
+- Add any [suppliers](/shop/suppliers/) you want to assign to products.
+- Decide whether you need to count stock or record pickup. You can turn on inventory and fulfillment for physical products, and leave it off for services or items that do not need a handover.
+
+## Create a product
+
+1. Open **Shop**, then select **Products**.
+2. Select **New Product**.
+3. Choose **Single Product** if you sell one option, or **Multiple Variants** if options need separate stock or prices. To sell several existing products together, use [Bundle](#create-a-product-bundle) instead.
+4. Enter a product name. Add a category, supplier, and description if useful.
+5. Choose whether to turn on **Track Inventory / Fulfillment**. Turn it on for physical items that need stock tracking or pickup.
+6. Choose whether the product can be sold when stock is empty. **Inherit from school** uses your school's default. **Yes** allows overselling; **No** blocks sales when stock is unavailable.
+7. Select **Create Product**.
+
+For a single product, enter its price, SKU, cost, supplier, and initial stock on the same form. For a product with multiple variants, enter a **Default Price** if variants should share a price. After creating the product, choose its options and combinations as described below.
+
+**Tax Override (%)** lets you save a product-specific tax percentage. Leave it blank to use the invoice's default rate, or enter **0** for a zero-rate product. Review tax on the invoice before finishing a sale.
+
+## Set up sizes, colors, and other options
+
+1. Open a product and select **Manage Options**.
+2. Select **Add Option**. Enter a name such as **Color**.
+3. Enter values separated by commas, such as **Red, Blue**, then select **Add Values**.
+4. Add another option, such as **Size**, with the values you sell.
+5. In **Choose Combinations**, check only the combinations you sell. Use **Select Row** and **Clear Row** to change a whole row.
+6. Review **New Combinations**. Enter each combination's SKU, price, cost, supplier, and initial stock as needed.
+7. Select **Save Options and Variants**.
+
+For example, add sizes **2, 3, 4, 5, 6, 7**, then check sizes **4 to 7** for Red and **2 to 7** for Blue. This creates ten variants. Red sizes 2 and 3 are not added.
+
+With more than two options, use the additional dropdowns to choose which part of the grid to view. Selections stay selected when you switch views. Defaults above the grid apply when you check a new combination; you can adjust individual rows before saving.
+
+Large grids have **Next Rows** and **Next Columns** controls. **Select Visible Row** selects only the combinations on the current page. Your other selections stay selected when you change pages.
+
+Existing combinations are marked **Existing**. Clearing a row does not delete them. To correct stock later, use an [inventory adjustment](/shop/inventory/) rather than entering initial stock again.
+
+### Add options to an existing product
+
+Open **Manage Options**, define the options, then use **Existing Variants** to assign each existing item to its combination. For example, assign an old variant named **White Size 2** to **Color: White** and **Size: 2**.
+
+Assign every existing variant before saving. Kanri keeps its stock, SKU, prices, supplier, and sales history. Existing invoices keep the names and prices recorded at the time of sale.
+
+You can rename and reorder options and values. Saved choices cannot be reassigned to a different physical item, and values already used by a variant cannot be removed. Add a new combination instead.
+
+:::note
+Products created before options were introduced keep working with their existing variant names. You do not need to convert them before making a sale.
 :::
 
-## Planned topics
+### Choose the right product structure
 
-- Create and organise product categories.
-- Add product details, prices, and tax information.
-- Set up variants such as belt sizes or uniform colours.
+Use one product with multiple variants when customers see the options as versions of the same item. For example, **Karate Uniform** can have **Size 2**, **Size 3**, and **Size 4** variants. Each variant can have its own SKU, stock count, cost, and supplier. Use separate products when the items have different names or are managed independently.
+
+| Field | How to use it |
+| --- | --- |
+| **Price** | The amount charged for the variant. If a variant has no separate price, it can use the product's price. |
+| **Cost of Goods** | What your school pays for the item. Keep this current if you use the shop margin report. |
+| **SKU** | Your stock-keeping code, if you use one. It helps distinguish similar options. |
+| **Initial Stock** | The starting quantity on hand when you create the variant. For later corrections or deliveries, use an inventory adjustment or purchase order instead. |
+| **Supplier** | The usual supplier for this product or variant. A variant-specific supplier takes priority when preparing an order. |
+
+The **Track Inventory / Fulfillment** setting controls whether Kanri tracks stock and a handover for the product. If you turn it off, Kanri does not ask staff to reserve or hand over that item. The **Allow Overselling** setting controls whether a tracked product can be sold when stock is unavailable. **Inherit from school** follows the school's default behavior.
+
+:::tip
+If you change a single product's name later, its variant name stays in sync. For products with options, use **Manage Options** to change the values that make up variant names.
+:::
+
+## Organize products
+
+Open **Products** to search and filter the catalogue. Select a product to see its details and variants. Use categories such as **Uniforms**, **Belts**, or **Equipment** to group related items.
+
+To create a category, open **Product Categories**, select **New Category**, enter a name, and select **Create Category**. Choose the category when you create or edit a product.
+
+On a product page, select **Edit Product** to update its details, category, default price, or tax override. Use **Manage Options** to add combinations. Products without structured options can still use **New Variant** to add a named variant. Edit a variant to change its price, SKU, cost, or supplier. For products with options, its name comes from the chosen values. To remove an item, use its delete action. Kanri may prevent deletion when a variant is already used in a sale or purchase order.
+
+Kanri also prevents deleting a variant fixed in a live bundle, or the last
+available variant of a component whose choice is made when selling. Remove or
+replace that bundle component first.
+
+The variant's **Price** is what you charge when adding it to an invoice. **Cost of Goods** is your purchase cost and helps calculate shop margins. Tax is reviewed on the invoice line when you create a sale, so check the invoice before you finish it.
+
+## Create a product bundle
+
+A bundle sells several products together with a saved pack price. For example,
+a **Karate Starter Kit** can include one uniform and two belts. Staff can choose
+the uniform's size when selling the kit without creating a separate kit for
+every size.
+
+You need permission to manage products. Create the included products and their
+variants first; a bundle cannot contain another bundle.
+
+1. Open **Shop → Products**, then select **New Product**.
+2. Choose **Bundle**.
+3. Enter its name and **Bundle Price**. Add a description or category if useful.
+4. Select **Create Bundle**.
+5. In **Add Component**, choose a **Product**.
+6. Choose a **Variant** if the kit always contains that exact item. Leave it
+   empty as **Choose when selling** if staff should select the size or other
+   option when creating the invoice.
+7. Enter the **Quantity**, then select **Add Component**.
+8. Repeat for every included product.
+
+The bundle page shows **Bundle Price**, **Bought Separately**, and **Savings**.
+When a component's variant is chosen at sale time, the comparison can be a
+range because different variants can have different prices.
+
+### Example: a starter kit with a size choice
+
+Suppose a uniform costs $60 and a belt costs $10. Create a $70 kit containing:
+
+| Component | Variant choice | Quantity |
+| --- | --- | ---: |
+| Karate Uniform | Choose when selling | 1 |
+| White Belt | Fixed white-belt variant | 2 |
+
+With those prices, the separate items total $80 and the kit provides a $10
+discount before tax. When selling it, staff choose the uniform size and check
+the actual price and savings shown for that selection.
+
+The kit has no separate stock count. Inventory, overselling rules, cost,
+tax, and [fulfillment](/shop/fulfil-sales/) follow the individual components.
+Buying stock for kits means ordering the component variants, not the bundle.
+
+:::caution
+The bundle price is applied through a discount from the component total; it
+does not add a surcharge when the bundle price is higher than that total.
+Review the selling choices and final invoice rather than assuming every
+combination produces the same discount or total.
+:::
+
+Use **Edit Bundle** to change its details or price. Remove a component with its
+delete control, then add a replacement if needed. Changes do not rewrite
+saved invoices. To change the components or choices on a draft invoice,
+remove that bundle group and add it again.
+
+See [Add a bundle to an invoice](/billing/invoices/create-invoice/#add-a-bundle)
+for selling steps.
+
+### Sell a one-off pack without creating a bundle
+
+For an occasional pack, you can still add each product variant as a separate
+line on an [invoice](/billing/invoices/create-invoice/) and enter a discount
+yourself. Unlike a saved bundle, these lines are edited independently.
+
+## Import products
+
+If you have a QuickBooks Online products and services export:
+
+1. Open **Products** and select **Import from QuickBooks**.
+2. Upload the QuickBooks products and services CSV.
+3. Check the preview. It shows how many rows were found, how many new products will be created, and how many existing names will be skipped.
+4. Select the **Import** button, which shows how many products will be created.
+5. Review the imported catalogue and add any separate sizes or options and supplier assignments before using it in sales.
+
+Kanri imports the item name, category, price, description, SKU, cost, and quantity on hand. It creates one product and one default variant per row, and uses the QuickBooks item type to decide whether the product needs fulfillment.
+
+:::caution
+Importing a product list does not replace checking your stock count. Compare the imported quantities with the items you actually have. Rows with a name that already exists in your catalogue are skipped, so check the import result and existing product before trying the same file again.
+:::
+
+## Next steps
+
+- [Manage inventory](/shop/inventory/)
+- [Add suppliers](/shop/suppliers/)
+- [Create an invoice](/billing/invoices/create-invoice/)

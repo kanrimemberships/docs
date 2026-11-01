@@ -14,7 +14,15 @@ You need permission to manage members to use it.
 
 ## Working through the queue
 
-Each case shows why it was found, the people involved, and the steps Kanri will take. Cases are shown in a sensible order: organisation values and test data first, then duplicates, then notes, then shared details, then Aquila. Cleaning the earlier ones first makes the later ones simpler, and many disappear on their own.
+Each case explains why it was found, who is involved, and what Kanri proposes to change. Cases are grouped in this order: school contact details and test data, possible duplicates, old contact notes, shared contact details, then Aquila gaps. Resolve earlier cases first because later cases may become clearer after profile details are cleaned up.
+
+Read the action at the start of each step before applying it. It names the affected profiles and shows the exact email, phone or note changes, including old and new values when replacing something. Profile identifiers beside names help distinguish people with identical names. New profiles are identified by their name and the step that creates them. The rule badge, safety label and explanation underneath describe **why** the action was suggested, not a separate action.
+
+Merge steps say which profile is kept, which is removed, what happens to sign-in accounts, and how history and contact links transfer. They also explain how missing details are filled and permissions are combined. When duplicate contact links combine, management or communications can remain enabled if either link allowed them. Linking a contact without merging does not change an existing link's relationship or permissions.
+
+Note steps show the title and text being added or replaced. A rename shows the note's identifier and old and new titles without changing its text. A step saying **No automatic change** requires an answer or manual review rather than silently changing a profile.
+
+Merging duplicate profiles can leave an email address or phone number shared with another person. Kanri does not block that merge or discard the value. It creates a separate **Shared** case for you to review next.
 
 For each case you can:
 
@@ -26,8 +34,10 @@ While you have a case open, nobody else is shown it for 15 minutes, so two peopl
 
 Two kinds of case ask you a question:
 
-- **Same name only:** click **Same person, merge** (the merge then shows up to apply) or **Different people** (the pair is never suggested again).
-- **In Aquila but not in Kanri:** click **Link to someone existing** and search for the member, or **Ignore**. Apply the case itself to create them.
+- **Same name only:** click **Same person, merge** (the merge then shows up to apply) or **Different people**. Your answer stays in effect while the people and their relevant details remain unchanged; changed information can bring the case back for review. Kanri checks details again before merging. If they changed after review, nothing is merged; click **Rescan** to review the updated case.
+- **In Aquila but not in Kanri:** click **Link to someone existing** and search for the member, or **Ignore**. Apply the case itself to create them. Changed Aquila details, linked member contact details, household relationships or school contact settings can bring the case back for review.
+
+Resolve cannot merge two profiles that each have their own sign-in account. If a case involves a very large connected group, Kanri shows a manual diagnostic instead of offering Apply.
 
 Other cases need a choice that the queue cannot make for you, for example when two different phone numbers could be right. These have no Apply button. Mark them **Not an issue**, or fix the profiles by hand.
 
@@ -37,10 +47,27 @@ The original text of an old note is never changed. Kanri renames it (for example
 
 When many cases follow the same rule, a **Review in bulk** link appears for it. Untick any you do not want and click **Apply selected**.
 
-## Organisation values
+Each row shows the same concrete steps as an individual case, with affected profiles and values. Selecting a row applies all its steps; to choose individual steps, return to the single-case queue.
 
-A phone number or email that belongs to the school itself (not a person) would otherwise make dozens of people look as if they share contact details. Kanri proposes these as a case. When you apply it, the value is removed from every profile and ignored from then on. The list at the bottom of the page shows registered values, and **Remove** makes one count as a normal shared value again.
+If any selected case changed since you opened the page, or can no longer be applied, nothing in the batch is applied. Kanri shows the blocking case so you can review it again before retrying.
+If the message says the member data no longer matches, click **Rescan** to refresh the queue first.
+
+## Exclude the school's own contact details
+
+A school email address or phone number can appear on many member profiles, even though it does not belong to one person. In the **Settings** area at the bottom of the page, review the proposed value and the profiles that currently use it before registering it as a school contact detail. The next scan then proposes removing that value from those profiles. If the list of profiles changes before approval, Resolve asks you to review the case again.
+
+The registered school contact details appear in a list in the same area. Select **Remove** if a value should be treated as an ordinary shared contact detail again.
+
+Kanri checks merge and test-row eligibility again when applying. If profile details, relationships, accounts, or history changed after the case appeared, Kanri applies nothing and marks the case stale for review. Very large groups connected by one shared email or phone exceed the safety limit and appear as diagnostics without Apply.
 
 ## Automatic fixes
 
-Kanri can apply the obviously safe fixes by itself, such as merging two identical profiles. This is on by default for schools that were migrated and off otherwise. Use the setting at the bottom of the page to change it. Kanri also rescans every hour for schools that use the queue. Kanri also scans a school right after a migration finishes. Click **Rescan** to look for new problems right away.
+The **Settings** area at the bottom of the page shows whether safe fixes are applied automatically or only suggested. Automatic fixes can include merging profiles that Kanri identifies as identical. The initial setting depends on how the school was set up, so check the current setting rather than assuming it is on or off.
+
+Resolve rescans schools periodically and after a migration. Select **Rescan** when you want to check for new problems now. Review the recent automatic fixes shown when there are no open cases.
+
+## Next steps
+
+- [Add or update a member's contacts](/members/contacts/)
+- [Review duplicate profiles](/members/duplicate-members/)
+- [Read a member's activity log](/logs/member-log/)

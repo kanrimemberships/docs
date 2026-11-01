@@ -1,17 +1,40 @@
 ---
 title: Invoices
-description: Create one-time invoices, collect payments, and track payment history.
+description: Create one-time invoices, collect payments, and review charges, refunds, and receipts.
 ---
 
-:::caution[In progress]
-This section is being planned. It will explain one-time invoices and how they differ from recurring subscriptions.
-:::
+An invoice records a specific bill and its amount due. It can include products, services, or custom line items, or be created for a scheduled subscription payment. A [subscription](/members/subscriptions/) defines the billing arrangement and schedule.
 
-## Planned guides
+Each payment attempt is a **charge**. One invoice can have multiple charges, such as a failed attempt followed by a successful payment. You can review these from the invoice or a member's [Charges](/members/billing/view-charges/) page.
 
-- [Create an Invoice](/billing/invoices/create-invoice/): add items and prepare an invoice.
-- [Edit an Invoice](/billing/invoices/edit-invoice/): update an invoice before or after sending it.
-- [Collect a Payment](/billing/invoices/collect-payment/): record a payment and understand partial payments.
-- [Refund or Void a Payment](/billing/invoices/refunds-and-voids/): correct or return a payment.
-- [Receipts and Payment History](/billing/invoices/receipts-and-history/): find and send payment records.
-- For recurring charges, see [Subscriptions](/members/subscriptions/).
+An invoice, its charges, and its fulfillment answer different questions:
+
+| Record | What it tells you |
+| --- | --- |
+| Invoice | What was sold or billed, who owes it, and the total due |
+| Charge | What happened when someone tried to pay, including amount, method, and result |
+| Fulfillment | Whether a physical product is reserved, waiting for stock, or handed over |
+
+For example, a uniform invoice can be paid while the uniform is still waiting for delivery. Check the charge to confirm payment, then check [fulfillment](/shop/fulfil-sales/) to see whether the member has collected the item.
+
+## Create and manage invoices
+
+- [Create an Invoice](/billing/invoices/create-invoice/): bill a member or record a walk-in shop sale.
+- [Edit an Invoice](/billing/invoices/edit-invoice/): update an eligible draft or open invoice.
+- [Collect a Payment](/billing/invoices/collect-payment/): take or record payment, including partial payments.
+- [Refund or Void a Payment](/billing/invoices/refunds-and-voids/): refund a completed charge or void an unpaid invoice.
+- [Receipts and Payment History](/billing/invoices/receipts-and-history/): download or send invoice and payment receipts.
+
+For selling physical products, continue to [Shop and Inventory](/shop/). Learn how to [fulfill a product sale](/shop/fulfil-sales/) or [process a return](/shop/returns/).
+
+## Find the right invoice list
+
+The **Invoices** page has **My Invoices**, **Shop**, **Subscriptions**, and **All** views. The default **Shop** view shows shop invoices, including product sales. Use **Subscriptions** for subscription billing records and **All** when you need to search across sources. **My Invoices** is the member-facing view for the signed-in member's invoices (or invoices they can manage), not a staff member's personal billing list.
+
+An invoice marked **Draft** has not been opened for payment yet. Opening it makes it available for payment but does not collect money; depending on the school's invoice-email setting, opening it can also send the invoice link. Check the invoice's balance and charge history before deciding whether another payment attempt is needed.
+
+## Next steps
+
+- [Create an invoice](/billing/invoices/create-invoice/)
+- [Collect or record payment](/billing/invoices/collect-payment/)
+- [Review a member's charges](/members/billing/view-charges/)

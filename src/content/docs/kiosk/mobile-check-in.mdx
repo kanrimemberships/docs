@@ -1,16 +1,31 @@
 ---
 title: Mobile Check-In
-description: Let members or their parents check in from a signed-in account on their own device.
+description: Let a signed-in member or guardian check in for a scheduled class from their own device.
 ---
 
-:::note[Guide coming soon]
-This guide will explain how to enable mobile check-in and how a member or parent confirms attendance.
-:::
+Mobile check-in lets a member or a guardian who manages their profile select a scheduled class from a signed-in Kanri account. The school controls whether mobile sign-in is enabled and whether staff must confirm it.
 
-## Planned topics
+## Enable mobile check-in
 
-- Turn on mobile check-in in the kiosk behavior settings.
-- Choose the member who is checking in and select a class session.
-- Confirm attendance and find the record in the member's attendance history.
+1. Confirm the school has the **Kiosk** feature.
+2. Go to **Settings → Behaviors** and find the **Kiosk** section.
+3. Enable **Enable member mobile check-in**.
+4. Review **Require staff to confirm mobile check-ins** for your school's process. This is separate from the shared kiosk's confirmation setting.
+5. Test with a member account and verify the resulting attendance record.
 
-For the shared check-in screen at your school, see [Kiosk](/kiosk/).
+## Check in from a member account
+
+1. Sign in to Kanri using the member's linked account.
+2. Open **Check In**.
+3. Choose who is checking in. The page lists the signed-in member and members they are allowed to manage.
+4. Choose an available class session.
+5. Review the member and class, then select **Confirm Check-In**.
+6. If the result says **Submitted!**, staff must confirm the pending sign-in from the Attendance kiosk. If it says **You're in!**, the attendance is confirmed.
+
+The session list is for nearby class times, not the whole term's timetable. If no classes are listed, check the member's active membership, level, age restrictions, allowed groups, and schedule dates, as well as whether mobile sign-in is enabled.
+
+[Closed days](/calendar/closed-days/) that block attendance also block mobile check-in for the affected programs. Kanri checks closures and allowed groups again when the member confirms, so a class shown before a rule changed may no longer be available. Booking-only closures do not block mobile attendance.
+
+Holds, duplicate confirmed check-ins, subscription rules, failed session payments, and exhausted session allowances can prevent check-in or its final confirmation. When staff confirmation is required, attendance does not count and session billing is deferred until staff confirm it.
+
+For the shared reception device, see [Set Up a Kiosk Device](/kiosk/set-up-kiosk/). For behavior settings, see [Kiosk Behaviors](/settings/behaviors/kiosk-behaviors/).

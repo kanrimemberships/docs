@@ -1,18 +1,35 @@
 ---
 title: Add a Price to a Billing Plan
-description: How to add a pricing option to an existing billing plan.
+description: Add another amount or payment option to a plan in Multiple billing-plan mode.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Use multiple prices when one offering needs different rates or payment schedules, such as adult and junior rates on the same program. This guide applies when **Settings → Behaviors → Billing plan mode** is set to **Multiple**. In **Single** mode, each plan has one price and you change it by editing the plan.
 
-## What this page will cover
+## Add a price
 
-- Going to the billing plan and clicking "Add Price"
-- Required fields: amount, currency, billing interval
-- Optional fields: fixed term (e.g. a 6-month plan that auto-cancels), price name (label for this option, e.g. "Adult Rate", "Junior Rate")
-- Billing intervals: daily, weekly, fortnightly, monthly, yearly
-- Fixed-term vs ongoing subscriptions
-- In single price mode vs multiple price mode — what changes
-- Setting a price as the default for new subscriptions
+1. Go to **Billing → Plans** and open the plan.
+2. Select **Add Price**.
+3. Choose the **Price Type**. The fields change based on your choice:
+   - **Ongoing**: repeating amount and interval.
+   - **Paid in Full**: one amount for a defined term.
+   - **Fixed Term**: repeating amount with a set number of payments.
+   - **Scholarship**: a zero-payment price.
+   - **Session Block**: price per block and sessions per block. Auto reload is optional.
+   - **Per Session**: price per session and immediate or cycle billing.
+4. Fill out the amount and any interval, term, or usage settings. For example, an every-two-week price uses count `2` and unit `Week`.
+5. Give the price a descriptive name, such as *Junior Monthly*. This name helps staff distinguish the option when creating a subscription.
+6. Select **Create Price**.
+7. Confirm that the new option appears on the plan page. If it should be offered by default, edit the plan and choose it as **Default Price**.
+
+### Example: add a junior rate
+
+An *Adult and Junior Karate* plan already has a C$120 monthly price. To add a C$80 junior rate, create another **Ongoing** price for C$80 with a `1 Month` interval and name it *Junior Monthly*. Keep *Adult Monthly* as the default if most new subscriptions are for adults; staff can choose *Junior Monthly* when creating a junior member's subscription.
+
+## Before you add or replace prices
+
+- A new price is a new choice for subscriptions; it does not automatically change subscriptions already using another price.
+- Check the plan's default price before staff start assigning it.
+- If you are replacing an offering, keep the old and new names clear. Confirm the new amount, interval, and price type before using it.
+- In **Multiple** mode, a price with payment history cannot be edited; add a separate, clearly named price for new terms. In **Single** mode, change the price through **Edit Plan**; if the terms differ, Kanri creates a replacement price record and existing subscriptions keep their selected price.
+
+For the pricing fields and how they differ, see [Billing Plans](/billing/billing-plans/). To assign a price to a member, see [Create a Subscription](/members/subscriptions/create-subscription/).

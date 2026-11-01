@@ -1,0 +1,164 @@
+---
+title: External Assistants
+description: Control school access and review your external assistant authorizations.
+---
+
+:::caution[Availability]
+External assistant access stays off until Kanri enables it following its privacy and release
+review. A school's setting alone does not make the service available. Compatibility with
+individual assistant products must also be confirmed before rollout.
+:::
+
+External assistants can receive read-only school information, including member and billing
+details you are allowed to view. They cannot charge members, send messages, change records,
+or run workflows through this connection.
+
+Only connect an assistant whose data handling you trust. Its provider may keep information
+outside Kanri. Disabling or revoking access stops future reads; it does not erase information
+already shared.
+
+## Review data sharing before connecting
+
+The connection can share more than individual member records: permitted reports, KPIs,
+workflow definitions, and descriptions of record fields can also leave Kanri.
+Review the assistant provider's retention, training, deletion, and international-processing
+terms for the account you will use. Kanri's own data-use commitments do not automatically
+apply to an external provider.
+
+Confirm your school has authority to share the information, especially children's details,
+health or sensitive notes, and family communications. A school setting or staff consent
+does not replace required member or guardian notices or consent. Access to several schools
+does not, by itself, authorize combining independently controlled schools' information.
+See Kanri's [Privacy Policy](https://www.kanrimemberships.com/legal/privacy) and
+[Service Agreement](https://www.kanrimemberships.com/legal/service-agreement).
+
+When documentation search is available, it sends your question to Kanri's public-help search
+service. Ask focused product-help questions; do not include member details or private notes.
+The search index contains public guides, but the question itself is sent to the retrieval
+service.
+
+## Allow external assistants for your school
+
+You need **Manage Kai** to change this setting. See [Create a custom role](/settings/roles/create-role/).
+
+1. Open your school's **Settings** and select **Kai**.
+2. Review the data-sharing warning.
+3. Turn on **Enable external assistants (MCP)**.
+4. Click **Save school setting**.
+
+Access is off by default. Kanri must also enable the service globally. Each staff member
+must separately consent and have **Use Kai** in each school. These settings do not grant
+extra member, billing, or reporting permissions.
+
+## Connect an assistant
+
+Once access is available:
+
+1. In your assistant's integration settings, add a remote MCP connection.
+2. Use **https://app.kanrimemberships.com/mcp**, not your school's website address.
+3. Start the assistant's sign-in flow and sign in to Kanri.
+4. Review the school selection and data-sharing details before allowing access.
+
+The assistant must support remote Streamable HTTP MCP and browser-based OAuth sign-in.
+Kanri supports protocol revisions **2025-06-18**, **2025-11-25**, and **2026-07-28**.
+The newer revision uses per-request discovery and metadata rather than an initialization
+handshake; your assistant handles this automatically if compatible.
+You do not need to copy a Kanri API key or access token. Do not paste passwords or tokens
+into a chat. Integration labels vary by assistant; no specific product is guaranteed supported.
+
+After you allow access, your browser returns to the assistant. For desktop assistants, this
+may be a local address such as `127.0.0.1`; keep the assistant running on the same computer.
+If you previously reached a blocked redirect, start a fresh connection from your assistant.
+
+Ask for member information, reports, KPIs, or permitted school comparisons. The assistant can
+read only information your current permissions allow. Record information is data, not
+instructions to act: this connection cannot charge a member or perform any other change,
+even if an assistant claims otherwise.
+
+## Understand school consent
+
+When an assistant requests access, sign in to Kanri and review the unverified client name
+and callback location on the **Connect to Kanri** page. A displayed name is not proof of who
+operates the assistant.
+
+Choose **Only selected schools (up to 100)** or **All current and future eligible schools**,
+then choose a **Default school**. For selected-school access, also check that school in the
+school list. The broad choice also covers schools you gain access to
+later, but only when those schools allow external assistants and your permissions permit access.
+Click **Allow read-only access** to connect, or **Deny** to refuse without choosing schools.
+
+The default is used when a request does not name a school. If that school becomes unavailable,
+Kanri does not silently choose another.
+
+If you see **No schools available**, ask a school administrator to enable external assistants
+under **Settings > Kai** and confirm your role includes **Use Kai**. Click **Return to
+application** to finish the unsuccessful attempt, then start a new connection after access
+is enabled. If a connection request cannot be verified or has expired, restart the connection
+from your assistant rather than resubmitting the old page.
+
+## Review or revoke your connections
+
+1. Open your personal **Settings**.
+2. Select **External assistants (MCP)**.
+3. Review each authorization, its school scope, and default school.
+4. To stop future access, click **Revoke connection**.
+
+Each connection shows **Currently authorized granted schools**. The **All current and future
+schools** warning stays visible for broad access even when no school is currently available.
+Use **Next page** to reach older connections and **First page** to return to the newest.
+
+You can still revoke a connection after losing **Use Kai**.
+
+To repair an unavailable default, choose an already authorized, currently eligible school
+and click **Change default school**. Adding schools or expanding access requires a new
+consent request through the assistant; changing the default does not add school access.
+
+## Review connection activity
+
+The **Connection activity** section on your External assistants page shows recent sign-in,
+approval, token refresh, and security events linked to your account. Use **Next page** to
+review older activity. Some rejected requests cannot be linked safely to an account and
+therefore do not appear in this personal history. Kanri never displays access tokens,
+authorization codes, or callback query details here.
+
+## Stop one school's access
+
+Open **Settings > Kai** in that school. Turn off **Enable external assistants (MCP)**
+and save to stop access for everyone, or click **Revoke school access** on an individual
+connection.
+
+This affects only your school. Other schools on the connection are unchanged. Revoking
+one school's access also blocks that school for a connection covering all current and future
+schools. School managers cannot block an external client across all schools.
+
+## Review school access changes
+
+School enablement changes, school-specific access revocations, and default-school changes
+are recorded in the school's existing audit log. Staff with access to that log can review
+them under **Logs > Events**. See [Reading the Audit Log](/logs/reading-the-log/).
+
+These security entries do not start workflows. They do not expose access tokens or
+information from other schools. Platform-wide and personal connection events are not
+added to unrelated schools' logs.
+
+Kanri also keeps limited connection-request records for 90 days to investigate access and
+service problems. These record who connected, the school and read tool, timing and outcome,
+not chat content, search text, access tokens or returned member information. They are separate
+from the school's ordinary Events page.
+
+Revoking a connection does not delete copies already held by an assistant provider. Use
+that provider's deletion controls or privacy-request process for those copies. External
+assistant reads do not create a Kai chat or incur Kanri model-inference charges; the external
+provider may charge for its own service.
+
+## Request limits
+
+Access allows 120 requests per minute for your staff account, 60 per connection, and 300
+authorized read-tool calls per school shared across connections. Authenticated requests that
+reach the limiter count even if they later fail; failed sign-in or authorization attempts do
+not use this request quota. If your
+assistant reaches a limit, it must wait for the retry interval instead of repeatedly trying
+again. Brief service-busy errors can also occur when too many requests run at once.
+
+Newly eligible schools can appear when broad access is selected. For an existing comparison,
+ask the assistant to keep the exact schools you selected rather than adding new ones silently.

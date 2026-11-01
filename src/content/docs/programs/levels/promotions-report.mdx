@@ -3,8 +3,42 @@ title: Promotions Report
 description: How to use the Promotions report to find members who are ready to be promoted to the next level.
 ---
 
-The Promotions report lists active memberships ready to advance and shows their current and next levels, attendance, and next promotion date. Dates based on a grading are labeled **(grading)**.
+The Promotions report helps you find active memberships that may be ready for the next level. It shows each member's program, current and next levels, next promotion date, qualifying class count, and last attendance. A date based on a scheduled grading is labeled **(grading)**.
 
-Leave **Eligible by** empty to see members who meet their date and class requirements today. Choose a date and click **Search** to check date eligibility by that cutoff; this filter does not require the class threshold to be met, so review the attendance count before promoting.
+The report includes memberships with a next level and at least one promotion requirement. A member must meet every applicable requirement to be eligible today. If the program [keeps level requirements](/programs/edit-program/#keep-level-requirements-until-next-promotion), an existing membership can still follow its earlier requirements and next-level destination.
 
-Use the other report filters to narrow the list by program, current level, or next level. To manage grading rosters or promote a group for a scheduled event, see [Manage Gradings](/programs/levels/gradings/).
+Open **Reports → Promotions**. You need permission to view reports. The **Classes** column counts confirmed attendance since the last promotion, including attendance at another school or before a program change when it belongs to the same membership. It excludes classes with **Counts towards attendance** turned off.
+
+## Check who is eligible today
+
+Leave **Eligible by** empty, then select **Search**. The report checks whether each member's promotion date has arrived and whether they have enough qualifying classes.
+
+For example, a level may require **20 classes** and **60 days**. A member who has attended 20 classes but has been at the level for only 45 days will not yet meet both requirements. The **Classes** column helps you see their attendance progress.
+
+## Check eligibility by a future date
+
+Choose a date in **Eligible by**, then select **Search**. This checks date-based eligibility by that cutoff date, but does not check the minimum class requirement. Review the **Classes** column before promoting anyone.
+
+The cutoff uses the same next-promotion date displayed in the report. For a
+grading currently inside its window, that date is no earlier than today and
+the member's minimum-days threshold. A cutoff before that displayed date
+does not match.
+
+An ended grading with rollover disabled can remain the member's applicable
+grading until they are promoted or excluded. For a held member with no
+minimum-days requirement, its date remains the grading's start date. This
+does not waive the class requirement: review attendance before promoting.
+
+For example, if a member reaches the 60-day requirement next month, you can choose a date next month to see whether their date requirement will be met by then. The report may include them even if they still need more classes.
+
+## Narrow the report
+
+Use the filters to search by program, current level, or next level. This can help when you are preparing promotions for one program or reviewing members moving to a particular level.
+
+If the date has **(grading)** next to it, the level uses a scheduled grading date. To review a grading roster and promote several members together, see [Manage Gradings](/programs/levels/gradings/). To promote one member, see [Promote a Member](/members/memberships/promote-level/).
+
+## Next steps
+
+- [Create or update level requirements](/programs/levels/create-level/)
+- [Manage grading rosters](/programs/levels/gradings/)
+- [Promote a member](/members/memberships/promote-level/)

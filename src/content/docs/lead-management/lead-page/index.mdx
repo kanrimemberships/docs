@@ -5,29 +5,34 @@ description: Your school's public sign-up page, where prospective members can su
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-:::note[Professional & Enterprise]
-The Lead Page requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
 
 The Lead Page is a public URL for your school. Anyone can visit it without logging in to Kanri. Prospective members use it to submit their contact details, optionally pick a trial class, and optionally sign a waiver before their first visit.
 
-When someone completes the form, Kanri automatically creates a member profile for them with the type set to **Lead**.
+Kanri saves a **Lead** profile when personal details are submitted, before the remaining steps
+are complete. A matching existing lead can be reused instead of creating another profile.
 
 ## What the Lead Page looks like
 
 The Lead Page walks prospective members through a multi-step form. The exact steps depend on your settings, but the flow is:
 
-1. **Welcome** — a brief introduction with your school's name and your custom welcome message. The visitor selects who they are registering for: themselves (adult), themselves (under 18), or their child.
-2. **Personal details** — name, email, and phone number. For a child, the parent's details are collected first, then the child's name, birthday, and sex.
+1. **Welcome** — your school's name and welcome message. The visitor chooses to register
+   themselves or their child. Their birthday determines whether guardian details are needed.
+2. **Personal details** — the student's name, birthday, and other requested details. When guardian
+   details are required, those are collected after the student's details.
 3. **Program selection** — if your school has multiple programs marked as visible on the lead page, the visitor picks which one(s) they are interested in. If only one program is available, this step is skipped.
 4. **Trial booking** — if you have trial bookings enabled, the visitor picks a class session. Only sessions from programs marked as visible on the lead page are shown, and only sessions that have trial bookings available. If no eligible sessions exist, this step is skipped automatically.
-5. **Waiver** — if waivers are enabled, the visitor signs your waiver before their first class.
+5. **Waiver** — if enabled and a required waiver is available, the visitor signs in the browser or
+   receives an email link, depending on your [signing mode](/lead-management/lead-page/configure-lead-page/).
 6. **Additional details** — a free-text field where the visitor can share anything helpful: health conditions, previous experience, questions.
 7. **Confirmation** — a summary of what was submitted and what happens next.
 
 :::tip
 Steps 4 and 5 are optional and controlled by separate settings. You can enable any combination of them.
 :::
+
+Program choices also depend on the student's age and any program restriction in the shared link.
+A trial booking depends on available dates, capacity, and booking rules, not just the program
+being visible. Registering interest does not itself create a paid subscription or program membership.
 
 ## What's in this section
 

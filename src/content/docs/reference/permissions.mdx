@@ -1,19 +1,82 @@
 ---
 title: Permissions Reference
-description: A complete table of every permission in Kanri and what it controls.
+description: Understand the permissions available when creating a staff role.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Roles control which areas of your school staff can view or manage. The role editor shows permissions that apply to the features enabled for your school. A staff member can have multiple roles, so their access is the combination of those roles.
 
-## What this page will cover
+## Member and program access
 
-- How permissions work (they're grouped by area; each role has a combination of enabled permissions)
-- A full table of every permission:
-  - Area (Members, Schedules, Billing, Reports, Settings, etc.)
-  - Permission name
-  - What it allows
-  - Notes (e.g. "Required if using kiosk attendance")
-- Built-in role permissions: what Owner and Admin can do by default
-- Tips for building common role configurations (Instructor role, Front Desk role, etc.)
+| Permission | What it allows |
+|---|---|
+| View Members (Basic) | View basic member information. |
+| View Members (Full) | View full member information. This includes basic member access. |
+| Create Member Interactions | Add interaction records to member profiles. This also includes full and basic member access. |
+| Promote Memberships | Promote a member's membership level. This also includes basic member access. |
+| Manage Members | Manage member profiles. This also includes full and basic member access, interactions, and promotions. |
+| View Programs | View programs. |
+| Manage Programs | Manage programs. This also includes View Programs. |
+| View Curriculum | View curriculum. |
+| Manage Curriculum | Manage curriculum. This also includes View Curriculum. |
+
+## School operations
+
+| Permission | What it allows |
+|---|---|
+| Manage Settings | Change school settings. |
+| Manage Roles | Create and manage roles and staff access. This also includes Manage Settings. |
+| Manage Schedules | Create and manage schedules. |
+| Access Kiosk | Access the kiosk tools available to staff. |
+| Manage Groups | Create and manage groups. |
+| Manage Calendars | Manage school calendars. |
+| View Bookings | View session bookings. |
+| Manage Bookings | Manage bookings. This also includes View Bookings. |
+| View Documents | View documents. |
+| Manage Documents | Manage documents. This also includes View Documents. |
+| View Gallery | View gallery items. |
+| Manage Gallery | Manage gallery items. This also includes View Gallery. |
+| Manage Workflows | Create and manage workflows. |
+| Manage Shifts | Manage staff shifts. |
+
+## Billing, reports, and messages
+
+| Permission | What it allows |
+|---|---|
+| View Billing | View billing records. |
+| Manage Billing | Manage billing records. This also includes View Billing. |
+| View Reports | View reports. |
+| View Financial Reports | View financial reports. This also includes View Reports. |
+| Manage Reports | Create and manage custom reports. This also includes View Reports and View Financial Reports. |
+| View Messages | View conversations and messages. |
+| Manage Messages | Manage messages. This also includes View Messages. |
+| View Event Log | View recorded school and member events. Event logs are currently in Beta and may be incomplete. |
+
+## Shop and payments
+
+| Permission | What it allows |
+|---|---|
+| View Products | View products. |
+| Manage Products | Manage products. This also includes View Products. |
+| Manage Purchase Orders | Manage purchase orders. |
+| Manage Terminal | Manage payment-terminal settings and readers. |
+
+## Kai
+
+| Permission | What it allows |
+|---|---|
+| Use Kai | Use Kai when it is enabled for the school. |
+| Manage Kai | Manage Kai settings. This also includes Use Kai. |
+
+Kai permissions do not independently grant access to member, billing, or other school records. Kai remains limited by the staff member's other permissions. See [Create a Custom Role](/settings/roles/create-role/) and [Kai Settings](/settings/kai/).
+
+## How permissions combine
+
+Some management permissions include their related view permission. The role editor selects those related permissions automatically. For example, **Manage Billing** also grants **View Billing**. Review all roles assigned to a staff member when checking their access.
+
+School owners have owner-level access. For other staff, create roles around specific jobs and grant only the permissions needed. If a permission is missing from the editor, the related feature may not be enabled for the school.
+
+## Next steps
+
+- [Create a Custom Role](/settings/roles/create-role/)
+- [Invite a Staff Member](/settings/roles/invite-staff/)
+- [Manage Role Users](/settings/roles/manage-role-users/)

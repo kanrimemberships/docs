@@ -1,16 +1,33 @@
 ---
 title: Add a Program to a Group
-description: How to assign all active members of a program (with optional level range) to a group.
+description: Include active members from a program, optionally limited to a level range.
 ---
 
-:::note[Guide coming soon]
-This guide will explain how to include active members of a program, with an optional level range.
-:::
+A program assignment includes members with an active membership in the selected program. You can optionally set a minimum and maximum level. Kanri reevaluates the assignment as matching memberships change.
 
-## Planned topics
+## Add a program assignment
 
-- Choose a program and optionally set a minimum and maximum [level](/programs/levels/).
-- Understand that the level range follows the order of levels in the program.
-- Learn how active memberships determine which profiles match.
-- Combine this assignment with selected members or [custom-filter assignments](/groups/add-members-by-filter/).
-- Review the current members who match the group.
+1. Open **Groups** and select the group.
+2. Select **Assign**, then choose **Program & Level**.
+3. Select the program.
+4. If only some levels belong in the group, choose the minimum and maximum levels.
+5. Submit the assignment.
+6. Select **Preview Members** and confirm the list matches the intended cohort.
+
+The level range follows the order of levels configured for the program. If you leave the range unrestricted, active members at any level in that program can match.
+
+Both limits are inclusive. With either limit set, memberships without a level do not match.
+With both limits blank, an active membership can match even when no level is assigned. Active
+means the membership's status is marked active, not that the member has a paid subscription.
+
+## Example: intermediate class reminder
+
+To message intermediate students in Adult Karate, create a group called *Adult Karate Intermediate*. Add the Adult Karate program and set the lowest and highest levels included in the reminder. Preview before sending so you can catch an incorrect range.
+
+Use an individual assignment for exceptions, such as a member attending as a guest. Add another program assignment only when members from that program should also be included. See [Groups](/groups/) for how combined assignments work.
+
+## Next steps
+
+- [Create a group](/groups/create-group/)
+- [Add selected members](/groups/add-members-to-group/)
+- [Send a broadcast to a group](/groups/send-broadcast-to-group/)

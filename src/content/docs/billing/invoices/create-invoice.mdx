@@ -3,12 +3,89 @@ title: Create an Invoice
 description: Create a one-time invoice for a member or product sale.
 ---
 
-:::note[Guide coming soon]
-This guide will cover choosing a member, adding invoice items, applying discounts and tax, and saving or sending the invoice.
+Create a one-time invoice for a member, or leave the member blank to record an anonymous walk-in sale. For recurring payments, create a [subscription](/members/subscriptions/) instead.
+
+An invoice keeps the items and amount owed together with any payment attempts. It is also the starting point for tracking a shop item's reservation or pickup.
+
+## Before you start
+
+- Add products and variants before invoicing a product sale. See [Products and Variants](/shop/products/).
+- Check the school's tax settings if you need to confirm how tax is calculated.
+
+## Build the invoice
+
+1. Open **Invoices** and select **New Invoice**. You can also start from a member's **Invoices** tab or the **New Invoice** link on the [Shop page](/shop/).
+2. Search for and select a member, or leave the member blank for a walk-in sale.
+3. Add items. Search for a product or variant, or enter a custom item name and price.
+4. Enter the quantity and unit price for each line. Expand an item description if you want to add more detail.
+5. Review the tax percentage on each line. You can update it when needed.
+6. Add a member discount or select **+ Add discount** to enter a flat or percentage discount.
+7. Set the due date. When creating a new invoice, you can optionally enter an earlier invoice date.
+8. Check the receipt email. Add notes if your team needs them.
+9. Review the subtotal, discounts, tax, and total, then select **Finish** to save the invoice.
+
+Kanri saves a new invoice as a draft. When it is ready, use **Open Invoice** to make it available for payment; opening does not collect money and may email the invoice link if the school's invoice-email setting is enabled. To collect payment yourself, use the invoice's **Charge** action.
+
+For products with [sizes, colors, or other options](/shop/products/), select the product, choose each option from the dropdowns, then select **Add Item**. The choices reflect combinations your school actually sells. For example, if Red uniforms are only sold in sizes 4 to 7, those are the sizes offered after choosing Red.
+
+You can still search directly for a variant name or SKU. Products without structured options keep their existing selection flow.
+
+### Add a bundle
+
+1. Search for a [product bundle](/shop/products/#create-a-product-bundle) by
+   name and select it.
+2. Choose the variants requested for components marked **Choose when selling**,
+   such as a uniform's color and size. Fixed variants are already chosen.
+3. Review the bundle price and any savings, then select **Add Bundle**.
+4. Check the component lines, quantities, tax, discount, and final invoice total
+   before selecting **Finish**.
+
+Each component becomes its own invoice line, keeping its inventory and
+[fulfillment](/shop/fulfil-sales/) records. When the components cost more than
+the bundle price, Kanri adds a flat **Bundle:** discount for the difference.
+For example, $80 of components in a $70 kit produces a $10 discount before tax.
+
+Bundle component quantities and prices, and any associated bundle discount,
+are locked together. Removing a component or its bundle discount removes the
+whole group. To change a size or other choice, remove the group and add the
+bundle again. Add it again to sell a second kit.
+
+The discount never adds a surcharge: if selected components cost less than the
+saved bundle price, no bundle discount is added. Component tax rates and other
+invoice discounts can also affect the final total, so review it before saving.
+
+If a bundle's components or catalogue prices change while you are preparing
+a new sale, saving can ask you to add the bundle again. Saved invoices keep
+their recorded component amounts rather than tracking later catalogue edits.
+
+### Check the totals before saving
+
+- **Quantity and unit price** determine the line amount. Check both when you add a product, especially when selling several of the same item.
+- **Discounts** reduce the invoice total. You can apply an available member discount or enter a flat amount or percentage.
+- **Tax** is shown per line. Review the rate for each item rather than assuming every product uses the same tax treatment.
+- **Due date** tells the member when payment is expected. If you enter an earlier invoice date, check that it is intentional.
+- **Receipt email** is the address used for invoice communication. For a walk-in without a member, enter the address that should receive the invoice.
+
+For example, to sell two white belts and one uniform, add the correct variants and quantities, then verify the line prices and tax before saving. If you need to charge each item at a different price, adjust its line rather than changing the product catalogue price for future sales.
+
+## Sell products from the Shop page
+
+1. Open [Shop and Inventory](/shop/), then select **New Invoice**.
+2. Select the member, or leave the invoice anonymous for a walk-in.
+3. Search for the product or variant. Add it, then check the quantity and price.
+4. Add any custom items, discount, tax changes, or notes.
+5. Review the total and save the draft.
+
+The invoice records the sale. Its charges record payment attempts. If the product needs handover, use [Manage Fulfillment](/shop/fulfil-sales/) after payment.
+
+You can add a custom item when the sale is not a catalogue product, such as a one-off event fee. Custom lines do not create a product or change inventory. Use a catalogue product and variant when you need stock, supplier, or fulfillment tracking.
+
+:::tip
+If you are recording money that was already collected, create the invoice for the correct items and then use **Mark as Paid** or **Cash** as appropriate. Do not select a card or reader option unless you intend to make a new payment attempt.
 :::
 
-## Planned topics
+## Next steps
 
-- Choose the invoice type and customer.
-- Add and update invoice items.
-- Review the total before opening or charging the invoice.
+- [Collect or record payment](/billing/invoices/collect-payment/)
+- [Edit an invoice](/billing/invoices/edit-invoice/)
+- [Fulfill product sales](/shop/fulfil-sales/)

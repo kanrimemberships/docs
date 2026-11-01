@@ -5,9 +5,6 @@ description: Automatically bring new leads from Aquila into Kanri without relyin
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-:::note[Professional & Enterprise]
-Lead Management requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
 
 If your school previously used Aquila and migrated to Kanri, you can turn on **Aquila Lead Sync** to automatically pull newly-registered leads from Aquila into Kanri every few minutes — no need to rely on Zapier forwarding them.
 
@@ -24,11 +21,24 @@ You'll need the **Manage Settings** permission to change these settings. You'll 
 5. Toggle **Enable Aquila Lead Sync** to on.
 6. Click **Save**.
 
-Once enabled, Kanri checks Aquila every few minutes for newly registered leads and creates a matching Lead profile in Kanri automatically, with status **New**.
+Once enabled, Kanri checks Aquila about every five minutes. New profiles are created as
+**Lead**, with status **New**. If the incoming details match an existing profile, Kanri can reuse
+that profile and fill in missing details instead; its existing type and status are not reset.
 
 ## What counts as "new"
 
-Only leads registered in Aquila **after** you turned sync on are brought into Kanri. Leads that were already in Aquila (or already in Kanri) when you enabled sync are never imported — this avoids creating duplicate profiles for people you already know about.
+For registrations with a readable date, Kanri skips dates on or before the day you first enabled
+sync. Aquila supplies a date rather than an exact registration time, so registrations later on
+that same day are also skipped. Disabling and re-enabling sync does not move this original
+starting date.
+
+If a registration date is missing or unreadable, Kanri may process the record anyway. It checks
+the newest 50 registrations per poll, not Aquila's entire history. This is a new-lead feed, not
+a full migration or a guarantee that every older record will be imported.
+
+Kanri tracks processed Aquila records and looks for existing profiles by email or phone, then
+by lead name. Shared family details can affect matching, so review the result before creating a
+second profile. A record already in Kanri may be supplemented rather than skipped entirely.
 
 ## Updating your credentials
 

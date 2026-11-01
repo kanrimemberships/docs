@@ -1,17 +1,47 @@
 ---
 title: Create a Schedule
-description: How to create a new recurring class schedule in Kanri.
+description: Build a recurring timetable and activate it to generate class sessions.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Before creating a schedule, create the [program](/programs/create-program/) and [class](/programs/classes/create-class/) you plan to teach. A schedule is the repeating timetable; activating it creates the individual sessions members attend or book.
 
-## What this page will cover
+## Create the schedule
 
-- Going to Schedules → New Schedule
-- Required fields: name, program, class (variant), day of week, start time, end time
-- Optional fields: location, capacity
-- Activating the schedule after creating it
-- What happens after activation (sessions start being generated)
-- Viewing the upcoming sessions
+1. Open **Schedules** and select **New Schedule**.
+2. Enter a unique, descriptive name, such as **Term 1 Evening Classes**.
+3. Optionally set an **Effective Date**. Sessions will only appear on or after that date. Leave it blank to make the schedule effective immediately.
+4. Optionally set an **End Date**. Sessions stop appearing on that date and the schedule is automatically deactivated. Leave it blank if there is no planned end.
+5. Select **Create Schedule**.
+
+## Add recurring class entries
+
+1. In the schedule editor, double-click an empty time slot, or drag across the time range to add an entry.
+2. Use **Program Filter** if helpful, then select the **Class**. The filter narrows the class list; it does not remove the class's other program assignments. Choose a variant if needed.
+3. Set the day and start and end times. If a class ends after midnight, set the correct ending day.
+4. Add a location if members or staff need it.
+5. Configure booking options and capacity if you use bookings.
+6. Repeat for each class time in the timetable.
+7. Review the entries for overlapping or incorrect times, then select **Save** in the timetable editor. **Add Session** adds an entry to your working timetable; it does not replace this Save step.
+
+Booking controls can **Inherit from class** or override the class's program-assignment settings. A blank capacity override inherits the class limit; use 0 for no spots. Review member and trial options separately.
+
+You need permission to manage schedules. Check room and instructor conflicts yourself, including overlaps with other active schedules.
+
+## Activate the schedule
+
+1. Select **Activate**.
+2. Confirm the effective and end dates.
+3. Submit the activation.
+4. Open **View Current Schedule** and confirm the sessions appear on the expected days and times.
+
+Activation generates sessions from the schedule entries. If you later change an active entry, sync the schedule to apply those changes. See [Sync a Schedule](/schedules/sync-schedule/).
+
+## Example
+
+For **Term 1 Evening Classes**, add Karate Fundamentals on Mondays from 6 to 7 p.m. and on Wednesdays from 6 to 7 p.m. Add a separate entry for Saturday Sparring at 10 a.m. If the schedule should start next term, set the effective date before activating.
+
+## Next steps
+
+- [Edit a Schedule](/schedules/edit-schedule/)
+- [Activate or Deactivate a Schedule](/schedules/activate-deactivate/)
+- [Review Session Bookings](/schedules/bookings/)

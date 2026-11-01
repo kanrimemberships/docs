@@ -3,8 +3,8 @@ title: Publish and Enable
 description: How to publish a draft workflow, disable it, delete it, and manage the lifecycle from draft to live.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
 When you're happy with your workflow, you **publish** it. Publishing freezes your draft into a permanent, numbered version and immediately makes the workflow live.
@@ -42,7 +42,8 @@ Once published:
 
 ## How to disable
 
-Disabling a workflow stops it from running. Any runs currently in progress are **cancelled**.
+Disabling a workflow stops automatic triggers and record-action runs. It also **cancels runs
+already in progress**, including runs waiting in a delay or waiting for child runs.
 
 To disable:
 
@@ -56,7 +57,10 @@ To disable:
 - You're working on significant changes and don't want the current version firing while you do.
 
 :::caution
-Disabling cancels all in-progress runs immediately — it doesn't just stop new ones. If you have runs mid-way through a multi-day sequence, they will not complete.
+Disabling cannot undo actions that already completed. Cancelled runs do not resume when you
+enable the workflow again. Review [Run History](/workflows/run-history/) before disabling a
+workflow with people partway through it. Staff with permission can still use **Test Run** on a
+disabled published workflow, and that test performs real actions.
 :::
 
 ---
@@ -70,7 +74,9 @@ To change a workflow that's already live:
 3. Save the draft as you work using **Save Draft**.
 4. When ready, click **Publish** to go live (this becomes v2, v3, etc.).
 
-The previous published version is preserved in [Version History](/workflows/version-history/). In-progress runs from the old version continue on that version unless the workflow is disabled.
+The previous published version is preserved in [Version History](/workflows/version-history/).
+In-progress runs from the old version continue on that version unless cancelled, for example by
+disabling the workflow.
 
 ---
 
@@ -88,6 +94,9 @@ Deleting a workflow:
 - Prevents any new runs from being created.
 - Removes the workflow from the list permanently.
 
+Previous run records are retained internally; deleting the workflow is not an erasure of every
+historical execution. They may no longer be reachable through the normal workflow lists.
+
 :::caution
 Deletion is permanent and cannot be undone. If you just want to stop the workflow temporarily, [disable it](#how-to-disable) instead.
 :::
@@ -100,7 +109,7 @@ Deletion is permanent and cannot be undone. If you just want to stop the workflo
 | ---------- | --------------------------------------------------------------------- |
 | Save Draft | Updates the draft. Nothing live is affected.                          |
 | Publish    | Creates a new immutable version and immediately enables the workflow. |
-| Disable    | Stops the workflow. Cancels all in-progress runs.                     |
+| Disable    | Stops normal new runs and cancels in-progress runs. Test Run remains available. |
 | Delete     | Removes the workflow permanently. Cancels all in-progress runs.       |
 
 ---

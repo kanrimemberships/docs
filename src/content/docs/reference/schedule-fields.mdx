@@ -1,23 +1,38 @@
 ---
 title: Schedule Fields Reference
-description: Every field when creating or editing a schedule in Kanri, explained.
+description: Understand schedule dates and the settings for each recurring session entry.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+A schedule is a recurring timetable template. Its entries describe the classes and times Kanri uses to create individual sessions. Review the [Schedules guide](/schedules/) before changing a schedule that already has bookings.
 
-## What this page will cover
+## Schedule details
 
-A reference table for every field on a schedule:
+| Field | What it means |
+|---|---|
+| Name | A staff-facing label, such as `Monday Evening Karate`. |
+| Effective Date | The first date on which the schedule generates sessions. Leave blank to make it active immediately. |
+| End Date | The first date the schedule no longer runs. Sessions stop on this date, not the day after, and the schedule is automatically deactivated. Leave blank for no end date. |
+| Active status | Controls whether the schedule generates sessions. |
 
-- **Name** — the display name for the schedule (e.g. "Monday Evening Karate")
-- **Class** — which class this schedule runs (e.g. "Karate (Blue–Black Belt)"), and optionally which variant (e.g. "Sparring")
-- **Recurrence** — how often the schedule repeats (weekly on specific days, etc.)
-- **Time** — start time and duration
-- **Capacity** — maximum number of bookings allowed
-- **Booking window** — overrides the school-wide booking window setting for this schedule
-- **Status** — active or inactive (only active schedules generate sessions)
-- **Start date / End date** — when the schedule runs from/until
+## Session entry fields
 
-For each field: what it does, what happens if you change it, and when to sync after changes.
+| Field | What it means |
+|---|---|
+| Class and program | The class entry. Classes are connected to one or more programs. |
+| Class variant | Optional subtype of the class, if configured. |
+| Day and time | The day the class repeats and its start and end times. |
+| Location | The location shown for the session. |
+| Member bookings | Whether members can book the session and the number of member booking spots. |
+| Trial bookings | Whether trial visitors can book and the number of trial spots. Trial spots can be separate from member capacity. |
+
+Open **Booking Overrides (optional)** for the booking settings. **Inherit from class** uses the class's setting; blank spot counts also inherit the class's counts. Set **Yes**, **No**, or a nonnegative spot count only when this recurring entry needs different rules. **Trial spots are separate** determines whether trial places have their own capacity.
+
+## What happens when you change a schedule
+
+Editing a schedule changes its recurring template. Use **Sync** to apply those changes to future sessions. Read the confirmation carefully: changing dates or syncing may affect future bookings. See [Sync a Schedule](/schedules/sync-schedule/) and [Activate or Deactivate a Schedule](/schedules/activate-deactivate/).
+
+## Next steps
+
+- [Create a Schedule](/schedules/create-schedule/)
+- [Edit a Schedule](/schedules/edit-schedule/)
+- [Review Session Bookings](/schedules/bookings/)

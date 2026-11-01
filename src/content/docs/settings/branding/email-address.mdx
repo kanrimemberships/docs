@@ -1,20 +1,29 @@
 ---
 title: Email Sender Address
-description: How to configure the email address that appears as the sender when Kanri sends emails to your members.
+description: Choose the name and sending address members see on emails from your school.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Kanri builds the sending address from your **Email Sender ID** and an email domain. For example, sender ID `hello` and domain `springfieldkarate.com` produce `hello@springfieldkarate.com`.
 
-:::note[Professional & Enterprise]
-Custom email sender address requires a Professional or Enterprise plan. Starter plans send from Kanri's default address. [Compare plans →](/reference/plans/)
-:::
+You need owner access to change the school's sender details.
 
-## What this page will cover
+## Set the sender details
 
-- What the sender email address controls (the "From" name and address on all Kanri emails)
-- Setting the sender name (e.g. "Springfield Karate") and email address
-- Why custom sender addresses improve deliverability and trust
-- Technical note: emails are still routed through Kanri's email infrastructure; you don't need your own mail server
-- Verifying your email domain (if required)
+1. Open **Settings → Branding**.
+2. Enter a recognizable **School Name**.
+3. Optionally enter a **Display Name**. Kanri uses it on emails, sent documents, and lead or intake pages. If blank, Kanri uses the School Name.
+4. Enter an **Email Sender ID** using 3 to 64 letters, numbers, or hyphens. It cannot start or end with a hyphen.
+5. If you have an active email domain, select it under **Sending Domain**. Otherwise, Kanri uses your school's default subdomain address.
+6. Save the settings and check the sender preview.
+
+For example, use `hello` as the sender ID for general school updates, or `billing` for payment messages if that matches how your school handles replies.
+
+## Connect a custom sending domain
+
+If you already have an active email domain, return to Branding and select it as the **Sending Domain**. Adding a new email domain is not currently self-service for school staff; contact Kanri support to ask about setup.
+
+## Next steps
+
+- [Manage Connected Domains](/settings/domains/)
+- [Set Your School Subdomain](/settings/branding/vanity-url/)
+- [Customize Email Branding](/settings/branding/brand-color-logo/)

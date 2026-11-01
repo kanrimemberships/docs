@@ -3,14 +3,38 @@ title: Subscriptions Report
 description: A detailed breakdown of all subscriptions at your school — active, cancelled, and archived.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Subscriptions is a table of subscription records, including the member, plan,
+price, start and end dates, next payment date, days to expiry, status, payment
+method, and contract status when Documents is enabled. Use it to inspect a
+subscription's dates and setup; do not treat the table as a statement of
+settled payments.
 
-## What this page will cover
+## Search and filter
 
-- What the Subscriptions report shows (full list of all subscriptions with status, plan, price, start/end dates)
-- Filtering by status (Active, Cancelled, Archived)
-- Filtering by billing plan
-- Using this report for a full audit of your billing setup
-- Exporting for financial reconciliation
+Search by member name or member record, or by billing plan. Other available
+filters include days to expiry, payment method, subscription type, trial
+status, payment amount, expiration date, cancellation date, conversion date,
+and whether archived subscriptions are included. The type filter distinguishes
+ongoing, paid-in-full, fixed-term, scholarship, session-block, and per-session
+subscriptions.
+
+Archived subscriptions are hidden unless you select **Show archived**. When
+Memberships is enabled, the default list also focuses on subscriptions whose
+members have an active membership; choose **Show inactive** to include
+subscriptions for members without an active membership. Review the filter
+state before treating the displayed rows as a complete billing audit.
+
+The table can be downloaded as CSV. Use the export as a working list, then
+reconcile charges and balances against the payment provider and your
+accounting records.
+
+## Example
+
+To find current subscriptions ending soon, filter by the number of days to
+expiry and review each end date and next payment date. To investigate a
+subscription with a failed charge, open the member and subscription details,
+then use [Failing Subscriptions](/reports/billing/failing-subscriptions/) to
+find current failures.
+
+For the historical count of active subscriptions over time, see
+[Historical Subscriptions](/reports/billing/active-subscriptions/).

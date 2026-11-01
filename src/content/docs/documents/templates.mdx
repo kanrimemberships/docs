@@ -1,14 +1,42 @@
 ---
 title: Document Templates
-description: Create reusable documents that can be filled in and signed in Kanri.
+description: Create reusable rich-text or PDF-overlay documents and set signing rules.
 ---
 
-:::note[Guide coming soon]
-This guide will cover template types, template versions, available fields, and signature settings.
-:::
+A document template defines the content and signing rules for documents you send to members. Choose the template type before creating its content.
 
-## Planned topics
+## Create a template
 
-- Choose a rich-text or PDF-based template.
-- Add fields and configure who needs to sign.
-- Publish an updated version without changing documents already sent.
+1. Open **Documents → Templates** and select **New Template**.
+2. Enter a clear **Name** and optional description.
+3. Choose **Rich text (build with editor)** to create the document in Kanri, or **PDF overlay (upload a PDF)** to place signature fields on an existing PDF.
+4. Choose the **Member signer** option:
+   - **Member** sends the signature request to the member.
+   - **Adult required** routes the request to a parent or guardian when the member is a minor.
+5. Choose **Staff witness** if a staff member must sign as a witness, or **None** if no witness is required.
+6. Set **Validity** to a positive number of days, or leave it blank if the document should not expire.
+7. Choose a **Sign by** deadline: use the school's default, set no deadline, or enter a custom number of days.
+8. Select **Create Template**.
+9. Add the document content in the editor or upload and configure the PDF overlay.
+10. Preview the template before sending it to a member.
+
+## Choose the right template type
+
+| Type | Use it when |
+|---|---|
+| Rich text | You want to create and format the document in Kanri's editor. |
+| PDF overlay | You already have a PDF and want signers to complete its configured fields. |
+
+## Test signer rules
+
+For an adult-required template, keep the member's date of birth and parent or guardian contact details current. If the member is a minor but has no parent or guardian contact with an email address, add that contact before sending the document. For staff-witness templates, make sure staff know to complete their signature after the member.
+
+Templates with locked system settings may not be editable. You can preview a template to check its content and signer roles.
+
+Staff need **Manage Documents** to create or edit templates. The school's Documents feature must also be enabled; a role permission does not enable it by itself.
+
+## Next steps
+
+- [Request a Signature](/documents/request-signature/)
+- [Upload and Manage Documents](/documents/upload-and-manage/)
+- [Set Up Waivers](/documents/waivers/)

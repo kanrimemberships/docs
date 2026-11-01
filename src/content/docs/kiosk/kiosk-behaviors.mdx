@@ -3,15 +3,28 @@ title: Kiosk Behaviors
 description: How to configure what the kiosk allows and restricts using behavior settings.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+## Let visitors email themselves a waiver link
 
-## What this page will cover
+Visitors can request an intake waiver link from the sign-in kiosk and complete the form on their own device.
 
-- Where to find kiosk behaviors (Settings → Behaviors → Kiosk)
-- Block expired subscriptions: prevent members without an active subscription from signing in at the kiosk
-- Allow members to update their own photo via the kiosk
-- Allow level promotions to happen at the kiosk (member reaches promotion and it's recorded automatically)
-- Show promotion celebration screen on the kiosk
-- Choosing the right settings for your school's workflow
+Before you turn this on, make sure your school has the **Kiosk** and **Documents** features enabled. You also need to enable front-desk intake and choose an adult waiver template in **Settings → Leads & Intake**. If minors use a different waiver, choose a minor waiver template too; otherwise Kanri uses the adult template. Learn more about [front-desk intake](/lead-management/front-desk-intake/) and [setting up the kiosk](/kiosk/set-up-kiosk/).
+
+1. Confirm that the **Kiosk** and **Documents** features are enabled for your school.
+2. Open **Settings → Behaviors** and find the **Kiosk** section.
+3. Turn on **Let visitors email themselves a waiver link**.
+
+When all prerequisites are met and the setting is on, the sign-in kiosk home screen shows **Email a Waiver Link**. Visitors enter their email address and tap **Send Waiver Link**. Kanri sends a link to that address; the visitor can open it on their device to complete the intake form and sign the waiver.
+
+This setting controls the kiosk button only. It does not change the separate **Email a Waiver Link** option staff use from Documents.
+
+## Review attendance confirmation
+
+The same Kiosk section has separate switches for **Require staff to confirm sign-ins** and **Require staff to confirm mobile check-ins**. When enabled, the corresponding check-in stays pending until staff confirm it in the Attendance kiosk. Pending entries do not count toward attendance or use session credits yet.
+
+Use **Enable member mobile check-in** to offer [check-in from members' own devices](/kiosk/mobile-check-in/). Turning on the shared kiosk's trial sign-in option does not by itself enable mobile check-in.
+
+## Next steps
+
+- [Set up the kiosk](/kiosk/set-up-kiosk/)
+- [Configure front-desk intake](/lead-management/front-desk-intake/)
+- [Review other kiosk behaviors](/settings/behaviors/kiosk-behaviors/)

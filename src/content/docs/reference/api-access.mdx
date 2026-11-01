@@ -1,18 +1,43 @@
 ---
 title: API Access
-description: Understand API keys and where to find technical information for Kanri integrations.
+description: Find Kanri's API reference and learn how to protect integration keys.
 ---
 
+:::caution[Beta]
+Kanri's REST API is in beta and may change without notice. Check the live API reference before building or updating an integration.
+:::
+
 :::note[Enterprise]
-API access requires an Enterprise plan. [Compare plans →](/reference/plans/)
+API-key access requires an Enterprise plan. [Compare plans](/reference/plans/).
 :::
 
-:::note[Guide coming soon]
-This reference will explain who can use API access, how keys are managed, and where technical endpoint details live.
-:::
+Kanri's REST API lets approved software connect to school data and supported actions. It is intended for integrations and technical users. Each request must be authenticated, and the available endpoints depend on the permissions granted to the API key.
 
-## Planned topics
+## Find the API reference
 
-- Check whether API access is included in your plan.
-- Create and revoke keys in [Settings](/settings/api-keys/).
-- Find endpoint, authentication, and request details for developers.
+Open the [Kanri API reference](https://app.kanrimemberships.com/api/docs). It describes available endpoints, request fields, response formats, and errors. Use the reference to confirm the current requirements for the specific operation you need.
+
+The API limits requests to **1,000 per minute per connecting IP address**. Integrations using the same address share this limit, even with different keys. Excess requests receive **429 Too Many Requests**.
+
+Integrations use a bearer key in the **Authorization** header. School-scoped endpoints use `/api/v1/` paths without a school ID in the path. A key belongs to one school; the **Kanri-School** header is also used to select school context for signed-in callers.
+
+Do not assume every resource supports the same methods. For example, products support listing and creation, individual retrieval and deletion, and a separate **POST** edit action. Product options have their own retrieval and save actions. The live reference lists the exact method for each operation.
+
+## Create an API key
+
+1. As a school owner with API access enabled, open [Settings → API Keys](/settings/api-keys/).
+2. Create a key with a name that identifies the integration.
+3. Grant only the permissions the integration needs.
+4. Copy the full key when Kanri displays it and store it in a password manager or secrets vault.
+5. Give the key only to the person or system responsible for the integration.
+
+Kanri shows the full key only when it is created. If you lose it, revoke that key and create a replacement. Never put a key in a public document, support request, or source-code repository.
+
+## Troubleshoot access
+
+- **Authentication error:** Check that the integration is using the key currently shown in its secure settings. If the key was revoked, replace it.
+- **Permission error:** Ask a school administrator to review the key's permissions. Do not solve this by sharing another person's key.
+- **Endpoint unavailable:** Check whether the endpoint is listed in the live API reference and whether the related feature is enabled for the school.
+- **Rate limit:** Reduce request frequency and retry after the rate-limit window.
+
+For key management, see [API Keys](/settings/api-keys/). The API documentation is written for developers; ask your integration provider to interpret the endpoint details if you do not maintain the integration yourself.

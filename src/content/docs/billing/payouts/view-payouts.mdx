@@ -1,15 +1,21 @@
 ---
 title: View Payout History
-description: How to view your payout history in Kanri.
+description: Review payout information through the connected Stripe account.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Kanri's **Settings → Payouts** page opens Stripe's payout interface for the school's connected account. Use the information in that panel to review transfers and investigate a payout.
 
-## What this page will cover
+## Review a payout
 
-- Going to Settings → Payouts
-- What each payout record shows (date, amount, status, bank account)
-- Payout statuses: pending, in transit, paid, failed
-- Clicking through to Stripe for full payout detail and individual payment breakdown
+1. Go to **Settings → Payouts**. The account must be connected, and you must have the required school-owner access.
+2. Find the payout in Stripe's list. Use its date, amount, and displayed status to identify it.
+3. Open the payout details in Stripe to review the transfer and, where available, its included payment activity.
+4. If Stripe requests verification or another account action, follow the instructions in the connected account.
+
+The payout interface supplies the statuses and details for the connected account. Use what it displays rather than relying on a fixed list of labels or a generic timeline.
+
+## If a payment is missing from a payout
+
+First confirm that the charge succeeded in Kanri by reviewing the invoice or the member's [charge history](/members/billing/view-charges/). Then review the payout information in the connected-account interface. Charges and payouts are separate records; a successful charge alone does not confirm a payout.
+
+For account-specific transfer questions, use Stripe's support options. If the Kanri payout page is unavailable, contact Kanri support. See [Payouts](/billing/payouts/) and [Update Your Bank Account](/billing/payouts/update-bank-account/).

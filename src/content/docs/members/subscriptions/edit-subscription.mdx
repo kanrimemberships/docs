@@ -1,6 +1,6 @@
 ---
 title: Edit a Subscription
-description: How to change a member's subscription plan, price, or billing dates.
+description: How to update payment details and dates on a member's subscription.
 ---
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
@@ -11,14 +11,12 @@ Edit a subscription when the member's billing details change.
 
 Depending on the subscription, you can update:
 
-- the attached payment method
-- the next payment date
-- the payment type used for your records
-- the selected price
-- the payment amount override
-- the payment interval and interval count overrides
-- admin fees
-- the end date, if the subscription is already fixed-term
+- the saved payment method and payment type
+- the admin fees used for this subscription
+- the next payment date, when the price type supports it
+- the end date, for price types that use one
+
+The edit form does not let you change the subscription's billing plan, price, or amount. Those details come from the price selected when the subscription was created.
 
 ## Edit a subscription
 
@@ -32,8 +30,9 @@ Depending on the subscription, you can update:
 ## Important rules
 
 - You can change or remove the attached payment method.
-- You can only edit **End Date** on subscriptions that already have an end date.
-- You cannot add an end date to an ongoing subscription from the edit screen.
+- The **Next Payment Date** field appears only for ongoing prices and per-session prices billed by cycle.
+- The **End Date** field appears for scholarship, paid-in-full, and fixed-term prices. It may be blank if the subscription has not ended yet.
+- Archived and cancelled subscriptions cannot be edited.
 
 :::note
 If you remove the payment method, the subscription can stay on file. It simply will not have an attached method for automatic collection.

@@ -3,8 +3,8 @@ title: Run History
 description: How to monitor workflow runs, understand run statuses, and debug problems when a run fails or behaves unexpectedly.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
 Every time a workflow's trigger fires, Kanri creates a **run**. The Run History page shows all runs for a workflow — what triggered them, which record they're for, what step they're on, and whether they succeeded.
@@ -31,10 +31,13 @@ Each row shows:
 
 ## Run statuses
 
+A **Done** message step is not proof of recipient delivery. Sending and delivery are separate
+background work; use the [Outbox](/messages/outbox/) to check failures or suppression.
+
 | Status               | What it means                                                 |
 | -------------------- | ------------------------------------------------------------- |
 | Running              | The run is actively executing, or waiting inside a Delay step |
-| Waiting for children | The run is paused while sub-runs (a For Each loop) complete   |
+| Waiting | The run is paused while child runs from For Each or a Match all Switch complete |
 | Done                 | The run completed all steps successfully                      |
 | Failed               | A step encountered an error the run couldn't recover from     |
 | Cancelled            | The run was cancelled — see below                             |
@@ -43,9 +46,10 @@ Each row shows:
 
 A run is cancelled when:
 
-- A Delay step's **re-check trigger condition** setting is on (condition-triggered workflows only), and when the delay finishes, the original trigger condition is no longer true.
+- A Delay step's **Recheck trigger** setting is on and the record no longer matches the original
+  condition or recurring-schedule filter. See the [Condition Stops Being True limitation](/workflows/how-workflows-work/#trigger-re-checking).
 - The workflow has an [exit condition](/workflows/how-workflows-work/#exit-conditions) set, and the run's record matches it. Unlike the re-check above, this is evaluated before _every_ step, not just after a delay.
-- You [disable](/workflows/publish-and-enable/) the workflow — disabling cancels all in-progress runs immediately.
+- You [disable](/workflows/publish-and-enable/) the workflow, which also cancels in-progress runs.
 - The workflow is deleted.
 
 ---
@@ -84,7 +88,10 @@ If a run shows a **Failed** status:
 2. Look at the step trace. Find the step marked as failed.
 3. Check the error details — it will usually say what went wrong (for example, "member has no email address", "invalid template ID", or "required field is missing").
 4. Fix the underlying issue (update the member's record, fix the template, or adjust the workflow).
-5. Kanri automatically retries failed runs a few times before marking them as permanently failed. If a run is permanently failed and you want to try again, you can run the workflow manually against the affected record.
+5. A step's queued task can be attempted up to five times before the run is marked **Failed**.
+   A run already marked Failed does not automatically restart after you fix the problem.
+   Starting a new manual run starts the workflow again, including earlier steps, so check for
+   messages or changes already completed before repeating it.
 
 **Common failure causes:**
 

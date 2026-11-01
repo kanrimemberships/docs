@@ -1,17 +1,40 @@
 ---
 title: Sync a Schedule
-description: How to apply changes to a schedule's template to all upcoming sessions.
+description: Apply changed schedule entries to the generated sessions.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Editing entries in an active schedule changes the timetable template. **Sync** applies those changes to the sessions generated from it.
 
-## What this page will cover
+## Sync your changes
 
-- What "Sync" does (takes the current state of the schedule template and updates/activates/deactivates future sessions to match)
-- When to use Sync (after editing a schedule's time, class, or location — to push those changes to upcoming sessions)
-- What Sync does NOT do (doesn't affect sessions that have already had attendance taken)
-- How to trigger a sync from the schedule detail page
-- Sync only affects sessions belonging to this schedule (not other schedules)
-- Existing member bookings on a class that's only being changed (time, spots, location, etc.) are kept and automatically carried over to the updated session — members are not un-booked just because you tweaked the schedule. If a class is removed from the schedule entirely, its future confirmed bookings are cancelled instead, and the Sync page shows you how many that will affect before you confirm.
+1. Open **Schedules** and select the active schedule.
+2. Edit the class entries that need to change.
+3. Review the entire timetable, including days, times, variants, locations, and booking settings. Select **Save** in the editor before leaving it.
+4. Choose **Sync**.
+5. Read the warning about future confirmed bookings. Kanri checks bookings for updated entries and cancels bookings that no longer fit. Bookings for removed entries are cancelled.
+6. Confirm the sync.
+7. Review the current schedule and booking records.
+
+Do not sync until the entries are final. If a sync cancels a booking, contact the affected member and arrange another session if needed.
+
+## Check bookings after a change
+
+Sync keeps a compatible future confirmed booking on its original booked date and applies the entry's updated time and location. It does not silently move a Monday booking to Tuesday. If the original date is no longer offered, or the updated entry no longer allows the booking, Kanri cancels it. Booking rules include enabled booking types, active program memberships, allowed groups, closures, and schedule dates.
+
+Regular bookings need an active membership for the program. Trial bookings need no active membership for that program, matching the rules for rescheduling a booking.
+
+When you change capacity settings or replace the class, available spaces go to the earliest reservations first. Overflow bookings are cancelled. A time-only or location-only edit does not remove a previous staff capacity override. Existing staff age exceptions still apply.
+
+Past bookings, cancelled bookings, and bookings already marked attended or no-show keep their original session details. Updated future bookings use the normal booking-change notices; cancelled bookings use cancellation notices. Review the records and [arrange a replacement booking](/members/bookings/reschedule-booking/) with the member if needed.
+
+Deleting an entry and adding a replacement is different from editing the existing entry: bookings on the deleted entry are cancelled rather than transferred to the new one. Check overlapping classes yourself; sync is not a room or instructor conflict check.
+
+## Example
+
+If Karate Fundamentals moves from 6 p.m. to 6:30 p.m. on the same weekday, edit that entry and sync. Compatible future confirmed bookings keep their dates and use 6:30 p.m. If you move the entry to a different weekday, bookings on dates no longer offered are cancelled rather than moved. Removing an entry also cancels its future confirmed bookings.
+
+## Next steps
+
+- [Edit a Schedule](/schedules/edit-schedule/)
+- [View Session Bookings](/schedules/bookings/view-session-bookings/)
+- [Take Attendance](/schedules/taking-attendance/)

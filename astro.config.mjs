@@ -31,8 +31,8 @@ export default defineConfig({
           label: "What's New",
           collapsed: true,
           items: [
-            { label: "All Releases", slug: "whats-new" },
-            { label: "Spring 2026", slug: "whats-new/spring-2026" },
+            { label: "All Updates", slug: "whats-new" },
+            { label: "October 31, 2026", slug: "whats-new/2026-10-31" },
           ],
         },
         {
@@ -61,6 +61,10 @@ export default defineConfig({
               slug: "getting-started/add-your-first-member",
             },
             { label: "Set Up Billing", slug: "getting-started/set-up-billing" },
+            {
+              label: "Set Up Billing for a Child and Parent",
+              slug: "getting-started/family-billing-example",
+            },
             {
               label: "Invite Your Team",
               slug: "getting-started/invite-your-team",
@@ -203,7 +207,6 @@ export default defineConfig({
             {
               label: "Bookings",
               collapsed: true,
-              badge: { text: "Pro", variant: "tip" },
               items: [
                 { label: "About Bookings", slug: "members/bookings" },
                 {
@@ -310,7 +313,6 @@ export default defineConfig({
             {
               label: "Bookings",
               collapsed: true,
-              badge: { text: "Pro", variant: "tip" },
               items: [
                 { label: "About Session Bookings", slug: "schedules/bookings" },
                 {
@@ -341,6 +343,10 @@ export default defineConfig({
             { label: "Manage Calendars", slug: "calendar/manage-calendars" },
             { label: "Create and Edit Events", slug: "calendar/events" },
             { label: "Set Closed Days", slug: "calendar/closed-days" },
+            {
+              label: "School Closure Checklist",
+              slug: "calendar/school-closure-checklist",
+            },
             {
               label: "Share a Calendar Feed",
               slug: "calendar/share-calendar-feed",
@@ -484,6 +490,10 @@ export default defineConfig({
             },
             { label: "The Outbox", slug: "messages/outbox" },
             {
+              label: "Troubleshoot Message Delivery",
+              slug: "troubleshooting/message-delivery",
+            },
+            {
               label: "From a Member Profile",
               collapsed: true,
               items: [
@@ -523,7 +533,6 @@ export default defineConfig({
         {
           label: "Lead Management",
           collapsed: true,
-          badge: { text: "Pro", variant: "tip" },
           items: [
             { label: "Overview", slug: "lead-management" },
             {
@@ -585,6 +594,10 @@ export default defineConfig({
                   slug: "reports/custom-reports/filter-builder",
                 },
                 {
+                  label: "Report Records and Fields",
+                  slug: "reports/custom-reports/record-field-reference",
+                },
+                {
                   label: "Configure Tables",
                   slug: "reports/custom-reports/configure-tables",
                 },
@@ -625,6 +638,7 @@ export default defineConfig({
                   slug: "reports/attendance/historical-attendance",
                 },
                 { label: "Absentees", slug: "reports/attendance/absentees" },
+                { label: "Attendance Grades", slug: "reports/attendance/grades" },
               ],
             },
             {
@@ -675,7 +689,7 @@ export default defineConfig({
                   slug: "reports/billing/historical-payments",
                 },
                 {
-                  label: "Active Subscriptions",
+                  label: "Historical Subscriptions",
                   slug: "reports/billing/active-subscriptions",
                 },
                 {
@@ -767,20 +781,6 @@ export default defineConfig({
           ],
         },
         {
-          label: "Website",
-          collapsed: true,
-          items: [
-            { label: "Overview", slug: "website" },
-            { label: "Set Up Your Website", slug: "website/setup" },
-            {
-              label: "Pages and Navigation",
-              slug: "website/pages-and-navigation",
-            },
-            { label: "Write a Blog Post", slug: "website/blog" },
-            { label: "Publish Your Website", slug: "website/publish" },
-          ],
-        },
-        {
           label: "Kiosk",
           collapsed: true,
           items: [
@@ -805,6 +805,10 @@ export default defineConfig({
             {
               label: "What Members Can See",
               slug: "member-portal/what-members-can-see",
+            },
+            {
+              label: "Troubleshoot Portal Access",
+              slug: "troubleshooting/member-portal-access",
             },
           ],
         },
@@ -855,13 +859,15 @@ export default defineConfig({
           ],
         },
         {
-          label: "Audit Log",
+          label: "Event Log",
           collapsed: true,
-          badge: { text: "Pro", variant: "tip" },
           items: [
             { label: "Overview", slug: "logs" },
-            { label: "Reading the Log", slug: "logs/reading-the-log" },
-            { label: "Member Audit Log", slug: "logs/member-log" },
+            {
+              label: "Read an Event Log Entry",
+              slug: "logs/reading-the-log",
+            },
+            { label: "Member Event Log", slug: "logs/member-log" },
           ],
         },
         {
@@ -881,6 +887,8 @@ export default defineConfig({
             { label: "Evaluation Forms", slug: "settings/evaluations" },
             { label: "Connected Domains", slug: "settings/domains" },
             { label: "API Keys", slug: "settings/api-keys" },
+            { label: "External Assistants", slug: "settings/external-assistants" },
+            { label: "Chat with Kai", slug: "settings/kai" },
             { label: "Kiosk Messages", slug: "settings/kiosk-messages" },
             {
               label: "Branding",
@@ -960,6 +968,14 @@ export default defineConfig({
               label: "Can't Invite Staff",
               slug: "troubleshooting/cant-invite-staff",
             },
+            {
+              label: "Member Portal Access",
+              slug: "troubleshooting/member-portal-access",
+            },
+            {
+              label: "Message Delivery",
+              slug: "troubleshooting/message-delivery",
+            },
           ],
         },
         {
@@ -980,6 +996,7 @@ export default defineConfig({
               slug: "reference/message-placeholders",
             },
             { label: "Report Index", slug: "reference/report-index" },
+            { label: "API Access", slug: "reference/api-access" },
           ],
         },
       ],

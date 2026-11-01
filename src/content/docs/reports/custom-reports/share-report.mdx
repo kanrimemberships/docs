@@ -1,14 +1,53 @@
 ---
-title: Share a Report
-description: Choose whether a custom report is private or available to other staff.
+title: Share a Custom Report
+description: Make a report private or available to staff, while accounting for view and field permissions.
 ---
 
-:::note[Guide coming soon]
-This guide will explain report visibility and how staff permissions affect access.
-:::
+Report sharing controls who can open the report. It does not grant staff access to records or
+fields that their role cannot otherwise view.
 
-## Planned topics
+## Set report visibility
 
-- Choose who can view a report.
-- Find reports shared with you.
-- Update sharing when staff responsibilities change.
+1. Open the report and choose its edit control. You need report-management permission.
+2. Under **Visibility**, choose:
+   - **Private** to keep the report available only to its creator.
+   - **School Shared** to make it available to staff who have permission to view reports.
+3. Save the changes.
+
+A private report does not appear for other staff. A school-shared report can appear in their
+Custom Reports list, but permission checks still apply to its views, fields, and actions.
+
+## Report visibility is not view visibility
+
+Each view also has its own **Personal (only me)** or **Shared (all viewers)** setting:
+
+- The report must be **School Shared** before other staff can open it.
+- A **Personal** view remains visible only to its owner, even inside a school-shared report.
+- A **Shared** view can be seen by report viewers who also meet the view's permission
+  requirements.
+
+Use a personal view for your own layout or analysis. Use a shared view when the team needs the
+same report tab. For details, see [Manage Report Views](/reports/custom-reports/report-views/).
+
+## Review data access before sharing
+
+The report builder offers only records and fields available under your permissions. Other
+staff may have a narrower set of permissions, so they may not be able to open every view or
+see every block. The report does not bypass their role permissions.
+
+Before sharing:
+
+1. Remove columns and calculations that staff do not need.
+2. Check each block's filters and the date period they cover.
+3. Ask a staff member with the intended role to open the report and confirm that the relevant
+   views and data are available.
+4. If they cannot access it, ask an administrator to review their role rather than changing
+   permissions solely to make one report visible.
+
+School sharing makes a report available within your school; it is not a public link.
+
+## Next steps
+
+- [Choose report records and fields](/reports/custom-reports/record-field-reference/)
+- [Manage personal and shared views](/reports/custom-reports/report-views/)
+- [Configure table actions](/reports/custom-reports/report-actions/)

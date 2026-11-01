@@ -1,18 +1,59 @@
 ---
 title: Shop and Inventory
-description: Sell products, track stock, and manage product orders in Kanri.
+description: Set up products, sell to members, track stock, and manage supplier orders.
 ---
 
-:::caution[In progress]
-This section is being planned. It will cover the product catalogue, inventory, purchase orders, sales, and returns.
+
+Shop helps you manage the products your school sells, from uniforms and belts to equipment and merchandise. You can track stock, order more from suppliers, and follow each sale from payment through pickup.
+
+## How a product sale works
+
+1. Add products and options in [Products and Variants](/shop/products/). Create [bundles](/shop/products/#create-a-product-bundle) when you sell several products together at a pack price.
+2. Create an invoice for a member, or leave the member blank for a walk-in sale. Add products or custom line items. See [Create an Invoice](/billing/invoices/create-invoice/).
+3. Collect or record payment. Each attempt appears as a [charge](/members/billing/view-charges/).
+4. If the items need to be handed over, use [Fulfill Product Sales](/shop/fulfil-sales/).
+5. Use [Manage Inventory](/shop/inventory/) and [Shop Reports](/shop/reports/) to review stock and sales.
+
+An invoice is the bill for the sale. A charge is one payment attempt against that invoice. One invoice can have multiple charges, such as when a payment fails and you try again.
+
+### Example: selling a uniform that is out of stock
+
+Suppose a member orders a size 2 uniform, but you have none available. If the product and school settings allow selling without stock, add the uniform variant to the member's invoice and take payment as usual. The invoice keeps the sale and the outstanding fulfillment together, even though there is no stock to hand over yet. If selling without stock is blocked, order the uniform first and invoice the member once you can sell it.
+
+Create a purchase order for the missing size. When the delivery arrives, record the quantity received and allocate a unit to the waiting invoice. The member's order then appears in **Ready for Pickup**. When they collect it, record the handover there. This keeps three different events clear: the member paid, the supplier delivered stock, and the member collected the item.
+
+:::tip
+If the customer is standing at the counter, you can still create an invoice for a walk-in sale by leaving the member blank. If the item is handed over immediately, use **Fulfill Now** rather than reserving it for later pickup.
 :::
 
-## Planned guides
+## What Shop tracks
 
-- [Products and Variants](/shop/products/): create products and the options you sell.
-- [Manage Inventory](/shop/inventory/): check stock, adjust counts, and understand stock already promised.
-- [Suppliers](/shop/suppliers/): save supplier details for products.
-- [Purchase Orders](/shop/purchase-orders/): order stock and record deliveries.
-- [Fulfil Product Sales](/shop/fulfil-sales/): prepare and hand over items sold to a member.
-- [Process Returns](/shop/returns/): record returned items and refunds.
-- [Shop Reports](/shop/reports/): review product sales and costs.
+| Record | What it answers |
+| --- | --- |
+| Product and variant | What you sell, including the specific size or option, price, and supplier |
+| Bundle | A saved pack of component products, with fixed variants or choices made when selling |
+| Inventory | How many units are on hand, reserved, or still needed for sales |
+| Purchase order | What you ordered from a supplier and what has arrived |
+| Invoice | What the customer bought and the amount due |
+| Charge | Whether a payment attempt succeeded, failed, or is still processing |
+| Fulfillment | Whether the item is waiting for stock, reserved, or handed over |
+
+These records connect, but they do not happen automatically as one step. For example, **Place Order** does not email the supplier, and a paid invoice does not always mean the item has been collected.
+
+## Shop guides
+
+- [Products and Variants](/shop/products/): add products, options, categories, prices, and stock settings.
+- [Manage Inventory](/shop/inventory/): check on-hand stock, reserved items, outstanding sales, and adjustments.
+- [Suppliers](/shop/suppliers/): save supplier details and set usual suppliers for products.
+- [Purchase Orders](/shop/purchase-orders/): order stock, record deliveries, and assign received stock to waiting sales.
+- [Fulfill Product Sales](/shop/fulfil-sales/): reserve available stock or record when a member collects items.
+- [Process Returns](/shop/returns/): record returned items, restock decisions, and refunds.
+- [Shop Reports](/shop/reports/): review product revenue, costs, and margins.
+
+For invoice payment options, receipts, and refunds, see [Invoices](/billing/invoices/). For member-specific payment attempts, see [Review a Member's Charges](/members/billing/view-charges/).
+
+## Next steps
+
+- [Add products and variants](/shop/products/)
+- [Create an invoice](/billing/invoices/create-invoice/)
+- [Check stock levels](/shop/inventory/)

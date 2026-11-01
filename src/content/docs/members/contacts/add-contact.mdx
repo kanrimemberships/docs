@@ -19,38 +19,38 @@ Decide which option fits your situation:
 1. Open the member from the [Members list](/members/).
 2. Click **Contacts**.
 3. Click **New Contact**.
-4. Use the **New Contact** option.
-5. Enter **First Name** (required).
-6. Enter **Last Name** (required).
-7. Enter **Email** (optional).
-8. Enter **Phone** (optional).
-9. Select the **Relationship**.
-10. Turn on **Can Manage** if this person should be able to act on the member's behalf.
-11. Turn on **Receive Communications** if this person should receive messages sent to the member.
-12. Click **Save**.
+4. Enter **First Name** (required).
+5. Enter **Last Name** (required).
+6. Enter **Email** (optional).
+7. Enter **Phone** (optional).
+8. Select the **Relationship**.
+9. Turn on **Can Manage** if this person should be able to access supported self-service information for the member.
+10. Review **Receive Communications** if this person should receive communications that include contacts. This switch is on by default for a new contact.
+11. Click **Save**.
 
 :::note
 Email and phone are optional. If you enter them, each must be unique within your school.
+If Kanri finds someone with the same name, review the warning before saving again to
+confirm a separate person. Use **Use Existing Member** instead when it is the same person.
 :::
 
 ## Link an existing member as a contact
 
 1. Open the member from the [Members list](/members/).
 2. Click **Contacts**.
-3. Click **New Contact**.
-4. Use the **Use Existing Member** tab.
-5. Search for and select the existing member.
-6. Select the **Relationship**.
-7. Turn on **Can Manage** if needed.
-8. Turn on **Receive Communications** if needed.
-9. Click **Save**.
+3. Click **Use Existing Member**. This is a separate form from **New Contact**.
+4. Search for and select the existing member.
+5. Select the **Relationship**.
+6. Turn on **Can Manage** if needed.
+7. Review **Receive Communications** if needed. This switch is on by default.
+8. Click **Save**.
 
 ## What each setting does
 
 | Setting                | What it means                                                                                                                                                                                                                                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Can Manage             | The contact can act on the member's behalf. Managers appear in a separate Managers card on the member's profile. |
-| Receive Communications | Messages sent to the member are also sent to this contact.                                                                                                                                                                                                                                           |
+| Can Manage             | Enables the contact to manage the member for supported features, including access to the member's self-service memberships, bookings, invoices, documents, and public member-gallery items. Managers appear in a separate Managers card on the member's profile. |
+| Receive Communications | Makes this contact eligible to receive communications that include contacts. This setting does not guarantee that the contact is added to every direct message. It does not grant access to member self-service pages. |
 
 :::tip
 For a parent paying for a child, turn on **Can Manage** and **Receive Communications**. When you [add a payment method](/members/subscriptions/add-payment-method/), select the parent in the **Bill To** field.
@@ -60,7 +60,23 @@ For a parent paying for a child, turn on **Can Manage** and **Receive Communicat
 
 To edit a contact, open the member, click **Contacts**, then click into the contact and use the edit button.
 
-To remove a contact, open the contact detail page and delete it from there.
+Names, email, and phone belong to the person's shared member record. Changing those details
+also changes them wherever that person is linked as a contact. The relationship,
+**Can Manage**, and **Receive Communications** settings apply only to the selected member.
+
+Removing a contact relationship does not delete the person's member record or remove
+their contact relationships with other members.
+
+## Permissions and connected software
+
+Staff need permission to view members to read contact relationships. Viewing email and phone
+also requires full member-view permission. Adding, editing, or removing contacts requires
+permission to manage members.
+
+Authorized integrations can list, read, add, link, edit, and remove contact relationships
+through Kanri's API. They follow the same school access and contact rules as the dashboard.
+An integration's contact changes appear in Kanri's existing event log. Give integrations
+only the permissions they need, and review changes to shared contact details carefully.
 
 ## Next steps
 

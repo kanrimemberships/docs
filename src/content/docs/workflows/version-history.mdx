@@ -3,8 +3,8 @@ title: Version History
 description: How workflow versioning works, how to view past published versions, and what happens to in-progress runs when you publish a new version.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
 Every time you [publish](/workflows/publish-and-enable/) a workflow, Kanri creates a numbered, permanent **version** (v1, v2, v3, etc.). Version history lets you see exactly what each version contained, when it was published, and which runs used it.
@@ -15,7 +15,7 @@ Every time you [publish](/workflows/publish-and-enable/) a workflow, Kanri creat
 
 1. Open any workflow in the editor.
 2. Click **Versions** in the toolbar.
-3. A list of all published versions appears, newest first.
+3. A list of versions appears, newest first, including any saved draft.
 
 Each entry shows:
 - The version number (v1, v2, v3…)
@@ -26,7 +26,8 @@ Each entry shows:
 
 ## Viewing a specific version
 
-Click any version in the list to open it. The workflow canvas opens in **read-only mode**, showing exactly what trigger and steps that version contained.
+Select **View canvas** beside a published version. The workflow canvas opens in **read-only
+mode**, showing the trigger and steps saved in that version.
 
 This is useful for:
 - Auditing what the workflow was doing at a specific point in time.
@@ -44,6 +45,11 @@ When you publish a new version of a workflow, **in-progress runs are not affecte
 **Example:** A member is in the middle of a 3-day delay step in v2 of your "Renewal Reminder" workflow. You make changes and publish v3. The member's run stays on v2 — it finishes with the v2 logic. New runs created after the publish use v3.
 
 This means you can safely update a workflow at any time without disrupting members who are mid-run.
+
+Versioning freezes the workflow definition, not every record it uses. Actions can read current
+member details and the current content of a selected message template when they execute.
+Changing those records can affect a later step even when the run stays on an older workflow
+version. Disabling or deleting the workflow cancels in-progress runs.
 
 ---
 

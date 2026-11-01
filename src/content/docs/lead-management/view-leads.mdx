@@ -5,9 +5,6 @@ description: How to find, follow up with, and convert leads in Kanri.
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-:::note[Professional & Enterprise]
-Lead Management requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
 
 Leads are stored as member profiles in Kanri. Open the **Leads** tab on the [Members list](/members/) to view people who are currently leads. There is no separate lead pipeline screen.
 
@@ -16,7 +13,10 @@ Leads are stored as member profiles in Kanri. Open the **Leads** tab on the [Mem
 1. Go to **Members** in the main navigation.
 2. Select the **Leads** tab.
 
-Use the available name, age, program interest, lead creation date, and trial-booking filters to narrow the list.
+Use name, age, and **Interested in program** to narrow the list. Staff with full member-view
+access also have **Created since**. Links from the Lead Funnel report can open more specific
+cohorts, such as people with a booked or attended trial; these are not all separate controls
+in the list's filter bar.
 
 ## Lead statuses
 
@@ -27,11 +27,14 @@ Each lead has a status that shows where they are in your follow-up process:
 | **New** | Just added — no one has followed up yet. |
 | **Contacted** | Someone from your school has reached out. |
 | **Qualified** | The lead is interested and likely to join. |
-| **Trial** | Automatically set when the lead is given a trial subscription. |
-| **Converted** | Set when the lead signs up as a paying member. |
+| **Trial** | A follow-up label you can select for someone trying your school. |
+| **Converted** | A follow-up label you can select when someone joins. |
 | **Lost** | No longer interested. |
 
 The lead status is visible on the member's profile when the **Lead** section is shown. To update it, open the member's profile and click **Edit**.
+
+These are follow-up labels, not an automatic record of bookings or payments. Creating a trial
+subscription does not set Trial, and a profile's change from Lead to Member does not set Converted.
 
 ## Following up with a lead
 
@@ -44,7 +47,10 @@ You can contact a lead directly from their member profile:
 
 ## Converting a lead to a member
 
-A lead converts automatically when you give them an active [membership](/members/memberships/) or [subscription](/members/subscriptions/). Kanri updates their member type from **Lead** to **Member** at that point.
+Creating a [membership](/members/memberships/) or [subscription](/members/subscriptions/) changes
+the profile type from **Lead** to **Member** immediately. This is not conditional on payment,
+an active membership status, or the subscription start date. Trial subscriptions also do this;
+a trial class booking alone does not.
 
 To convert a lead:
 
@@ -53,6 +59,10 @@ To convert a lead:
 3. If they are paying, go to the **Subscriptions** tab and [create a subscription](/members/subscriptions/create-subscription/).
 
 When you give a lead a membership or subscription, their profile type changes to **Member** and they leave the Leads tab. The Lead Funnel report still includes converted people in its historical totals and drill-downs.
+
+If someone disappears from Leads after you create a trial subscription, search the full Members
+list before adding another profile. Also check for a partially completed Lead Page registration:
+personal details are saved before the visitor finishes booking or signing.
 
 ## Next steps
 

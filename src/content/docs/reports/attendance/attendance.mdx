@@ -1,6 +1,6 @@
 ---
 title: Attendance Report
-description: How to use the Attendance report to see who attended classes in a date range.
+description: How to use the Attendance report to review records from a start date.
 ---
 
 ## Program history
@@ -14,15 +14,49 @@ filters for a specific program. See
 [Historical Attendance](/reports/attendance/historical-attendance/) for older
 records and visiting members.
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+## Attendance on one calendar date
 
-## What this page will cover
+For a custom attendance report, choose **Attendance** and combine **Date** with the required
+**Class** or **Session**. For example, select October 27, 2026 to see that occurrence rather
+than every session on the same weekday. **Date** uses the timezone of the school where the
+person signed in; **Created At** remains available as the original timestamp.
 
-- What the attendance report shows (every attendance record in the selected period, by member and class)
-- Setting the date range filter
-- Filtering by program or schedule
-- Sorting by member name, class, or date
-- Understanding confirmed vs unconfirmed attendance in the report
-- Exporting attendance data to CSV
+Add **Confirmed At** is not empty to count confirmed visits only. Custom attendance reports
+can include your members' away visits as well as visitors signed in here, so also filter
+**Signed-in School** when counting attendance at your location. The built-in Attendance Report
+keeps its existing sign-in-school scope.
+
+See [Build Custom Report Filters](/reports/custom-reports/filter-builder/).
+
+## Open and filter the report
+
+Open **Reports → Attendance** to review attendance records for your school.
+Use the available filters to narrow the list by program, class, level (when
+levels are enabled), start date, and confirmation status. A start date limits
+the records to that date or later; it is not a preset period such as “last 30
+days.” Select a date appropriate to the question you are answering.
+
+The table can show the member, date, class, class variant, level (when
+available), and the school where the member is enrolled. Sort by date or
+class.
+
+## Confirmed and unconfirmed records
+
+An unconfirmed attendance record is highlighted. Confirmation status matters
+when you are using attendance as a measure of who actually attended. If your
+role permits it, review and confirm the record from the table; otherwise ask a
+staff member with the relevant membership-management access.
+
+The built-in report is limited to attendance signed in at the school whose
+report you opened. It is not a list of every visit made by your members at
+other schools. For cross-school or more tailored record questions, see
+[Historical Attendance](/reports/attendance/historical-attendance/) and
+[Custom Reports](/reports/custom-reports/).
+
+## Example
+
+To check a particular class, choose its class filter and set the start date to
+the day you want to investigate. Then check confirmation status before treating
+the displayed records as completed attendance. If you need one specific class
+occurrence in a custom report, combine the event's **Date** with its class or
+session filter; see [Build Custom Report Filters](/reports/custom-reports/filter-builder/).

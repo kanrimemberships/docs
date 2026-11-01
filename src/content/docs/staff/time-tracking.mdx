@@ -3,12 +3,39 @@ title: Clock In and Out
 description: Record when staff start and finish a shift.
 ---
 
-:::note[Guide coming soon]
-This guide will cover recording work times and correcting an open time record.
-:::
+Staff clock in when work begins and clock out when it ends. Kanri records the time and, when possible, links it to a scheduled shift.
 
-## Planned topics
+## Clock in
 
-- Start and finish a shift.
-- Check whether a time record is still open.
-- Ask a manager to correct an existing time record if needed.
+1. Open **Shifts** and select **Clock In**.
+2. Check the time shown in the confirmation window.
+3. Select **Clock In** to save the time.
+4. Confirm that the toolbar now offers **Clock Out**.
+
+If you are already clocked in, Kanri does not allow you to start another open time record. Clock out of the existing record first.
+
+## Clock out
+
+1. When your work ends, open **Shifts** and select **Clock Out**.
+2. Review the current clock-in time shown in the confirmation window.
+3. Select **Clock Out** to save the finish time.
+4. Check that the clock control now offers **Clock In**.
+
+If you forget to clock out, tell a manager. A manager can correct the recorded times from the [Timesheets](/staff/timesheets/) view.
+
+## Understand clock-in rules
+
+The school controls clock-in behavior under **Settings → Shifts**:
+
+- **Flexible** mode allows clock-in without a scheduled shift. If Kanri finds a matching shift, it can link the clock record to it.
+- **Strict** mode requires a matching scheduled shift within the configured tolerance. A department with **Allow Free-Form Clock In** can provide an exception for its associated staff.
+
+If Kanri rejects a clock-in, check that you have the correct shift and time. Ask a manager to review the clock-in mode and tolerance rather than trying to create duplicate records.
+
+The clock-in tolerance must be between **0 and 120 minutes**. Creating a department does not assign staff to it, so do not rely on its exception until department membership has been configured.
+
+## Next steps
+
+- [Create and manage shifts](/staff/manage-shifts/)
+- [Review and correct timesheets](/staff/timesheets/)
+- [Manage staff departments](/staff/departments/)

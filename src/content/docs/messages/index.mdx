@@ -5,14 +5,14 @@ description: How to email and text your members, individually or in bulk, from o
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Kanri's Messages area is where every email and text message to your members lives, whether it's a
+Kanri's Messages area brings together recorded email and text messages to your members, whether it's a
 one-to-one reply to a parent's question or a broadcast to your whole school. It has three tabs:
 **Inbox**, **Outbox**, and **Templates**.
 
 You'll find Messages in two places:
 
-- **Messages** in the main sidebar — the school-wide inbox, with every conversation, the full
-  Outbox, and all your Templates.
+- **Messages** in the main sidebar — the school-wide Inbox for conversations that have received
+  an incoming message, plus the Outbox and Templates.
 - The **Messages** tab on a member's profile — the same inbox, filtered down to just that member
   and their [contacts](/members/contacts/). Handy when you're already looking at someone's profile
   and want to see or continue a conversation with them. See [Member Messages](/members/messages/)
@@ -38,27 +38,32 @@ These are the two ways messages get sent, and it's worth keeping them straight:
   by email or by text message (SMS). Conversations behave like an email inbox: you can reply, mark
   them read or unread, flag important ones, and archive old ones.
 - A **broadcast** is one message sent out to many members at once, targeted at a
-  [program](/programs/), a [group](/groups/), or a custom filter. Broadcasts don't create back-and-forth
-  threads. They're for announcements, reminders, and newsletters.
+  [program](/programs/), a [group](/groups/), or a custom filter. They're for announcements,
+  reminders, and newsletters. Each recipient gets an individual message, not a shared group
+  conversation. A broadcast does not bring an archived conversation back into the main Inbox.
 
 See [Send a Message](/messages/send-a-message/) for conversations and
 [Send a Broadcast](/messages/send-a-broadcast/) for broadcasts.
 
 ## The three tabs
 
-- **Inbox** — every conversation with a member or contact. Search, filter, reply, flag, and
-  archive. See [Send a Message](/messages/send-a-message/) and
+- **Inbox** — conversations with incoming messages. A new outgoing-only conversation remains
+  available in the Outbox and the member's Messages tab without appearing in this school-wide
+  list until someone replies. Search message text, filter, reply, flag, and archive.
+  See [Send a Message](/messages/send-a-message/) and
   [Reply & Manage Conversations](/messages/reply-and-manage-conversations/).
-- **Outbox** — every email your school has ever sent, including automatic emails like receipts and
-  invites, plus a dedicated view of past broadcasts and their delivery progress. See
-  [The Outbox](/messages/outbox/).
+- **Outbox** — recorded outgoing emails and text messages, including automatic emails like receipts
+  and invites, plus broadcasts and their delivery progress. See
+  [The Outbox](/messages/outbox/). If a recipient did not get a message, see
+  [Troubleshoot Message Delivery](/troubleshooting/message-delivery/).
 - **Templates** — reusable subject/body content you can drop into a message instead of writing it
   from scratch every time, including a drag-and-drop email builder. See
   [Templates](/messages/templates/).
 
 ## What you need to send messages
 
-- **Email** works out of the box for every school.
+- **Email** does not need the SMS phone-number setup. Your school still needs access to
+  communications and available email quota.
 - **SMS (text messages)** requires a phone number set up under
   [Settings → Branding → Phone Number](/settings/branding/phone-number/). Until that's done, the
   SMS option won't be available when composing.
@@ -87,6 +92,6 @@ See [Send a Message](/messages/send-a-message/) for conversations and
   <LinkCard
     title="Review the Outbox"
     href="/messages/outbox/"
-    description="See everything your school has sent, including automatic emails."
+    description="Review recorded outgoing messages, including automatic emails."
   />
 </CardGrid>

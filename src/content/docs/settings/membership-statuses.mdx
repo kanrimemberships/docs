@@ -1,18 +1,35 @@
 ---
 title: Membership Statuses
-description: How to create and manage the membership statuses used at your school.
+description: Create active and inactive status labels and choose the school's defaults.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Membership statuses label whether a member's program enrolment is active. The status is separate from the member's billing subscription.
 
-## What this page will cover
+You need **Manage Settings** and the Memberships feature to manage these statuses.
 
-- What membership statuses are (the labels you assign to memberships, e.g. "Active", "Suspended", "On Hold", "Trial")
-- The default "Active" status and why it matters for reports (only "active" statuses count toward active member counts)
-- Creating a new status: setting the name, and whether it counts as "active"
-- Editing a status name
-- Reordering statuses
-- Deleting a status (only possible if no memberships are using it)
-- Setting the default status for new memberships
+## Create a status
+
+1. Open **Settings → Membership Status**.
+2. Select **New Membership Status**.
+3. Enter a unique name, such as **Active**, **Paused**, or **Completed**.
+4. Turn on **Active** if memberships with this status should count as active.
+5. Select **Create Membership Status**.
+
+Choose the active flag based on how your school uses the status. For example, a paused enrolment may need an inactive status if the member should not be treated as currently enrolled.
+
+## Set the default statuses
+
+1. Open **Settings**.
+2. Choose a **Default Active Membership Status** for new active memberships.
+3. Choose a **Default Inactive Membership Status** for memberships when they end.
+4. Save the settings.
+
+Kanri requires one active and one inactive default. You can choose from the statuses that match each state.
+
+Take care when editing a status: changing its name or active flag affects all current and past memberships, including historical data. If you change the active flag, memberships using that status can switch between active and inactive.
+
+## Next steps
+
+- [Assign a Membership](/members/memberships/assign-membership/)
+- [Change Membership Status](/members/memberships/change-status/)
+- [End a Membership](/members/memberships/end-membership/)

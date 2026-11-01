@@ -1,14 +1,36 @@
 ---
 title: Set Up a Card Reader
-description: Connect a supported card reader to your school.
+description: Configure the school's terminal location, register a reader, and choose a default.
 ---
 
-:::note[Guide coming soon]
-This guide will cover payment location setup, registering a reader, and choosing the default reader.
-:::
+Kanri uses Stripe Terminal for in-person card payments. Set up the school's connected Stripe account and terminal location before registering a reader.
 
-## Planned topics
+## Before you start
 
-- Check that in-person payments are available for your school.
-- Create or select a payment location.
-- Register, rename, or remove a reader.
+- Confirm the school's Stripe account is connected in **Settings → Account**.
+- Confirm the school has the **Terminal** feature and your role has **Manage Terminal** permission. If the settings are unavailable, ask a school administrator to check both.
+- Check that the school's address is correct. Kanri uses the school location when setting up terminal payments.
+- Have the reader and its registration code available. The Terminal settings page says to contact Kanri support to arrange purchasing a reader.
+
+## Set up the terminal location
+
+1. Go to **Settings → Terminal**.
+2. If the page offers **Set Up Terminal**, select it.
+3. Wait for Kanri to complete the setup. Kanri creates the Stripe Terminal location for the school. A connected Stripe account and a school address are required.
+4. If setup reports an error, check the Stripe connection and school address, then contact Kanri support if the issue continues.
+
+## Register the reader
+
+1. On **Settings → Terminal**, select **Add Reader**.
+2. Enter the registration code shown by the reader and a clear **Label**, such as *Front Desk* or *Studio 2*.
+3. Submit the form to register the reader.
+4. Confirm the reader appears in the **Terminal Readers** list. Review its device type and status.
+5. If more than one reader is listed, select the radio button beside the reader staff should use by default, then select **Save Default**.
+
+Use labels that let staff identify the physical device. If a reader is moved, update the label so staff do not choose the wrong device.
+
+## Change the default or remove a reader
+
+To select a different default, choose its radio button and select **Save Default**. To remove an unavailable or retired device, use its delete action in the reader list. Check the list afterward and set another default if the school still uses a reader.
+
+If a reader is not available during an invoice charge, review its status and the school's terminal setup before trying another reader. See [Take an In-Person Payment](/billing/terminal/take-payment/) and [In-Person Payments](/billing/terminal/).

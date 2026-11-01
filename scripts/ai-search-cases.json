@@ -6,7 +6,7 @@
     "max_queries": 20
   },
   "cases": [
-    { "query": "What is the difference between a membership and a subscription?", "paths": ["/how-it-all-fits-together/"] },
+    { "query": "What is the difference between a membership and a subscription?", "paths": ["/how-it-all-fits-together/", "/members/memberships/", "/members/subscriptions/"] },
     { "query": "How do I add a card for recurring payments?", "paths": ["/members/subscriptions/add-payment-method/", "/getting-started/set-up-billing/"] },
     { "query": "How do I create a KPI?", "paths": ["/reports/kpis/create-kpi/"] },
     { "query": "How do I set monthly KPI goals?", "paths": ["/reports/kpis/set-goals/"] },
@@ -18,6 +18,13 @@
     { "query": "Where do I see historical attendance?", "paths": ["/reports/attendance/historical-attendance/"] },
     { "query": "What does the Only Memberships report show?", "paths": ["/reports/memberships/only-memberships/"] },
     { "query": "How do I create a billing plan?", "paths": ["/billing/billing-plans/create-plan/", "/getting-started/set-up-billing/"] },
-    { "query": "How do I renew a Canadian passport?", "paths": [] }
+    { "query": "How do I renew a Canadian passport?", "paths": [] },
+    { "query": "How do I add a new member?", "paths": ["/members/add-member/", "/getting-started/add-your-first-member/"] },
+    { "query": "How do I send a secure link to collect payment details?", "paths": ["/members/subscriptions/add-payment-method/", "/getting-started/set-up-billing/"] },
+    { "query": "How do I change a member's membership status?", "paths": ["/members/memberships/change-status/"] },
+    { "query": "How do I publish a workflow?", "paths": ["/workflows/publish-and-enable/"] },
+    { "query": "How do I bake sourdough bread?", "paths": [] },
+    { "query": "How do I file a Canadian tax return?", "paths": [] },
+    { "query": "How do I replace a car battery?", "paths": [] }
   ]
 }

@@ -1,10 +1,20 @@
 import { execFileSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { config, isDocsUrl, publishedUrls, request, validateConfig } from "./ai-search.mjs";
+import { config, isDocsUrl, publishedUrls, request, searchDocumentation, validateConfig } from "./ai-search.mjs";
+import { retrievalOptions, summarizeEvaluation, validateRetrievalOptions } from "./ai-search-retrieval.mjs";
 
 // This is an offline comparison, not a second production index or scorer.
 const suite = JSON.parse(await readFile(new URL("./ai-search-cases.json", import.meta.url), "utf8"));
+validateRetrievalOptions(retrievalOptions);
+const baselineMode = process.argv.includes("--hybrid-baseline");
+const retrieval = baselineMode ? {
+  cache: { enabled: false }, query_rewrite: { enabled: false }, reranking: { enabled: false },
+  retrieval: { retrieval_type: "hybrid", max_num_results: 5, return_on_failure: false },
+} : retrievalOptions;
+if (process.argv.slice(2).some((argument) => argument !== "--hybrid-baseline")) {
+  throw new Error("Usage: node scripts/ai-search-evaluate.mjs [--hybrid-baseline]");
+}
 class MissingArticle extends Error {}
 validateConfig(config);
 if (suite.cases.length > suite.thresholds.max_queries || suite.thresholds.max_queries > 20) {
@@ -89,13 +99,10 @@ async function main() {
   for (const item of suite.cases) {
     const eligiblePaths = item.paths.filter((path) => urls.some((url) => new URL(url).pathname === path));
     const started = performance.now();
-    const response = await request(`/${config.instance.id}/search`, "POST", {
+    const response = baselineMode ? await request(`/${config.instance.id}/search`, "POST", {
       query: item.query,
-      ai_search_options: {
-        cache: { enabled: false }, query_rewrite: { enabled: false }, reranking: { enabled: false },
-        retrieval: { max_num_results: 5, retrieval_type: "hybrid", return_on_failure: false },
-      },
-    });
+      ai_search_options: retrieval,
+    }) : await searchDocumentation(item.query);
     const latency = Math.round(performance.now() - started);
     if (!Array.isArray(response.chunks) || response.chunks.length > 5) throw new Error("Invalid retrieval response.");
     const chunks = response.chunks.map((chunk) => {
@@ -104,7 +111,11 @@ async function main() {
       if (!isDocsUrl(chunk.item.key)) throw new Error("Unsafe citation in retrieval response.");
       safeCitations++;
       if (!urls.includes(chunk.item.key)) throw new Error("Citation absent from published sitemap.");
-      return { url: chunk.item.key, excerpt: chunk.text.slice(0, 1200) };
+      if (retrieval.reranking.enabled && (!Number.isFinite(chunk.scoring_details?.reranking_score) ||
+          chunk.scoring_details.reranking_score < retrieval.reranking.match_threshold)) {
+        throw new Error("Provider returned a chunk below the required reranking confidence.");
+      }
+      return { url: chunk.item.key, score: chunk.score, excerpt: chunk.text.slice(0, 6000) };
     });
     const hit = (found) => eligiblePaths.length
       ? found.some((url) => eligiblePaths.includes(new URL(url).pathname))
@@ -113,31 +124,26 @@ async function main() {
     if (!match) throw new Error("Baseline query missing.");
     results.push({
       query: item.query, in_corpus: eligiblePaths.length > 0,
+      explicitly_unsupported: item.paths.length === 0,
       excluded_placeholder_topic: item.paths.length > 0 && !eligiblePaths.length,
       latency_ms: latency, topic_hit: hit(chunks.map((chunk) => chunk.url)),
       postgres_topic_hit: hit(match.urls), postgres_urls: match.urls, chunks,
     });
   }
-  const supported = results.filter((item) => item.in_corpus);
-  if (!supported.length) throw new Error("Evaluation has no supported questions in the completed corpus.");
-  const latencies = results.map((item) => item.latency_ms).sort((a, b) => a - b);
   const metrics = {
     corpus_pages: articles.length,
     placeholder_pages: articles.filter((page) => page.text.includes("This page is not yet complete.")).length,
     queries: results.length,
-    top_five_topic_rate: supported.filter((item) => item.topic_hit).length / supported.length,
-    postgres_top_five_topic_rate: supported.filter((item) => item.postgres_topic_hit).length / supported.length,
+    ...summarizeEvaluation(results),
     safe_citation_rate: citations ? safeCitations / citations : 0,
-    excluded_placeholder_topics: results.filter((item) => item.excluded_placeholder_topic).length,
-    unsupported_empty: results.filter((item) => !item.in_corpus).every((item) => item.topic_hit),
-    p95_latency_ms: latencies[Math.ceil(latencies.length * 0.95) - 1],
-    retrieval_list_price_usd: results.length * 0.75 / 1000,
+    retrieval_list_price_usd: results.length * (retrieval.retrieval.retrieval_type === "keyword" ? 0.1 : 0.75) / 1000,
   };
   const passed = !sourceErrors.length && metrics.top_five_topic_rate >= suite.thresholds.top_five_rate &&
     metrics.safe_citation_rate >= suite.thresholds.safe_citation_rate &&
     metrics.p95_latency_ms <= suite.thresholds.p95_latency_ms && metrics.unsupported_empty;
   console.log(JSON.stringify({
-    measured_at: new Date().toISOString(), thresholds: suite.thresholds, metrics, source_errors: sourceErrors, passed,
+    measured_at: new Date().toISOString(), retrieval_options: retrieval,
+    thresholds: suite.thresholds, metrics, source_errors: sourceErrors, passed,
     manual_passage_review_required: true, changed_deleted_page_test_required: true, results,
   }, null, 2));
   if (!passed) process.exitCode = 1;

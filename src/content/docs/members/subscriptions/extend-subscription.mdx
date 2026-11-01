@@ -1,17 +1,17 @@
 ---
 title: Extend a Subscription
-description: How to give a member extra time on their subscription (e.g. for a refund, holiday freeze, or goodwill gesture).
+description: How to create a following subscription term for an eligible end-dated subscription.
 ---
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-Extend a subscription when a fixed-term plan should continue for longer.
+Use **Extend** to set up a following subscription term for an eligible end-dated subscription. It creates a separate subscription; it does not change the original subscription's end date or payment history.
 
 ## Before you start
 
-You can only extend a subscription when:
+You can only extend an end-dated subscription when:
 
-1. it is a fixed-term subscription with an end date
+1. its price type is **Paid in Full**, **Fixed Term**, or **Scholarship**
 2. it is not already cancelled
 
 ## Extend a subscription
@@ -19,21 +19,20 @@ You can only extend a subscription when:
 1. Open the member from the [Members list](/members/).
 2. Click **Billing**, then **Subscriptions**.
 3. Open the subscription.
-4. Click **Extend**.
-5. Enter the date the extended term should begin.
-6. Click **Extend**.
+4. Select **Extend**.
+5. Choose the price and enter the date the new term should begin.
+6. Select **Create Subscription**.
 
-Kanri uses that date to create the next part of the subscription and move the end date further into the future.
+Kanri creates another subscription for the member using the selected price and start date. The original subscription remains unchanged.
 
-You can set the next part to begin the day after the current subscription ends.
-Adjacent terms are allowed; they do not count as overlapping.
+You can set the new term to begin on the day after the original subscription ends. Adjacent terms are allowed; they do not count as overlapping.
 
 :::note
 Ongoing subscriptions do not need to be extended. They continue until you [cancel the subscription](/members/subscriptions/cancel-subscription/).
 :::
 
 :::caution
-You cannot extend a cancelled subscription. If the member should continue paying, create a new plan arrangement instead of relying on a cancelled subscription.
+You cannot use **Extend** for a cancelled subscription. If the member should continue paying, create a new subscription after reviewing the cancellation and payment history.
 :::
 
 ## Next steps

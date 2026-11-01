@@ -3,12 +3,42 @@ title: Shop Reports
 description: Review product sales, stock costs, and shop performance.
 ---
 
-:::note[Guide coming soon]
-This guide will explain the shop reports and how purchase costs affect reported margins.
-:::
 
-## Planned topics
+Use **Pro Shop Margin** to compare revenue from sold products with the costs of the stock those products came from.
 
-- Review sales and product costs for a date range.
-- Understand how purchase-order overhead is included in costs.
-- Export or share report results where available.
+This report is useful for reviewing how the shop performed over a period, not for checking the current quantity on hand. Use [Inventory](/shop/inventory/) for stock and [Purchase Orders](/shop/purchase-orders/) for supplier deliveries and order costs.
+
+## Open and filter the report
+
+1. Open **Reports** and select **Pro Shop Margin**.
+2. Choose a **Date Field**: **Received Date**, **Placed Date**, or **Created Date**. **Received Date** is the default.
+3. Enter a **From** and **To** date.
+4. Select **Apply Filters**. Select **Reset** to clear the date range.
+
+The summary shows total cost of goods sold, sales revenue, overall margin, and average margin per purchase order. The table breaks those figures down by purchase order and supplier.
+
+Choose the date field that matches the question you are answering:
+
+| Date field | Use it to look at |
+| --- | --- |
+| **Created Date** | When the purchase order record was created |
+| **Placed Date** | When the order was placed with the supplier |
+| **Received Date** | When the purchase order was fully received; partially received orders do not yet have this date |
+
+Set both **From** and **To** to compare the same reporting period across runs. If the report appears to omit an order, check whether you filtered by its creation, placement, or receipt date.
+
+## Understand the figures
+
+Revenue is matched to purchase order stock using the order in which stock was received and sold. The report recognizes a purchase order's extra costs, such as shipping or customs, in proportion to the units from that order that have sold. Receiving an order does not count all of its extra costs as the cost of goods sold immediately.
+
+Orders with no matched sales have no per-order margin yet. Use [Purchase Orders](/shop/purchase-orders/) to review costs and [Inventory](/shop/inventory/) to check units still on hand or waiting for pickup.
+
+The report matches stock deductions from fulfilled items with received purchase-order stock, using the invoice line's unit price. Simply issuing an invoice or allocating an item for pickup does not count it as sold here. Initial stock and manual stock adjustments are not purchase-order receipts, so not every sale can be matched to an order.
+
+These figures are not a complete accounting profit calculation. The matching does not subtract returns or refunds, or adjust the line's unit price for invoice discounts and tax. For actual payment and refund amounts, review the [invoice and its charges](/billing/invoices/).
+
+## Next steps
+
+- [Manage inventory](/shop/inventory/)
+- [Review purchase orders](/shop/purchase-orders/)
+- [Create a product](/shop/products/)

@@ -1,24 +1,56 @@
 ---
 title: Configure Custom Report Charts and Summary Cards
-description: Choose chart types, group report results, and display calculations in summary cards.
+description: Group records in charts or show a single calculated value in a stat block.
 ---
 
-:::note[Guide coming soon]
-This guide will explain the chart and summary card options available in custom reports.
-:::
+Add a **Chart** when you want to compare groups of records. Add a **Stat** when one number
+answers the question. Both use a selected record type and can have their own filters.
 
-## Planned topics
+## Create a chart
 
-- Add a chart or summary card to a report view.
-- Choose a chart type and the information used to group results.
-- Select a calculation, such as a count, sum, average, minimum, or maximum.
-- Set labels for chart groups and summary values.
-- Choose a card's size, title, icon, and color.
-- Link a summary card to a saved [KPI](/reports/kpis/) to show its goal and history.
-- Understand when charts and summary cards use different filters or record types.
+1. Open a report view and choose **Add Block**.
+2. Select the records to analyze, then choose **Chart**.
+3. Open **Group By** and choose the field that separates records into groups. For example,
+   choose **Member Type** to compare members and leads.
+4. Open **Aggregates & Chart Type**. Choose **Bar**, **Line**, or **Pie**, then configure the
+   value to calculate for each group.
+5. Add a filter when you want to analyze only part of the data. Check that the chart's groups
+   and totals match your question before saving.
 
-## Related guides
+For example, choose **Booking** records, group by **Status**, and use a **Bar** chart with a
+count. This compares the number of bookings in each status. To focus on recent activity, add
+a date filter such as **Date** in the current month.
 
-- [Build Custom Report Filters](/reports/custom-reports/filter-builder/)
-- [About KPIs](/reports/kpis/)
-- [Manage Report Views](/reports/custom-reports/report-views/)
+Use date fields as a time series when the picker offers date grouping. Choose a time bucket
+that matches the question; grouping by an exact timestamp can split one day into many small
+groups. Pie charts are easiest to read when there are only a few meaningful categories.
+
+## Create a stat
+
+1. Choose **Add Block**, select the records, and choose **Stat**.
+2. Open **Aggregate** and choose a calculation. **Count** counts matching records; **Sum**,
+   **Average**, **Minimum**, and **Maximum** require a compatible numeric or currency field.
+3. Add a filter if the value should cover only a defined subset.
+4. Adjust the block width using the width control if needed.
+
+For example, choose **Member** records, use **Count**, and filter **Signed Up On** to the
+current month to show how many member profiles were created during that period.
+
+## Link a stat to a KPI
+
+If a suitable KPI already exists, choose it under **Link to KPI** in the stat's **Aggregate**
+settings. The stat then uses that KPI's record type, filter, and calculation. Those settings
+are controlled by the linked KPI, so edit the KPI itself when you need to change its
+definition. Learn more about [KPIs](/reports/kpis/).
+
+## Make the view easy to scan
+
+Give each block a short title that states what it measures, such as **Bookings by Status** or
+**Members Created This Month**. Keep the time period in the title or filter clear; “this
+month” changes as time passes, while a fixed date range does not.
+
+## Next steps
+
+- [Choose records and understand available fields](/reports/custom-reports/record-field-reference/)
+- [Build filters](/reports/custom-reports/filter-builder/)
+- [Organize charts and stats into views](/reports/custom-reports/report-views/)

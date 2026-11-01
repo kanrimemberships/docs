@@ -27,7 +27,7 @@ Each program contains **Classes**, which are the named types of training within 
 
 Classes can optionally have **Variants**, which are sub-types that distinguish the format of a session without creating a whole new class. "Karate (Blue–Black Belt)" might have a "Sparring" variant and a "Kata" variant. Variants are optional; a class with no variants just runs as itself.
 
-A **Schedule** is a recurring timetable entry. It defines which class runs, on which days, at what time, and generates individual **Sessions** from that pattern. Sessions are the actual occurrences members attend. When you take attendance, you're marking members as present on a specific session. If you change a schedule's time or days, you [sync it](/schedules/sync-schedule/) to push those changes to future sessions. Past sessions are never affected.
+A **Schedule** is a named recurring timetable containing one or more class entries. Each entry defines a class, day, and time. **Sessions** are the occurrences members book and attend. When you take attendance, you're marking members as present for a session on a particular date. If you change an active timetable, [sync it](/schedules/sync-schedule/) to apply the changes. Review affected bookings before confirming; timetable changes are not just visual changes.
 
 ## Billing Plans and Prices
 
@@ -41,7 +41,17 @@ A **Subscription** links a specific member to a specific price on a plan. If it 
 
 Programs can optionally have **Levels**, which are a ranking system like belt grades or skill tiers. When a member is enrolled in a program they're placed at a starting level. Each level can have requirements: a minimum number of classes attended and a minimum number of days since their last promotion.
 
-When a member meets those requirements, they appear in the [Promotions report](/reports/memberships/promotions/) and can be [promoted to the next level](/members/memberships/promote-level/), which resets their counter.
+The [Promotions report](/reports/memberships/promotions/) helps you find members ready to advance. When you [promote a member](/members/memberships/promote-level/), Kanri updates their level and last-promotion date. Attendance after that date contributes to the next promotion; earlier attendance remains in their history.
+
+If promotions happen at an assessment event, use a
+[grading](/programs/levels/gradings/). A grading can cover one day or a window
+of several days. Staff check eligibility and record promotions on a date
+inside that window.
+
+When changing your rules, a program can
+[keep existing members' requirements until their next promotion](/programs/edit-program/#keep-level-requirements-until-next-promotion).
+This lets new arrivals follow new rules without changing the targets for
+members already training at the level.
 
 :::note
 "Promotions" in Kanri always means advancing a member's rank. It does not refer to discounts or marketing offers.
@@ -77,7 +87,7 @@ That's the core loop: **enrolment → billing → attendance → promotion**.
 | **Level** | A rank within a program (e.g. "White Belt") |
 | **Billing Plan** | A named payment product (e.g. "Monthly Karate") |
 | **Price** | A specific amount and billing interval on a Plan |
-| **Subscription** | A member's recurring billing record |
+| **Subscription** | A member's billing arrangement, which may be recurring, fixed-term, prepaid, or usage-based |
 | **Group** | A named collection of members used for targeting |
 
 For definitions of every term in Kanri, see the [Glossary](/reference/glossary/).

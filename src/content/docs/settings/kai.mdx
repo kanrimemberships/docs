@@ -1,0 +1,110 @@
+---
+title: Chat with Kai
+description: Ask Kai about Kanri and permitted school information, and return to your conversations.
+---
+
+:::caution[Limited availability]
+Native Kai works only when Kanri has configured its provider for your deployment and the school
+has opted in. A staff member with **Manage Kai** can enable the school setting; if the setting
+is missing or cannot be enabled, contact your school owner or Kanri support.
+:::
+
+Kai is Kanri's AI assistant. You can ask how to use Kanri, find information you are allowed
+to view, compare permitted school information, or read [reports](/reports/) and
+[KPIs](/reports/kpis/create-kpi/). A KPI is a saved number you track, such as active memberships.
+
+Kai can make mistakes. Check important answers against the linked help or school records.
+For example, ask: "How many people attended our Beginner Karate class on October 27?"
+Include the year and school when needed.
+
+## Before you start
+
+You need **Use Kai** and the ordinary permissions for any information you request. Having
+access to Kai does not grant access to members, billing or other restricted information.
+An administrator can review [staff roles](/settings/roles/create-role/).
+
+The school-level setting opts in to the AI provider configured by Kanri; it does not select or
+configure that provider. The active provider depends on your deployment and cannot be determined
+from this page. Review your school's data-sharing requirements before using Kai.
+Do not paste passwords, access tokens or payment-card details into chat.
+
+If you also have **Manage Kai**, open **Kai**, then **Native Kai settings**. Turn on
+**Enable native Kai for this school** and select **Save native Kai policy**.
+These settings are separate from connections for external assistants.
+
+When documentation search is available, it sends your question to Kanri's public-help search
+service. Keep help questions focused on the product; do not include private member details
+in a documentation-search question.
+
+## Start or return to a conversation
+
+1. Select the school you want to work from.
+2. Open **Kai**.
+3. Select **Start fresh conversation**, or choose one of your previous conversations.
+4. Enter your question and send it.
+
+Your history is personal to your account. Conversations stay listed under the school where
+you started them, even when a permitted comparison includes other schools. Model usage is
+attributed to that starting school.
+
+Kai can use only schools that currently allow the configured provider and information your
+current permissions allow you to read. Name each school when asking for a comparison.
+Access to several schools does not by itself authorize combining their information.
+
+## Understand read results
+
+Kai can search permitted records, calculate totals through Kanri's reporting tools, and
+read saved reports, KPIs and workflow definitions. Tool details show which reads it used.
+Reading a workflow does not run it.
+
+## Approve changes Kai proposes
+
+Kai cannot change anything by itself. When you ask for a change, such as editing a member or
+cancelling a booking, it shows a **proposal card** with exactly which records will change.
+Nothing happens until you select **Approve** on that card. Kai cannot approve for you, and
+words in the chat are never approval.
+
+- **Approval and result are separate.** A card shows whether it is waiting, approved,
+  rejected or expired, and separately whether the change is queued, running, completed or
+  failed.
+- **Proposals expire** after 10 minutes. If the records changed since Kai proposed, approval
+  is refused and Kai must propose again.
+- **Reject** withdraws a proposal. **Cancel wait** stops Kai waiting for a result without
+  cancelling the change.
+- **Closing the chat does not cancel an approved change.** Some approved changes run as a job you can
+  follow from the card.
+- **Unknown result.** If Kanri cannot tell whether a change finished, the card says it needs
+  checking. Check the records yourself; Kanri never retries it automatically.
+- After a result, Kai may post one short follow-up message. These count toward your usage limits.
+
+Changes to invoices, such as creating, voiding or sending a receipt, use the same approval
+card. Read the card carefully before approving, because these can affect what families owe.
+
+## Stop or reconnect
+
+Use **Stop** to interrupt an answer. If your connection briefly drops, Kai tries to reconnect
+and show output already received without starting the same question again.
+
+If a model request or service restart interrupts an answer, you may see a partial answer.
+Send a new message explicitly to continue. Kai does not silently send the same request again.
+If another tab is already asking a question in the same conversation, wait for that answer.
+
+If your role or access to any school information in a conversation changes, the entire
+conversation may become unavailable. Start a fresh conversation with the information you
+can currently access. This prevents old chat history from bypassing current permissions.
+
+## Understand usage
+
+Enabling Kai is not a promise of free or unlimited provider usage. Pricing and provider-level
+usage controls depend on Kanri's deployment; ask Kanri support what limits apply before enabling
+Kai. A long conversation may require starting a new one.
+
+Kanri records token usage when the provider supplies it. Missing token or cost data is unknown,
+not zero; this guide cannot confirm how your configured provider bills or limits usage.
+
+## Next steps
+
+- [Create a KPI](/reports/kpis/create-kpi/)
+- [Build a custom report](/reports/custom-reports/)
+- [Connect an external assistant](/settings/external-assistants/)
+- [Review staff permissions](/settings/roles/create-role/)

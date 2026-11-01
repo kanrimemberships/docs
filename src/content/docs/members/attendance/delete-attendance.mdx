@@ -7,16 +7,19 @@ import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
 Delete an attendance entry when it was added by mistake.
 
+You need the **Manage Members** permission, and Memberships must be available to your school.
+
 ## Before you delete attendance
 
 Deleting attendance is a **soft delete**. That means the entry is removed from the normal list, but Kanri keeps a record in the background.
 
-Deleting attendance can affect:
+Deleting an attendance record removes it from the normal attendance list and can affect:
 
 - attendance totals
 - level progress
 - reports that use attendance data
-- sessions remaining on a block-style membership
+
+Deleting the record does not restore subscription session credits that were used when the attendance was recorded.
 
 ## Delete an attendance entry
 
@@ -36,7 +39,7 @@ Only delete attendance if you are sure the entry should not be there. If the mem
 After you delete attendance:
 
 1. Review the member's attendance list.
-2. Check their [membership](/members/memberships/) if you track level progress or sessions remaining.
+2. Check their [membership](/members/memberships/) if you track level progress.
 3. Re-add the attendance correctly if needed.
 
 ## Next steps

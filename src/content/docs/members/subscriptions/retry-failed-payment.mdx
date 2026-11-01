@@ -11,7 +11,7 @@ Retry a payment when a subscription payment has failed and you want to charge ag
 
 Make sure:
 
-1. the payment you are looking at has failed
+1. the payment you are looking at has failed, or you have reviewed the dispute status and decided a retry is appropriate
 2. the subscription has an attached payment method
 
 ## Retry a failed payment
@@ -28,6 +28,8 @@ Kanri creates a new charge attempt and charges the attached payment method immed
 :::note
 Retry uses the payment method currently attached to the subscription.
 :::
+
+Kanri may also show **Retry** for a subscription payment whose latest charge is **Dispute Open** or **Dispute Lost**. Before retrying a disputed charge, review [Disputed Payments](/billing/troubleshooting/disputed-payments/) and confirm that another attempt is appropriate.
 
 :::caution
 If the subscription does not have a payment method attached, you cannot retry the charge. Add a payment method first, then try again.

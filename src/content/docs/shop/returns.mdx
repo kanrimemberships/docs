@@ -3,12 +3,36 @@ title: Process Returns
 description: Record returned products and manage the related invoice adjustment.
 ---
 
-:::note[Guide coming soon]
-This guide will cover selecting items, recording a return, and checking the stock and payment outcome.
-:::
 
-## Planned topics
+Use a return when a member brings back an item from a paid sale. The return is recorded against the original invoice, so your team can review what came back and what happened to the stock and payment.
 
-- Choose the sale and items being returned.
-- Record quantities and the reason for the return.
-- Review inventory and refund effects.
+Process a return against the original invoice rather than deleting the sale or changing its quantity. That preserves the original purchase and gives staff one place to review the return, refund, and stock decision.
+
+## Record a return
+
+1. Open **Invoices**, then select the paid, partially paid, or refunded invoice.
+2. Select **Process Return**.
+3. Enter the return **Reason** and any **Notes**.
+4. For each item being returned, enter the quantity. Leave the quantity blank or at zero for items the member is keeping.
+5. Select **Restock** only if the item can go back into sellable stock. Leave it unchecked for damaged or unsellable items.
+6. Select **Create Return**.
+
+Kanri records the return. If an item is marked to restock, its quantity is added to inventory. Other items do not change stock. **Creating a return does not issue a refund.** If money is due back, use the invoice's separate [refund action](/billing/invoices/).
+
+You must select at least one item and enter a reason. The return quantity cannot exceed the line's recorded fulfillment or allocation quantity minus earlier returns. Check whether the member actually received the item before choosing to restock it; an allocation reserves stock but does not record a handover.
+
+For example, a member returns one of two uniforms because the size is wrong. Record **1** for that line, enter a condition such as "unworn", and select **Restock** if you can sell it again. The other unit remains on the original sale. For a damaged uniform, record the condition but leave **Restock** unchecked so your sellable stock is not increased.
+
+You can record a return for a paid, partially paid, or already refunded invoice. Review the [charge and refund history](/members/billing/view-charges/) before issuing a separate refund so you do not refund the same purchase twice.
+
+The amount returned as money is limited by the remaining refundable payment amount. If the member is returning more than the amount that can be refunded through the original charges, review the charge history before promising a refund. A return record and a successful refund are related but separate outcomes, so check both on the invoice.
+
+## Review a return
+
+Open the invoice to see its **Returns** section. Select a return to review its reason, notes, date, items, condition, and restocking decision. Recording a return does not itself change the invoice's payment status. If you also issued a refund, open the related charge to check whether that refund is pending, succeeded, or failed.
+
+## Next steps
+
+- [Review invoices, refunds, and receipts](/billing/invoices/)
+- [Review a member's charges](/members/billing/view-charges/)
+- [Check inventory](/shop/inventory/)

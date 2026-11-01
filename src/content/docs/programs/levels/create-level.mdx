@@ -3,12 +3,46 @@ title: Create a Level
 description: How to add a level (e.g. a belt or grade) to a program.
 ---
 
-1. Go to **Programs**, open the program, then open **Levels**.
-2. Select **New Level** and enter a name.
-3. Set the minimum number of classes and days members must complete before promotion, if needed.
-4. To base the next promotion date on a grading, enable **Next promotion is at next grading**.
-5. Arrange the level in the progression, then save.
+:::caution[Beta feature]
+Grading-based promotion scheduling is in beta and may change. Contact support if you run into a problem.
+:::
 
-When **Next promotion is at next grading** is enabled, Kanri uses the next scheduled grading for this program after the minimum-days threshold. Create or edit gradings from [Manage Gradings](/programs/levels/gradings/). A member-specific next promotion date overrides the level's setting.
+Levels define the order members advance through a program. For example, a karate program might have **White Belt**, **Yellow Belt**, and **Blue Belt**. A member can only advance to the next level in this order, so check the progression after adding a level.
 
-Members must have a next level before they can be promoted. If you leave both minimum requirements unset, date eligibility has no threshold.
+## Add a level
+
+1. Open **Programs**, select the program, then open **Levels**.
+2. Select **New Level**.
+3. Enter a **Name**, such as **Yellow Belt**.
+4. Optionally set **Min Classes**, **Min Days**, or both.
+5. If your school promotes members at scheduled events, enable **Next promotion is at next grading**. You must also [schedule a grading for this program](/programs/levels/gradings/).
+6. Select **Create**.
+
+### Choose promotion requirements
+
+**Min Classes** sets how many confirmed, qualifying attendances a member needs since their last promotion. Attendance still counts after a program change when it belongs to the same membership. A class does not count if **Counts towards attendance** is turned off. **Min Days** sets how many calendar days must pass since the member was last promoted, or since their membership began if they have not been promoted yet. When you set both, the member must meet **both** requirements for normal eligibility.
+
+For example, if Yellow Belt requires **20 classes** and **60 days**, a member who has attended 20 classes still needs to reach 60 days. A member who has been at the level for 60 days still needs the required classes.
+
+Leave a field empty if you do not want that requirement. If both are empty, there is no class or day threshold. When **Next promotion is at next grading** is enabled without a minimum-days requirement, the next upcoming grading for the program sets the date. If you set **Min Days**, the grading must be on or after the date the member meets that requirement.
+
+Enter non-negative whole numbers for the class and day requirements. Your school's chosen name for levels, such as **Belt**, may replace **Level** in headings and buttons. Staff need permission to manage programs to add or edit levels.
+
+## Check the level order
+
+The order in **Levels** determines which level comes next. Use the row's **Move up** and **Move down** controls to change its position. Use **Move in** or **Move out** to nest a level under another level or return it to the main list.
+
+For example, if **Yellow Belt** should follow **White Belt**, make sure Yellow
+Belt appears after White Belt at the same level in the progression. Members
+need a next level to be promoted. If the program
+[keeps level requirements](/programs/edit-program/#keep-level-requirements-until-next-promotion),
+an existing member can keep their previous destination, including having no
+next level, even after you change the order.
+
+A member-specific next promotion date overrides the date calculated from the level. Learn how to [promote a member](/members/memberships/promote-level/), [review the Promotions report](/programs/levels/promotions-report/), or [manage gradings](/programs/levels/gradings/).
+
+## Next steps
+
+- [Edit the level order or requirements](/programs/levels/edit-level/)
+- [Promote a member](/members/memberships/promote-level/)
+- [Review promotion eligibility](/programs/levels/promotions-report/)

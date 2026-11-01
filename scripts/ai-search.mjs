@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { setTimeout as sleep } from "node:timers/promises";
 import { corpusSitemap } from "./ai-search-corpus.mjs";
+import { retrievalOptions, validateRetrievalOptions } from "./ai-search-retrieval.mjs";
 
 export const config = JSON.parse(await readFile(new URL("./ai-search-config.json", import.meta.url), "utf8"));
 const directory = fileURLToPath(new URL("../", import.meta.url));
@@ -112,6 +113,26 @@ export async function request(path = "", method = "GET", body) {
 }
 
 const instancePath = `/${config.instance.id}`;
+
+export async function searchDocumentation(query) {
+  if (typeof query !== "string" || !query.trim() || query.length > 300 ||
+      /[\u0000-\u001f\u007f]/.test(query)) {
+    throw new Error("Documentation query must contain 1-300 characters without control characters.");
+  }
+  validateRetrievalOptions(retrievalOptions);
+  const result = await request(`${instancePath}/search`, "POST", { query, ai_search_options: retrievalOptions });
+  if (!Array.isArray(result.chunks) || result.chunks.length > retrievalOptions.retrieval.max_num_results) {
+    throw new Error("Invalid documentation search result count.");
+  }
+  for (const chunk of result.chunks) {
+    if (!isDocsUrl(chunk.item?.key) || typeof chunk.text !== "string" ||
+        !Number.isFinite(chunk.scoring_details?.reranking_score) ||
+        chunk.scoring_details.reranking_score < retrievalOptions.reranking.match_threshold) {
+      throw new Error("Invalid documentation passage, citation or reranking confidence.");
+    }
+  }
+  return result;
+}
 
 function timestamp(value) {
   if (typeof value !== "string") throw new Error("Missing indexing timestamp.");
@@ -244,8 +265,12 @@ async function main() {
     case "errors":
       result = await request(`${instancePath}/items?status=error&per_page=50`);
       break;
+    case "search":
+      if (process.argv.length !== 4) throw new Error('Usage: node scripts/ai-search.mjs search "public product-help query"');
+      result = await searchDocumentation(process.argv[3]);
+      break;
     default:
-      throw new Error("Usage: node scripts/ai-search.mjs provision|configure|get|check|sync [--wait]|health|jobs|stats|errors");
+      throw new Error('Usage: node scripts/ai-search.mjs provision|configure|get|check|sync [--wait]|health|jobs|stats|errors|search "query"');
   }
   console.log(JSON.stringify(result, null, 2));
 }

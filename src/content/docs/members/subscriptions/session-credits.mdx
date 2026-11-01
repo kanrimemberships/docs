@@ -3,17 +3,47 @@ title: Session Credits
 description: Review and adjust class credits for a member's session-block subscription.
 ---
 
-:::note[Guide in progress]
-Session credits are available for eligible subscriptions. This guide is being written.
-:::
+Session credits are prepaid visits attached to a member's **Session Block** subscription. They are not a general member balance and do not apply to a **Per Session** subscription.
 
-Session credits belong to a member's subscription, not to the member as a general balance. They are used with eligible session-block subscriptions.
+## Review a credit balance
 
-## Planned topics
+1. Open the member's subscription.
+2. Confirm that its price type is **Session Block**.
+3. Find **Session Credits** to review the credit blocks, remaining sessions, expiry dates, and usage history.
 
-- Find the **Session Credits** area on an eligible subscription.
-- Review credits issued, credits remaining, and usage history.
-- Add an adjustment or revoke unused credits.
-- Understand when recording attendance uses a credit.
+Each credit block records its total sessions and remaining sessions. For example, a 10-session block with 3 visits used should show 7 remaining.
 
-See [Subscriptions](/members/subscriptions/) for the member's billing records.
+## When attendance uses a credit
+
+When staff record attendance, **Bill Session Usage** controls whether that attendance is billed against an eligible subscription. For a **Session Block** subscription, Kanri deducts an available, unexpired credit and uses the oldest eligible block first. A block with no remaining sessions or an expired block is not available for attendance deduction.
+
+Per-session billing is different: attendance creates usage for that subscription, which is billed immediately or in a cycle according to the price settings. See [Billing Plans](/billing/billing-plans/) for the difference between session blocks and per-session pricing.
+
+## Grant a session block
+
+1. Open the member's active or pending session-block subscription.
+2. Select the grant icon in the **Session Credits** area. The form is titled **Grant Credits**.
+3. Enter the number of sessions to grant.
+4. Optionally enter an **Expiry Date**. The grant form does not include a notes field. An expired block is not available for attendance deduction.
+5. Select **Grant Credits**, then confirm the new block appears in the credit list.
+
+For example, enter `10` to grant a 10-session block. Check that the selected subscription is the one the member will use for attendance.
+
+## Adjust a credit block
+
+Use an adjustment when you need to correct one specific block:
+
+1. Open the session block in the subscription's **Session Credits** area.
+2. Select the edit action.
+3. Enter a positive number to add sessions or a negative number to remove them.
+4. Enter a **Reason** for the adjustment, then save.
+
+Kanri will not let you reduce a block below zero remaining sessions. For example, enter `5` to grant five sessions or `-2` to remove two unused sessions.
+
+## Revoke credits across the subscription
+
+Use **Revoke Credits** when you need to remove unused credits across blocks and do not need to choose an individual block. Enter **Sessions To Revoke** and a **Reason**. Kanri removes them from the oldest blocks first and does not allow revoking more than the remaining balance.
+
+Review the credit and usage history after making a change. Credit adjustments do not refund an invoice; manage any money returned separately through the invoice's charge history.
+
+See [Add Attendance Manually](/members/attendance/add-attendance-manually/) and [Subscriptions](/members/subscriptions/).

@@ -1,143 +1,812 @@
 ---
-title: Trigger Event Types
-description: Complete reference of all event types available for the "Action Event Occurs" workflow trigger.
+title: Workflow Trigger Events
+description: Complete catalog of event types selectable for the Action Event Occurs trigger.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
-The **Action Event Occurs** trigger fires when a specific event is logged in Kanri. This page lists all available event types, grouped by category.
+The **Action Event Occurs** trigger starts a workflow when Kanri logs a selected event. Use
+this catalog to identify the event name and the label associated with each choice in the
+workflow builder.
 
-Use this as a reference when building workflows — the event types shown here match exactly what appears in the trigger configuration in the builder.
+An event definition being selectable does not mean every action in the app emits it. A run
+starts only when Kanri logs that event for your school and the workflow's other trigger
+conditions are satisfied. If a workflow does not start, check its [run history](/workflows/run-history/)
+and confirm that the relevant action actually created the event.
 
----
+## Choose an event
 
-## How event types work
+1. Open a workflow and add or edit its trigger.
+2. Choose **Action Event Occurs**.
+3. Find the event that matches the change or action you want to respond to. Use the event
+   name in the catalog below to distinguish similar choices.
+4. Configure any other available trigger conditions, then test the workflow with a real
+   matching event.
 
-Every time something meaningful happens in Kanri (a member is added, an invoice is paid, a schedule is synced, etc.), an event log entry is created. The "Action Event Occurs" trigger watches for a specific type of event and starts a workflow run whenever one is logged.
+The event name is a stable identifier, such as `member.create`; the label is the readable
+name, such as **Member Create**. The builder's selector is authoritative if its available
+choices ever differ from this page.
 
-Each event type has a **name** (what Kanri uses internally, shown in the builder) and a **label** (the human-readable name).
+## Complete selectable catalog
 
-Events are scoped to your school — a workflow will only fire for events in your own school, not events from other schools.
+The catalog below is generated from Kanri's event definitions. Security and audit-only events
+are excluded because they cannot trigger workflows. Categories are based on the event-name
+prefix.
 
----
+{/* BEGIN GENERATED WORKFLOW EVENT CATALOG */}### Selectable events (350)
 
-## Member events
+#### Administrative fees
 
-| Name | Label |
+| Event name | Label shown in the selector |
+|---|---|
+| `admin_fee.create` | Admin Fee Create |
+| `admin_fee.update` | Admin Fee Update |
+
+#### Api Key
+
+| Event name | Label shown in the selector |
+|---|---|
+| `api_key.create` | API Key Create |
+| `api_key.revoke` | API Key Revoke |
+| `api_key.update_permissions` | API Key Update Permissions |
+
+#### Aquila Lead Sync
+
+| Event name | Label shown in the selector |
+|---|---|
+| `aquila_lead_sync.update` | Aquila Lead Sync Update |
+| `aquila_lead_sync.ingest` | Aquila Lead Ingest |
+
+#### Attendance
+
+| Event name | Label shown in the selector |
+|---|---|
+| `attendance.kiosk_confirm` | Attendance Kiosk Confirm |
+| `attendance.create` | Attendance Create |
+| `attendance.confirm` | Attendance Confirm |
+| `attendance.kiosk_delete` | Attendance Kiosk Delete |
+| `attendance.kiosk_restore` | Attendance Kiosk Restore |
+| `attendance.kiosk_staff_confirm` | Attendance Kiosk Staff Confirm |
+| `attendance.mobile_check_in` | Mobile Check-In |
+| `attendance.move` | Attendance Move |
+
+#### Behaviors
+
+| Event name | Label shown in the selector |
+|---|---|
+| `behaviors.update` | Behaviors Update |
+
+#### Billing
+
+| Event name | Label shown in the selector |
+|---|---|
+| `billing.settings.update` | Billing Settings Update |
+
+#### Billing plans
+
+| Event name | Label shown in the selector |
+|---|---|
+| `billing_plan.create` | Billing Plan Create |
+| `billing_plan.update` | Billing Plan Update |
+| `billing_plan.delete` | Billing Plan Delete |
+| `billing_plan.archive` | Billing Plan Archive |
+
+#### Billing plan prices
+
+| Event name | Label shown in the selector |
+|---|---|
+| `billing_plan_price.create` | Billing Plan Price Create |
+| `billing_plan_price.update` | Billing Plan Price Update |
+| `billing_plan_price.delete` | Billing Plan Price Delete |
+| `billing_plan_price.archive` | Billing Plan Price Archive |
+
+#### Billing plan program access
+
+| Event name | Label shown in the selector |
+|---|---|
+| `billing_plan_program_access.create` | Billing Plan Program Access Create |
+| `billing_plan_program_access.delete` | Billing Plan Program Access Delete |
+
+#### Booking
+
+| Event name | Label shown in the selector |
+|---|---|
+| `booking.create` | Booking Create |
+| `booking.cancel` | Booking Cancelle |
+| `booking.status_update` | Booking Status Update |
+| `booking.update` | Booking Update |
+| `booking.settings_update` | Booking Settings Update |
+| `booking.reschedule` | Booking Reschedule |
+| `booking.reminder` | Booking Reminder |
+
+#### Calendar
+
+| Event name | Label shown in the selector |
+|---|---|
+| `calendar.create` | Calendar Create |
+| `calendar.update` | Calendar Update |
+| `calendar.delete` | Calendar Delete |
+
+#### Calendar Access
+
+| Event name | Label shown in the selector |
+|---|---|
+| `calendar_access.create` | Calendar Access Create |
+| `calendar_access.delete` | Calendar Access Delete |
+
+#### Calendar events
+
+| Event name | Label shown in the selector |
+|---|---|
+| `calendar_event.create` | Calendar Event Create |
+| `calendar_event.update` | Calendar Event Update |
+| `calendar_event.delete` | Calendar Event Delete |
+
+#### Calendar Feed
+
+| Event name | Label shown in the selector |
+|---|---|
+| `calendar_feed.reset` | Calendar Feed Reset |
+
+#### Charge
+
+| Event name | Label shown in the selector |
+|---|---|
+| `charge.create` | Charge Create |
+| `charge.success` | Charge Success |
+| `charge.failure` | Charge Failure |
+| `charge.cancel` | Charge Cancel |
+
+#### Classes
+
+| Event name | Label shown in the selector |
+|---|---|
+| `class.create` | Class Create |
+| `class.update` | Class Update |
+| `class.delete` | Class Delete |
+
+#### Class groups
+
+| Event name | Label shown in the selector |
+|---|---|
+| `class_group.add` | Class Group Add |
+| `class_group.remove` | Class Group Remove |
+
+#### Class programs
+
+| Event name | Label shown in the selector |
+|---|---|
+| `class_program.add` | Class Program Add |
+| `class_program.remove` | Class Program Remove |
+| `class_program.update` | Class Program Update |
+
+#### Class variants
+
+| Event name | Label shown in the selector |
+|---|---|
+| `class_variant.create` | Class Variant Create |
+| `class_variant.update` | Class Variant Update |
+| `class_variant.delete` | Class Variant Delete |
+
+#### Clock
+
+| Event name | Label shown in the selector |
+|---|---|
+| `clock.in` | Staff Clock In |
+| `clock.out` | Staff Clock Out |
+| `clock.edit` | Clock Record Edit |
+
+#### Closed Day
+
+| Event name | Label shown in the selector |
+|---|---|
+| `closed_day.create` | Closed Day Create |
+| `closed_day.update` | Closed Day Update |
+| `closed_day.delete` | Closed Day Delete |
+
+#### Conversations
+
+| Event name | Label shown in the selector |
+|---|---|
+| `conversation.mark_read` | Conversation Mark Read |
+| `conversation.mark_unread` | Conversation Mark Unread |
+| `conversation.flag` | Conversation Flag |
+| `conversation.unflag` | Conversation Unflag |
+| `conversation.archive` | Conversation Archive |
+| `conversation.unarchive` | Conversation Unarchive |
+| `conversation.read` | Conversation Read |
+| `conversation.update` | Conversation Update |
+
+#### Demo School
+
+| Event name | Label shown in the selector |
+|---|---|
+| `demo_school.create` | Demo School Create |
+| `demo_school.reset` | Demo School Reset |
+| `demo_school.delete` | Demo School Delete |
+| `demo_school.expired` | Demo School Expired |
+
+#### Department
+
+| Event name | Label shown in the selector |
+|---|---|
+| `department.create` | Department Create |
+| `department.edit` | Department Edit |
+| `department.delete` | Department Delete |
+| `department.staff_add` | Department Staff Add |
+| `department.staff_remove` | Department Staff Remove |
+
+#### Dns
+
+| Event name | Label shown in the selector |
+|---|---|
+| `dns.record.added` | DNS Record Added |
+| `dns.record.edited` | DNS Record Edited |
+| `dns.record.deleted` | DNS Record Deleted |
+
+#### Documents
+
+| Event name | Label shown in the selector |
+|---|---|
+| `document.create` | Document Create |
+| `document.void` | Document Void |
+| `document.decline` | Document Decline |
+| `document.sign` | Document Sign |
+| `document.viewed` | Document View |
+| `document.edit` | Document Edit |
+| `document.settings.update` | Document Settings Update |
+
+#### Document templates
+
+| Event name | Label shown in the selector |
+|---|---|
+| `document_template.create` | Document Template Create |
+| `document_template.update` | Document Template Update |
+| `document_template.delete` | Document Template Delete |
+
+#### Document Template Version
+
+| Event name | Label shown in the selector |
+|---|---|
+| `document_template_version.create` | Document Template Version Create |
+
+#### Domain
+
+| Event name | Label shown in the selector |
+|---|---|
+| `domain.added` | Custom Domain Added |
+| `domain.verified` | Custom Domain Verified |
+| `domain.degraded` | Custom Domain Degraded |
+| `domain.removed` | Custom Domain Removed |
+| `domain.registered` | Domain Registered |
+| `domain.auto_renewed` | Domain Auto-Renewed |
+| `domain.transfer_auth.generated` | Domain Transfer Auth Code Generated |
+| `domain.registration.quote_created` | Domain Registration Quote Created |
+| `domain.created` | Domain Created |
+| `domain.ownership.verified` | Domain Ownership Verified |
+
+#### Email Section
+
+| Event name | Label shown in the selector |
+|---|---|
+| `email_section.create` | Email Section Create |
+| `email_section.update` | Email Section Update |
+| `email_section.delete` | Email Section Delete |
+
+#### Gallery Folder
+
+| Event name | Label shown in the selector |
+|---|---|
+| `gallery_folder.create` | Gallery Folder Create |
+| `gallery_folder.update` | Gallery Folder Update |
+| `gallery_folder.delete` | Gallery Folder Delete |
+
+#### Gallery Item
+
+| Event name | Label shown in the selector |
+|---|---|
+| `gallery_item.create` | Gallery Item Create |
+| `gallery_item.update` | Gallery Item Update |
+| `gallery_item.delete` | Gallery Item Delete |
+
+#### Grading
+
+| Event name | Label shown in the selector |
+|---|---|
+| `grading.create` | Grading Create |
+| `grading.update` | Grading Update |
+| `grading.delete` | Grading Delete |
+| `grading.membership.include` | Grading Membership Include |
+| `grading.promotion` | Grading Promotion |
+| `grading.membership.exclusion` | Grading Membership Exclusion |
+
+#### Groups
+
+| Event name | Label shown in the selector |
+|---|---|
+| `group.create` | Group Create |
+| `group.update` | Group Update |
+| `group.delete` | Group Delete |
+
+#### Group assignments
+
+| Event name | Label shown in the selector |
+|---|---|
+| `group_assignment.create` | Group Assignment Create |
+| `group_assignment.delete` | Group Assignment Delete |
+
+#### History
+
+| Event name | Label shown in the selector |
+|---|---|
+| `history.rebuild` | History Rebuild |
+
+#### Intake
+
+| Event name | Label shown in the selector |
+|---|---|
+| `intake.settings.update` | Intake Settings Update |
+| `intake.waiver_link.send` | Intake Waiver Link Send |
+
+#### Inventory
+
+| Event name | Label shown in the selector |
+|---|---|
+| `inventory.adjustment` | Inventory Adjustment |
+
+#### Invite
+
+| Event name | Label shown in the selector |
+|---|---|
+| `invite.member` | Invite Member |
+| `invite.user` | Invite User |
+
+#### Invoices
+
+| Event name | Label shown in the selector |
+|---|---|
+| `invoice.create` | Invoice Create |
+| `invoice.open` | Invoice Open |
+| `invoice.void` | Invoice Void |
+| `invoice.paid` | Invoice Paid |
+| `invoice.revert` | Invoice Revert |
+| `invoice.update` | Invoice Update |
+| `invoice.import` | Invoice Import |
+
+#### Invoice items
+
+| Event name | Label shown in the selector |
+|---|---|
+| `invoice_item.create` | Invoice Item Create |
+| `invoice_item.delete` | Invoice Item Delete |
+| `invoice_item.procurement.update` | Invoice Item Procurement Update |
+| `invoice_item.update` | Invoice Item Update |
+
+#### Invoice item allocations
+
+| Event name | Label shown in the selector |
+|---|---|
+| `invoice_item_allocation.create` | Invoice Item Allocation Create |
+
+#### Invoice item fulfillment
+
+| Event name | Label shown in the selector |
+|---|---|
+| `invoice_item_fulfillment.create` | Invoice Item Fulfillment Create |
+| `invoice_item_fulfillment.confirm` | Invoice Item Fulfillment Confirm |
+
+#### Kiosk
+
+| Event name | Label shown in the selector |
+|---|---|
+| `kiosk.member.promote` | Kiosk Member Promote |
+| `kiosk.booking.attend` | Kiosk Booking Attend |
+| `kiosk.booking.no_show` | Kiosk Booking No Show |
+| `kiosk.email_waiver_link_setting.update` | Kiosk Email Waiver Link Setting Update |
+
+#### Kiosk Birthday Video
+
+| Event name | Label shown in the selector |
+|---|---|
+| `kiosk_birthday_video.update` | Kiosk Birthday Video Update |
+
+#### Kiosk Message
+
+| Event name | Label shown in the selector |
+|---|---|
+| `kiosk_message.create` | Kiosk Message Create |
+| `kiosk_message.update` | Kiosk Message Update |
+| `kiosk_message.delete` | Kiosk Message Delete |
+
+#### Kiosk sessions
+
+| Event name | Label shown in the selector |
+|---|---|
+| `kiosk_session.create` | Kiosk Session Create |
+
+#### Kpi
+
+| Event name | Label shown in the selector |
+|---|---|
+| `kpi.create` | KPI Create |
+| `kpi.edit` | KPI Edit |
+| `kpi.delete` | KPI Delete |
+
+#### Lead Settings
+
+| Event name | Label shown in the selector |
+|---|---|
+| `lead_settings.update` | Lead Settings Update |
+
+#### Level
+
+| Event name | Label shown in the selector |
+|---|---|
+| `level.create` | Level Create |
+| `level.update` | Level Update |
+| `level.delete` | Level Delete |
+
+#### Members
+
+| Event name | Label shown in the selector |
 |---|---|
 | `member.create` | Member Create |
 | `member.update` | Member Update |
 | `member.delete` | Member Delete |
 | `member.address.update` | Member Address Update |
+| `member.unlink_user` | Member Unlink User |
+| `member.photo.update` | Member Photo Update |
+| `member.merge` | Member Merge |
 | `member.lead_dedup` | Lead Dedup |
-| `invite.member` | Invite Member |
+| `member.contact_field_dedup` | Member Contact Field Dedup |
+| `member.contact_cleanup` | Member Contact Cleanup |
 
----
+#### Member contacts
 
-## Member note events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
-| `member_note.create` | Member Note Create |
-| `member_note.update` | Member Note Update |
-| `member_note.delete` | Member Note Delete |
+| `member_contact.create` | Member Contact Create |
+| `member_contact.update` | Member Contact Update |
+| `member_contact.delete` | Member Contact Delete |
 
----
+#### Member discounts
 
-## Member interaction events
+| Event name | Label shown in the selector |
+|---|---|
+| `member_discount.create` | Member Discount Created |
+| `member_discount.edit` | Member Discount Edited |
+| `member_discount.delete` | Member Discount Deleted |
 
-[Interactions](/members/interactions/) are the immutable log entries on a member's profile (incident reports, call notes, etc.).
+#### Member evaluations
 
-| Name | Label |
+| Event name | Label shown in the selector |
+|---|---|
+| `member_evaluation.create` | Member Evaluation Create |
+| `member_evaluation.update` | Member Evaluation Update |
+| `member_evaluation.send_link` | Member Evaluation Send Link |
+| `member_evaluation.settings_update` | Member Evaluation Settings Update |
+
+#### Member Hold
+
+| Event name | Label shown in the selector |
+|---|---|
+| `member_hold.create` | Member Hold Create |
+| `member_hold.clear` | Member Hold Clear |
+
+#### Member interactions
+
+| Event name | Label shown in the selector |
 |---|---|
 | `member_interaction.create` | Member Interaction Create |
 | `member_interaction.update` | Member Interaction Update |
 | `member_interaction.delete` | Member Interaction Delete |
 
----
+#### Member notes
 
-## Membership events
+| Event name | Label shown in the selector |
+|---|---|
+| `member_note.create` | Member Note Create |
+| `member_note.update` | Member Note Update |
+| `member_note.delete` | Member Note Delete |
 
-| Name | Label |
+#### Memberships
+
+| Event name | Label shown in the selector |
 |---|---|
 | `membership.create` | Membership Create |
 | `membership.update` | Membership Update |
 | `membership.delete` | Membership Delete |
 | `membership.promotion` | Membership Promotion |
 
----
+#### Membership statuses
 
-## Membership status events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
 | `membership_status.create` | Membership Status Create |
 | `membership_status.update` | Membership Status Update |
 | `membership_status.delete` | Membership Status Delete |
 
----
+#### Messages
 
-## Program and level events
+| Event name | Label shown in the selector |
+|---|---|
+| `message.create` | Message Create |
+| `message.broadcast_send` | Broadcast Send |
+| `message.broadcast_cancel` | Broadcast Cancel |
 
-| Name | Label |
+#### Message templates
+
+| Event name | Label shown in the selector |
+|---|---|
+| `message_template.create` | Message Template Create |
+| `message_template.update` | Message Template Update |
+| `message_template.delete` | Message Template Delete |
+| `message_template.pull` | Message Template Pull |
+
+#### Org Level Template
+
+| Event name | Label shown in the selector |
+|---|---|
+| `org_level_template.create` | Organization Level Template Create |
+| `org_level_template.update` | Organization Level Template Update |
+| `org_level_template.delete` | Organization Level Template Delete |
+
+#### Org Message Template
+
+| Event name | Label shown in the selector |
+|---|---|
+| `org_message_template.create` | Organization Message Template Create |
+| `org_message_template.update` | Organization Message Template Update |
+| `org_message_template.delete` | Organization Message Template Delete |
+| `org_message_template.push` | Organization Message Template Push |
+
+#### Org Program Template
+
+| Event name | Label shown in the selector |
+|---|---|
+| `org_program_template.create` | Organization Program Template Create |
+| `org_program_template.update` | Organization Program Template Update |
+| `org_program_template.delete` | Organization Program Template Delete |
+| `org_program_template.push` | Organization Program Template Push |
+| `org_program_template.sync` | Organization Program Template Sync |
+
+#### School events
+
+| Event name | Label shown in the selector |
+|---|---|
+| `organization.update` | Organization Update |
+| `organization.edit` | Organization Edit |
+| `organization.cross_school_signin.toggled` | Organization Cross-School Sign-In Toggled |
+
+#### Payment methods
+
+| Event name | Label shown in the selector |
+|---|---|
+| `payment_method.create` | Payment Method Create |
+| `payment_method.update` | Payment Method Update |
+| `payment_method.payment_method.update` | Payment Method Payment Method Update |
+| `payment_method.archive` | Payment Method Archive |
+
+#### Payment Method Token
+
+| Event name | Label shown in the selector |
+|---|---|
+| `payment_method_token.create` | Payment Method Token Create |
+
+#### Products
+
+| Event name | Label shown in the selector |
+|---|---|
+| `product.create` | Product Create |
+| `product.update` | Product Update |
+| `product.delete` | Product Delete |
+
+#### Product categories
+
+| Event name | Label shown in the selector |
+|---|---|
+| `product_category.create` | Product Category Create |
+| `product_category.update` | Product Category Update |
+| `product_category.delete` | Product Category Delete |
+
+#### Product Options
+
+| Event name | Label shown in the selector |
+|---|---|
+| `product_options.configuration.update` | Product Options Configuration Update |
+
+#### Product variants
+
+| Event name | Label shown in the selector |
+|---|---|
+| `product_variant.create` | Product Variant Create |
+| `product_variant.update` | Product Variant Update |
+| `product_variant.delete` | Product Variant Delete |
+
+#### Programs
+
+| Event name | Label shown in the selector |
 |---|---|
 | `program.create` | Program Create |
 | `program.update` | Program Update |
 | `program.delete` | Program Delete |
-| `level.create` | Level Create |
-| `level.update` | Level Update |
-| `level.delete` | Level Delete |
 
----
+#### Program School Waiver
 
-## Class events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
-| `class.create` | Class Create |
-| `class.update` | Class Update |
-| `class.delete` | Class Delete |
-| `class_variant.create` | Class Variant Create |
-| `class_variant.update` | Class Variant Update |
-| `class_variant.delete` | Class Variant Delete |
-| `class_program.add` | Class Program Add |
-| `class_program.remove` | Class Program Remove |
-| `class_program.update` | Class Program Update |
+| `program_school_waiver.update` | Program School Waiver Update |
 
----
+#### Program Template
 
-## Schedule and session events
+| Event name | Label shown in the selector |
+|---|---|
+| `program_template.pull` | Program Template Pull |
 
-| Name | Label |
+#### Purchase orders
+
+| Event name | Label shown in the selector |
+|---|---|
+| `purchase_order.create` | Purchase Order Create |
+| `purchase_order.placed` | Purchase Order Placed |
+| `purchase_order.received` | Purchase Order Received |
+| `purchase_order.cancelled` | Purchase Order Cancel |
+| `purchase_order.update` | Purchase Order Update |
+| `purchase_order.invoice_uploaded` | Purchase Order Invoice Uploaded |
+
+#### Purchase order items
+
+| Event name | Label shown in the selector |
+|---|---|
+| `purchase_order_item.create` | Purchase Order Item Create |
+| `purchase_order_item.update` | Purchase Order Item Update |
+| `purchase_order_item.delete` | Purchase Order Item Delete |
+
+#### Refunds
+
+| Event name | Label shown in the selector |
+|---|---|
+| `refund.create` | Refund Creat |
+
+#### Report
+
+| Event name | Label shown in the selector |
+|---|---|
+| `report.create` | Report Create |
+| `report.update` | Report Update |
+| `report.delete` | Report Delete |
+| `report.view.create` | Report View Create |
+| `report.view.update` | Report View Update |
+| `report.view.delete` | Report View Delete |
+| `report.block.create` | Report Block Create |
+| `report.block.update` | Report Block Update |
+| `report.block.delete` | Report Block Delete |
+
+#### Resolution
+
+| Event name | Label shown in the selector |
+|---|---|
+| `resolution.plan_applied` | Resolution Plan Applied |
+| `resolution.case_dismissed` | Resolution Case Dismissed |
+| `resolution.setting_changed` | Resolution Setting Changed |
+| `resolution.org_value_removed` | Resolution Organisation Value Removed |
+| `resolution.decision_made` | Resolution Decision Made |
+
+#### Returns
+
+| Event name | Label shown in the selector |
+|---|---|
+| `return_order.create` | Return Order Create |
+
+#### Staff roles
+
+| Event name | Label shown in the selector |
+|---|---|
+| `role.create` | Role Create |
+| `role.update` | Role Update |
+| `role.delete` | Role Delete |
+| `role.assign` | Role Assign |
+| `role.unassign` | Role Unassign |
+
+#### Schedules
+
+| Event name | Label shown in the selector |
 |---|---|
 | `schedule.create` | Schedule Create |
 | `schedule.update` | Schedule Update |
 | `schedule.delete` | Schedule Delete |
 | `schedule.activate` | Schedule Activate |
+| `schedule.sync` | Schedule Sync |
 | `schedule.deactivate` | Schedule Deactivate |
 | `schedule.expire` | Schedule Expire |
-| `schedule.sync` | Schedule Sync |
+
+#### School settings
+
+| Event name | Label shown in the selector |
+|---|---|
+| `school.update` | School Update |
+| `school.select_phone_number` | School Select Phone Number |
+| `school.address.update` | School Address Update |
+| `school.slug.changed` | School Slug Changed |
+| `school.plan.changed` | School Plan Changed |
+| `school.storage.updated` | Storage Blocks Updated |
+| `school.ownership.transfer` | School Ownership Transfer |
+| `school.ownership.transfer.requested` | School Ownership Transfer Requested |
+| `school.ownership.transfer.accepted` | School Ownership Transfer Accepted |
+| `school.ownership.transfer.declined` | School Ownership Transfer Declined |
+
+#### School Organization
+
+| Event name | Label shown in the selector |
+|---|---|
+| `school_organization.cross_school_signin_consent.set` | Cross-School Sign-In Consent Set |
+| `school_organization.guest_show_all_classes.set` | Guest Show All Classes Set |
+| `school_organization.create` | School Organization Create |
+| `school_organization.delete` | School Organization Delete |
+| `school_organization.access_level.update` | School Organization Access Level Update |
+| `school_organization.accept` | School Organization Accept |
+| `school_organization.decline` | School Organization Decline |
+
+#### Session credits
+
+| Event name | Label shown in the selector |
+|---|---|
+| `session_credit.use` | Session Credit Use |
+| `session_credit.create` | Session Credit Create |
+| `session_credit.adjust` | Session Credit Adjust |
+| `session_credit.reload` | Session Credit Reload Triggered |
+
+#### Session Credit Usage
+
+| Event name | Label shown in the selector |
+|---|---|
+| `session_credit_usage.delete` | Session Credit Usage Delete |
+
+#### Session Template
+
+| Event name | Label shown in the selector |
+|---|---|
 | `session_template.create` | Session Template Create |
 | `session_template.update` | Session Template Update |
 | `session_template.delete` | Session Template Delete |
 
----
+#### Session Usage
 
-## Attendance events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
-| `attendance.create` | Attendance Create |
-| `attendance.confirm` | Attendance Confirm |
-| `attendance.kiosk_confirm` | Attendance Kiosk Confirm |
+| `session_usage.record` | Session Usage Record |
+| `session_usage.delete` | Session Usage Delete |
 
----
+#### Shared Program
 
-## Subscription events
+| Event name | Label shown in the selector |
+|---|---|
+| `shared_program.create` | Shared Program Create |
+| `shared_program.delete` | Shared Program Delete |
 
-| Name | Label |
+#### Staff shifts
+
+| Event name | Label shown in the selector |
+|---|---|
+| `shift.create` | Shift Create |
+| `shift.edit` | Shift Edit |
+| `shift.delete` | Shift Delete |
+
+#### Staff shift offers
+
+| Event name | Label shown in the selector |
+|---|---|
+| `shift_offer.create` | Shift Offer Create |
+| `shift_offer.withdraw` | Shift Offer Withdraw |
+| `shift_offer.claim` | Shift Offer Claim |
+| `shift_offer.approve` | Shift Offer Approve |
+| `shift_offer.reject` | Shift Offer Reject |
+
+#### Subscriptions
+
+| Event name | Label shown in the selector |
 |---|---|
 | `subscription.create` | Subscription Create |
 | `subscription.update` | Subscription Update |
@@ -145,124 +814,79 @@ Events are scoped to your school — a workflow will only fire for events in you
 | `subscription.cancel` | Subscription Cancel |
 | `subscription.extend` | Subscription Extend |
 | `subscription.archive` | Subscription Archive |
+| `subscription.session_grant` | Subscription Session Grant |
+| `subscription.sessions_revoke` | Subscription Sessions Revoke |
+
+#### Subscription payments
+
+| Event name | Label shown in the selector |
+|---|---|
 | `subscription_payment.cancelled` | Subscription Payment Cancel |
 | `subscription_payment.update` | Subscription Payment Edit |
 | `subscription_payment.edit.date` | Subscription Payment Edit Date |
+| `subscription_payment.invoiced` | Subscription Payment Invoic |
+| `subscription_payment.override.set` | Subscription Payment Override Set |
+| `subscription_payment.add` | Subscription Payment Add |
 
----
+#### Suppliers
 
-## Billing plan events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
-| `billing_plan.create` | Billing Plan Create |
-| `billing_plan.update` | Billing Plan Update |
-| `billing_plan.delete` | Billing Plan Delete |
-| `billing_plan.archive` | Billing Plan Archive |
-| `billing_plan_price.create` | Billing Plan Price Create |
-| `billing_plan_price.update` | Billing Plan Price Update |
-| `billing_plan_price.delete` | Billing Plan Price Delete |
-| `billing_plan_price.archive` | Billing Plan Price Archive |
-| `billing_plan_program_access.create` | Billing Plan Program Access Create |
-| `billing_plan_program_access.delete` | Billing Plan Program Access Delete |
+| `supplier.create` | Supplier Create |
+| `supplier.update` | Supplier Update |
+| `supplier.delete` | Supplier Delete |
 
----
+#### Terminal
 
-## Payment method events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
-| `payment_method.create` | Payment Method Create |
-| `payment_method.update` | Payment Method Update |
-| `payment_method.payment_method.update` | Payment Method Payment Method Update |
-| `payment_method_token.create` | Payment Method Token Create |
+| `terminal.location.create` | Terminal Location Create |
+| `terminal.default_reader.set` | Terminal Default Reader Set |
+| `terminal.location.update` | Terminal Location Update |
 
----
+#### Terminal Reader
 
-## Booking events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
-| `booking.create` | *(logged via attendance and booking services)* |
+| `terminal_reader.registration` | Terminal Reader Registration |
+| `terminal_reader.delete` | Terminal Reader Delete |
+| `terminal_reader.update` | Terminal Reader Update |
 
----
+#### Website
 
-## Message and conversation events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
-| `message.create` | Message Create |
-| `message_template.create` | Message Template Create |
-| `message_template.update` | Message Template Update |
-| `message_template.delete` | Message Template Delete |
-| `conversation.mark_read` | Conversation Mark Read |
-| `conversation.mark_unread` | Conversation Mark Unread |
-| `conversation.flag` | Conversation Flag |
-| `conversation.unflag` | Conversation Unflag |
-| `conversation.archive` | Conversation Archive |
-| `conversation.unarchive` | Conversation Unarchive |
-| `conversation.update` | Conversation Update |
+| `website.create` | Website Created |
+| `website.delete` | Website Deleted |
+| `website.publish` | Website Published |
+| `website.unpublish` | Website Unpublished |
+| `website.settings_updated` | Website Settings Updated |
+| `website.page_create` | Website Page Created |
+| `website.page_delete` | Website Page Deleted |
+| `website.blog_post_publish` | Website Blog Post Published |
+| `website.blog_post_delete` | Website Blog Post Deleted |
 
----
+#### Workflows
 
-## Group events
-
-| Name | Label |
-|---|---|
-| `group.create` | Group Create |
-| `group.update` | Group Update |
-| `group.delete` | Group Delete |
-| `group_assignment.create` | Group Assignment Create |
-| `group_assignment.delete` | Group Assignment Delete |
-
----
-
-## Role and staff events
-
-| Name | Label |
-|---|---|
-| `role.create` | Role Create |
-| `role.update` | Role Update |
-| `role.delete` | Role Delete |
-| `role.assign` | Role Assign |
-| `role.unassign` | Role Unassign |
-| `invite.user` | Invite User |
-
----
-
-## Kiosk events
-
-| Name | Label |
-|---|---|
-| `kiosk_session.create` | Kiosk Session Create |
-
----
-
-## School and settings events
-
-| Name | Label |
-|---|---|
-| `school.update` | School Update |
-| `behaviors.update` | Behaviors Update |
-| `admin_fee.create` | Admin Fee Create |
-| `admin_fee.update` | Admin Fee Update |
-
----
-
-## Workflow events
-
-| Name | Label |
+| Event name | Label shown in the selector |
 |---|---|
 | `workflow.create` | Workflow Create |
 | `workflow.update` | Workflow Update |
 | `workflow.version.deploy` | Workflow Version Deploy |
 | `workflow.enable` | Workflow Enable |
 | `workflow.disable` | Workflow Disable |
-| `workflow.delete` | Workflow Delete |
-
----
+| `workflow.delete` | Workflow Delete |{/* END GENERATED WORKFLOW EVENT CATALOG */}
 
 ## Next steps
 
-- [Triggers](/workflows/triggers/) — how to configure the Action Event Occurs trigger
-- [Available Actions Reference](/workflows/reference/available-actions/) — what Action steps can do
+- [Configure workflow triggers](/workflows/triggers/)
+- [Build a workflow in the editor](/workflows/building-in-the-editor/)
+- [Review workflow runs](/workflows/run-history/)
+
+{/*
+  Maintainer update:
+  From kanri-docs, run:
+  node scripts/generate-workflow-events.mjs ../kanri1/src/event.rs
+  The generator updates only the marked catalog above and derives exclusions from
+  EventType::is_audit_only in the supplied event.rs file.
+*/}

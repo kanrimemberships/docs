@@ -3,15 +3,42 @@ title: Create a Custom Role
 description: How to create a new role with specific permissions in Kanri.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Create a role when you want to give a group of staff the same access in your school.
+You need the **Manage Roles** permission to create or assign roles.
 
-## What this page will cover
+## Create a role
 
-- Going to Settings → Roles → New Role
-- Naming the role (e.g. "Instructor", "Front Desk", "Administrator")
-- Selecting permissions: going through each permission group and enabling what this role should have
-- Saving the role
-- Editing permissions after the role is created
-- Tip: start restrictive — it's easier to add permissions than to deal with someone having too much access
+1. Open **Settings** and select **Roles**.
+2. Select **Add Role**.
+3. Enter a role name, such as Instructor or Front Desk.
+4. Turn on only the permissions this role needs. Some manage permissions include their related view permissions.
+5. Click **Create**.
+
+The role page shows staff who already have the role; it does not add staff. To assign it, open **Settings → Staff**, edit a staff member, select the role, and save. See [Manage staff assigned to a role](/settings/roles/manage-role-users/).
+
+## Kai permissions
+
+The role editor includes two Kai permissions:
+
+- **Use Kai** allows a staff member to use Kai when it is enabled for their school.
+- **Manage Kai** includes **Use Kai** and is intended for managing Kai settings.
+
+**Manage Kai** also controls your school's external-assistant setting and school-specific
+revocation. Each staff member still needs their own consent and current **Use Kai** access.
+See [External assistants](/settings/external-assistants/) for availability and data-sharing controls.
+
+These permissions do not enable Kai or grant access to member, billing, report, or other school data by themselves. Kai must also be enabled separately, and every answer remains subject to the staff member's existing school permissions.
+
+Knowing that an action exists does not give Kai permission to perform it. Action discovery
+respects the selected school's permissions and does not approve changes, charges, messages,
+or workflows. External assistants do not receive this native action-discovery capability.
+
+## Keep access focused
+
+Start with the fewest permissions needed for the role. You can edit a role later from **Settings → Roles**. Changes apply to everyone assigned to that role.
+
+## Next steps
+
+- [Invite staff](/settings/roles/invite-staff/)
+- [Assign staff to a role](/settings/roles/manage-role-users/)
+- [Review role permissions](/settings/roles/)

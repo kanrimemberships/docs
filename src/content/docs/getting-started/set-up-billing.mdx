@@ -1,79 +1,68 @@
 ---
 title: Set Up Billing
-description: How to create a billing plan, add a payment method to a member, and create their first subscription in Kanri.
+description: Create a billing plan and price, add a member payment method, and create the first subscription.
 ---
 
-Billing in Kanri works in three layers:
+Set up the billing rules first, then assign a member to them:
 
-1. **Billing Plan**: the named product you're selling (e.g. "Monthly Karate").
-2. **Price**: the specific amount and payment schedule on that plan (e.g. C$120/month).
-3. **Subscription**: a member's agreement to pay a specific price, processed automatically.
+1. Create a **billing plan** and its first **price**.
+2. Add a member's payment method if Kanri will collect online payments.
+3. Create a **subscription** for the member using the plan and price.
 
-This guide walks through creating a billing plan and attaching a subscription to a member for the first time.
+An invoice records a specific amount, such as an equipment or registration fee, and is also used for scheduled subscription payments.
 
-## Before you start
+## Before you begin
 
-Connect Stripe before collecting card or bank payments through Kanri. You can still record subscriptions for cash, e-transfer, or other payments made outside Kanri without connecting Stripe.
+- You need permission to manage billing.
+- Connect the school's Stripe account before using Kanri's supported online payment flows. If your school records cash or payments collected elsewhere, you can still use billing records without charging through Stripe.
+- Decide the offering and price type in advance. Common choices are recurring tuition (**Ongoing**), a set number of installments (**Fixed Term**), a one-time amount for a term (**Paid in Full**), a prepaid block (**Session Block**), or usage-based charges (**Per Session**).
+- If staff need several rates on one plan, confirm **Settings → Behaviors → Billing plan mode** is **Multiple**. The setting is school-wide.
 
-## Step 1: Create a billing plan
+## 1. Create a plan and its first price
 
-When you create a billing plan, you give it a name and set up its default price at the same time.
+1. Go to **Billing → Plans** and select **New Plan**.
+2. Enter a clear **Plan Name**, such as *Adult Karate*.
+3. Choose a **Price Type**. The form will show the fields for that type.
+4. Enter the amount and schedule. For a C$120 monthly recurring plan, choose **Ongoing**, enter `120`, and set the interval to `1 Month`.
+5. If applicable, choose the term length, number of payments, session block size, or per-session billing timing.
+6. Review any optional settings. **Trial Plan** labels the offering but does not itself delay the first payment. If your school has the Documents feature, you can optionally select a contract template and auto-send preference.
+7. Select **Create Plan** and confirm the price appears as expected.
 
-1. Go to **Billing → Billing Plans**.
-2. Click **New Billing Plan**.
-3. Fill in the details:
-   - **Name**: what you call this plan (e.g. "Monthly Karate" or "Annual Membership").
-   - **Plan Type**: choose how payments work.
-     - **Ongoing**: charges repeat until the subscription is cancelled.
-     - **Fixed Term**: charges repeat for a set number of payments, then stop.
-     - **Paid in Full**: a single one-time payment.
-   - **Payment Amount**: the charge amount per payment.
-   - **Payment Interval Count** and **Payment Interval**: together these define how often to charge. For example, enter `1` and `Month` for monthly billing, or `2` and `Week` for every two weeks.
-   - **Number of Payments**: (Fixed Term only) how many times to charge before the subscription ends.
-4. Click **Create Plan**.
+The school's billing currency is used for the price. You do not select a separate currency on this form. For additional rates in Multiple mode, follow [Add a Price](/billing/billing-plans/add-price/).
 
-Kanri creates the plan with one default price. If you charge different amounts for different members — for example, adult vs. junior rates — you can add more prices from the plan's page after creating it. You'll need to enable this in [Subscription Behaviors](/settings/behaviors/subscription-behaviors/) first.
+## 2. Add a payment method when collecting online
 
-:::tip
-On Professional and Enterprise plans, you'll also see a **Contract Template** field. This lets you attach a document that members must sign when a subscription is created. You can set this up later under Documents.
-:::
-
-## Step 2: Add a payment method to the member
-
-For members paying by card or bank account, you need a payment method on file before creating the subscription.
+To save a card for online collection, add a payment method to the member before creating a subscription:
 
 1. Open the member's profile and go to **Billing → Payment Methods**.
-2. Click **Add Payment Method**.
-3. Give it a **Label** and choose who will pay in the **Bill To** field.
-4. Choose **Email Link** to send a secure link, or **Collect via Terminal** if your school has a Stripe Terminal reader.
-5. The payer enters their card or bank details through the secure setup.
+2. Select **Add Payment Method**.
+3. Enter a label and select who is responsible for payment in **Bill To**.
+4. Choose **Email Link** or **Collect via Terminal**. Both setup options collect card details.
+5. Ask the payer to complete the secure payment-method setup. Confirm the method appears on the member's profile before continuing.
 
-Once the member submits their details, the payment method appears on their profile as active.
+If the member pays cash or by a method collected outside Kanri, you can skip saving a card and choose the matching payment arrangement on the subscription or invoice. Without a saved payment method, staff must use **Invoice Now** on an upcoming subscription payment to create its invoice.
 
-:::note
-The payment link is sent by email. Make sure the payer can receive it before choosing this option.
+## 3. Create the subscription
 
-If a member pays by cash, e-transfer, or another method outside Kanri's payment processing, you can skip this step and select the appropriate payment type when creating the subscription.
-:::
+1. Open the member's profile and select **Subscriptions**, then **New Subscription**.
+2. Select the billing plan.
+3. If the plan has multiple prices, select the correct price. Check the price name, amount, and interval rather than relying only on the default.
+4. Choose the required **Payment Method (legacy)** category and **Payment Method Type**. Choose **Saved payment method** and select the member's saved method for automatic collection; other types record cash, terminal, checkout, or manual handling without selecting a saved method.
+5. Set the **Start Date** and, when shown, **First Payment Date** deliberately. Do not assume the plan's Trial label changes the first payment date.
+6. Review the summary and select **Create Subscription**.
 
-## Step 3: Create a subscription
+## Confirm and troubleshoot
 
-1. Go to **Billing → Subscriptions** and click **New Subscription**.
-2. Select the **Billing Plan** you created.
-3. If your school has multiple prices on a plan, select the **Price** (e.g. "Adult").
-4. Select the **Payment Method** if the member has one on file.
-5. Set the **Start Date**: when the subscription begins.
-6. Set the **First Payment Date**: when the first charge is made. This defaults to the start date, so you only need to change it if you want to delay the first payment.
-7. Click **Create Subscription**.
+Open the member's subscription and confirm the plan, price, dates, and payment method. Upcoming and invoiced schedule records appear in the subscription's payment details; check the linked invoice's charge status to confirm an actual payment attempt. An attempted payment is not proof that funds reached the school's bank account; use **Settings → Payouts** for the connected-account payout interface.
 
-If the subscription has a payment method for automatic collection, Kanri attempts to charge on the scheduled payment dates. Otherwise, the subscription remains available for record-keeping and offline payment tracking.
+If the plan auto-sends a contract, confirm that it has been signed; scheduled invoice creation waits for the signature.
 
-## Confirming it worked
+If the payment does not happen when expected, check the [subscription troubleshooting guide](/billing/troubleshooting/subscription-not-charging/). If a payment failed, see [Failed Payments](/billing/troubleshooting/failed-payments/).
 
-After saving, the subscription appears under **Billing → Subscriptions**. Its status depends on the start date and other subscription details. If Kanri attempts a payment, you can review it in the member's payment history.
+## Related guides
 
-If a payment fails, the subscription will appear in the [Failing Subscriptions report](/reports/billing/failing-subscriptions/).
-
-## Next step
-
-[Invite your team →](/getting-started/invite-your-team/)
+- [Set Up Billing for a Child and Parent](/getting-started/family-billing-example/)
+- [Billing Plans](/billing/billing-plans/)
+- [Create a Subscription](/members/subscriptions/create-subscription/)
+- [Add a Payment Method](/members/subscriptions/add-payment-method/)
+- [Invoices](/billing/invoices/)

@@ -9,11 +9,13 @@ Assign a membership when a member joins a program.
 
 ## Before you start
 
+You need the **Manage Members** permission, and Memberships must be available to your school.
+
 Make sure:
 
 1. The [program](/programs/create-program/) already exists.
 2. Your school has the membership status you want to use.
-3. The member does not already have a membership in that same program.
+3. The member does not already have a non-deleted membership in that same program, including an inactive one.
 
 ## Assign a membership
 
@@ -24,8 +26,10 @@ Make sure:
 5. Select the current **Level** if your school uses [Levels](/programs/levels/).
 6. Select the **Status**.
 7. Enter **Sessions Remaining** if you track classes in blocks.
-8. Enter **Last Promotion Date** if needed.
-9. Click **Create**.
+8. Enter **Last Promotion** if needed.
+9. If the member has a scheduled promotion date, enter **Next Promotion Override**.
+10. If a **Waiver document** section appears, choose the send option that applies.
+11. Click **Create Membership**.
 
 ## Know what each field means
 
@@ -33,16 +37,20 @@ Make sure:
 | --- | --- |
 | Program | Required. The program the member is enrolled in. |
 | Level | Optional. Only used if your school has levels turned on. |
-| Status | Required. A school-defined membership status. |
-| Sessions Remaining | Optional. Leave blank if you do not track remaining sessions. |
-| Last Promotion Date | Optional. Useful when moving existing students into Kanri. |
+| Status | Required. A school-defined membership status; the school's default active status is preselected. |
+| Sessions Remaining | Optional. Leave blank for an unlimited count. Kiosk attendance can reduce this count; adding attendance manually does not. |
+| Last Promotion | Optional. The last promotion date, useful when moving an existing student into Kanri. |
+| Next Promotion Override | Optional and shown when Levels are available. This date takes precedence over the calculated date in kiosk promotion eligibility; it does not bypass a minimum-class requirement. If **Last Promotion** is also set, this date cannot be earlier. |
+| Waiver document | If shown, choose **Auto-send** (the default), **Don't send**, or **Use existing document**. Availability depends on document settings for the program. |
+
+If the member has eligible trial bookings in the school's configured conversion window, creating the membership associates those bookings with it.
 
 :::caution
-A member can only have one membership in each program. For example, they cannot have two separate Adult Karate memberships at the same time.
+A member can have only one non-deleted membership per program. An inactive membership still occupies that slot, so edit or reactivate the existing record instead of creating another one.
 :::
 
 :::tip
-If you are importing existing students, set the current level and last promotion date right away. This makes your [Promotions report](/programs/levels/promotions-report/) more accurate.
+If you are importing existing students, set the current level and **Last Promotion** date right away. This makes your [Promotions report](/programs/levels/promotions-report/) more accurate.
 :::
 
 ## Next steps

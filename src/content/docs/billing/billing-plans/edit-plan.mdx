@@ -1,15 +1,29 @@
 ---
 title: Edit a Billing Plan
-description: How to rename a billing plan or update its details.
+description: Update a plan name, default price, trial label, or optional contract settings.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Use plan editing to correct the offering name, set a different default price, or update supported plan options. The fields available depend on your school's billing-plan mode.
 
-## What this page will cover
+## Edit the plan
 
-- Editing a plan's name
-- Warning: renaming affects how it appears on member subscriptions and receipts
-- Archiving a plan (removes it from future subscription creation, doesn't affect existing subscriptions)
-- Deleting a plan (only possible if no subscriptions — active or historical — use it)
+1. Go to **Billing → Plans** and open the plan.
+2. Select **Edit**.
+3. Update the **Plan Name** if needed. Use a stable offering name such as *Adult Karate*, not a temporary promotion or current amount.
+4. Update any optional settings:
+   - **Trial Plan** marks the offering as a trial plan. It does not by itself determine when the first payment is due.
+   - If the school has the **Documents** feature, choose or clear the contract template and decide whether Kanri should auto-send it when a subscription is created.
+5. Review the price section:
+   - In **Single** mode, the form includes the plan's single price. If the price details change, Kanri can create a replacement price rather than modifying the original price record. Existing subscriptions remain associated with their selected price.
+   - In **Multiple** mode, choose the **Default Price** for new subscriptions. To offer another rate or interval, [add a price](/billing/billing-plans/add-price/) first.
+6. Select **Save**, then verify the plan name, price details, and default shown on the plan page.
+
+## Choose a default in Multiple mode
+
+The default is the price preselected for the plan. It does not remove other prices or move existing subscriptions. For example, if *Adult Monthly* is the default and you add *Junior Monthly*, set *Junior Monthly* as the default only if that is the option staff should see preselected for most new subscriptions.
+
+## Avoid surprising members
+
+Before changing price terms, check which prices existing subscriptions use. Do not assume that renaming a plan or changing its default updates the price or schedule on a member's subscription. If you need a different amount for a member, review the subscription and use the appropriate subscription workflow.
+
+See [Edit a Price](/billing/billing-plans/edit-price/) and [Edit a Subscription](/members/subscriptions/edit-subscription/).

@@ -3,12 +3,29 @@ title: Edit an Invoice
 description: Update invoice items and details while keeping payment status in mind.
 ---
 
-:::note[Guide coming soon]
-This guide will explain which invoice details you can change and what happens when you edit an invoice that has already been charged.
-:::
+You can edit a draft invoice. You can also edit an open invoice if it has no successful, pending, or disputed charge. Partially paid, paid, void, refunded, and subscription invoices cannot be edited.
 
-## Planned topics
+Make corrections before taking payment whenever possible. Once payment activity exists, editing could change what the invoice says the member owes, so Kanri locks the invoice while that payment history needs to be preserved.
 
-- Edit an open invoice and its items.
-- Understand draft, open, partially paid, paid, and voided invoices.
-- Review how edits affect the amount still due.
+## Edit an eligible invoice
+
+1. Open **Invoices** and select the invoice.
+2. Select **Edit Invoice**.
+3. Update the member, due date, receipt email, notes, line items, quantities, prices, discounts, or tax as needed.
+4. Review the updated total.
+5. Select **Finish** to save your changes.
+
+When you edit an eligible open invoice, saving the changes leaves it **Open**. It remains available for payment; you do not need to open it again.
+
+After saving, compare the new total with any quote or amount you already gave the member. If you changed a product line, confirm the variant and quantity so the right stock and pickup requirements remain attached.
+
+## If you cannot edit
+
+The edit action is not available when the invoice has a successful payment, an in-progress charge, or a dispute. It is also unavailable after the invoice is paid, voided, or refunded. Review the [charge history](/members/billing/view-charges/) before deciding whether to [refund a payment](/billing/invoices/refunds-and-voids/) or [process a product return](/shop/returns/).
+
+Do not create a replacement invoice until you have checked whether a charge is still processing. If the first payment later succeeds, a second invoice or charge could collect the same amount twice. For an incorrect product sale, use the return workflow when the item was actually returned; for a billing correction, follow your school's process for refunds and a corrected invoice.
+
+## Next steps
+
+- [Collect payment](/billing/invoices/collect-payment/)
+- [Review receipts and payment history](/billing/invoices/receipts-and-history/)

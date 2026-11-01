@@ -1,25 +1,64 @@
 ---
 title: Configure Custom Report Tables
-description: Choose report table columns, sort results, and understand totals and row actions.
+description: Choose table columns, related-record information, sorting, filters, and CSV export.
 ---
 
-:::note[Guide coming soon]
-This guide will explain the table options available in custom reports.
-:::
+A **Table** block shows matching records one row at a time. Use it when staff need to inspect
+or act on individual records. Each view can contain only one table; add charts or stats for
+additional summaries.
 
-## Planned topics
+## Choose useful columns
 
-- Add, remove, and reorder columns.
-- Choose fields from related records and rename column headings.
-- Add calculated columns, such as counts or totals from related records, when available.
-- Sort by one or more fields and choose ascending or descending order.
-- Group results or show subtotals when the selected table supports them.
-- Choose which row and bulk actions appear, and add toolbar buttons for creating records.
-- Understand how field permissions affect who can open a report view.
-- Export or work with table results when those options are available.
+1. Open the report and view, then choose **Add Block**.
+2. Select the record type that should appear once per row.
+3. Choose **Table**.
+4. In the block's **Columns** control, select fields from the record or navigate through a
+   related record. The available choices depend on your permissions.
+5. Remove fields that do not help answer the report question. Drag columns to put the most
+   useful information first.
+6. Double-click a column heading to give it a clearer label, such as changing **Signed Up On**
+   to **Joined**.
+7. Open **Filter** to limit the rows. See [Build Filters](/reports/custom-reports/filter-builder/).
 
-## Related guides
+For a **New Members This Month** table, choose **Member** records, add **First Name**,
+**Last Name**, **Email**, **Member Type**, and **Signed Up On**, then filter **Signed Up On** to
+the current month. A staff member can scan the names and contact details without opening
+each profile.
 
-- [Build Custom Report Filters](/reports/custom-reports/filter-builder/)
-- [Use Report Actions](/reports/custom-reports/report-actions/)
-- [Manage Report Views](/reports/custom-reports/report-views/)
+You can also select information from related records. For example, a membership-based table
+can include a related program or level when those fields are available to you. Some related
+data represents multiple records; the picker may offer a list or a count instead of one value.
+Choose the display that makes sense for the question, and avoid treating a list of related
+items as if each item were its own row.
+
+## Sort and check results
+
+1. Open **Sort** on the table.
+2. Add a field to sort by and choose ascending or descending order.
+3. Add another sort field if you need a tie-breaker, such as sorting by last name and then
+   first name.
+4. Review the rows and total record count. Use the table's page controls to move through
+   results.
+
+Sort and filter fields are also permission- and record-dependent. If a field is not offered,
+it may not be available for that record type or your role may not have access to it.
+
+## Download a CSV
+
+Select **Download CSV** on the table to export its results. The export follows the table's
+configured columns and filters. Treat the downloaded file as school data: store and share it
+only with people who are allowed to see those records.
+
+## Configure row and creation actions
+
+The **Actions** control can limit which supported record actions appear in the table. Leaving
+**Show all actions** selected lets each viewer see the actions their own role permits. You can
+also configure **Create actions** for shortcuts that create a new record or open a specified
+page. See [Use Report Actions](/reports/custom-reports/report-actions/) before enabling actions
+for a shared report.
+
+## Next steps
+
+- [Build and test filters](/reports/custom-reports/filter-builder/)
+- [Add charts or stats](/reports/custom-reports/configure-charts-and-stats/)
+- [Choose who can open the report](/reports/custom-reports/share-report/)

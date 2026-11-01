@@ -1,15 +1,38 @@
 ---
 title: Booking Settings
-description: How to configure booking windows and trial booking options for your school.
+description: Control advance booking, reminders, and member self-service changes.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Booking settings apply school-wide. They work alongside each session's booking options and capacity. You need **Manage Settings** and a plan with the Bookings feature. Open **Settings → Bookings** to change them.
 
-## What this page will cover
+## Set advance booking rules
 
-- Booking window days: how many days in advance members can book into a class
-- Trial booking window days: how many days in advance a prospective member can book a trial through the Lead Page
-- Same-day booking: whether members can book a class on the day it runs
-- How these settings interact with the Lead Page and the Member Portal
+Set separate booking windows for members and trial bookings. Each window must be between 1 and 60 days.
+
+- **Member Booking Window** controls how far ahead a member can reserve a session.
+- **Trial Booking Window** controls how far ahead a prospective member can book a trial.
+- **Allow Same-Day Member Bookings** and **Allow Same-Day Trial Bookings** decide whether those groups may book on the day of a session.
+
+For example, set the member window to 14 days and the trial window to 7 days if members plan ahead but you want to limit how far ahead trial visitors can reserve. Same-day booking is a separate choice.
+
+If you enter addresses under **Lead Page Booking Notification Email**, those people receive an email when a trial is booked through your public lead page. Separate multiple addresses with commas. Leave the field blank to disable these notifications.
+
+## Send booking reminders
+
+Turn on **Send Booking Reminder Emails** and choose how many hours before the session to send the reminder. The setting accepts 1 to 72 hours. For example, enter 24 to send reminders one day before the session.
+
+## Let members cancel or reschedule
+
+Turn on **Allow Members to Cancel/Reschedule Their Own Bookings**, then set the **Change Window** in hours before the session. The value can be 0 to 168. A value of 0 allows changes until the session starts; a value of 24 closes self-service changes one day before.
+
+You can also turn on **Allow Members to Book Again After a Missed Trial** if your school permits another trial booking after a missed trial.
+
+## Save and check the result
+
+Each settings card saves separately. After saving, test the member or trial booking flow you use. If a session is still unavailable, check its own booking settings and capacity in [Schedules](/schedules/).
+
+## Next steps
+
+- [Manage Schedules](/schedules/)
+- [Session Bookings](/schedules/bookings/)
+- [Configure Your Lead Page](/lead-management/lead-page/configure-lead-page/)

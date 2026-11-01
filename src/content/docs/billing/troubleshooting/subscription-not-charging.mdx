@@ -1,18 +1,44 @@
 ---
 title: Subscription Not Charging
-description: How to diagnose why a subscription isn't billing a member.
+description: Check the subscription's price, dates, payment method, and payment history when no charge is expected or attempted.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+First check whether a payment should be due. Some subscriptions do not charge every month, and some are kept for record-keeping when payment happens outside Kanri.
 
-## What this page will cover
+## Check the subscription setup
 
-- Checking the subscription status (is it actually Active?)
-- Checking the subscription start date (hasn't started yet?)
-- Checking the payment method (is there one on file?)
-- Checking if the subscription is in a trial period
-- Checking Stripe for any holds or flags on the account
-- Checking the billing interval and next charge date
-- When to contact Kanri support vs Stripe support
+1. Open the member's subscription and confirm its status.
+2. Check the **Start Date** and **First Payment Date**. A subscription scheduled to start in the future will not be due yet.
+3. Open the billing plan and confirm the subscription's actual price type, amount, and interval.
+4. Check the next payment date and the subscription's past and upcoming payment history.
+5. Confirm whether an eligible automatic payment method is attached. Card and bank methods can be collected automatically; cash, terminal, checkout, and manual types do not attach a saved method for scheduled collection.
+
+The plan's **Trial Plan** label is not, by itself, a payment schedule. Check the subscription dates and price type rather than assuming a trial label postponed a payment.
+
+Without a saved payment method, a due subscription payment can remain an upcoming schedule record without an invoice. A staff member can open the upcoming record and use **Invoice Now** to create an invoice for another payment method. If the plan auto-sends a contract, Kanri also waits for the contract to be signed before creating the scheduled invoice.
+
+## Check the price type
+
+- **Ongoing** prices repeat on their configured interval.
+- **Paid in Full** is one payment for a defined term, not a recurring monthly charge.
+- **Fixed Term** repeats for its configured number of payments and then ends.
+- **Scholarship** is a zero-payment price.
+- **Session Block** sells blocks of sessions. If auto reload is configured, Kanri creates another block when its chosen reload condition is met.
+- **Per Session** charges based on session usage. With **Immediate** billing, a recorded session is charged as used; with **Cycle** billing, usage is collected for the configured billing cycle.
+
+If you expected a monthly charge from a paid-in-full, scholarship, session-block, or per-session price, the subscription may be working as configured.
+
+## Check payment history and retries
+
+If a payment was due but did not complete:
+
+1. Open the payment history and inspect the latest payment status and related invoice.
+2. If it is processing, wait for the final result before retrying.
+3. If it failed, review the message, verify the member's payment method, and follow [Failed Payments](/billing/troubleshooting/failed-payments/).
+4. Check **Settings → Behaviors → Billing Notifications** for the school's subscription retry schedule.
+
+Kanri's automatic retry schedule applies to open subscription invoices. Do not assume Stripe is independently retrying a payment.
+
+## Escalate with the right details
+
+If the dates, price type, and payment method look correct but no payment was created, note the subscription, expected due date, and recent payment history before contacting Kanri support. For a payment that appears to have succeeded but is not in the bank, review [Payouts](/billing/payouts/); charges and payouts are separate.

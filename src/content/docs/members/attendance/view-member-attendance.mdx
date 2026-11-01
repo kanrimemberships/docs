@@ -7,9 +7,15 @@ import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
 Use the attendance page to see one member's training history in one place.
 
+Viewing attendance requires **View Members (Basic)** and the Memberships feature.
+
 ## What you can see on this page
 
 The attendance list shows the entries recorded for that member. Because attendance is tied to a [membership](/members/memberships/), one member can appear with attendance from more than one program.
+
+Training at other schools also appears in the member's attendance history.
+Opening attendance for one membership shows its records from every school;
+qualifying classes count toward that membership's promotion progress.
 
 This page helps you answer questions like:
 
@@ -49,6 +55,10 @@ If you find an incorrect entry:
 1. Open the attendance record from the list.
 2. Delete it from the member attendance area.
 3. Re-add it correctly if needed.
+
+In the [attendance kiosk](/kiosk/), **Absent / Removed** shows members whose
+attendance was removed. If a member signs in again for that class, they appear
+as present instead. Repeated removals show only one entry for the member.
 
 ## Next steps
 

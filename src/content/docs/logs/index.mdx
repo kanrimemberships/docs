@@ -1,21 +1,35 @@
 ---
-title: Audit Log
-description: A reference for the audit log — a complete record of every action taken in your school.
+title: Event Log
+description: Search the school event log to understand recorded changes and activity.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+The **Logs → Events** page lets staff with event-log access search recorded activity for the school. Event logs are currently a **Beta feature**. Not every action is recorded, and some entries may have incomplete details. Do not treat the log as a complete record of every login or action.
 
-:::note[Professional & Enterprise]
-The Audit Log requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
+## Find an event
 
-## What this page will cover
+1. Open **Logs → Events**.
+2. Set one or more filters:
+   - Event type and date range
+   - Whether the event was linked to a queued job
+   - The staff member who performed it
+   - The affected member, object ID, IP address, or browser details
+3. Select **Search**.
+4. Select a row to view its recorded details.
 
-- What the audit log is: an immutable, time-stamped record of every action taken in Kanri at your school
-- What gets logged: member changes, subscription changes, billing events, settings changes, staff logins, and more
-- Who can see the log: school owners and admins only
-- Two levels of log: school-level (all actions) and member-level (actions on a specific member)
-- Why the log exists: accountability, troubleshooting, compliance
-- The log cannot be edited or deleted — it is permanent
+Start with a short date range and a member or event type. If you do not know the exact event type, search by the affected member and date.
+
+## Understand the details
+
+An event can include the event type, time, affected object, staff member or background job, and other details available for that event. What appears depends on what Kanri recorded. Some events may have no staff member attached, for example when a background job performed the action.
+
+The school-wide list and a member's [individual event log](/logs/member-log/) are useful for investigating changes, but the Beta limitation means you may need to confirm important details with the person involved or contact support.
+
+For activity on a member's related records, use the school-wide **Affected member** filter.
+The profile's Logs tab only includes events whose main affected record is that member.
+Neither view reconstructs relationships missing from the recorded event.
+
+## Next steps
+
+- [Read an Event Log Entry](/logs/reading-the-log/)
+- [View a Member's Event Log](/logs/member-log/)
+- [Manage Staff Roles](/settings/roles/)

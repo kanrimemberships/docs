@@ -3,11 +3,12 @@ title: Available Actions
 description: Reference table of all built-in actions available in workflow Action steps.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
-This page lists every built-in action you can use in a workflow [Action step](/workflows/steps/#action). Actions are grouped by the type of record they affect.
+This page lists the 18 built-in actions offered for a workflow [Action step](/workflows/steps/#action).
+Actions are grouped by the records they affect.
 
 **Column definitions:**
 - **Action** — the name shown in the builder
@@ -23,15 +24,50 @@ These actions affect [member](/members/) records.
 
 | Action | Record | Type | Bulk safe | Parameters |
 |---|---|---|---|---|
-| Add member | Member | Create | No | First name, last name, email, phone, birthday, sex, family status, member type |
+| Add member | Member | Create | No | First name, last name, member type (required); email, phone, birthday, sex, family status, Can manage own account, lead status, program of interest, lead details, lead source |
 | Edit member | Member | Mutate | No | First name, last name, email, phone, birthday, sex, family status, member type, lead status |
 | Send message | Member | Mutate | Yes | Template (required), message type (required, email or SMS) |
 | Add note | Member | Mutate | Yes | Title (required), note text (required) |
 | Delete member | Member | Mutate | No | — |
 
 :::caution
-**Delete member** is permanent and cannot be undone. Use it with care — typically only in cleanup or data management workflows where deletion is intentional.
+**Delete member** removes the profile from normal use. There is no restore action in the workflow
+picker. Use it with care, not as a substitute for marking a person inactive.
 :::
+
+The workflow picker excludes browser-only redirect actions. **Edit member** here is the
+background update action, not the action that opens a member's edit page.
+
+### Configure Add member
+
+1. Select **Add member** in an Action step. It creates a new profile rather than changing the
+   workflow's existing record.
+2. Fill in **First name**, **Last name**, and **Member type**. Use the reference picker to take
+   values from the workflow record or an earlier step.
+3. Add optional contact and profile details. If your school uses lead management and the type is
+   **Lead**, also choose **Lead status**. Program of interest, further details, and source apply
+   only to leads; other member types ignore those lead details.
+4. Connect any later steps. The new member's ID and profile fields are available as references.
+
+The usual [member validation rules](/members/add-member/) still apply, including valid contact
+details and checks for an email address or phone number already in use at your school.
+Creating a profile does not create a [membership](/members/memberships/) or
+[subscription](/members/subscriptions/). An Add member step can create another profile each time
+it runs, so check the trigger and avoid repeated runs for the same person.
+
+### Who receives Send message?
+
+The action includes the member and linked contacts with **Receive Communications** or
+**Can Manage** enabled, using the chosen email or SMS channel. It is not limited to the member's
+own address. People without that contact method are omitted; if nobody has it, validation fails.
+
+Shared addresses can be combined, while member-specific placeholders can require separate
+copies. Choose member placeholders for the student and contact placeholders for the recipient.
+SMS requires school SMS setup and a Rich Text template; Email Builder templates are email-only.
+Workflow messages do not bring archived conversations back into the main Inbox.
+
+A successful message step means the send was accepted for processing, not that every recipient
+received it. Check the [Outbox](/messages/outbox/) for delivery and suppression results.
 
 ---
 
@@ -42,7 +78,7 @@ These actions affect [membership](/members/memberships/) records (a member's enr
 | Action | Record | Type | Bulk safe | Parameters |
 |---|---|---|---|---|
 | Create membership | Member | Mutate | No | Program (required), level, status (required), waiver handling, sessions remaining |
-| Edit membership | Membership | Mutate | No | Program, level, status, sessions remaining, last promotion, next promotion override |
+| Edit membership | Membership | Mutate | No | Program (required), level, status (required), sessions remaining, last promotion, next promotion override |
 | Promote to next level | Membership | Mutate | Yes | Promotion date |
 
 :::note
@@ -92,10 +128,15 @@ These actions affect notes on member profiles.
 
 When filling in an action's parameters, you can pull values from the triggered record or from earlier steps:
 
-- **`{record.field_name}`** — reads a field from the record that triggered this workflow. For example, `{record.email}` in an invoice action gets the member's email from the run's member record.
-- **`{step.STEP_ID.field_name}`** — reads a field from the output of an earlier step. Useful when a previous Create step produces a new record you want to reference.
+- Select the **[$]** reference picker and choose a field from **This record** to use a current
+  value from the run's record.
+- Choose an earlier step's output in that picker to use a field returned by an action or Read.
+  For example, use the new invoice's ID as the target of an Open invoice action.
 
-These references are evaluated at the time the step runs, using the live values from the record at that moment.
+References to the current record are read when the action executes. Earlier-step references
+use that step's saved output, not a fresh lookup. Typing a placeholder-looking phrase into a
+plain-text field does not create one of these references. Missing fields or outputs can fail
+the step, so test each path before enabling a workflow for real members.
 
 ---
 

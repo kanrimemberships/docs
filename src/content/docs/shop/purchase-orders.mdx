@@ -3,12 +3,59 @@ title: Purchase Orders
 description: Order products from suppliers and record stock as it arrives.
 ---
 
-:::note[Guide coming soon]
-This guide will cover creating, placing, receiving, and cancelling purchase orders.
-:::
 
-## Planned topics
+Use purchase orders to track stock you order from suppliers. A purchase order records the items, quantities, costs, deliveries, and extra costs. It does not send an order to the supplier automatically.
 
-- Create a draft order and add products.
-- Place an order and record full or partial deliveries.
-- Allocate received stock to sales that are waiting for items.
+Use a purchase order for a supplier delivery, even if the order is small. This gives you a record of what you asked for, what arrived, and what each line cost. Use an [inventory adjustment](/shop/inventory/) for a stock correction that was not a supplier purchase.
+
+## Create and place an order
+
+1. Open **Shop**, select **Inventory**, then **Purchase Orders**.
+2. Select **New Purchase Order**.
+3. Choose a [supplier](/shop/suppliers/) if you have one. You can leave the supplier blank.
+4. Add products or variants. Enter a positive quantity and a nonnegative unit cost for each line. If you leave the cost blank, Kanri uses the cost saved on the variant. If the variant has no saved cost, you must enter one.
+5. Add **Extra costs** for expenses such as shipping, taxes, customs, or handling. Choose **Other** to enter a different description.
+6. Add notes if needed, then select **Save** to save the draft.
+7. Review the purchase order. Select **Edit** to make changes while it is a draft.
+8. Select **Place Order** when the details are final. Download the PDF or CSV to send or share with your supplier.
+
+Placing an order locks its supplier and items. You can still record deliveries. You can cancel a draft or placed order, but not an order that is partially received.
+
+For products with [sizes, colors, or other options](/shop/products/), select the product, choose each option from the dropdowns, then select **Add Item**. Only combinations saved on the product are offered. An existing combination with no stock can still be ordered from a supplier. You can also search directly for a variant name or SKU.
+
+Matching suppliers appear first, with a **This supplier** badge. Other variants remain selectable if you are ordering from a different supplier.
+
+### Decide what to include
+
+- Add a separate line for each variant you order. **Size 2** and **Size 3** uniforms have separate stock counts.
+- Enter the quantity you intend to buy, not the quantity you expect to receive in the first delivery.
+- Check the unit cost before placing the order. It feeds the purchase and margin records.
+- Include shipping or other additional amounts in **Extra costs** so the order's costs are more complete.
+- Add notes your staff need when placing or checking the order. The PDF or CSV can then be shared with the supplier.
+
+## Record a delivery
+
+1. Open a placed or partially received purchase order.
+2. Select **Receive Items**.
+3. For each line, enter the quantity received now. Leave lines at zero if they did not arrive.
+4. Select **Receive Items** to save the delivery.
+
+You can receive one order in several deliveries. Kanri updates stock counts and shows whether each line is not received, partially received, or received.
+
+If a delivery includes items members are waiting for, Kanri opens **Allocate Stock** after you record it. Review the suggested quantities and assign received stock to waiting invoices. Kanri lists older waiting sales first. Any stock left after allocations becomes available in inventory.
+
+For example, if you ordered 10 belts and 4 arrive today, record **4** received now. The other 6 remain outstanding on the order. If 3 members are waiting for belts, allocate 3 to their invoices and the remaining 1 becomes free stock. Record another receipt when the rest of the delivery arrives.
+
+If you receive fewer items than you ordered, enter the number that physically arrived. If an item is damaged or missing, do not mark it received just to close the order. Keep the remaining quantity outstanding while you follow up with the supplier.
+
+## Review and document an order
+
+Open a purchase order to see its supplier, status, item quantities, unit costs, and extra costs. Select **Download PDF** or **Download CSV** to share or keep a copy. You can also attach the supplier's invoice as a PDF on the order page.
+
+The purchase order status summarizes its progress. A draft has not been placed, a placed order is awaiting delivery, and a partially received order still has quantities outstanding. Check the line quantities as well as the overall status when only part of a delivery has arrived.
+
+## Next steps
+
+- [Review suppliers](/shop/suppliers/)
+- [Check inventory and outstanding sales](/shop/inventory/)
+- [Fulfill allocated items](/shop/fulfil-sales/)

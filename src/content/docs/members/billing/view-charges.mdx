@@ -3,16 +3,45 @@ title: Review a Member's Charges
 description: Find charges and one-time billing records from a member's profile.
 ---
 
-:::note[Guide in progress]
-Charge management is available. This guide is being written.
-:::
+Use the **Charges** page on a member's profile to review payment attempts across their invoices. A charge is one attempt to collect payment. An invoice can have more than one charge.
 
-## Planned topics
+Use this page when you need a member-wide view, such as checking whether a payment failed on one invoice or whether a refund was already requested. Use the invoice itself when you need the full list of items and the remaining amount due.
 
-- Open the member's **Billing** tab and select **Charges**.
-- Review charges across the member's invoices and identify failed attempts.
-- Create a one-time charge when the member owes an amount outside a subscription.
-- Follow an invoice to its charge, payment receipt, or refund details.
-- Understand the difference between an invoice and a charge.
+## Find a charge
 
-See [Invoices](/billing/invoices/) for school-wide invoice and charge management.
+1. Open the member's profile.
+2. Select **Charges**.
+3. Filter by **Status** or **Payment Method** to narrow the list.
+4. Select a charge to see its invoice, payment method, amount, fees, status, and any error details.
+
+Charge statuses include **Open**, **Cancelled**, **Processing**, **Success**, **Failure**, **Dispute Open**, **Dispute Won**, **Dispute Lost**, and **Dispute Warning**. Open the related invoice to see its items, remaining balance, receipts, and other charges.
+
+| Status | What to check |
+| --- | --- |
+| **Open** | The charge has not completed. Check whether it is a payment link or another pending action. |
+| **Processing** | The payment provider is still working. Wait for the result before starting another attempt. |
+| **Success** | Payment was recorded successfully. Open the invoice to see whether a balance remains. |
+| **Failure** | The attempt did not collect payment. Review the error details before choosing another method. |
+| Dispute outcome | Review the charge and related invoice history before responding or making another billing change. |
+
+Use **Status** and **Payment Method** to narrow the list. Payment methods include card, bank, cash, terminal, checkout, and manual entries. Select a row for the charge details, then follow its invoice link to review the original bill.
+
+## Create a one-time charge
+
+To collect an amount that is not already on an invoice, create a [new invoice](/billing/invoices/create-invoice/) for the member. Add a line item, then use [Charge](/billing/invoices/collect-payment/) to take or record payment. This keeps the amount owed and payment history together.
+
+This is also the best way to record a one-off amount that is not a catalogue product. A custom invoice line documents what the amount was for; the charge then documents whether and how it was paid.
+
+## Refund a charge
+
+Open a successful charge and select **Refund** when it has a refundable balance. You can issue a full or partial refund. Partial refunds require a reason. Check the refund status from the charge details.
+
+Before retrying a payment, check for **Processing** and **Open** charges. A delayed result can otherwise lead to a duplicate attempt. If the charge is tied to a returned shop item, use the invoice's [return workflow](/shop/returns/) so the item, refund, and stock decision stay connected.
+
+For school-wide invoice and charge history, open [Invoices](/billing/invoices/). For recurring payments, see [Subscriptions](/members/subscriptions/).
+
+## Next steps
+
+- [Create an invoice](/billing/invoices/create-invoice/)
+- [Collect or record payment](/billing/invoices/collect-payment/)
+- [Download or send a receipt](/billing/invoices/receipts-and-history/)

@@ -3,12 +3,36 @@ title: Refund or Void a Payment
 description: Return a payment or cancel an invoice when appropriate.
 ---
 
-:::note[Guide coming soon]
-This guide will explain the difference between refunding a completed payment and voiding an invoice.
-:::
+Refund a successful payment when you need to return money. Void an eligible open invoice when you need to cancel an unpaid bill. These actions are different. Check the resulting refund or invoice status before telling the member the change is complete.
 
-## Planned topics
+First check whether the member returned a product. For a shop sale, [Process Return](/shop/returns/) records the items and restocking decision as well as handling any available refund. Use a charge refund on its own when you are returning money without recording returned shop items.
 
-- Find the payment or invoice to correct.
-- Review refund limits and the effect on the member's balance.
-- Check the final status in payment history.
+## Refund a payment
+
+1. Open the invoice and find the successful charge.
+2. Select the charge to open its details.
+3. Select **Refund**.
+4. Enter a full or partial amount. Enter a reason when issuing a partial refund.
+5. Select **Issue Refund** and review the confirmation.
+
+You can refund only the amount that has not already been refunded. Use **Refund All Charges** on the invoice to refund all remaining refundable amounts across its successful charges. Check the charge's refund status afterward. A refund may be pending, succeeded, failed, or canceled.
+
+For returned shop products, use [Process Return](/shop/returns/) on the invoice. The return records the items and can update inventory as well as payment history.
+
+For example, if a member paid $60 and you already refunded $10, the remaining refundable amount is at most $50. A refund request may not appear as complete immediately. Check its status before telling the member the funds have arrived.
+
+## Void an invoice
+
+1. Open the eligible open invoice.
+2. Select **Void**.
+3. Confirm that you want to cancel the invoice.
+
+Voiding cancels an open invoice. It does not refund a completed payment. If money was collected, [refund the charge](/members/billing/view-charges/) instead.
+
+If the invoice has a pending charge, check the charge status before voiding or retrying payment. If the charge later succeeds, you may need to refund it. A voided invoice is not the same as a deleted invoice or a returned product.
+
+## Next steps
+
+- [Review a member's charges](/members/billing/view-charges/)
+- [View receipts and payment history](/billing/invoices/receipts-and-history/)
+- [Process a product return](/shop/returns/)

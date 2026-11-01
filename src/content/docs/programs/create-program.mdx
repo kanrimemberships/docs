@@ -1,16 +1,47 @@
 ---
 title: Create a Program
-description: How to create a new program in Kanri.
+description: Add an activity such as Adult Karate or Junior Ballet to your school.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+A program is the activity members enrol in, such as **Adult Karate**, **Junior Ballet**, or **Open Gym**. Create a program before adding its classes, levels, and memberships.
 
-## What this page will cover
+## Create the program
 
-- Going to Programs → New Program
-- Required fields: program name
-- Optional fields: description
-- What to set up inside the program after creating it (classes, levels)
-- Naming conventions that work well (e.g. "Adult Karate" not just "Karate" if you have multiple age groups)
+1. Open **Programs** and select **New Program**.
+2. Enter a name that is not already used by another program in your school. If you have different age groups, include the distinction, such as **Junior Karate**.
+3. Optionally enter a **Minimum Age** or **Maximum Age** as a whole number from 0 to 120. The maximum cannot be lower than the minimum. Your school's age-restriction behavior controls where these limits are checked; they do not replace staff reviewing eligibility.
+4. Select **Create Program**.
+5. Open the new program and add its [classes](/programs/classes/) and [levels](/programs/levels/).
+6. Create a [schedule](/schedules/create-schedule/) for each class you teach.
+
+## Example
+
+For an **Adult Karate** program, you might add a **Karate Fundamentals** class and levels from **White Belt** through **Black Belt**. Then create a weekly schedule for the class. Members can be enrolled in the program separately from their payment arrangement. A program membership and a billing subscription are different records.
+
+## Optional lead-page and waiver settings
+
+When the related school features are available, the program form can include:
+
+- **Show on Lead Page**, which controls whether the program appears on the public lead page.
+- Adult and minor waiver templates.
+- **Auto-send waiver when membership is created**.
+
+These settings are optional. Program waiver templates cannot contain subscription-specific fields. Review [Lead Page setup](/lead-management/lead-page/) and [waivers](/documents/waivers/) before using them.
+
+## Choose how future level edits affect members
+
+When Levels is available, the form also includes **Keep level requirements
+until next promotion**. Turn it on if members already at a level should keep
+their requirements and next-level destination when you change the program's
+rules later. New arrivals use the updated rules.
+
+Leave it off if changes should apply to everyone immediately. You can change
+this later, but it must be enabled **before** editing levels to preserve the
+earlier rules. See [Edit a Program](/programs/edit-program/#keep-level-requirements-until-next-promotion)
+for an example and the consequences of turning it off.
+
+## Next steps
+
+- [Edit a Program](/programs/edit-program/)
+- [Create a Class](/programs/classes/create-class/)
+- [Create Levels](/programs/levels/create-level/)

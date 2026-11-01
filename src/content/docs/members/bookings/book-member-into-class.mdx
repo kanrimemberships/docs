@@ -5,19 +5,18 @@ description: How to create a booking for a member from their profile.
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-:::note[Professional & Enterprise]
-This feature requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
 
 Use a member's **Bookings** tab to reserve a spot in an upcoming session.
 
 ## Before you start
 
+You need the **Manage Bookings** permission, and the Bookings feature must be available to your school.
+
 Make sure:
 
 1. The class has sessions in [Schedules](/schedules/).
 2. The session allows the kind of booking you need, regular or trial.
-3. The session is within your school's booking window and has room available.
+3. The session is within your school's booking window, meets any age limits, and has room available.
 
 ## Book a member into a class
 
@@ -27,12 +26,12 @@ Make sure:
 4. Review the available sessions in the calendar or week view.
 5. Select a session and choose the booking type offered.
 6. Add a note if needed.
-7. Save the booking.
+7. Select **Book This Class** or **Book Trial Class**, depending on the booking type.
 
 Kanri checks whether the member has an active [membership](/members/memberships/) in the program. Members without one can only use a trial spot when trial bookings are enabled for that session.
 
 :::caution
-If a session is full or falls outside the booking window, you cannot book the member into it.
+If a session is full or falls outside the booking window, you cannot book the member into it unless you use the staff capacity override. When a session supports both booking types, staff can select **Trial booking** to change the type.
 :::
 
 ## Next steps

@@ -1,16 +1,33 @@
 ---
 title: Payments Report
-description: How to use the Payments report to see all charges collected in a date range.
+description: How to review charge records by status and payment method.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Payments is a table of charge records. Use it to review charges and their
+status, payment method, member, amount, and related billing details. It is a
+charge report, so its rows are not necessarily equivalent to subscription
+invoices or settled funds in an external payment provider.
 
-## What this page will cover
+## Filter and export
 
-- What the Payments report shows (every payment with member name, amount, date, status, plan)
-- Setting the date range
-- Payment statuses in the report: Paid, Failed, Refunded
-- Summing total revenue for the period (shown at top of report)
-- Exporting to CSV for accounting purposes
+Use the **Status** and **Payment Method** filters to narrow the list. The
+table is ordered newest first; review the **Date** column when you need to
+locate a particular charge. Open a row's related invoice for more context and
+download the filtered table as CSV. The built-in table does not provide a
+date-range filter.
+
+When calculating revenue, decide which charge statuses belong in your
+calculation. A failed or disputed charge should not be treated as successfully
+collected revenue just because it appears in the report. Refunds and other
+adjustments may also affect the amount you ultimately reconcile.
+
+## Example
+
+To review a particular month's successful charges, build a
+[Custom Report](/reports/custom-reports/) using **Charge** records, a
+**Charged On** date range, and **Status is Success**, or use the Payments table
+and review the dates shown.
+Reconcile exported rows with your payment provider and accounting records.
+For charge history over time, see
+[Historical Payments](/reports/billing/historical-payments/); for disputes,
+see [Disputed Payments](/reports/billing/disputed-payments/).

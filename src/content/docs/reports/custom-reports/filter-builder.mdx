@@ -3,22 +3,87 @@ title: Build Custom Report Filters
 description: Use the filter builder to choose which school records appear in a custom report.
 ---
 
-:::note[Guide coming soon]
-This guide will walk through the filter builder and explain how to make precise filters without writing code.
-:::
+Filters decide which records appear in a table, chart, or stat. Each block has its own filter,
+so a chart and table in the same view can analyze different subsets. Available records,
+fields, and conditions depend on your school access and permissions.
 
-## Planned topics
+## Add conditions
 
-- Choose a record type and find available fields.
-- Add conditions and choose a comparison, such as is, contains, or is before.
-- Combine conditions with **All** or **Any** rules, and group conditions when needed.
-- Enter or select values for dates, amounts, names, statuses, and related records.
-- Filter using fields from connected records, and understand when a field can have multiple matches.
-- Check how a filter changes the results before saving.
-- Troubleshoot empty results and conditions that don't match the records you expect.
+1. Choose the records for your report block.
+2. Open **Filter** and add a condition, then choose a field.
+3. Choose a comparison and enter or select its value. Available comparisons depend on the
+   field type; enum fields use the options shown by the picker.
+4. Use **All** when every condition must match, or **Any** when at least one condition is
+   enough.
+5. Check the results before saving. If you see no records, check each condition and whether
+   **All** or **Any** matches your intention.
+
+### Example: new leads to follow up
+
+To find leads created this month, choose **Member** records and put these conditions in an
+**All** group:
+
+- **Member Type** is **Lead**.
+- **Signed Up On** is in the current month.
+
+This finds member profiles signed up during the current month. For membership records, choose
+**Membership** and its **Enrolled On** field. That field shows when the membership record was
+created, not when its status changed to active.
+
+### Example: either of two conditions
+
+Use **Any** when either condition should include a record. For example, a report for bookings
+that are either confirmed or cancelled should use **Status is Confirmed** and
+**Status is Cancelled** in an **Any** group. If you put them in **All**, one booking would
+have to match both statuses at once, so it would not match either condition.
+
+Connected records let you filter by related information, such as a booking's class or a
+membership's program. Follow the relationship in the picker, then choose the field to compare.
+A related record can be unavailable because it belongs to another school or was deleted; its
+details do not become visible merely because another record refers to it.
+
+## Let viewers adjust a filter
+
+You can bind a supported filter value to a viewer input so staff can change that value
+without editing the report:
+
+1. Select the input link beside a filter value and choose **Create new input**, or bind to an
+   input already in the block.
+2. Open **Params** on the block to name the input, choose its type, and set a default value.
+3. To make a condition optional, use **Only apply when…** and choose a toggle input.
+
+An empty viewer input leaves its bound condition out of the query. A toggle that is off also
+leaves its gated condition out. Check the defaults and preview the results so an unset input
+does not make the report broader than you intend. Only compatible inputs are offered for a
+filter value.
+
+## Find attendance for a specific class date
+
+Choose **Attendance** and combine these conditions in an **All** group:
+
+- **Date** matches the required calendar date, for example October 27, 2026.
+- **Class** or **Session** matches the class or recurring session you want.
+- **Confirmed At** is not empty, if you want confirmed attendance only.
+
+**Date** uses the timezone of the school where the person signed in. **Created At** is also
+available when you need the original timestamp. Session schedules describe recurring weekly
+slots; choosing a session alone does not restrict results to one calendar date.
+
+Attendance can include your members' visits to other schools and visitors who signed in at
+your school. Add **Signed-in School** for your school when counting people who attended at
+this location. This differs from the built-in Attendance Report, which already limits results
+to sign-ins at the selected school.
+
+Schedules and session templates are also available for filtering and reporting, subject to
+your existing permissions.
+
+In workflows, **Date** can be used in filters and scheduled date-field triggers. A delay that
+waits until a record's date field requires a stored date or timestamp, such as **Signed Up On**,
+not the calculated attendance **Date**.
 
 ## Related guides
 
 - [Create a Custom Report](/reports/custom-reports/create-report/)
+- [Report Records and Fields](/reports/custom-reports/record-field-reference/)
 - [Configure Tables](/reports/custom-reports/configure-tables/)
 - [Configure Charts and Summary Cards](/reports/custom-reports/configure-charts-and-stats/)

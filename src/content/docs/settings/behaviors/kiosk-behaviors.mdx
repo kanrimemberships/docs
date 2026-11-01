@@ -1,19 +1,36 @@
 ---
 title: Kiosk Behaviors
-description: How to configure what the kiosk allows and restricts.
+description: Set the rules that control kiosk sign-in, mobile check-in, and attendance actions.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Kiosk behaviors control what happens when members or trial visitors check in. Open **Settings → Behaviors** and review the **Kiosk** group.
 
-## What this page will cover
+## Subscription and trial check-in
 
-- Block check-in for members with expired/cancelled subscriptions
-- Allow members to update their profile photo from the kiosk
-- Allow level promotions to be triggered from the kiosk (when a member reaches their level's requirements)
-- Show a celebration/congratulations screen when a member is promoted
-- Recommended defaults for most schools
-- Cross-reference to the Kiosk section for setup instructions
+- **Block sign-ins with expired subscriptions** prevents sign-in when a member only has expired subscriptions.
+- **Require a subscription to sign in** requires an active subscription.
+- **Allow sign-ins before subscription starts** lets members with an active membership sign in before a subscription begins.
+- **Allow trial members to sign in** lets members with trial bookings use kiosk check-in without a membership.
 
-_See also: [Kiosk Behaviors](/kiosk/kiosk-behaviors/)_
+These rules affect kiosk access. Check membership and subscription status before changing a rule to resolve one member's issue.
+
+## Attendance and mobile check-in
+
+- **Require staff to confirm sign-ins** saves kiosk sign-ins as pending until staff confirms them.
+- **Enable member mobile check-in** lets members check in from their own devices.
+- **Require staff to confirm mobile check-ins** keeps those check-ins pending until staff confirms them.
+
+See [Mobile Check-In](/kiosk/mobile-check-in/) for the member workflow and [Taking Attendance](/schedules/taking-attendance/) for staff follow-up.
+
+## Kiosk actions and messages
+
+The **Allow level promotions from attendance view** and **Allow photo updates from attendance view** settings let instructors promote member levels or update photos from the kiosk attendance view. **Allow promoting members who don't meet requirements** also permits promotion before a member meets the level's minimum classes or days requirements. Use these settings only if staff have a clear review process.
+
+Use [Kiosk Messages](/settings/kiosk-messages/) to show a required message that must be acknowledged before sign-in or a banner notice on the confirmation screen. **Birthday celebration on sign-in** is another kiosk behavior. **Let visitors email themselves a waiver link** appears only when Documents is enabled, the intake page is enabled, and an intake waiver template is selected.
+
+## Next steps
+
+- [Set Up a Kiosk Device](/kiosk/set-up-kiosk/)
+- [Manage Kiosk Holds](/kiosk/member-holds/)
+- [Configure Kiosk Messages](/settings/kiosk-messages/)
+- [Set Closed Days](/calendar/closed-days/)

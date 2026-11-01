@@ -2,8 +2,9 @@ import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
-import { checkHealth, config, isDocsUrl, validateConfig } from "./ai-search.mjs";
+import { checkHealth, config, isDocsUrl, searchDocumentation, validateConfig } from "./ai-search.mjs";
 import { corpusUrls, renderSitemap } from "./ai-search-corpus.mjs";
+import { retrievalOptions, summarizeEvaluation, validateRetrievalOptions } from "./ai-search-retrieval.mjs";
 
 test("provisioning stays private and bound to the approved public source", () => {
   validateConfig(config);
@@ -23,6 +24,42 @@ test("provisioning stays private and bound to the approved public source", () =>
     mutate(value);
     assert.throws(() => validateConfig(value));
   }
+});
+
+test("retrieval profile preserves explicit failures and calibrated no-match settings", () => {
+  validateRetrievalOptions(retrievalOptions);
+  for (const mutate of [
+    (value) => { value.cache.enabled = true; },
+    (value) => { value.query_rewrite.enabled = true; },
+    (value) => { value.reranking.enabled = false; },
+    (value) => { value.reranking.match_threshold = 0; },
+    (value) => { value.retrieval.return_on_failure = true; },
+    (value) => { value.retrieval.max_num_results = 50; },
+  ]) {
+    const value = structuredClone(retrievalOptions);
+    mutate(value);
+    assert.throws(() => validateRetrievalOptions(value));
+  }
+});
+
+test("search rejects invalid queries before contacting provider", async () => {
+  for (const query of ["", "   ", "a".repeat(301), "query\nprivate context", null, 123]) {
+    await assert.rejects(searchDocumentation(query), /Documentation query/);
+  }
+});
+
+test("no-match scoring distinguishes unrelated questions from excluded guides with related references", () => {
+  const supported = { in_corpus: true, explicitly_unsupported: false, topic_hit: true, postgres_topic_hit: true, latency_ms: 100, chunks: [{}] };
+  const excluded = { in_corpus: false, explicitly_unsupported: false, excluded_placeholder_topic: true, latency_ms: 200, chunks: [{}] };
+  const unrelated = { in_corpus: false, explicitly_unsupported: true, latency_ms: 300, chunks: [] };
+  const summary = summarizeEvaluation([supported, excluded, unrelated]);
+  assert.equal(summary.unsupported_empty, true);
+  assert.equal(summary.excluded_topics_with_related_results, 1);
+  assert.equal(summary.supported_questions, 1);
+  assert.equal(summary.top_five_topic_rate, 1);
+  assert.equal(summary.p95_latency_ms, 300);
+  assert.equal(summarizeEvaluation([supported, { ...unrelated, chunks: [{}] }]).unsupported_empty, false);
+  assert.throws(() => summarizeEvaluation([supported, excluded]));
 });
 
 test("Kai sitemap includes completed guides only, independently of navigation and SEO sitemap", () => {

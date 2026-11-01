@@ -1,21 +1,43 @@
 ---
 title: Add a Booking
-description: How to book a member into a class session from the schedule view.
+description: Reserve a spot in an upcoming session for a member or trial visitor.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Before creating a booking, confirm that the member or trial visitor should attend that session. They need a member profile, including trial visitors. The session must allow the booking type and date. Capacity is checked unless authorized staff explicitly override it.
 
-:::note[Professional & Enterprise]
-Member self-booking requires a Professional or Enterprise plan. [Compare plans →](/reference/plans/)
-:::
+The school needs Bookings enabled. The school-wide **Create Booking** action requires permission to manage bookings; the member-profile booking page requires permission to manage members.
 
+## Create a booking from the Bookings page
 
-## What this page will cover
+1. Open **Bookings** and select **Create Booking**.
+2. Search for and select the member.
+3. Select **Continue**.
+4. Review the available sessions.
+5. Choose the correct program, class, date, and time.
+6. Select a regular or trial booking when offered.
+7. Optionally add a note of up to 500 characters.
+8. Select **Book This Class** or **Book Trial Class**, then check the confirmation.
 
-- Adding a booking from the session's bookings list
-- Searching for the member to add
-- Overriding capacity (staff can book beyond the session limit)
-- What confirmation looks like
-- Alternative: booking from the member's profile instead
+You can also open a member's profile, choose **Bookings**, and select **New Booking**.
+
+A regular booking requires an active membership in one of the class's assigned programs. Staff with permission to manage bookings can create a trial booking even for an existing member. Regular and trial booking switches are independent.
+
+## If the session is unavailable
+
+Check that the schedule is active and its date range includes the booking date. Confirm the school's booking window and same-day rules, and check that bookings of the selected type are enabled.
+
+If the class is full, staff with permission to manage bookings can select the explicit capacity-override checkbox. This only bypasses capacity; it does not bypass membership, booking-window, or closed-day checks. Do not rely on an earlier availability preview to reserve a spot.
+
+A closed-day rule may also block bookings. See [Booking Settings](/settings/booking-settings/) and [Set Closed Days](/calendar/closed-days/).
+
+## Example
+
+If a current member needs a place in Monday's Karate Fundamentals session, choose a regular booking. If a prospective student is attending a trial, choose a trial booking and check that the class allows trial bookings.
+
+Creating a booking requests a confirmation email. It does not record attendance or create a program membership or billing subscription. If you later [reschedule](/members/bookings/reschedule-booking/), Kanri updates the existing booking within the same program and requests a reschedule email; it is not a cancellation plus a new booking.
+
+## Next steps
+
+- [View Session Bookings](/schedules/bookings/view-session-bookings/)
+- [Reschedule a Booking](/members/bookings/reschedule-booking/)
+- [Cancel a Booking](/schedules/bookings/cancel-booking/)

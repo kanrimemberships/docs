@@ -1,18 +1,65 @@
 ---
 title: Billing Plans
-description: A reference for what billing plans are — the products you charge members for.
+description: Learn how plans and prices work, choose a price type, and set up plan options for members.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+A **billing plan** describes what a member is signing up for. Its **price** describes what the member pays and how the amount is charged. For example, *Adult Karate* could have a C$120 monthly price and a C$1,200 paid-in-full price.
 
-## What this page will cover
+Amounts in these examples are illustrative school-set prices, not Kanri software or payment-processing rates.
 
-- What a billing plan is (a named product, e.g. "Monthly Karate", "Annual All-Access")
-- The difference between a plan and a price (a plan is the product; a price is the specific amount and interval)
-- Single vs multiple price mode (controlled in Settings → Behaviors)
-- How prices work: amount, currency, billing interval (daily/weekly/monthly/yearly), optional fixed term
-- How the same plan can have prices for different member types (e.g. Adult $120/mo, Junior $80/mo)
-- Program access: linking a billing plan to programs so subscription holders get access to sign in for those programs
-- Billing plan lifecycle: active plans can be assigned to subscriptions; archiving a plan removes it from future use but doesn't cancel existing subscriptions
+Every plan needs a price. When you [create a plan](/billing/billing-plans/create-plan/), Kanri asks you to create the first price at the same time.
+
+## Pick a billing-plan mode
+
+In **Settings → Behaviors**, choose **Billing plan mode**:
+
+- **Single** gives each plan one price. The price fields appear when you create or edit the plan.
+- **Multiple** lets one plan have several prices. This is useful for different member rates, payment intervals, or payment choices. Choose a default price when editing the plan; staff can select another available price when creating a subscription.
+
+Choose a mode that matches how your school sells memberships. For example, use separate plans when *Adult Karate* and *Junior Karate* are distinct offerings. Use multiple prices on one plan when they are the same offering with different rates. Changing the mode is a school-wide behavior setting, so review your existing plans and staff workflow before changing it.
+
+## Understand price types
+
+Choose a price type based on the arrangement you intend to offer:
+
+| Price type | What it is for |
+| --- | --- |
+| **Ongoing** | Repeating payments that continue until the subscription is cancelled. |
+| **Paid in Full** | One payment for a defined term. Set the term length and unit; this is not a repeating payment schedule. |
+| **Fixed Term** | Repeating payments for a set number of payments. Set the payment interval and number of payments. |
+| **Scholarship** | A zero-payment price. Kanri saves scholarship prices with a payment amount of zero. |
+| **Session Block** | A prepaid block of sessions. Set the block size; optional auto reload can create another block when the balance reaches the selected trigger. |
+| **Per Session** | Charges based on recorded session usage. Choose immediate billing or accumulate usage for a billing cycle. |
+
+The form only shows the fields that apply to the selected type. Intervals use a count and a unit, so `2` and `Week` means every two weeks. The price amount uses the school's billing currency.
+
+## Plan details beyond price
+
+- **Trial Plan** marks the plan as a trial offering. Do not assume this label alone delays a payment; set and check the subscription dates and price type.
+- If the school has the **Documents** feature, a plan can have an optional contract template and an option to auto-send it when a subscription is created. When the contract is auto-sent, Kanri holds scheduled invoice creation until the contract is signed.
+- **Program access** is optional. When the school enables it in **Settings → Behaviors**, programs linked to a plan are used to control which programs members can access based on their subscriptions. See [Set Program Access](/billing/billing-plans/set-program-access/).
+
+## Create or change a plan
+
+1. Go to **Billing → Plans** and select **New Plan**.
+2. Give the plan a clear name that describes the offering, not the amount. For example, use *Junior Karate* rather than *C$80 Monthly*.
+3. Choose the price type and fill in the fields shown for it. Check the interval, term, payment count, or block size carefully.
+4. Review optional trial, contract, and program-access settings.
+5. Select **Create Plan** and review the plan page.
+
+In **Multiple** mode, use **Add Price** on the plan page for another pricing option. In **Single** mode, edit the plan to change its one price. See [Edit a Plan](/billing/billing-plans/edit-plan/) and [Add a Price](/billing/billing-plans/add-price/).
+
+### Example: monthly and annual choices
+
+In Multiple mode, an *Adult Karate* plan could have:
+
+- **Monthly**: Ongoing, C$120, interval count `1`, unit `Month`.
+- **Annual**: Paid in Full, C$1,200, term length `1`, term unit `Year`.
+
+Name each price so staff can distinguish them when assigning a subscription. Set the option you expect to use most often as the plan's default.
+
+## Important before changing prices
+
+Price changes affect future selections, but do not assume that existing subscriptions will move to a new price. Check a member's subscription before editing a plan. In Multiple mode, add a separate price for a new offering rather than silently changing the meaning of a price already in use. Prices with payment history may not be editable.
+
+See [Create a Billing Plan](/billing/billing-plans/create-plan/), [Add a Price](/billing/billing-plans/add-price/), and [Set Program Access](/billing/billing-plans/set-program-access/).

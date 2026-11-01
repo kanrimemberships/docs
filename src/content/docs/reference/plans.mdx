@@ -23,7 +23,16 @@ USD pricing is available. See the [pricing page](https://kanrimemberships.com/pr
 
 ## Usage fees
 
-Usage fees apply on top of your monthly plan. Every plan includes **C$10/month** in usage credits, which covers most schools' SMS costs. For the full breakdown including USD rates, see the usage page:
+Usage fees apply on top of your monthly plan. The public usage page lists these monthly allowances:
+
+| Allowance | Starter | Professional | Enterprise |
+|---|---|---|---|
+| Email messages | 5,000 | 10,000 | 25,000 |
+| SMS segments, sent or received | 50 | 100 | 250 |
+
+Email overages are **C$1.40 per 1,000 emails**. Transactional emails, such as receipts and booking confirmations, do not count toward the email allowance. SMS overages use the rates below. Check your account's billing page for its actual terms and usage.
+
+For the full breakdown including USD rates, see the usage page:
 
 <LinkCard
   title="Kanri Usage & Fees"
@@ -38,18 +47,30 @@ Usage fees apply on top of your monthly plan. Every plan includes **C$10/month**
 | SMS (per segment) | C$0.04 |
 | MMS (media message) | C$0.08 |
 
-A single SMS message is one segment if it is 160 characters or fewer. Longer messages are split into multiple segments and billed per segment.
+A plain-text SMS can fit up to 160 basic characters in one segment. Emoji and some other characters reduce that limit. Longer messages use multiple segments, so character count alone does not determine the charge. SMS and MMS rates apply to messages sent or received.
 
 ### Transaction fees
 
-These fees apply to all payments processed through Kanri's billing system (powered by Stripe). They are separate from your Kanri plan price and are deducted from each transaction before your payout.
+These rates apply to payments processed through Kanri. They are separate from your plan price. The rate depends on your billing currency and whether the card is processed online or in person.
+
+### CAD payments
 
 | Payment method | Fee |
 |---|---|
-| Credit card (card not present, e.g. recurring billing) | 3.4% + C$0.30 |
-| Bank account (pre-authorized debit) | 2.0% + C$0.40 |
-| Credit card (card present, e.g. terminal or in-person) | 3.2% + C$0.05 |
-| Interac Debit | 1.0% + C$0.15 |
+| Credit or debit card, online | 2.9% + C$0.30 |
+| Bank account, pre-authorized debit (PAD) | 1.5% + C$0.40 |
+| Credit or debit card, in person | 2.7% + C$0.05 |
+| Interac Debit, in person | 0.5%, with no fixed fee |
+
+### USD payments
+
+| Payment method | Fee |
+|---|---|
+| Credit or debit card, online | 2.9% + US$0.30 |
+| US bank account, ACH direct debit | 1.3%, with no fixed fee |
+| Credit or debit card, in person | 2.7% + US$0.05 |
+
+For current rates and the full usage-fee breakdown, see [Kanri Usage & Fees](https://kanrimemberships.com/usage).
 
 ### Storage
 
@@ -63,7 +84,12 @@ Each plan includes a shared storage pool covering your gallery, documents, and K
 
 ## Changing your plan
 
-You can upgrade or downgrade your plan at any time from **Settings → Manage My Billing**. Changes take effect at the start of your next billing period.
+As a school owner, open **Settings → Manage My Billing**, then **Switch plan**. The plan-change screen uses immediate proration, rather than waiting until the next billing period. Your school needs an active billing subscription to complete the change.
 
-If you downgrade and your school is using features not available on the lower plan (such as Lead Management on a Starter plan), those features will become inaccessible but your existing data is not deleted.
+A move to a smaller storage allowance is blocked if your current files would exceed it, including the required free-space margin. Free space or purchase extra storage before retrying.
 
+## Plan offers and enabled features
+
+The public pricing page describes the plans on offer. Access within a school also depends on its enabled features and your role. For example, Shop is included in the standard Starter feature set, while document management and staff shifts are in Professional and Enterprise. API-key access requires Enterprise. A role permission alone cannot enable a feature that your plan does not include.
+
+Plan-based features update when your billing plan changes. Any separately enabled school features remain in place. Review your school's access after a switch and contact Kanri if it does not match your agreed plan.

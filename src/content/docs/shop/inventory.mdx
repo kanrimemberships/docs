@@ -3,12 +3,51 @@ title: Manage Inventory
 description: Check available stock, adjust quantities, and see what is already allocated.
 ---
 
-:::note[Guide coming soon]
-This guide will cover on-hand stock, items reserved for sales, adjustments, and shortages.
-:::
 
-## Planned topics
+The **Inventory** page shows each product option separately. Use it to decide what you can sell now, what is waiting for pickup, and what you may need to order.
 
-- Read the inventory quantities and stock status.
-- Record a stock adjustment.
-- Understand the difference between available, allocated, and outstanding stock.
+## Read inventory quantities
+
+Search by product, variant, or SKU. The table shows:
+
+| Column | Meaning |
+| --- | --- |
+| **Free** | On-hand stock not currently reserved for a sale. |
+| **On Hand** | Current stock count. |
+| **Allocated** | Stock reserved for a member but not yet handed over. |
+| **Total Outstanding** | Units on paid, partially paid, or refunded invoices that have neither an allocation nor a fulfillment record. Allocated units are listed separately. |
+| **Shortfall** | Outstanding units that exceed the current on-hand count. |
+
+An item can have stock on hand but no free stock if all units are allocated. Check **Allocated** and **Free** before promising an item to someone else. **Shortfall** compares Total Outstanding with On Hand, not Free, so it does not account for existing reservations in the same way.
+
+For example, if you have 5 belts on hand and 2 have been allocated for pickup, **Free** is 3 and **Allocated** is 2. A paid order for 4 more belts that cannot yet be filled contributes to **Total Outstanding**. If the outstanding demand is greater than the current stock, **Shortfall** helps show how many units you still need.
+
+## Adjust stock
+
+Use an adjustment to correct a count or record a change that did not come through a sale, return, or purchase order.
+
+1. Open **Products** and select the product.
+2. Find the variant and select its **Adjust Inventory** action.
+3. Enter a positive quantity to add stock or a negative quantity to remove stock.
+4. Add a reason so your team can understand the change later.
+5. Select **Adjust Inventory**.
+
+The quantity must be nonzero and cannot reduce on-hand stock below zero.
+
+Use adjustments for a stocktake correction, damaged stock, or another change that was not already recorded by a shop transaction. For example, enter **-1** with a reason such as "damaged during storage" to remove one unsellable item. Do not use a manual adjustment to record a supplier delivery or a customer return. Those have their own workflows and keep the supplier or sale history connected to the quantity change.
+
+Open **Inventory**, then **Adjustments** to review previous changes. The list identifies the product, variant, adjustment type, quantity, supplier when relevant, reason, and date. You can export the adjustments table to CSV. Use [Purchase Orders](/shop/purchase-orders/) to add stock received from a supplier.
+
+## Handle low or reserved stock
+
+When a member has paid for an item that is not available, the invoice shows that the item is waiting for stock. Order the missing quantity using a [purchase order](/shop/purchase-orders/). When stock arrives, allocate it to waiting sales before making the remaining stock available for general sale.
+
+Before creating an order, compare **Shortfall** with the quantity you plan to buy. A shortfall reflects current outstanding demand, not a recommended order quantity: you may want extra stock for expected sales, or less if you are discontinuing an item. Receiving stock through the purchase order updates on-hand quantities; allocating units to waiting invoices reserves them for those customers.
+
+For sale handovers, see [Fulfill Product Sales](/shop/fulfil-sales/). To review product costs and sales, see [Shop Reports](/shop/reports/).
+
+## Next steps
+
+- [Create a purchase order](/shop/purchase-orders/)
+- [Fulfill product sales](/shop/fulfil-sales/)
+- [Review shop reports](/shop/reports/)

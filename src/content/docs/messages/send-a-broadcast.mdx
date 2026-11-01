@@ -5,9 +5,9 @@ description: How to send one message to a program, a group, or a custom list of 
 
 import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
-A broadcast sends the same message to many members at once, unlike a [conversation](/messages/),
-which is a one-to-one thread. Use a broadcast for announcements, reminders, and newsletters where
-you don't need individual replies threaded back to you.
+A broadcast sends a message to many members at once, with an individual copy for each recipient,
+not a shared group thread. Use it for announcements, reminders, and newsletters.
+Recipients can still reply through their individual [conversations](/messages/).
 
 ## Before you start
 
@@ -37,8 +37,9 @@ members happens in the background rather than all at once. You can dismiss it an
 click **View details** to jump straight to the broadcast's entry in the [Outbox](/messages/outbox/).
 
 :::tip
-Changed your mind about a broadcast you scheduled for later? You can cancel it from the Outbox
-right up until it sends. See [Cancel a scheduled broadcast](/messages/outbox/#cancel-a-scheduled-broadcast).
+Changed your mind about a scheduled broadcast? Cancel it from the Outbox before the scheduled
+time. Cancellation stops pending recipients, not messages already sending or delivered.
+See [Cancel a scheduled broadcast](/messages/outbox/#cancel-a-scheduled-broadcast).
 :::
 
 ## Choose who to target
@@ -47,34 +48,47 @@ You can combine any number of these in a single broadcast:
 
 - **A program** — every member with an active [membership](/members/memberships/) in that
   program.
-- **A group** — every member in that [group](/groups/), whether they were added directly or
-  through a program assignment (with any level range the group specifies).
-- **All members** — every active member at your school.
+- **A group** — every member in that [group](/groups/), whether added directly or matched by a
+  program assignment, level range, or dynamic filter.
+- **All members** — members with at least one active program membership at your school. This
+  does not mean every profile with its type set to Member.
 - **Lead programs** *(requires [Lead Management](/lead-management/))* — every
   [lead](/lead-management/) whose enquiry lists that program.
 
-:::note[Professional & Enterprise]
-Broadcasting to leads by lead program requires the Lead Management feature, available on
-Professional and Enterprise plans. [Compare plans →](/reference/plans/)
-:::
 
 ### Broadcasting to a custom filter
 
 If programs and groups aren't specific enough, click **Broadcast by filter…** in the To box
 instead. This replaces the program/group search with a filter builder, the same one used for
 [custom reports](/reports/), so you can target members by any combination of fields, such as
-membership status, level, or last attendance date. A filter is evaluated at send time and can't be
+membership status, level, or last attendance date. A filter is evaluated when you confirm the send,
+including when you schedule it for later, and can't be
 combined with programs, groups, or lead programs in the same broadcast.
+
+### Members and their contacts
+
+Kanri includes the matched members and their linked contacts who have **Receive Communications**
+or **Can Manage** enabled. Only people with an address or phone number for the chosen channel
+can receive the broadcast. The group preview shows member profiles, not this final contact list.
+
+Shared addresses and phone numbers are normally combined. Personal placeholders can require
+separate copies, such as a guardian receiving one message for each child when you use the child's
+name. Check the recipient-level results in the Outbox rather than assuming the group's member
+count will equal the number of messages.
+
+Scheduled broadcasts keep the recipients and personalized content selected when you confirmed
+the send. Changing a group or member afterward does not rebuild that scheduled audience.
 
 ## Placeholders still work
 
 Broadcasts support the same placeholders as a one-to-one message, like the recipient's first name.
-Because every broadcast recipient is a real member, there's no risk of an unresolved placeholder.
-See [Message Placeholders](/reference/message-placeholders/) for the full list.
+Use member placeholders for the matched student and contact placeholders for the person receiving
+the message. Check that the relevant profile details are filled in. See
+[Message Placeholders](/reference/message-placeholders/) for the full list.
 
 ## Where broadcasts show up afterward
 
-Every broadcast you send appears in the **Outbox** tab, under the **Broadcasts** view, with its
+Every broadcast you send appears as a **Broadcast** entry in the **Outbox** tab, with its
 overall progress and a per-recipient delivery status. See [The Outbox](/messages/outbox/) for
 details.
 

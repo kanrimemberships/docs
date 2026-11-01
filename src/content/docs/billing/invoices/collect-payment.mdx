@@ -3,12 +3,54 @@ title: Collect a Payment
 description: Collect or record a payment against an invoice.
 ---
 
-:::note[Guide coming soon]
-This guide will cover saved payment methods, cash or manual payments, card-reader payments, and partial payments.
-:::
+Invoices with an amount due show the **Charge** action. Use it to take payment or record money received another way. A draft invoice has separate **Open Invoice** and **Charge** actions: opening makes the bill available to the member and may send its link, while **Charge** starts the staff payment flow.
 
-## Planned topics
+Before you begin, check the invoice balance and its **Charges** section. A payment that is still processing may already be on its way to completion. Avoid charging the same amount again until you know the first attempt's result.
 
-- Choose an available payment method.
-- Collect a card payment or record an offline payment.
-- Check the updated balance and payment status.
+## Choose a payment option
+
+1. Open **Invoices** and select the invoice.
+2. Select **Charge**. If the invoice is a draft, this opens it for the charge flow; if invoice emails on opening are enabled, opening it may also send the invoice link. Payment is not recorded until you choose and submit a payment option.
+3. Choose how you are collecting or recording payment:
+
+| Option | Use it when | Submit action |
+| --- | --- | --- |
+| **Mark as paid** | You already received payment outside Kanri and want to record it without moving money. | **Mark as Paid** |
+| **Cash** | The member paid cash in person. | **Record Cash Payment** |
+| **Saved payment method** | You want to charge a payment method saved for the member. | **Charge Saved Method** |
+| **Pay on reader** | The member is paying on a connected card reader. | **Charge on Reader** |
+| **Payment link** | You want Kanri to email the member a link to pay online. | **Send Payment Link** |
+
+4. Check the amount. You can enter a smaller amount for a partial payment.
+5. Add notes or confirm the receipt email if those fields are shown. For **Mark as paid** or **Cash**, you can also enter the date the payment was received.
+6. Select the submit action shown for the payment option you chose.
+
+After a partial payment, the invoice remains open with a balance due. Return to the invoice and charge the remaining amount later.
+
+### Recording cash and payments collected elsewhere
+
+Choose **Mark as paid** when you already received the money by a method that should not be charged again. It records the payment in Kanri; it does not move funds. Enter the amount, and optionally add notes, the payment date, and a receipt email.
+
+Choose **Cash** for money received in person. Enter the amount actually received. If the member paid the full balance, select **Mark invoice as fully paid**. If the cash covers only part of the balance, leave that option unchecked so the remaining amount stays due.
+
+For example, if the invoice is $80 and the member gives you $30 cash, record $30 without marking the invoice fully paid. The remaining $50 stays on the invoice for a later payment.
+
+## Use a payment link
+
+Choose **Payment link** and enter the recipient's email address. Kanri emails a link that the member can use to pay online. The link does not expire. If it is still pending, use **Resend Link** or select **Cancel Charge** in the charge panel.
+
+Use a payment link when the member is not present and you want them to complete payment themselves. Confirm the email address before sending. If the member says they did not receive it, check the charge first, then resend the existing pending link rather than creating another attempt.
+
+## Check a pending or failed charge
+
+Card reader and saved-method payments may take time to finish. The charge panel shows when a payment is processing. Use **Wait in Background** if you need to leave the page. Avoid starting another attempt until you know the first one has finished.
+
+If a charge fails, review its message in the invoice or [member's Charges page](/members/billing/view-charges/), then try an available payment method. To use a card reader, first [set up the reader](/billing/terminal/set-up-reader/).
+
+After a successful partial payment, the charge shows the amount received and the invoice shows the remaining balance. A failed payment does not count as money received. For an in-person card payment, see [Take an In-Person Payment](/billing/terminal/take-payment/).
+
+## Next steps
+
+- [Review charges](/members/billing/view-charges/)
+- [Send or download a receipt](/billing/invoices/receipts-and-history/)
+- [Refund a payment](/billing/invoices/refunds-and-voids/)

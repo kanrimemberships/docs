@@ -17,22 +17,26 @@ an email inbox: you can reply, search, flag important threads, and archive ones 
 5. Click **Send** (or **Schedule**, if you set a send time).
 
 :::note
-Replying doesn't automatically mark a conversation as read. If you want it to disappear from your
-unread count, mark it read separately (see below).
+Opening a conversation marks it read. Sending a reply does not separately change its read status.
+If you marked the open conversation unread as a reminder, replying does not clear that reminder.
 :::
 
-If the conversation is by SMS and the member's phone number on file has changed since the
-conversation started, Kanri will stop you from replying until that's resolved, so you don't text
-the wrong number.
+If an SMS conversation's number is now clearly associated with a different profile, Kanri can
+block the reply until that association is resolved. This is not a guarantee that every changed
+or reassigned phone number is detected. Confirm the number with the family before retrying.
 
 ## Search and filter your Inbox
 
-Use the search box at the top of the Inbox to find a conversation by name, email, or phone number.
-Combine it with the filter buttons:
+Use **Search messages** to find text in a message's subject or content. It is not a profile-name,
+email-address, or phone-number lookup unless that detail occurs in the message itself. To find a
+particular person, open their profile's Messages tab. Combine message searches with the filters:
 
-- **Unread** — only conversations you haven't read yet
+- **Unread** — only conversations marked unread
 - **Flagged** — only conversations you've flagged (see below)
 - **Archived** — only conversations you've archived, hidden from the main list by default
+
+Read/unread, flag, and archive changes apply to the shared conversation, not a private inbox for
+each staff member. Coordinate unread reminders with your team.
 
 ## Mark a conversation read or unread
 
@@ -68,6 +72,6 @@ unarchive one if it needs attention again.
   <LinkCard
     title="Review the Outbox"
     href="/messages/outbox/"
-    description="See every email your school has sent, including automatic ones."
+    description="Review recorded outgoing email, SMS, and automatic messages."
   />
 </CardGrid>

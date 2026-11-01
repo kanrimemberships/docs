@@ -3,8 +3,8 @@ title: Create Your First Workflow
 description: A step-by-step tutorial that walks you through building, publishing, and testing a welcome message workflow for new members.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
 This tutorial walks you through creating a simple but useful workflow: **sending a welcome message to every new member**. By the end, you'll understand how to build any workflow in Kanri.
@@ -16,7 +16,8 @@ This tutorial walks you through creating a simple but useful workflow: **sending
 **Before you start:**
 
 - You'll need a message template already set up. [Create a template →](/messages/templates/create-a-template/)
-- You'll need the **Manage Workflows** permission. Ask your admin if you're not sure.
+- You'll need **Manage Workflows**, plus the permissions required by the steps to test the
+  published workflow. For Send message on members, that includes **Manage Members**.
 
 ---
 
@@ -53,7 +54,10 @@ The trigger is what causes your workflow to start. For a welcome message, we wan
 This means: "every time a new member is added, start a run of this workflow."
 
 :::tip
-"Member Create" fires whenever a member record is created — including members added by staff or submitted through your lead page. If you only want to target members added through a specific path, you can add a Branch step later to filter by member type.
+"Member Create" includes newly created Lead, Contact, and Staff profiles, not only full Member
+profiles. Add a Branch on **Member type** if you only want one of those groups. Member type does
+not identify exactly how the person registered. Reusing an existing lead is not another creation,
+so it does not start a fresh welcome run for that lead.
 :::
 
 ---
@@ -65,7 +69,8 @@ It's often good to wait a few minutes before sending a welcome message — it gi
 1. Click the **+** button to add a step after the trigger.
 2. Choose **Delay**.
 3. Set the duration to **10 minutes**.
-4. Leave **Re-check trigger condition** turned on. (This is the default — see [How Workflows Work](/workflows/how-workflows-work/) for why this matters.)
+4. **Recheck trigger** starts on, but does not add a filter check to an Action Event Occurs
+   trigger. Add a Branch after the delay if you need to check current member details.
 5. Click the **+** button below the delay to continue.
 
 ---
@@ -74,10 +79,14 @@ It's often good to wait a few minutes before sending a welcome message — it gi
 
 1. Click **+** and choose **Action**.
 2. Under **Action**, select **Send message**.
-3. Under **Target**, leave it as **This record** — this means "the member this workflow is running for."
+3. Under **Target**, leave **Workflow record** selected. This means the member this run is about.
 4. Under **Template**, search for and select your welcome message template.
 5. Under **Message type**, choose **Email** (or **SMS** if you prefer).
 6. Leave this as the last step (no "next" step). When the message sends, the run is done.
+
+This action includes the member and eligible linked contacts, not just the member's own address.
+For a child's profile, a guardian with **Receive Communications** or **Can Manage** enabled can
+receive the message. Check the template's student and recipient placeholders.
 
 ---
 
@@ -101,7 +110,8 @@ Kanri will check for any errors (like missing required fields). If everything is
 
 To make sure everything works:
 
-1. Create a test member in Kanri, or choose a safe existing test record.
+1. Choose a safe existing test record. If you create a new test member after publishing, that
+   creation already starts an automatic run, so starting Test Run as well can send twice.
 2. In the builder, click **Test Run** and select the member.
 3. Confirm the warning, then follow the run detail page as it refreshes while the workflow runs.
 4. On a waiting Delay step, click **Skip delay** to continue immediately.

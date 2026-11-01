@@ -15,6 +15,8 @@ Make sure:
 2. The membership already has a current level.
 3. The current level has a **next level** set in your level settings.
 
+The membership-page action requires **Promote Memberships** permission. The feature must also be available to your school.
+
 ## Promote a membership to the next level
 
 1. Open the member from the [Members list](/members/).
@@ -27,24 +29,52 @@ Make sure:
 
 Kanri advances the membership to the **next** level in that program's level sequence.
 
-## Attendance carries over between programs
+## Attendance carries over between programs and schools
 
 Promotion progress follows the membership. If you change an existing membership
 from kids karate to adult karate, its qualifying attendance carries over rather
 than starting again because the program changed. Normal rules, such as counting
 classes since the last promotion, still apply.
 
+Qualifying attendance at other schools counts too, provided it belongs to the
+same membership. Promotion progress and grading eligibility do not reset or
+exclude classes because the member trained at another school.
+
+If you promote a visiting member through the [attendance kiosk](/kiosk/),
+Kanri updates their existing membership at their home school. The promotion
+does not create a separate membership at the school they are visiting.
+
 Attendance on a separate membership does not count toward this membership's
 promotion. Historical attendance reports still show the program recorded when
 each class was attended.
 
+The **Promote** action on the membership page advances to the next configured
+level; it does not check attendance or other eligibility requirements. The
+kiosk's promotion flow does check the membership's applicable requirements
+against confirmed attendance linked to it. When a program
+[keeps level requirements until next promotion](/programs/edit-program/#keep-level-requirements-until-next-promotion),
+an existing membership may still use earlier requirements and an earlier
+next-level assignment. Promotion clears those kept values for its new level.
+
 :::note
-You cannot pick any level from the list on this page. Promotion always moves forward to the next level that has been configured in your [Levels](/programs/levels/) setup.
+You cannot pick any level from the list on this page. Promotion moves to the
+next level applicable to this membership. Review the destination shown: when
+requirements are kept, it can differ from the program's latest progression.
 :::
 
 :::tip
 If a member is ready but you cannot promote them, check whether the current level has a next level linked in your level settings.
 :::
+
+## If a kiosk promotion fails
+
+The [attendance kiosk](/kiosk/) shows a **Promotion failed** message if it cannot
+save a promotion. Read the message, then click **Close**. Check any settings
+mentioned in the message before trying again.
+
+For a connection or server problem, check your connection and try again. If it
+keeps failing, ask your school administrator for help. Kanri shows a promotion
+success notice only after the promotion has been saved.
 
 ## Next steps
 

@@ -1,14 +1,31 @@
 ---
 title: In-Person Payments
-description: Take in-person card payments using a connected card reader.
+description: Set up a Stripe Terminal reader and use it to collect an invoice payment in person.
 ---
 
-:::caution[In progress]
-This section is being planned. It will cover setting up a reader and collecting payments in person.
-:::
+Kanri can start an in-person card payment on a reader connected to the school's Stripe account. The reader sends the payment result back to the invoice in Kanri; wait for that result before starting another attempt.
 
-## Planned guides
+## Set up the reader
 
-- [Set Up a Card Reader](/billing/terminal/set-up-reader/): connect a reader to your school.
-- [Take an In-Person Payment](/billing/terminal/take-payment/): collect payment for an invoice or sale.
-- See [Invoices](/billing/invoices/) for other ways to collect or record a payment.
+1. Confirm the school's Stripe account is connected and the school address is up to date.
+2. Go to **Settings → Terminal** and select **Set Up Terminal** if the location has not been configured.
+3. Register a reader using its registration code and give it a recognizable label.
+4. Set a default reader if staff should normally use the same device.
+
+Kanri's terminal setup screen directs schools to contact support to arrange purchasing a reader. See [Set Up a Card Reader](/billing/terminal/set-up-reader/).
+
+## Take an invoice payment
+
+1. Open the member's invoice and select **Charge**.
+2. Choose **Pay on reader**.
+3. Select the reader, confirm the amount, and choose whether to send a receipt email.
+4. Start the charge and let the member present their card to the reader.
+5. Wait for Kanri to show the final result. Check the invoice's Charges section afterward.
+
+Do not start a second charge while the first is processing. If the reader payment fails, review the charge status before trying again. See [Take an In-Person Payment](/billing/terminal/take-payment/).
+
+## If reader payments are unavailable
+
+The **Pay on reader** option is unavailable if terminal payments have not been set up or no readers are registered. Go to **Settings → Terminal** to review the setup, reader status, and default reader. Contact Kanri support if the school needs a reader or cannot complete setup.
+
+For other ways to collect or record payment, see [Collect a Payment](/billing/invoices/collect-payment/).

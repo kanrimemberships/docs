@@ -1,21 +1,62 @@
 ---
 title: Billing
-description: How Kanri billing works — from billing plans and prices through to subscriptions, payments, and payouts.
+description: Understand billing plans, prices, subscriptions, invoices, payments, and payouts in Kanri.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Kanri keeps the rules for what you charge separate from the records of what a member owes and pays. Understanding those pieces makes it easier to set up billing and investigate a payment later.
 
-## What this page will cover
+## How the pieces fit together
 
-- End-to-end overview: Billing Plan → Price → Subscription → Payment → Payout
-- How invoices and one-time charges fit alongside recurring subscriptions
-- Taking card payments in person with a connected card reader
-- What Kanri handles vs what Stripe handles
-- Billing plan modes: Single (one price per plan) vs Multiple (several prices per plan)
-- Subscription modes: Single (one active subscription per member) vs Multiple (several at once)
-- Program access gating: how billing plans can control which programs a member can attend (optional feature)
-- How automatic retries work for failed payments
-- When money reaches your bank account (payout schedule)
-- Stripe fees: what they are and where they come from
+1. A **billing plan** names an offering, such as *Adult Karate* or *Family Membership*.
+2. A **price** defines how that offering is charged: its amount, schedule, and price type. A plan must have a price.
+3. A **subscription** assigns a member to a plan and price. It also records when billing starts and, when applicable, which payment method to use.
+4. An **invoice** records an amount due. Invoices can be one-time bills, or can be created as part of subscription billing.
+5. A **charge** records a payment attempt or a payment recorded by staff. One invoice can have more than one charge, for example after an unsuccessful attempt followed by a successful one.
+6. A **payout** is a transfer from Stripe to the school's bank account. A successful charge and a bank payout are separate steps.
+
+For example, a member's C$120 monthly subscription is a subscription to a plan and price. When a scheduled payment is due, Kanri records it as an upcoming subscription payment. Kanri creates an invoice for automatic collection only when the subscription has a saved payment method; staff can use **Invoice Now** on an upcoming payment to create an invoice for another collection method. An auto-sent contract template also holds invoice creation until the contract is signed. Stripe processes supported online payments, while Kanri keeps the invoice and charge history.
+
+## Choose the right billing record
+
+| Use this | For |
+| --- | --- |
+| **Subscription** | A member's ongoing or scheduled billing arrangement, such as monthly tuition. |
+| **Invoice** | A specific amount to collect, such as a uniform purchase, registration fee, or amount owed outside a subscription. |
+| **Charge** | The record of a payment attempt or recorded payment against an invoice. |
+
+Use an invoice for a specific amount, whether it is a one-time bill or an invoice created by subscription billing. Use a subscription when you need Kanri to schedule billing according to a price. See [Invoices](/billing/invoices/) and [Subscriptions](/members/subscriptions/) for the full workflows.
+
+## Billing plans and prices
+
+A plan can have one price or several, depending on **Billing plan mode** in **Settings → Behaviors**:
+
+- **Single**: each plan has one price. Edit the plan to change its price details. If the pricing terms change, existing subscriptions keep the price assigned to them; review the member subscriptions before changing a plan's price.
+- **Multiple**: a plan can have several prices, for example adult and junior rates or monthly and annual options. The plan has a default price for new subscriptions, and staff can choose a price when creating a subscription.
+
+Price types include **Ongoing**, **Paid in Full**, **Fixed Term**, **Scholarship**, **Session Block**, and **Per Session**. They are not interchangeable: a session block tracks prepaid visits, while per-session pricing records usage for billing. Review [Billing Plans](/billing/billing-plans/) before creating an offering.
+
+## Collecting and recording payments
+
+Kanri can use a saved payment method, send an online payment link, or start a payment on a connected card reader. Staff can also record cash or mark an invoice as paid when money was collected outside Kanri. **Mark as paid records a payment; it does not charge a card or move funds.**
+
+Before trying a second payment method, check the invoice's charge history. A saved-method or reader charge may still be processing. Starting another attempt too soon can lead to duplicate collection.
+
+See [Collect a Payment](/billing/invoices/collect-payment/) for the options and how to handle partial or pending payments.
+
+## Stripe, payouts, and payment problems
+
+Kanri stores billing plans, subscriptions, invoices, payment history, and the settings it needs to start supported payment flows. Stripe processes online payments and provides the connected-account controls; use the information in **Settings → Payouts** for payout status.
+
+- Set up the connected Stripe account before collecting card or bank payments through Kanri.
+- Review payout and bank-account details in **Settings → Payouts** or **Settings → Account**.
+- For a payment that did not succeed, check its charge or invoice status before retrying. Kanri's subscription retry schedule is configured under **Settings → Behaviors → Billing Notifications**; it is not a promise that Stripe will independently retry the payment.
+- Handle a card dispute in Stripe. Kanri's [Disputed Payments report](/reports/billing/disputed-payments/) can help locate the affected payment.
+
+For steps, see [Payouts](/billing/payouts/), [Failed Payments](/billing/troubleshooting/failed-payments/), and [Disputed Payments](/billing/troubleshooting/disputed-payments/).
+
+## Start here
+
+- [Set Up Billing](/getting-started/set-up-billing/) for a first plan, payment method, and subscription.
+- [Billing Plans](/billing/billing-plans/) to choose a price type and manage prices.
+- [Invoices](/billing/invoices/) for specific bills, subscription invoices, and payment collection.
+- [Member Billing](/members/billing/) to review an individual member's billing records.

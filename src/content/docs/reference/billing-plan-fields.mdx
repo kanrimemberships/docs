@@ -1,29 +1,46 @@
 ---
 title: Billing Plan Fields Reference
-description: Every field on a billing plan and price explained.
+description: Understand billing-plan details and the price types available in Kanri.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+A billing plan groups one or more prices under a name. The plan selected for a member determines the available price choices and can also affect program access when that behavior is enabled.
 
-## What this page will cover
+## Plan fields
 
-A reference table for every field when creating or editing a billing plan and its prices:
+| Field | What it means |
+|---|---|
+| Name | The plan's label, such as `Adult Karate Monthly`. |
+| Trial | Marks a plan as a trial plan. |
+| Default price | The price Kanri selects by default when the plan is used. A plan must have a default price. |
+| Contract template | Optional document template associated with the plan. |
+| Automatically send contract | When enabled, Kanri sends the associated contract when a subscription is created and holds scheduled invoice creation until it is signed. |
+| Archived | Archiving also archives the plan's prices, removing them from new subscription choices. Kanri blocks archiving while any non-cancelled, non-archived subscription remains attached to the plan; an end date alone does not clear this restriction. |
 
-**Plan fields:**
-- Name
-- Status (active/archived)
+## Price fields
 
-**Price fields:**
-- Name/label
-- Amount
-- Currency
-- Billing interval (daily/weekly/fortnightly/monthly/yearly)
-- Fixed term (optional — ends the subscription automatically after N periods)
-- Status (active/archived)
+The price form shows fields based on the selected price type. Prices use your school's currency.
 
-**Program access fields:**
-- Programs (which programs this plan grants kiosk access to)
+| Price type | What it means | Fields that may apply |
+|---|---|---|
+| Ongoing | Recurring payments with no fixed end count. | Payment amount and interval. |
+| Paid in Full | A single payment for a defined term. | Payment amount and term length. |
+| Fixed Term | A set number of recurring payments. | Payment amount, interval, and number of payments. |
+| Scholarship | A zero-cost price. | Kanri saves the payment amount as zero. |
+| Session Block | A purchase that adds a block of sessions. | Payment amount, block size, and optional automatic reload. |
+| Per Session | A charge for each session used. | Payment amount and billing timing. Cycle billing also uses an interval. |
 
-For each field: what it's for, accepted values, and any gotchas.
+For interval-based prices, choose the interval unit and count. The available units are day, week, month, and year. For example, a count of 2 and a unit of Month means every two months.
+
+For **Per Session**, **Immediate** charges as each session is used. **Cycle** tracks sessions and charges on a recurring billing cycle.
+
+For **Session Block**, automatic reload can create another block when the current one is used up or falls below a low-water mark. Choose the trigger and threshold carefully because reloading may result in another charge.
+
+## Program access
+
+If your school uses billing plans to gate program access, the plan can list the programs its subscribers may access at the kiosk. This section appears when the related behavior is enabled. See [Set Program Access on a Billing Plan](/billing/billing-plans/set-program-access/).
+
+## Next steps
+
+- [Create a Billing Plan](/billing/billing-plans/create-plan/)
+- [Add a Price to a Billing Plan](/billing/billing-plans/add-price/)
+- [Set Program Access](/billing/billing-plans/set-program-access/)

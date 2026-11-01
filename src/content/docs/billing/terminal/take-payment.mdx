@@ -1,14 +1,33 @@
 ---
 title: Take an In-Person Payment
-description: Use a connected card reader to collect a payment in person.
+description: Collect an invoice payment on a connected card reader and confirm its result.
 ---
 
-:::note[Guide coming soon]
-This guide will explain how to select an invoice or sale, present the amount on the reader, and check the result.
-:::
+Use **Pay on reader** when the member is present and ready to pay by card. The reader flow can also offer Interac debit for a Canadian school. The charge is linked to the invoice, so check the invoice balance before you begin.
 
-## Planned topics
+## Start the payment
 
-- Choose what the payment is for.
-- Start, cancel, or retry a reader payment.
-- Find the completed charge and receipt.
+1. Open the member's invoice. If it is a draft, open it before charging.
+2. Check the balance due and the Charges section. If a charge is still processing, wait for its result rather than starting another one.
+3. Select **Charge**, then choose **Pay on reader**.
+4. Select the reader. If more than one is registered, confirm the label matches the device in front of you.
+5. Confirm the amount. For a partial payment, enter only the amount being collected.
+6. If needed, select **Send receipt email** and confirm the email address.
+7. Select **Charge on Reader** and ask the member to present their card or, if offered, Interac debit card to the reader.
+
+## Confirm the result
+
+Keep the invoice page open while the reader payment is processing. Wait until Kanri reports the result, then review the charge in the invoice's **Charges** section:
+
+- A successful charge reduces the invoice balance by the amount received.
+- A partial payment leaves the remaining balance due.
+- A failed charge does not count as money received.
+- A processing charge is not a final result. Do not repeat the payment until you have checked whether it succeeded or failed.
+
+If you need to leave the page, use the available background-wait option and return to check the status before starting another attempt.
+
+## If the reader option is unavailable
+
+The reader option requires terminal setup and at least one registered reader. Check **Settings → Terminal** and follow [Set Up a Card Reader](/billing/terminal/set-up-reader/). If the device is listed but unavailable, review its status and contact Kanri support if you cannot resolve the connection.
+
+For cash, saved payment methods, payment links, or recording a payment collected elsewhere, see [Collect a Payment](/billing/invoices/collect-payment/).

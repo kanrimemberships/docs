@@ -1,14 +1,38 @@
 ---
 title: Connected Domains
-description: Connect a domain to your Kanri app, email, or school website.
+description: Connect a domain you own to your school's Kanri app or email.
 ---
 
-:::note[Guide coming soon]
-This guide will explain domain purposes, ownership checks, and the setup steps for each connection.
-:::
+A connected domain lets your school use an address you own for the Kanri app or email. You can keep using your school's Kanri subdomain if you do not need a custom domain.
 
-## Planned topics
+Only a school owner can manage domains, and your plan must include custom domains. If the page shows an upgrade notice or the Domains tab is missing, ask your owner about plan access.
 
-- Add a domain and verify that you control it.
-- Choose whether to use it for the app, email, or website.
-- Review DNS setup and connection status.
+## Add a domain
+
+1. Open **Settings → Domains** and select **Add Domain**.
+2. Enter the domain you own, such as `springfieldkarate.com`.
+3. Choose how to manage its DNS:
+   - **Delegate DNS to Kanri (recommended)** points the domain's nameservers to Kanri so Kanri can manage its DNS records.
+   - **Add records manually** keeps DNS with your current provider. Add the verification record and any service records Kanri displays there.
+4. Follow the on-screen instructions. DNS changes may take time to appear.
+5. Return to the domain in Kanri and check its status.
+
+Only change nameservers if you understand which other services use the domain. Delegating DNS affects the domain's DNS management, not just Kanri.
+
+## Choose a domain purpose
+
+Once ownership is verified—or DNS delegation is active—use the domain's settings to set up **App routing**. The exact DNS records depend on the domain, so copy the values shown in Kanri rather than using records from another domain. Email-domain setup is not currently self-service for school staff; contact Kanri support if you need to add one.
+
+For email, select an active sending domain in [Branding](/settings/branding/email-address/). For your public school address, see [School Subdomain](/settings/branding/vanity-url/).
+
+## Check setup status
+
+The domain list shows whether a domain is active or pending delegation or verification. A domain's details show the status of its app or email setup. If verification fails, confirm that the record name and value match Kanri exactly, wait for DNS changes to propagate, then choose **Check now** or **Try again**.
+
+If a domain is marked degraded or failed after it was active, review the records at your DNS provider before removing the domain. Removing a domain can interrupt app access or email that uses it.
+
+## Next steps
+
+- [Set Your School Subdomain](/settings/branding/vanity-url/)
+- [Set Your Email Sender Address](/settings/branding/email-address/)
+- [Review School Branding](/settings/branding/)

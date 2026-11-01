@@ -1,17 +1,43 @@
 ---
 title: Set Program Access on a Billing Plan
-description: How to configure which programs a billing plan grants access to (for kiosk sign-in gating).
+description: Link a billing plan to programs when your school uses subscription-based program access.
 ---
 
-:::caution[Work in progress]
-This page is not yet complete. Content is coming soon.
-:::
+Program access is an optional school behavior. When **Use billing plans to gate program access** is enabled, Kanri uses the programs linked to a billing plan to control which programs members can access based on their subscriptions. Coordinate with the staff who manage memberships and kiosk sign-in before enabling this behavior.
 
-## What this page will cover
+## Enable program access
 
-- What program access gating is (when enabled in Behaviors, members can only sign in for programs their active subscriptions give them access to)
-- How to enable program access gating (Settings → Behaviors → "Use billing plans to gate program access")
-- Adding program access to a billing plan: which programs does this plan grant?
-- Removing program access from a plan
-- What happens if a member has a membership but no subscription with matching program access (they'll be blocked at kiosk)
-- When not to use program access (if you don't need access control, keep this off)
+1. Go to **Settings → Behaviors**.
+2. Find **Use billing plans to gate program access**.
+3. Enable it only after you have reviewed which plans and programs should be linked.
+
+The switch saves when you change it; there is no separate Save button. Enabling it makes the plan-to-program links part of the access check, so review the links before turning it on.
+
+The billing plan's access controls also require the **Memberships** feature. If the setting or controls are not available, check your school's feature access and ask an administrator.
+
+## Link a program to a plan
+
+1. Go to **Billing → Plans** and open the plan.
+2. Find the **Program access** section.
+3. Select **Add Program**.
+4. Search for and select the program this plan should grant access to.
+5. Select **Add Program**, then confirm the program appears in the plan's access list.
+
+For example, if an *Adult Karate* plan should permit access to the *Adult Karate* program, link that program to the plan. A plan can be linked to more than one program when that matches what the subscription includes.
+
+## Remove an access link
+
+1. Open the plan and review its **Program access** list.
+2. Use the remove action next to the program that should no longer be linked.
+3. Confirm that the remaining list matches the access intended for future sign-ins.
+
+Removing a link changes the plan's access configuration for sign-in checks. It does not cancel the subscription or change its billing.
+
+## Check the setup before relying on it
+
+- Link programs to the plans that should grant access; a plan with no linked programs has no program entries to grant.
+- Check that the member has the appropriate subscription and membership for the program.
+- Test the intended sign-in flow with a staff member before relying on the setting for day-to-day access decisions.
+- If your school does not use subscription-based program access, leave the behavior disabled.
+
+See [Edit a Program](/programs/edit-program/) and [Kiosk Behaviors](/kiosk/kiosk-behaviors/).

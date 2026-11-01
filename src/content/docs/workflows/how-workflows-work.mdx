@@ -3,8 +3,8 @@ title: How Workflows Work
 description: Understand triggers, steps, versions, runs, and the draft-publish lifecycle before you start building.
 ---
 
-:::note[Professional & Enterprise — Beta]
-Workflows require a Professional or Enterprise plan and are currently in beta. [Compare plans →](/reference/plans/)
+:::note[Beta]
+Workflows are currently in beta.
 :::
 
 Before you build your first workflow, it helps to understand how Kanri thinks about them. This page explains the key concepts.
@@ -31,7 +31,8 @@ The record type matters because it determines:
 - What fields you can filter on in your trigger
 - What "this record" refers to inside your steps (so an action step on a Member workflow targets the member that triggered the run)
 
-Available record types include: **Member**, **Membership**, **Invoice**, **Booking**, **Subscription**, **Program**, **Level**, and others.
+Choose from the record types available in the creation form, such as **Member**, **Membership**,
+**Invoice**, **Booking**, **Subscription**, **Program**, and **Level**.
 
 :::tip
 The record type limits what the *trigger* watches — but your steps aren't limited to that record type. For example, a Member workflow can still create an invoice, send a message, or create a booking for that member.
@@ -43,7 +44,8 @@ The record type limits what the *trigger* watches — but your steps aren't limi
 
 Workflows are **versioned**. Here's how it works:
 
-1. When you create a new workflow (or edit an existing one), your changes go into a **draft version**. The draft is saved as you work, but it is not live yet.
+1. When you create a new workflow (or edit an existing one), your changes go into a **draft version**.
+   Use **Save Draft** to save changes; the editor does not automatically save every edit.
 2. When you're ready to go live, you click **Publish**. This freezes the draft into a permanent, numbered version and immediately makes it the active, enabled version.
 3. From that point on, any trigger firing uses the published version. If you need to make changes, you edit the workflow again — a new draft is created, and the live version keeps running unchanged until you publish again.
 
@@ -55,7 +57,7 @@ This design means an edit you're working on can't accidentally affect runs that 
 |---|---|
 | Draft only | Created but never published. Trigger never fires. |
 | Published, enabled | Live. Trigger fires. New runs are created when triggered. |
-| Published, disabled | Live version exists, but trigger is paused. No new runs start. |
+| Published, disabled | Automatic triggers and record actions are paused; in-progress runs were cancelled. Test Run can still start a real run. |
 | Published + new draft | A live version is running, and you're working on the next version. |
 
 ---
@@ -76,8 +78,8 @@ Each run tracks its own state independently. If you have 50 members in different
 
 | Status | What it means |
 |---|---|
-| Running | The run is actively executing steps |
-| Waiting | The run is paused (inside a Delay step) |
+| Running | The run is executing steps or waiting for a Delay step to finish |
+| Waiting | The run is waiting for child runs, such as a For Each loop or Match all Switch |
 | Done | The run completed successfully |
 | Failed | A step encountered an error |
 | Cancelled | The run was cancelled — see [Run History](/workflows/run-history/#when-does-a-run-get-cancelled) for every reason this can happen |
@@ -88,9 +90,17 @@ Each run tracks its own state independently. If you have 50 members in different
 
 Many triggers are condition-based — they fire when something becomes true (for example, "member's subscription is expiring"). Once the trigger fires and the run starts, Kanri can optionally re-check that condition again later.
 
-By default, **Delay steps re-check the trigger condition** when the delay finishes. If the condition is no longer true (the member renewed their subscription while the delay was counting down), the run is cancelled rather than sending a stale reminder. This protects against sending irrelevant messages.
+New **Delay** steps have **Recheck trigger** on. For **Condition Becomes True** and filtered
+**Recurring Schedule** workflows, this checks the original filter again when the delay finishes.
+If the record no longer matches, the run is cancelled instead of continuing.
 
-You can turn off re-checking for a specific delay step when it makes sense to do so — for example, a welcome message sent 3 days after signup should still send even though the "just signed up" condition isn't true anymore.
+Manual, action-event, and date-field triggers do not gain an extra eligibility check from this
+switch. An event-triggered welcome message does not expire simply because the event happened
+several days ago.
+
+For **Condition Stops Being True**, the record must still **not** match the original filter.
+If it matches again, the run is cancelled. Missing or deleted records do not pass a condition
+or recurring-filter re-check.
 
 ---
 
@@ -100,7 +110,9 @@ Trigger re-checking only re-evaluates the *original trigger condition*, and only
 
 That's what an **exit condition** is for. It's a single filter you set once for the whole workflow (separate from the trigger and from any individual step). Kanri checks it right before every step runs — not only after delays — and if the record matches, the run is cancelled immediately with no further steps executed.
 
-For example, a "subscription expiring soon" workflow could have an exit condition of "member status is Cancelled." Even if that workflow has several steps and delays, the moment a run's member is marked Cancelled, the run stops, regardless of which step it's currently on.
+For example, a reminder workflow could have an exit condition that matches a record no longer
+needing follow-up. Kanri checks it before the next step executes, including when a delay resumes.
+It does not interrupt an action already executing or continuously monitor a sleeping delay.
 
 Exit conditions are optional — leave them unset and a run will only stop for the reasons covered above (reaching a step with no next step, a re-checked trigger condition no longer being true, or the workflow being disabled or deleted).
 
@@ -113,7 +125,9 @@ See [Building in the Editor](/workflows/building-in-the-editor/#exit-conditions)
 You can also trigger a workflow manually, in two ways:
 
 1. **From the Workflows page** — open a published workflow and use **Test Run** to start it against a specific record. The workflow can be disabled; testing still runs the published version.
-2. **From lists and reports** — any published, enabled workflow appears as an option in the action menu on a member row, invoice row, etc. Staff with the right permissions can click it to start the workflow for that record without needing access to the Workflows admin area.
+2. **From lists and reports** — published, enabled workflows with a **Manual** trigger appear in
+   matching record action menus. Staff need the permissions required by that workflow, not
+   necessarily workflow administration access.
 
 See [Run a Workflow Manually](/workflows/run-manually/) for details.
 

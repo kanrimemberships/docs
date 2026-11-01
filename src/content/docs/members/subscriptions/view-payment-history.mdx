@@ -9,12 +9,13 @@ Use payment history to review what has happened on a subscription.
 
 ## What this page shows
 
-Kanri shows two groups of payments for a subscription:
+The subscription payment list shows scheduled billing records, not necessarily completed payment attempts:
 
-- **Open payments**, which are upcoming or still pending, up to 5 items
-- **Past payments**, which are the most recent completed or failed payments, up to 5 items
+- **Upcoming** means the scheduled payment has not yet been invoiced.
+- **Invoiced** means Kanri created an invoice for the scheduled payment; it does not mean payment succeeded.
+- **Cancelled** means the scheduled payment was cancelled before invoicing.
 
-Past payments do not include cancelled items in this summary.
+Open an **Invoiced** scheduled payment to review its invoice and charge attempts. Use the invoice's **Charges** section to determine whether an attempt is processing, succeeded, failed, or disputed. Cancelled schedule records are not charge attempts.
 
 ## Open a subscription's payment history
 
@@ -28,15 +29,11 @@ Past payments do not include cancelled items in this summary.
 
 | Status | Meaning |
 | --- | --- |
-| Open | Upcoming or waiting to be processed. |
-| Cancelled | The payment was cancelled before processing. |
-| Processing | The payment attempt is in progress. |
-| Success | The payment went through. |
-| Failure | The payment failed. |
-| Disputed Open | A dispute has been opened. |
-| Disputed Won | The dispute was won. |
-| Disputed Lost | The dispute was lost. |
-| Disputed Warning | Stripe has warned of a likely dispute. |
+| Upcoming | Scheduled but not yet invoiced. |
+| Invoiced | An invoice was created for this scheduled payment. Check its charge history for the payment result. |
+| Cancelled | The scheduled payment was cancelled before invoicing. |
+
+Charge statuses are shown on the linked invoice or its **Charges** section. They include **Open**, **Processing**, **Success**, **Failure**, **Dispute Open**, **Dispute Won**, **Dispute Lost**, and **Dispute Warning**.
 
 ## Use payment history to answer common questions
 
