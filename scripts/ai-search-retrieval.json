@@ -7,9 +7,9 @@
     "match_threshold": 0.5
   },
   "retrieval": {
-    "retrieval_type": "keyword",
+    "retrieval_type": "hybrid",
     "keyword_match_mode": "or",
-    "max_num_results": 5,
+    "max_num_results": 20,
     "return_on_failure": false
   }
 }

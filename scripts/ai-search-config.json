@@ -2,7 +2,7 @@
   "account_id": "a58d11951210d070b5eb3dd16d43d569",
   "namespace": "default",
   "instance": {
-    "id": "kanri-help",
+    "id": "kanri-help-sections",
     "type": "web-crawler",
     "source": "docs.kanrimemberships.com",
     "index_method": { "vector": true, "keyword": true },
@@ -14,7 +14,7 @@
     "sync_interval": 21600,
     "public_endpoint_params": { "enabled": false },
     "source_params": {
-      "include_items": ["https://docs.kanrimemberships.com/**"],
+      "include_items": ["https://docs.kanrimemberships.com/kai-passages/**"],
       "exclude_items": [
         "**/_astro/**",
         "**/pagefind/**",
@@ -27,9 +27,9 @@
       "web_crawler": {
         "parse_type": "sitemap",
         "parse_options": {
-          "specific_sitemaps": ["https://docs.kanrimemberships.com/kai-sitemap.xml"],
+          "specific_sitemaps": ["https://docs.kanrimemberships.com/kai-search-sitemap.xml"],
           "content_selector": [
-            { "path": "https://docs.kanrimemberships.com/**", "selector": ".sl-markdown-content" }
+            { "path": "https://docs.kanrimemberships.com/kai-passages/**", "selector": ".kai-passage" }
           ],
           "use_browser_rendering": false,
           "include_images": false

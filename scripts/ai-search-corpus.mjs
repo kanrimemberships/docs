@@ -1,5 +1,6 @@
 export const docsOrigin = "https://docs.kanrimemberships.com";
 export const corpusSitemap = `${docsOrigin}/kai-sitemap.xml`;
+export const searchSitemap = `${docsOrigin}/kai-search-sitemap.xml`;
 
 export function corpusUrls(entries) {
   const urls = entries.filter((entry) => {

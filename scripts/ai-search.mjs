@@ -2,7 +2,7 @@ import { execFileSync } from "node:child_process";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { setTimeout as sleep } from "node:timers/promises";
-import { corpusSitemap } from "./ai-search-corpus.mjs";
+import { searchSitemap } from "./ai-search-corpus.mjs";
 import { retrievalOptions, validateRetrievalOptions } from "./ai-search-retrieval.mjs";
 
 export const config = JSON.parse(await readFile(new URL("./ai-search-config.json", import.meta.url), "utf8"));
@@ -17,19 +17,19 @@ export function validateConfig(value) {
   const source = value.instance.source_params;
   const options = source?.web_crawler?.parse_options;
   if (value.account_id !== "a58d11951210d070b5eb3dd16d43d569" ||
-      value.namespace !== "default" || value.instance.id !== "kanri-help" ||
+      value.namespace !== "default" || value.instance.id !== "kanri-help-sections" ||
       value.instance.source !== new URL(origin).hostname || value.instance.type !== "web-crawler" ||
       value.instance.public_endpoint_params?.enabled !== false ||
       value.instance.index_method?.keyword !== true || value.instance.index_method?.vector !== true ||
       value.instance.cache !== false || value.instance.rewrite_query !== false ||
       value.instance.reranking !== false ||
-      JSON.stringify(source?.include_items) !== JSON.stringify([`${origin}/**`]) ||
+      JSON.stringify(source?.include_items) !== JSON.stringify([`${origin}/kai-passages/**`]) ||
       JSON.stringify(source?.exclude_items) !== JSON.stringify(exclusions) ||
       source?.web_crawler?.parse_type !== "sitemap" ||
       source?.web_crawler?.discover_options != null ||
-      JSON.stringify(options?.specific_sitemaps) !== JSON.stringify([corpusSitemap]) ||
+      JSON.stringify(options?.specific_sitemaps) !== JSON.stringify([searchSitemap]) ||
       JSON.stringify(options?.content_selector) !== JSON.stringify([
-        { path: `${origin}/**`, selector: ".sl-markdown-content" },
+        { path: `${origin}/kai-passages/**`, selector: ".kai-passage" },
       ]) || options?.use_browser_rendering !== false || options?.include_images !== false ||
       options?.include_headers !== undefined) {
     throw new Error("Unexpected AI Search account, source, index, public endpoint, or crawler configuration.");
@@ -55,10 +55,10 @@ export async function publishedUrls() {
     if (Buffer.byteLength(xml) > 2_000_000) throw new Error("Sitemap exceeds size cap.");
     return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));
   };
-  const urls = await read(corpusSitemap);
-  if (!urls.length || urls.length > 500 || new Set(urls).size !== urls.length ||
-      urls.some((url) => !isDocsUrl(url) || !url.endsWith("/") || new URL(url).hash)) {
-    throw new Error("Published corpus outside approved source or 500-page limit.");
+  const urls = await read(searchSitemap);
+  if (!urls.length || urls.length > 10000 || new Set(urls).size !== urls.length ||
+      urls.some((url) => !/^https:\/\/docs\.kanrimemberships\.com\/kai-passages\/[a-f0-9]{32}\/$/.test(url))) {
+    throw new Error("Published corpus outside approved source or 10000-passage limit.");
   }
   return urls;
 }
@@ -125,9 +125,9 @@ export async function searchDocumentation(query) {
     throw new Error("Invalid documentation search result count.");
   }
   for (const chunk of result.chunks) {
-    if (!isDocsUrl(chunk.item?.key) || typeof chunk.text !== "string" ||
+    if (!/^https:\/\/docs\.kanrimemberships\.com\/kai-passages\/[a-f0-9]{32}\/$/.test(chunk.item?.key) || typeof chunk.text !== "string" ||
         !Number.isFinite(chunk.scoring_details?.reranking_score) ||
-        chunk.scoring_details.reranking_score < retrievalOptions.reranking.match_threshold) {
+        chunk.scoring_details.reranking_score < 0 || chunk.scoring_details.reranking_score > 1) {
       throw new Error("Invalid documentation passage, citation or reranking confidence.");
     }
   }
@@ -174,16 +174,16 @@ export function checkHealth(instance, jobs, stats, now, coverage) {
 
 async function indexedUrls() {
   const urls = [];
-  for (let page = 1; page <= 10; page++) {
+  for (let page = 1; page <= 201; page++) {
     const items = await request(`${instancePath}/items?status=completed&per_page=50&page=${page}`);
     if (!Array.isArray(items)) throw new Error("Invalid indexed items response.");
     for (const item of items) {
       if (!isDocsUrl(item.key)) throw new Error("Indexed item outside approved public docs.");
       urls.push(item.key);
     }
-    if (items.length < 50) break;
+    if (items.length < 50) return urls;
   }
-  return urls;
+  throw new Error("Indexed corpus exceeds 10000-passage limit.");
 }
 
 async function health() {
@@ -217,7 +217,7 @@ async function main() {
       const existing = await request();
       if (!Array.isArray(existing)) throw new Error("Unexpected instance list shape.");
       if (existing.some((item) => item.id === config.instance.id)) {
-        throw new Error("kanri-help already exists. Inspect it; provisioning never overwrites existing configuration.");
+        throw new Error("kanri-help-sections already exists. Inspect it; provisioning never overwrites existing configuration.");
       }
       result = await request("", "POST", config.instance);
       console.log(JSON.stringify({ id: result.id, source: result.source, created: true }));

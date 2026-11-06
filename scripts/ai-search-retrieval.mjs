@@ -6,10 +6,20 @@ export function validateRetrievalOptions(options) {
   if (options.cache?.enabled !== false || options.query_rewrite?.enabled !== false ||
       options.reranking?.enabled !== true || options.reranking?.model !== "@cf/baai/bge-reranker-base" ||
       options.reranking?.match_threshold !== 0.5 ||
-      options.retrieval?.retrieval_type !== "keyword" || options.retrieval?.keyword_match_mode !== "or" ||
-      options.retrieval?.max_num_results !== 5 || options.retrieval?.return_on_failure !== false) {
+      !["keyword", "hybrid"].includes(options.retrieval?.retrieval_type) || options.retrieval?.keyword_match_mode !== "or" ||
+      options.retrieval?.max_num_results !== 20 || options.retrieval?.return_on_failure !== false) {
     throw new Error("Unexpected documentation retrieval mode, model, limits or failure policy.");
   }
+}
+
+export function assessPassages(item, passages) {
+  const matches = passages.filter((passage) => item.paths.includes(new URL(passage.url).pathname));
+  const topicHit = item.paths.length ? matches.length > 0 : passages.length === 0;
+  const supporting = matches.filter((passage) =>
+    (!item.anchors?.length || item.anchors.includes(passage.anchor)) &&
+    (item.support ?? []).every((alternatives) =>
+      alternatives.some((phrase) => passage.excerpt.toLowerCase().includes(phrase.toLowerCase()))));
+  return { topic_hit: topicHit, passage_hit: item.paths.length ? supporting.length > 0 : passages.length === 0 };
 }
 
 export function summarizeEvaluation(results) {

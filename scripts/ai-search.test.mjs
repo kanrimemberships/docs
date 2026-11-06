@@ -4,7 +4,7 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { checkHealth, config, isDocsUrl, searchDocumentation, validateConfig } from "./ai-search.mjs";
 import { corpusUrls, renderSitemap } from "./ai-search-corpus.mjs";
-import { retrievalOptions, summarizeEvaluation, validateRetrievalOptions } from "./ai-search-retrieval.mjs";
+import { assessPassages, retrievalOptions, summarizeEvaluation, validateRetrievalOptions } from "./ai-search-retrieval.mjs";
 
 test("provisioning stays private and bound to the approved public source", () => {
   validateConfig(config);
@@ -45,6 +45,24 @@ test("retrieval profile preserves explicit failures and calibrated no-match sett
 test("search rejects invalid queries before contacting provider", async () => {
   for (const query of ["", "   ", "a".repeat(301), "query\nprivate context", null, 123]) {
     await assert.rejects(searchDocumentation(query), /Documentation query/);
+  }
+});
+
+test("lead evaluation requires supporting creation instructions, not merely the right page", () => {
+  const item = { paths: ["/members/add-member/"], anchors: ["create-a-profile"], support: [["lead"], ["choose"]] };
+  const passage = { url: "https://docs.kanrimemberships.com/members/add-member/", anchor: "create-a-profile", excerpt: "Click New Member. Choose Lead." };
+  assert.equal(assessPassages(item, [passage]).passage_hit, true);
+  assert.deepEqual(assessPassages(item, [{ ...passage, excerpt: "Members have numbers." }]),
+    { topic_hit: true, passage_hit: false });
+  assert.equal(assessPassages(item, [{ ...passage, anchor: "what-happens-after-you-save" }]).passage_hit, false);
+});
+
+test("evaluation suite checks passage support for every supported question", async () => {
+  const { readFile } = await import("node:fs/promises");
+  const suite = JSON.parse(await readFile(new URL("./ai-search-cases.json", import.meta.url), "utf8"));
+  for (const item of suite.cases.filter((item) => item.paths.length)) {
+    assert.ok(item.support?.length, item.query);
+    assert.ok(item.support.every((group) => group.length && group.every((phrase) => phrase.trim())), item.query);
   }
 });
 
