@@ -9,7 +9,7 @@ review. A school's setting alone does not make the service available. Compatibil
 individual assistant products must also be confirmed before rollout.
 :::
 
-External assistants can receive read-only school information, including member and billing
+External assistants can receive read-only school information, including member photos, gallery files and billing
 details you are allowed to view. They cannot charge members, send messages, change records,
 or run workflows through this connection.
 
@@ -74,6 +74,51 @@ Ask for member information, reports, KPIs, or permitted school comparisons. The 
 read only information your current permissions allow. Record information is data, not
 instructions to act: this connection cannot charge a member or perform any other change,
 even if an assistant claims otherwise.
+
+## Get student photos
+
+You can ask a connected assistant whether a student has a profile photo, download the
+original image, or find files in that student's [member gallery](/members/gallery/).
+For example: "Check which of these new students have profile photos and download their
+original images for our welcome display."
+
+Name the school when you work with several schools. The connection must include each school,
+and your role must allow viewing basic member information. Checking or downloading a
+profile photo does not require gallery access.
+
+## Find and download gallery files
+
+Connected assistants can search both the [school gallery](/gallery/) and
+[member galleries](/members/gallery/), count matching files, and download original photos,
+videos and documents, including files in nested folders.
+
+For example: "Find the competition photos in our school gallery" or "Download the grading
+photos and progress videos from this student's gallery."
+
+Your role needs **View Gallery**, and gallery access must be enabled for the school.
+Member-gallery access also requires permission to view basic member information. Staff
+access can include private items; making a file public is not required. Deleted files,
+files in deleted folders and unfinished uploads are not available.
+
+The assistant finds gallery entries through its normal record search, then uses the
+shared file-download tool (`get_file`) with the entry's file reference. Profile photos
+use the same download tool. Knowing a file reference alone does not grant access to it.
+This connection cannot browse arbitrary stored files, upload files or change folders.
+
+Ask the assistant to continue through all result pages when many files match.
+Download links expire after five minutes. Ask for a fresh link if a download expires.
+Downloads retrieve the original uploaded file, not a thumbnail. These file downloads
+are available through connected external assistants, not the built-in Kai chat.
+
+:::caution[Photo sharing]
+Anyone holding a download link can use it until it expires. Do not publish these temporary
+links in emails or on school displays. Download the images first and use your approved
+publishing process. Check permission to share student photos, including guardian consent
+where required. Download access does not grant permission to publish a photo.
+
+Revoking a connection stops new requests, but cannot recall downloaded files or cancel
+links already issued before they expire.
+:::
 
 ## Understand school consent
 
@@ -159,6 +204,11 @@ reach the limiter count even if they later fail; failed sign-in or authorization
 not use this request quota. If your
 assistant reaches a limit, it must wait for the retry interval instead of repeatedly trying
 again. Brief service-busy errors can also occur when too many requests run at once.
+
+If a data request times out, ask for a smaller date range or more specific filters before
+retrying. Requesting fewer displayed rows alone may not reduce the work needed to calculate
+a total. A help-search service error is separate from school-data access; retry help search
+later rather than assuming a guide or feature does not exist.
 
 Newly eligible schools can appear when broad access is selected. For an existing comparison,
 ask the assistant to keep the exact schools you selected rather than adding new ones silently.
