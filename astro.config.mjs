@@ -32,6 +32,7 @@ export default defineConfig({
           collapsed: true,
           items: [
             { label: "All Updates", slug: "whats-new" },
+            { label: "November 5, 2026", slug: "whats-new/2026-11-05" },
             { label: "October 31, 2026", slug: "whats-new/2026-10-31" },
           ],
         },
